@@ -1,4 +1,4 @@
-.PHONY: all venv setup install data download test-data analyze clean docker help
+.PHONY: all venv setup install data download test-data analyze figures clean docker help
 
 # Default target - complete workflow
 all: setup test-data analyze
@@ -6,7 +6,7 @@ all: setup test-data analyze
 # Show available targets
 help:
 	@echo "🌌 GW250114 - 141.7001 Hz Analysis - Available targets:"
-	@echo ""
+	@echo "  help        - Show this help message"
 	@echo "  all         - Complete workflow: setup + test-data + analyze"
 	@echo "  setup       - Create virtual environment and install dependencies"
 	@echo "  install     - Alias for setup (compatibility)"
@@ -14,10 +14,10 @@ help:
 	@echo "  data        - Download real GWOSC data"
 	@echo "  download    - Alias for data (compatibility)"
 	@echo "  test-data   - Generate test data (falls back to real data)"
+	@echo "  figures     - Generate demonstration figures"
 	@echo "  analyze     - Run complete analysis pipeline"
 	@echo "  docker      - Build and run Docker container"
 	@echo "  clean       - Remove generated files and virtual environment"
-	@echo "  help        - Show this help message"
 
 # Create virtual environment
 venv:
@@ -43,6 +43,10 @@ test-data:
 	@echo "⚠️  Test data generation script not implemented yet"
 	@echo "   Using real GWOSC data instead via 'make data'"
 	$(MAKE) data
+
+# Generate sample figures for demonstration
+figures:
+	./venv/bin/python scripts/generar_figuras_demo.py
 
 # Run complete analysis
 analyze:

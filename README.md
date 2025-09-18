@@ -44,16 +44,38 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 git clone https://github.com/motanova84/gw250114-141hz-analysis
 cd gw250114-141hz-analysis
 
-# 2. Crea entorno virtual y activa
+# 2. Configuración automática con Make
+make setup                   # Instala dependencias
+make figures                 # Genera figuras de demostración
+make data                    # Descarga datos reales (requiere conexión)
+make analyze                 # Ejecuta análisis completo
+
+# 3. Alternativa manual
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-
-# 3. Ejecuta análisis completo
-python scripts/descargar_datos.py
+python scripts/generar_figuras_demo.py
 python scripts/analizar_ringdown.py
-python scripts/analisis_noesico.py
 ```
+
+## 📊 Ejemplos y Visualizaciones
+
+### 📓 Jupyter Notebook Demostrativo
+- **`examples/gw150914_analysis.ipynb`** - Análisis interactivo completo del evento GW150914
+  - Carga y procesamiento de datos
+  - Análisis espectral paso a paso  
+  - Búsqueda dirigida de la componente 141.7001 Hz
+  - Visualizaciones científicas detalladas
+
+### 🎨 Figuras Generadas
+En `results/figures/` se encuentran las visualizaciones principales:
+
+- **`gw150914_analisis_completo.png`** - Panel de 4 gráficos con análisis completo
+- **`comparacion_detectores.png`** - Validación cruzada entre H1 y L1  
+- **`espectrograma_resonancia.png`** - Evolución temporal de la resonancia
+- **`snr_por_bandas.png`** - SNR por bandas de frecuencia
+
+> 💡 **Nota:** Las figuras se regeneran automáticamente con `make figures`
 
 ## 🧠 Fundamento Teórico
 
@@ -72,17 +94,20 @@ Donde:
 
 ```
 gw250114-141hz-analysis/
+├── examples/
+│   └── gw150914_analysis.ipynb  # Notebook interactivo de demostración
 ├── scripts/
-│   ├── descargar_datos.py      # Descarga automática desde GWOSC
-│   ├── analizar_ringdown.py    # Análisis espectral de control
-│   ├── analisis_noesico.py     # Búsqueda de 141.7001 Hz + armónicos
-│   └── analizar_l1.py          # Validación cruzada en L1
+│   ├── descargar_datos.py       # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py     # Análisis espectral de control
+│   ├── analisis_noesico.py      # Búsqueda de 141.7001 Hz + armónicos
+│   ├── analizar_l1.py           # Validación cruzada en L1
+│   └── generar_figuras_demo.py  # Generación de figuras demostrativas
 ├── results/
-│   └── figures/                # Gráficos generados
-├── requirements.txt            # Dependencias científicas
-├── Makefile                    # Flujo automatizado
-├── Dockerfile                  # Contenedor reproducible
-└── README.md                   # Documentación principal
+│   └── figures/                 # Gráficos y visualizaciones generadas
+├── requirements.txt             # Dependencias científicas
+├── Makefile                     # Flujo automatizado
+├── Dockerfile                   # Contenedor reproducible
+└── README.md                    # Documentación principal
 ```
 
 ## 📈 Próximos pasos
