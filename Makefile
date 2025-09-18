@@ -38,17 +38,18 @@ data:
 # Alias for data (for compatibility with old branch)
 download: data
 
-# Generate test data (optional - script not implemented yet)
+# Generate test data 
 test-data:
-	@echo "⚠️  Test data generation script not implemented yet"
-	@echo "   Using real GWOSC data instead via 'make data'"
-	$(MAKE) data
+	@echo "📊 Generating synthetic test data..."
+	./venv/bin/python scripts/create_sample_data.py
+	./venv/bin/python scripts/create_figures.py
 
 # Run complete analysis
 analyze:
 	./venv/bin/python scripts/analizar_ringdown.py
 	./venv/bin/python scripts/analizar_l1.py
 	./venv/bin/python scripts/analisis_noesico.py
+	./venv/bin/python scripts/analisis_completo.py
 
 # Docker support
 docker:

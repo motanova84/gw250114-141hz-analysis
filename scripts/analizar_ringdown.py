@@ -4,6 +4,8 @@ Análisis de componente en 141.7 Hz en el ringdown - CORREGIDO
 """
 import h5py
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
 from scipy import signal
 import os

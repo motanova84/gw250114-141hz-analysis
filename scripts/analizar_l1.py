@@ -17,7 +17,7 @@ def main():
         print("🔍 Analizando datos de Livingston (L1)...")
         
         try:
-            data = TimeSeries.read(archivo_l1)
+            data = TimeSeries.read(archivo_l1, 'strain/Strain')
             spectrum = data.asd(fftlength=4)
             
             target_freq = 141.7

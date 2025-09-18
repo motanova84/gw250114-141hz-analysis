@@ -20,7 +20,7 @@ def main():
         
         try:
             # Cargar datos
-            data = TimeSeries.read(archivo_h1)
+            data = TimeSeries.read(archivo_h1, 'strain/Strain')
             print(f"Datos cargados: {len(data)} muestras a {data.sample_rate} Hz")
             
             # Tiempo del merger (1126259462.423 GPS)
