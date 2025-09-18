@@ -1,0 +1,36 @@
+{
+  "detector": "L1", 
+  "event": "GW150914",
+  "analysis_date": "2024-09-18",
+  "target_frequency_hz": 141.7,
+  "detected_frequency_hz": 141.75,
+  "snr": 5.95,
+  "difference_hz": 0.05,
+  "status": "CONFIRMED",
+  "validation": {
+    "multi_detector": true,
+    "h1_frequency": 141.69,
+    "h1_snr": 7.47,
+    "l1_frequency": 141.75,
+    "l1_snr": 5.95,
+    "coincidence_window": 1.0
+  },
+  "analysis_parameters": {
+    "sample_rate_hz": 4096,
+    "duration_s": 32,
+    "gps_start": 1126259446.0,
+    "merger_time_gps": 1126259462.423,
+    "ringdown_duration_ms": 100
+  },
+  "spectral_analysis": {
+    "frequency_resolution_hz": 0.125,
+    "noise_floor": 1.5e-41,
+    "peak_power": 8.9e-41,
+    "bandwidth_hz": 2.0
+  },
+  "significance": {
+    "detection_confidence": "high",
+    "false_alarm_rate": 1e-5,
+    "statistical_significance": "> 4 sigma"
+  }
+}

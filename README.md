@@ -39,20 +39,29 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 ## ⚙️ Ejecución rápida
 
+### Método Automatizado (Recomendado)
 ```bash
 # 1. Clona el repositorio
 git clone https://github.com/motanova84/gw250114-141hz-analysis
 cd gw250114-141hz-analysis
 
-# 2. Crea entorno virtual y activa
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+# 2. Pipeline completo automatizado
+make all
+```
 
-# 3. Ejecuta análisis completo
-python scripts/descargar_datos.py
-python scripts/analizar_ringdown.py
-python scripts/analisis_noesico.py
+### Método Manual
+```bash
+# 1. Configurar entorno
+make setup
+
+# 2. Generar datos sintéticos
+make test-data
+
+# 3. Ejecutar análisis completo
+make analyze
+
+# 4. Ver reporte de resultados
+./venv/bin/python scripts/generate_report.py
 ```
 
 ## 🧠 Fundamento Teórico
@@ -73,16 +82,24 @@ Donde:
 ```
 gw250114-141hz-analysis/
 ├── scripts/
-│   ├── descargar_datos.py      # Descarga automática desde GWOSC
-│   ├── analizar_ringdown.py    # Análisis espectral de control
-│   ├── analisis_noesico.py     # Búsqueda de 141.7001 Hz + armónicos
-│   └── analizar_l1.py          # Validación cruzada en L1
+│   ├── descargar_datos.py       # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py     # Análisis espectral de control
+│   ├── analisis_noesico.py      # Búsqueda de 141.7001 Hz + armónicos
+│   ├── analizar_l1.py           # Validación cruzada en L1
+│   ├── analisis_avanzado.py     # Análisis avanzado con GWpy
+│   ├── analisis_completo.py     # Pipeline completo unificado
+│   ├── create_sample_data.py    # Generación de datos sintéticos
+│   ├── create_figures.py        # Generación de figuras de muestra
+│   └── generate_report.py       # Generador de reportes
+├── data/
+│   ├── raw/                     # Datos crudos (excluidos del repo)
+│   └── processed/               # Resultados procesados (JSON)
 ├── results/
-│   └── figures/                # Gráficos generados
-├── requirements.txt            # Dependencias científicas
-├── Makefile                    # Flujo automatizado
-├── Dockerfile                  # Contenedor reproducible
-└── README.md                   # Documentación principal
+│   └── figures/                 # Gráficos generados
+├── requirements.txt             # Dependencias científicas
+├── Makefile                     # Flujo automatizado
+├── Dockerfile                   # Contenedor reproducible
+└── README.md                    # Documentación principal
 ```
 
 ## 📈 Próximos pasos

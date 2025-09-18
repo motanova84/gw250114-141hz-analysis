@@ -59,9 +59,11 @@ ipython_config.py
 # pyenv
 .python-version
 
-# Data files
-data/
-results/
+# Data files (but keep processed results and sample figures)
+data/raw/
+!data/processed/
+!results/figures/sample_*.png
+!results/figures/comparison_*.png
 
 # Temporary files
 *.tmp
