@@ -59,9 +59,11 @@ ipython_config.py
 # pyenv
 .python-version
 
-# Data files
+# Data files  
 data/
-results/
+results/*
+# But allow demonstration figures
+!results/figures/
 
 # Temporary files
 *.tmp
