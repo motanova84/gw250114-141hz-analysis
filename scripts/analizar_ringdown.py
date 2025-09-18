@@ -9,14 +9,16 @@ from scipy import signal
 import os
 
 def cargar_datos_gwosc(archivo_hdf5):
-    """Cargar datos desde archivo HDF5 de GWOSC (formato correcto)"""
+    """Cargar datos desde archivo HDF5 de GWOSC (formato real)"""
     with h5py.File(archivo_hdf5, 'r') as hdf:
-        # El formato de GWOSC tiene la estructura diferente
+        # Estructura real de los archivos GWOSC
         strain = hdf['strain']['Strain'][:]
+        
+        # Metadatos
         meta = hdf['meta']
         gps_start = meta['GPSstart'][()]
-        duration = meta['Duration'][()]
         sample_rate = meta['SampleRate'][()]
+        duration = meta['Duration'][()]
     
     tiempo = np.arange(len(strain)) / sample_rate + gps_start
     return tiempo, strain, sample_rate
@@ -45,42 +47,49 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, out
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
     
     # Serie temporal (solo mostramos una parte)
-    ax1.plot(tiempo[:10000], datos[:10000], 'b-', linewidth=1)
+    ax1.plot(tiempo[:10000], datos[:10000], 'b-', linewidth=1, alpha=0.7)
     ax1.set_xlabel('Tiempo (s)')
     ax1.set_ylabel('Strain')
     ax1.set_title(f'Señal Temporal - {detector}')
-    ax1.grid(True)
+    ax1.grid(True, alpha=0.3)
     
     # Espectro de potencia
-    ax2.semilogy(freqs, potencia, 'b-', linewidth=1)
-    ax2.axvline(141.7, color='r', linestyle='--', alpha=0.7, label='141.7 Hz objetivo')
-    ax2.axvline(freq_pico, color='g', linestyle='--', alpha=0.7, label=f'Pico: {freq_pico:.1f} Hz')
+    ax2.semilogy(freqs, potencia, 'r-', linewidth=1, alpha=0.8)
+    ax2.axvline(141.7, color='red', linestyle='--', alpha=0.9, label='141.7 Hz objetivo')
+    ax2.axvline(freq_pico, color='green', linestyle='--', alpha=0.8, label=f'Pico: {freq_pico:.1f} Hz')
     ax2.set_xlabel('Frecuencia (Hz)')
     ax2.set_ylabel('Potencia')
-    ax2.set_title(f'Espectro (SNR: {snr:.2f})')
+    ax2.set_title(f'Espectro de Potencia - SNR: {snr:.2f}')
     ax2.legend()
-    ax2.grid(True)
+    ax2.grid(True, alpha=0.3)
     ax2.set_xlim(100, 200)
     
     # Zoom alrededor de 141.7 Hz
-    ax3.semilogy(freqs, potencia, 'b-', linewidth=1.5)
-    ax3.axvline(141.7, color='r', linestyle='--', alpha=0.7, linewidth=2, label='141.7 Hz')
+    mask = (freqs >= 130) & (freqs <= 160)
+    ax3.semilogy(freqs[mask], potencia[mask], 'b-', linewidth=1.5)
+    ax3.axvline(141.7, color='red', linestyle='--', alpha=0.9, linewidth=2, label='141.7 Hz')
+    ax3.axvline(freq_pico, color='green', linestyle='--', alpha=0.8, linewidth=1.5, label=f'Pico: {freq_pico:.1f} Hz')
     ax3.set_xlabel('Frecuencia (Hz)')
     ax3.set_ylabel('Potencia')
     ax3.set_title('Zoom: 130-160 Hz')
-    ax3.grid(True)
-    ax3.set_xlim(130, 160)
     ax3.legend()
+    ax3.grid(True, alpha=0.3)
     
-    # Histograma para ver distribución de potencia
-    ax4.hist(np.log10(potencia + 1e-10), bins=50, alpha=0.7)
-    ax4.axvline(np.log10(potencia_pico + 1e-10), color='r', linestyle='--', 
-                label=f'Pico: {potencia_pico:.2e}')
-    ax4.set_xlabel('log10(Potencia)')
-    ax4.set_ylabel('Frecuencia')
-    ax4.set_title('Distribución de Potencia (log)')
-    ax4.legend()
-    ax4.grid(True)
+    # Espectrograma alrededor de la frecuencia objetivo
+    try:
+        f, t, Sxx = signal.spectrogram(datos, fs=sample_rate, nperseg=1024, noverlap=900)
+        freq_mask = (f >= 130) & (f <= 160)
+        im = ax4.pcolormesh(t, f[freq_mask], 10*np.log10(Sxx[freq_mask] + 1e-10), 
+                          shading='gouraud', cmap='viridis', alpha=0.8)
+        ax4.axhline(141.7, color='red', linestyle='--', alpha=0.9, linewidth=2)
+        ax4.set_xlabel('Tiempo (s)')
+        ax4.set_ylabel('Frecuencia (Hz)')
+        ax4.set_title('Espectrograma - Zona de Interés')
+        plt.colorbar(im, ax=ax4, label='dB')
+    except Exception as e:
+        ax4.text(0.5, 0.5, f'Error en espectrograma:\n{str(e)}', 
+                transform=ax4.transAxes, ha='center', va='center')
+        ax4.set_title('Espectrograma no disponible')
     
     plt.tight_layout()
     plt.savefig(f'{output_dir}/analisis_{detector}.png', dpi=150, bbox_inches='tight')
@@ -106,6 +115,7 @@ def main():
         # Encontrar el tiempo del merger (1126259462.423)
         merger_time = 1126259462.423
         merger_index = np.argmin(np.abs(tiempo - merger_time))
+        print(f"Índice del merger: {merger_index}")
         
         # Analizar espectro completo
         freqs, potencia, freq_pico, potencia_pico, snr = analizar_espectro(
