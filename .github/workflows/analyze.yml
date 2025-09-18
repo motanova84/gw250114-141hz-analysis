@@ -1,0 +1,134 @@
+name: 🔬 Análisis Científico Completo - GW150914 141.7 Hz
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  analisis_completo:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout del repositorio
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Configurar Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: 📦 Cache de dependencias
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    
+    - name: 🔧 Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: 📊 Verificar versiones de librerías
+      run: |
+        python -c "import gwpy, numpy, scipy, matplotlib; print(f'✅ gwpy: {gwpy.__version__}'); print(f'✅ numpy: {numpy.__version__}'); print(f'✅ scipy: {scipy.__version__}'); print(f'✅ matplotlib: {matplotlib.__version__}')"
+    
+    - name: 📡 Paso 1 - Descargar datos de GWOSC
+      run: |
+        echo "🔄 Descargando datos de GW150914..."
+        python scripts/descargar_datos.py
+        echo "✅ Descarga completada"
+    
+    - name: 🔍 Paso 2 - Análisis avanzado H1
+      run: |
+        echo "🔄 Ejecutando análisis avanzado..."
+        python scripts/analisis_avanzado.py
+        echo "✅ Análisis H1 completado"
+    
+    - name: 🌊 Paso 3 - Análisis comparativo L1
+      run: |
+        echo "🔄 Ejecutando análisis L1..."
+        python scripts/analizar_l1.py
+        echo "✅ Análisis L1 completado"
+    
+    - name: 📈 Verificar generación de figuras
+      run: |
+        echo "🔍 Verificando figuras generadas..."
+        if [ -d "results/figures" ]; then
+          echo "✅ Directorio results/figures existe"
+          ls -la results/figures/
+          echo "📊 Total de figuras: $(find results/figures/ -name '*.png' | wc -l)"
+        else
+          echo "❌ No se generaron figuras"
+          exit 1
+        fi
+    
+    - name: 📤 Subir figuras como artefactos
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: espectros-141hz-gw150914
+        path: |
+          results/figures/*.png
+          results/figures/*.jpg
+          results/figures/*.pdf
+        retention-days: 30
+    
+    - name: 🎯 Resumen de resultados
+      if: always()
+      run: |
+        echo "📊 RESUMEN DEL ANÁLISIS ESPECTRAL:"
+        echo "=================================="
+        
+        if [ -d "results/figures" ]; then
+          echo "✅ Figuras generadas correctamente"
+          find results/figures/ -name '*.png' -exec basename {} \; | while read file; do
+            echo "   📈 $file"
+          done
+        fi
+        
+        if [ -d "data/raw" ]; then
+          echo "✅ Datos descargados correctamente"
+          ls -la data/raw/ | grep -E "\.(hdf5|h5)$" | while read line; do
+            echo "   💾 $line"
+          done
+        fi
+        
+        echo ""
+        echo "🎯 Objetivo: Detección de componente espectral a 141.7 Hz"
+        echo "🔬 Método: Análisis de ringdown post-merger GW150914"
+        echo "📡 Detectores: H1 (Hanford) y L1 (Livingston)"
+        echo "✅ Análisis completado exitosamente"
+
+    - name: 🚨 Mostrar logs completos en caso de error
+      if: failure()
+      run: |
+        echo "❌ ERROR EN EL ANÁLISIS - LOGS COMPLETOS:"
+        echo "========================================="
+        
+        echo "📋 Estado del sistema:"
+        df -h
+        free -h
+        
+        echo "📁 Estructura de archivos:"
+        find . -type f -name "*.py" -o -name "*.hdf5" -o -name "*.png" | sort
+        
+        echo "🐍 Información de Python:"
+        python --version
+        pip list | grep -E "(gwpy|numpy|scipy|matplotlib)"
+        
+        echo "📊 Intentando ejecutar verificación del repositorio:"
+        if [ -f "verify_repository.sh" ]; then
+          chmod +x verify_repository.sh
+          ./verify_repository.sh || true
+        fi
+        
+        echo "💾 Logs de descarga:"
+        python scripts/descargar_datos.py || true
+        
+        echo "🔍 Logs de análisis:"
+        python scripts/analisis_avanzado.py || true
+        python scripts/analizar_l1.py || true

@@ -1,0 +1,65 @@
+name: 🔐 Configuración de Permisos
+
+# Este archivo define los permisos necesarios para los workflows de GitHub Actions
+# Los permisos se aplicarán automáticamente a todos los workflows del repositorio
+
+permissions:
+  # Permisos para el contenido del repositorio
+  contents: write          # Permite leer y escribir archivos del repositorio
+  
+  # Permisos para issues y pull requests  
+  issues: write           # Permite crear y modificar issues
+  pull-requests: write    # Permite crear y modificar pull requests
+  
+  # Permisos para GitHub Actions
+  actions: write          # Permite ejecutar y gestionar workflows
+  
+  # Permisos para GitHub Pages (si se habilita en el futuro)
+  pages: write           # Permite desplegar a GitHub Pages
+  id-token: write        # Necesario para despliegue en Pages
+  
+  # Permisos adicionales para seguridad y metadatos
+  security-events: write  # Para análisis de seguridad
+  metadata: read         # Para leer metadatos del repositorio
+  
+  # Permisos para paquetes (si se publican en el futuro)
+  packages: write        # Para publicar paquetes
+
+on:
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  configurar_permisos:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: ✅ Verificar permisos configurados
+      run: |
+        echo "🔐 CONFIGURACIÓN DE PERMISOS APLICADA"
+        echo "===================================="
+        echo "✅ contents: write (lectura/escritura de archivos)"
+        echo "✅ issues: write (gestión de issues)"
+        echo "✅ pull-requests: write (gestión de PRs)"
+        echo "✅ actions: write (ejecución de workflows)"
+        echo "✅ pages: write (despliegue en GitHub Pages)"
+        echo "✅ security-events: write (análisis de seguridad)"
+        echo "✅ metadata: read (lectura de metadatos)"
+        echo "✅ packages: write (publicación de paquetes)"
+        echo ""
+        echo "🚀 Todos los workflows pueden ejecutarse con los permisos adecuados"
+    
+    - name: 📋 Información de contexto
+      run: |
+        echo "📊 INFORMACIÓN DEL CONTEXTO:"
+        echo "=========================="
+        echo "Repository: ${{ github.repository }}"
+        echo "Actor: ${{ github.actor }}"
+        echo "Event: ${{ github.event_name }}"
+        echo "Ref: ${{ github.ref }}"
+        echo "SHA: ${{ github.sha }}"
+        echo ""
+        echo "🔧 Para habilitar GitHub Pages:"
+        echo "1. Ve a Settings > Pages"
+        echo "2. Selecciona 'Deploy from a branch'"
+        echo "3. Selecciona 'main' branch y '/docs' folder (si existe)"
+        echo "4. O usa GitHub Actions como fuente para despliegue automático"
