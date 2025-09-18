@@ -33,7 +33,7 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 | **H1** | `141.69 Hz` | `7.47` | `+0.01 Hz` | ✅ Confirmado |
 | **L1** | `141.75 Hz` | `0.95` | `-0.05 Hz` | ✅ Confirmado |
 
-> ⏱️ Última validación automática: 2025-09-18 21:53 UTC  
+> ⏱️ Última validación automática: 2025-09-18 21:54 UTC  
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
 
 
