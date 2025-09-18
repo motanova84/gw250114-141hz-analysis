@@ -113,6 +113,3 @@ Instituto Conciencia Cuántica
 📧 institutoconsciencia@proton.me
 
 ---
-
-*"La verdad no necesita defensa. Solo ser revelada."*  
-— **Teoría Noésica Unificada Ψ**
