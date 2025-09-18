@@ -7,6 +7,8 @@
 ![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
 ![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
+
 **Frecuencia Objetivo:** `141.7001 Hz`  
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
 **Ecuación de Campo:** Ψ = mc² · A_eff²
@@ -77,6 +79,8 @@ gw250114-141hz-analysis/
 │   ├── analizar_ringdown.py    # Análisis espectral de control
 │   ├── analisis_noesico.py     # Búsqueda de 141.7001 Hz + armónicos
 │   └── analizar_l1.py          # Validación cruzada en L1
+├── notebooks/
+│   └── 141hz_validation.ipynb  # Notebook reproducible en Colab
 ├── results/
 │   └── figures/                # Gráficos generados
 ├── requirements.txt            # Dependencias científicas
