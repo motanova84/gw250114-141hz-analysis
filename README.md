@@ -196,23 +196,7 @@ print(f"¿Posible artefacto?: {'SÍ' if min_distance < tolerance else 'NO'}")
 
 ---
 
-## ⚙️ Ejecución rápida
 
-```bash
-# 1. Clona el repositorio
-git clone https://github.com/motanova84/gw250114-141hz-analysis
-cd gw250114-141hz-analysis
-
-# 2. Crea entorno virtual y activa
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-
-# 3. Ejecuta análisis completo
-python scripts/descargar_datos.py
-python scripts/analizar_ringdown.py
-python scripts/analisis_noesico.py
-```
 
 ## 🔁 Guía de Replicación Independiente
 
@@ -552,6 +536,24 @@ def whitening_vs_analisis_directo():
 
 ---
 
+## ⚙️ Quick Start
+
+```bash
+# 1. Clona el repositorio
+git clone https://github.com/motanova84/gw250114-141hz-analysis
+cd gw250114-141hz-analysis
+
+# 2. Crea entorno virtual y activa
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# 3. Ejecuta análisis completo
+python scripts/descargar_datos.py
+python scripts/analizar_ringdown.py
+python scripts/analisis_noesico.py
+```
+
 ## 🧠 Fundamento Teórico
 
 La frecuencia 141.7001 Hz es postulada como una constante vibracional fundamental, emergente de la ecuación:
@@ -582,13 +584,6 @@ gw250114-141hz-analysis/
 └── README.md                   # Documentación principal
 ```
 
-## 📈 Próximos pasos
-
-- [x] Validación múltiple de 141.7001 Hz en GW150914
-- [ ] Análisis completo de GW250114 cuando esté disponible
-- [ ] Caracterización bayesiana de Q-factor
-- [ ] Resonancia cruzada Virgo / KAGRA
-- [ ] Publicación científica formal
 
 ## 🤝 Contribuir
 
