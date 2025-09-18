@@ -11,6 +11,8 @@
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
 **Ecuación de Campo:** Ψ = mc² · A_eff²
 
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
+
 </div>
 
 ---
@@ -72,6 +74,8 @@ Donde:
 
 ```
 gw250114-141hz-analysis/
+├── notebooks/
+│   └── 141hz_validation.ipynb  # Notebook interactivo de validación completa
 ├── scripts/
 │   ├── descargar_datos.py      # Descarga automática desde GWOSC
 │   ├── analizar_ringdown.py    # Análisis espectral de control
