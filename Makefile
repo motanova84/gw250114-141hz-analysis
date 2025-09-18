@@ -9,9 +9,9 @@ data:
 	source venv/bin/activate && python scripts/descargar_datos.py
 
 analyze:
-	source venv/bin/activate && python scripts/analizar_ringdown.py
+	source venv/bin/activate && python scripts/analisis_avanzado.py
 	source venv/bin/activate && python scripts/analizar_l1.py
-	source venv/bin/activate && python scripts/analisis_noesico.py
+	source venv/bin/activate && python scripts/analizar_ringdown.py
 
 docker:
 	docker build -t gw141hz .
