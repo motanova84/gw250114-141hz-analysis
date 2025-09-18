@@ -1,4 +1,4 @@
-.PHONY: all venv setup install data download test-data analyze clean docker help
+.PHONY: all venv setup install data download test-data analyze analyze-gw250114 analyze-all clean docker help
 
 # Default target - complete workflow
 all: setup test-data analyze
@@ -7,17 +7,19 @@ all: setup test-data analyze
 help:
 	@echo "🌌 GW250114 - 141.7001 Hz Analysis - Available targets:"
 	@echo ""
-	@echo "  all         - Complete workflow: setup + test-data + analyze"
-	@echo "  setup       - Create virtual environment and install dependencies"
-	@echo "  install     - Alias for setup (compatibility)"
-	@echo "  venv        - Create virtual environment only"
-	@echo "  data        - Download real GWOSC data"
-	@echo "  download    - Alias for data (compatibility)"
-	@echo "  test-data   - Generate test data (falls back to real data)"
-	@echo "  analyze     - Run complete analysis pipeline"
-	@echo "  docker      - Build and run Docker container"
-	@echo "  clean       - Remove generated files and virtual environment"
-	@echo "  help        - Show this help message"
+	@echo "  all              - Complete workflow: setup + test-data + analyze"
+	@echo "  setup            - Create virtual environment and install dependencies"
+	@echo "  install          - Alias for setup (compatibility)"
+	@echo "  venv             - Create virtual environment only"
+	@echo "  data             - Download real GWOSC data"
+	@echo "  download         - Alias for data (compatibility)"
+	@echo "  test-data        - Generate test data (falls back to real data)"
+	@echo "  analyze          - Run legacy analysis pipeline (GW150914)"
+	@echo "  analyze-gw250114 - Run comprehensive GW250114 analysis (6-step workflow)"
+	@echo "  analyze-all      - Run both legacy and GW250114 analyses"
+	@echo "  docker           - Build and run Docker container"
+	@echo "  clean            - Remove generated files and virtual environment"
+	@echo "  help             - Show this help message"
 
 # Create virtual environment
 venv:
@@ -49,6 +51,13 @@ analyze:
 	./venv/bin/python scripts/analizar_ringdown.py
 	./venv/bin/python scripts/analizar_l1.py
 	./venv/bin/python scripts/analisis_noesico.py
+
+# Run comprehensive GW250114 analysis (6-step workflow)
+analyze-gw250114:
+	./venv/bin/python scripts/analisis_gw250114.py
+
+# Run all analyses (legacy + GW250114)
+analyze-all: analyze analyze-gw250114
 
 # Docker support
 docker:
