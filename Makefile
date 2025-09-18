@@ -1,20 +1,21 @@
-.PHONY: all download analyze clean venv
+.PHONY: install data analyze clean docker
 
-all: download analyze
-
-venv:
+install:
 	python3 -m venv venv
+	source venv/bin/activate && pip install --upgrade pip
 	source venv/bin/activate && pip install -r requirements.txt
 
-download:
-	python scripts/descargar_datos.py
+data:
+	source venv/bin/activate && python scripts/descargar_datos.py
 
 analyze:
-	python scripts/analizar_ringdown.py
+	source venv/bin/activate && python scripts/analizar_ringdown.py
+	source venv/bin/activate && python scripts/analizar_l1.py
+	source venv/bin/activate && python scripts/analisis_noesico.py
+
+docker:
+	docker build -t gw141hz .
+	docker run --rm -v $(PWD):/app gw141hz
 
 clean:
-	rm -rf data/raw/*.hdf5
-	rm -rf results/figures/*.png
-
-clean-all: clean
-	rm -rf venv
+	rm -rf venv __pycache__ .pytest_cache results/ data/ *.egg-info
