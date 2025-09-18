@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Análisis de componente en 141.7 Hz en el ringdown
+Análisis de componente en 141.7 Hz en el ringdown - CORREGIDO
 """
 import h5py
 import numpy as np
@@ -8,20 +8,24 @@ import matplotlib.pyplot as plt
 from scipy import signal
 import os
 
-def cargar_datos(archivo_hdf5):
-    """Cargar datos desde archivo HDF5"""
+def cargar_datos_gwosc(archivo_hdf5):
+    """Cargar datos desde archivo HDF5 de GWOSC (formato correcto)"""
     with h5py.File(archivo_hdf5, 'r') as hdf:
+        # El formato de GWOSC tiene la estructura diferente
         strain = hdf['strain']['Strain'][:]
-        gps_start = hdf['strain']['Xstart'][()]
-        dt = hdf['strain']['Xspacing'][()]
-    tiempo = np.arange(len(strain)) * dt + gps_start
-    return tiempo, strain
+        meta = hdf['meta']
+        gps_start = meta['GPSstart'][()]
+        duration = meta['Duration'][()]
+        sample_rate = meta['SampleRate'][()]
+    
+    tiempo = np.arange(len(strain)) / sample_rate + gps_start
+    return tiempo, strain, sample_rate
 
-def analizar_espectro(tiempo, datos, frecuencia_objetivo=141.7):
+def analizar_espectro(tiempo, datos, sample_rate, frecuencia_objetivo=141.7):
     """Analizar el espectro en busca de la frecuencia objetivo"""
     # Calcular FFT
     n = len(datos)
-    freqs = np.fft.rfftfreq(n, d=tiempo[1]-tiempo[0])
+    freqs = np.fft.rfftfreq(n, d=1/sample_rate)
     fft_vals = np.fft.rfft(datos)
     potencia = np.abs(fft_vals)**2
     
@@ -40,11 +44,11 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, out
     """Crear gráficos de diagnóstico"""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
     
-    # Serie temporal
-    ax1.plot(tiempo, datos, 'b-', linewidth=1)
+    # Serie temporal (solo mostramos una parte)
+    ax1.plot(tiempo[:10000], datos[:10000], 'b-', linewidth=1)
     ax1.set_xlabel('Tiempo (s)')
     ax1.set_ylabel('Strain')
-    ax1.set_title(f'Señal - {detector}')
+    ax1.set_title(f'Señal Temporal - {detector}')
     ax1.grid(True)
     
     # Espectro de potencia
@@ -69,11 +73,12 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, out
     ax3.legend()
     
     # Histograma para ver distribución de potencia
-    ax4.hist(potencia, bins=50, alpha=0.7)
-    ax4.axvline(potencia_pico, color='r', linestyle='--', label=f'Pico: {potencia_pico:.2e}')
-    ax4.set_xlabel('Potencia')
+    ax4.hist(np.log10(potencia + 1e-10), bins=50, alpha=0.7)
+    ax4.axvline(np.log10(potencia_pico + 1e-10), color='r', linestyle='--', 
+                label=f'Pico: {potencia_pico:.2e}')
+    ax4.set_xlabel('log10(Potencia)')
     ax4.set_ylabel('Frecuencia')
-    ax4.set_title('Distribución de Potencia')
+    ax4.set_title('Distribución de Potencia (log)')
     ax4.legend()
     ax4.grid(True)
     
@@ -92,21 +97,29 @@ def main():
     if os.path.exists(archivo_h1):
         print("Analizando datos de GW150914 (control)...")
         
-        # Cargar datos
-        tiempo, strain = cargar_datos(archivo_h1)
+        # Cargar datos con formato correcto
+        tiempo, strain, sample_rate = cargar_datos_gwosc(archivo_h1)
+        print(f"Sample rate: {sample_rate} Hz")
+        print(f"Duración: {len(strain)/sample_rate:.1f} segundos")
+        print(f"Tiempo GPS inicio: {tiempo[0]:.1f}")
+        
+        # Encontrar el tiempo del merger (1126259462.423)
+        merger_time = 1126259462.423
+        merger_index = np.argmin(np.abs(tiempo - merger_time))
         
         # Analizar espectro completo
         freqs, potencia, freq_pico, potencia_pico, snr = analizar_espectro(
-            tiempo, strain
+            tiempo, strain, sample_rate
         )
         
         print(f"\nResultados para H1 - GW150914:")
-        print(f"  - Frecuencia del pico: {freq_pico:.2f} Hz")
+        print(f"  - Frecuencia del pico más cercano: {freq_pico:.2f} Hz")
         print(f"  - SNR aproximado: {snr:.2f}")
         print(f"  - ¿Coincide con 141.7 Hz? {'SÍ' if abs(freq_pico-141.7)<1 else 'NO'}")
         
         # Crear gráficos
         crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', output_dir)
+        print(f"Gráficos guardados en {output_dir}/")
     
     else:
         print("¡Los datos de GW150914 no se encontraron!")

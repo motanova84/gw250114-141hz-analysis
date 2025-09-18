@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-ANÁLISIS DE RESONANCIA NOÉSICA - 141.7001 Hz
-Protocolo Σ.Ω.Ψ.Φ.Ξ∞ para detección de firmas cuánticas
+ANÁLISIS DE RESONANCIA NOÉSICA - 141.7001 Hz - CORREGIDO
 """
+import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
-from gwpy.timeseries import TimeSeries
+import os
 
 class AnalizadorNoesico:
     def __init__(self, frecuencia_objetivo=141.7001):
@@ -17,11 +17,19 @@ class AnalizadorNoesico:
         """Calcular armónicos de la frecuencia noésica"""
         return [self.frecuencia_objetivo * n for n in [1, 1.618, 3.1416, 4.669]]
     
+    def cargar_datos(self, archivo_hdf5):
+        """Cargar datos desde archivo HDF5 de GWOSC"""
+        with h5py.File(archivo_hdf5, 'r') as hdf:
+            strain = hdf['strain']['Strain'][:]
+            meta = hdf['meta']
+            sample_rate = meta['SampleRate'][()]
+        return strain, sample_rate
+    
     def analizar_resonancia(self, data, sample_rate):
         """Análisis completo de resonancia"""
         print(f"🔭 Analizando resonancia en {self.frecuencia_objetivo} Hz...")
         
-        # Transformada wavelet continua (mejor resolución temporal)
+        # Transformada de Fourier
         freqs = np.fft.rfftfreq(len(data), 1/sample_rate)
         fft_val = np.fft.rfft(data)
         espectro = np.abs(fft_val)**2
@@ -44,74 +52,74 @@ class AnalizadorNoesico:
             'potencia': potencia_target,
             'snr': potencia_target / np.median(espectro),
             'armonicos': resultados_armonicos,
-            'q_value': self.calcular_factor_calidad(espectro, freqs, idx_target)
+            'frecuencias': freqs,
+            'espectro': espectro
         }
-    
-    def calcular_factor_calidad(self, espectro, freqs, idx_target):
-        """Calcular factor Q de la resonancia"""
-        half_power = espectro[idx_target] / np.sqrt(2)
-        mask = espectro >= half_power
-        indices = np.where(mask)[0]
-        
-        if len(indices) > 1:
-            f_low = freqs[indices[0]]
-            f_high = freqs[indices[-1]]
-            bandwidth = f_high - f_low
-            return self.frecuencia_objetivo / bandwidth if bandwidth > 0 else float('inf')
-        return float('inf')
     
     def visualizar_resonancia(self, data, sample_rate, output_path):
         """Visualización completa de la resonancia"""
-        fig, axes = plt.subplots(3, 1, figsize=(12, 15))
+        resultados = self.analizar_resonancia(data, sample_rate)
         
-        # Serie temporal
-        tiempo = np.arange(len(data)) / sample_rate
-        axes[0].plot(tiempo, data, 'b-', alpha=0.7)
-        axes[0].set_xlabel('Tiempo (s)')
-        axes[0].set_ylabel('Amplitud')
-        axes[0].set_title('Señal Temporal')
-        axes[0].grid(True)
+        fig, axes = plt.subplots(2, 1, figsize=(12, 10))
         
         # Espectro de potencia
-        freqs = np.fft.rfftfreq(len(data), 1/sample_rate)
-        fft_val = np.fft.rfft(data)
-        potencia = np.abs(fft_val)**2
-        
-        axes[1].semilogy(freqs, potencia, 'r-')
+        axes[0].semilogy(resultados['frecuencias'], resultados['espectro'], 'r-')
         for arm in self.frecuencias_armonicas:
-            axes[1].axvline(arm, color='g', linestyle='--', alpha=0.7)
-        axes[1].axvline(self.frecuencia_objetivo, color='m', linewidth=2, linestyle='-')
-        axes[1].set_xlim(100, 200)
-        axes[1].set_xlabel('Frecuencia (Hz)')
-        axes[1].set_ylabel('Potencia')
-        axes[1].set_title('Espectro de Potencia')
-        axes[1].grid(True)
+            axes[0].axvline(arm, color='g', linestyle='--', alpha=0.7, label=f'Armónico {arm:.1f} Hz')
+        axes[0].axvline(self.frecuencia_objetivo, color='m', linewidth=2, linestyle='-', 
+                       label=f'Objetivo {self.frecuencia_objetivo} Hz')
+        axes[0].set_xlim(100, 200)
+        axes[0].set_xlabel('Frecuencia (Hz)')
+        axes[0].set_ylabel('Potencia')
+        axes[0].set_title(f'Espectro de Potencia - SNR: {resultados["snr"]:.2f}')
+        axes[0].legend()
+        axes[0].grid(True)
         
         # Espectrograma
-        f, t, Sxx = signal.spectrogram(data, fs=sample_rate, nperseg=512, noverlap=450)
-        im = axes[2].pcolormesh(t, f, 10*np.log10(Sxx), shading='gouraud', cmap='viridis')
-        axes[2].axhline(self.frecuencia_objetivo, color='m', linewidth=2)
-        axes[2].set_ylim(130, 160)
-        axes[2].set_xlabel('Tiempo (s)')
-        axes[2].set_ylabel('Frecuencia (Hz)')
-        axes[2].set_title('Espectrograma')
-        plt.colorbar(im, ax=axes[2], label='dB')
+        f, t, Sxx = signal.spectrogram(data, fs=sample_rate, nperseg=1024, noverlap=900)
+        im = axes[1].pcolormesh(t, f, 10*np.log10(Sxx + 1e-10), shading='gouraud', cmap='viridis')
+        axes[1].axhline(self.frecuencia_objetivo, color='m', linewidth=2)
+        for arm in self.frecuencias_armonicas:
+            axes[1].axhline(arm, color='g', linestyle='--', alpha=0.7)
+        axes[1].set_ylim(130, 160)
+        axes[1].set_xlabel('Tiempo (s)')
+        axes[1].set_ylabel('Frecuencia (Hz)')
+        axes[1].set_title('Espectrograma - Zona de Resonancia')
+        plt.colorbar(im, ax=axes[1], label='dB')
         
         plt.tight_layout()
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         plt.close()
         
-        return fig
+        return resultados
 
-# Ejecución principal cuando los datos estén disponibles
 def main():
     analizador = AnalizadorNoesico()
     print("🌀 Analizador Noésico inicializado")
     print(f"🎯 Frecuencia objetivo: {analizador.frecuencia_objetivo} Hz")
     print(f"📊 Armónicos: {analizador.frecuencias_armonicas}")
     
-    # Aquí se cargarán los datos cuando estén disponibles
-    print("\n⏳ Esperando datos... Ejecuta después de la descarga.")
+    # Analizar datos de H1
+    archivo_h1 = '../data/raw/H1-GW150914-32s.hdf5'
+    if os.path.exists(archivo_h1):
+        print("\n📡 Analizando datos de Hanford (H1)...")
+        data, sample_rate = analizador.cargar_datos(archivo_h1)
+        
+        # Ejecutar análisis
+        output_path = '../results/figures/resonancia_noesica_H1.png'
+        resultados = analizador.visualizar_resonancia(data, sample_rate, output_path)
+        
+        print(f"\n📊 Resultados del análisis noésico:")
+        print(f"   SNR en {resultados['frecuencia_objetivo']} Hz: {resultados['snr']:.2f}")
+        print(f"   Potencia: {resultados['potencia']:.2e}")
+        
+        print("\n🎵 Armónicos detectados:")
+        for freq, datos in resultados['armonicos'].items():
+            print(f"   {freq:.1f} Hz: SNR = {datos['snr']:.2f}")
+            
+        print(f"\n💾 Gráfico guardado en: {output_path}")
+    else:
+        print("¡Datos no encontrados! Ejecuta primero: python scripts/descargar_datos.py")
 
 if __name__ == "__main__":
     main()
