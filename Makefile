@@ -15,6 +15,10 @@ help:
 	@echo "  download    - Alias for data (compatibility)"
 	@echo "  test-data   - Generate test data (falls back to real data)"
 	@echo "  analyze     - Run complete analysis pipeline"
+	@echo "  validate    - Run complete scientific validation pipeline (NEW)"
+	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"  
+	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
+	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
 	@echo "  docker      - Build and run Docker container"
 	@echo "  clean       - Remove generated files and virtual environment"
 	@echo "  help        - Show this help message"
@@ -49,6 +53,20 @@ analyze:
 	./venv/bin/python scripts/analizar_ringdown.py
 	./venv/bin/python scripts/analizar_l1.py
 	./venv/bin/python scripts/analisis_noesico.py
+
+# Scientific validation pipeline (NEW)
+validate:
+	./venv/bin/python scripts/pipeline_validacion.py
+
+# Individual validation steps  
+validate-connectivity:
+	./venv/bin/python scripts/validar_conectividad.py
+
+validate-gw150914:
+	./venv/bin/python scripts/validar_gw150914.py
+
+validate-gw250114:
+	./venv/bin/python scripts/analizar_gw250114.py
 
 # Docker support
 docker:
