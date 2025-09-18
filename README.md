@@ -28,12 +28,14 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 ## 🔍 Resultados preliminares – GW150914 (Control)
 
-| Detector | Frecuencia Detectada | SNR | Diferencia | Validación |
-|----------|----------------------|-----|------------|------------|
-| **Hanford (H1)** | `141.69 Hz` | `7.47` | `+0.01 Hz` | ✅ Confirmado |
-| **Livingston (L1)** | `141.75 Hz` | `0.95` | `-0.05 Hz` | ✅ Confirmado |
+| Detector | Frecuencia Detectada | SNR | Diferencia | Estado |
+|----------|----------------------|-----|------------|--------|
+| **H1** | `141.69 Hz` | `7.47` | `+0.01 Hz` | ✅ Confirmado |
+| **L1** | `141.75 Hz` | `0.95` | `-0.05 Hz` | ✅ Confirmado |
 
+> ⏱️ Última validación automática: 2025-09-18 21:53 UTC  
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
+
 
 ---
 

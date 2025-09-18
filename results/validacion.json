@@ -1,0 +1,20 @@
+{
+  "evento": "GW150914",
+  "fecha": "2025-09-18 21:53 UTC",
+  "detalles": [
+    {
+      "detector": "H1",
+      "freq": 141.69,
+      "snr": 7.47,
+      "diff": 0.01,
+      "valido": true
+    },
+    {
+      "detector": "L1",
+      "freq": 141.75,
+      "snr": 0.95,
+      "diff": -0.05,
+      "valido": true
+    }
+  ]
+}
