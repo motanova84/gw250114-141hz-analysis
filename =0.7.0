@@ -1,6 +1,0 @@
-Requirement already satisfied: gwosc in ./venv/lib/python3.12/site-packages (0.8.1)
-Requirement already satisfied: requests>=1.0.0 in ./venv/lib/python3.12/site-packages (from gwosc) (2.32.5)
-Requirement already satisfied: charset_normalizer<4,>=2 in ./venv/lib/python3.12/site-packages (from requests>=1.0.0->gwosc) (3.4.3)
-Requirement already satisfied: idna<4,>=2.5 in ./venv/lib/python3.12/site-packages (from requests>=1.0.0->gwosc) (3.10)
-Requirement already satisfied: urllib3<3,>=1.21.1 in ./venv/lib/python3.12/site-packages (from requests>=1.0.0->gwosc) (2.5.0)
-Requirement already satisfied: certifi>=2017.4.17 in ./venv/lib/python3.12/site-packages (from requests>=1.0.0->gwosc) (2025.8.3)
