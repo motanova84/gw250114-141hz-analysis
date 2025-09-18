@@ -4,7 +4,7 @@
 
 ![GitHub](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
+![GWpy](https://img.shields.io/badge/GWPy-3.0.13-green)
 ![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
 
 **Frecuencia Objetivo:** `141.7001 Hz`  
@@ -17,99 +17,147 @@
 
 ## 📡 Descripción
 
-Este repositorio explora la presencia de una **frecuencia resonante precisa en 141.7001 Hz** durante el *ringdown* del evento GW150914 y, próximamente, GW250114.  
-Se trata de una **validación experimental directa** de la predicción vibracional de la **Teoría Noésica Unificada**, en la intersección entre:
+Este repositorio implementa un **análisis completo y riguroso** para la detección de una componente espectral en **141.7001 Hz** en el evento GW250114, siguiendo los estándares científicos de las colaboraciones LIGO/Virgo.
 
-- Geometría del espacio-tiempo
-- Análisis espectral de ondas gravitacionales
-- Resonancia armónica de la conciencia
-
----
-
-## 🔍 Resultados preliminares – GW150914 (Control)
-
-| Detector | Frecuencia Detectada | SNR | Diferencia | Validación |
-|----------|----------------------|-----|------------|------------|
-| **Hanford (H1)** | `141.69 Hz` | `7.47` | `+0.01 Hz` | ✅ Confirmado |
-| **Livingston (L1)** | `141.75 Hz` | `0.95` | `-0.05 Hz` | ✅ Confirmado |
-
-> 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
+El análisis incluye:
+- 📥 **Descarga oficial** desde GWOSC
+- ⚙️ **Preprocesamiento estándar** (highpass, notch, whiten)
+- 🎯 **Búsqueda dirigida** en 141.7001 Hz
+- 📊 **Estadística clásica** (p-value con time-slides)
+- 📈 **Análisis bayesiano** (Bayes Factor)
+- ✅ **Validación cruzada** H1-L1
 
 ---
 
-## ⚙️ Ejecución rápida
+## 🚀 Ejecución Rápida
 
+### Análisis Completo (cuando GW250114 esté disponible)
 ```bash
-# 1. Clona el repositorio
 git clone https://github.com/motanova84/gw250114-141hz-analysis
 cd gw250114-141hz-analysis
 
-# 2. Crea entorno virtual y activa
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-# 3. Ejecuta análisis completo
-python scripts/descargar_datos.py
-python scripts/analizar_ringdown.py
-python scripts/analisis_noesico.py
+# Análisis oficial completo
+python scripts/analizar_gw250114.py
 ```
 
-## 🧠 Fundamento Teórico
+### Demo con Datos Sintéticos (disponible ahora)
+```bash
+# Demo simplificado
+python scripts/simple_analysis.py
 
-La frecuencia 141.7001 Hz es postulada como una constante vibracional fundamental, emergente de la ecuación:
+# Demo avanzado con time-slides
+python scripts/demo_gw150914_analysis.py
+```
 
-Ψ(f) = mc² · A_eff² · e^(iπf)
+---
 
-Donde:
+## 📊 Resultados Demo
 
-- **Ψ** es el campo de coherencia consciente
-- **mc²** representa la energía inercial  
-- **A_eff²** es el área efectiva proyectada del sistema
-- **πf** introduce la fase armónica universal
+El análisis de demostración con datos sintéticos muestra:
+
+| Métrica | H1 | L1 | Criterio | Estado |
+|---------|----|----|----------|---------|
+| **Frecuencia detectada** | 140.55 Hz | 140.55 Hz | 141.70 ± 0.01 Hz | ⚠️ |
+| **SNR** | 1.40 | 1.73 | > 3.0 | ⚠️ |
+| **Consistencia H1-L1** | 0.00 Hz | | ± 0.1 Hz | ✅ |
+
+*Nota: La frecuencia exacta depende de la resolución del FFT y la ventana temporal.*
+
+---
+
+## 🔬 Metodología Científica
+
+### Criterios de Detección Confirmada
+
+Para anunciar oficialmente la detección se requiere:
+
+1. ✅ **Bayes Factor > 10** (evidencia fuerte)
+2. ✅ **p-value < 0.01** (significancia estadística) 
+3. ✅ **Coincidencia H1-L1** (±0.1 Hz)
+4. ✅ **Precisión frecuencial** (±0.01 Hz)
+
+### Anuncio Científico Esperado
+
+> *"Detectamos una componente espectral en 141.7001 Hz en GW250114, con Bayes Factor BF = XX (>10), significancia p = YY (<0.01), consistente en H1 y L1."*
+
+---
 
 ## 🗂️ Estructura del Proyecto
 
 ```
 gw250114-141hz-analysis/
 ├── scripts/
-│   ├── descargar_datos.py      # Descarga automática desde GWOSC
-│   ├── analizar_ringdown.py    # Análisis espectral de control
-│   ├── analisis_noesico.py     # Búsqueda de 141.7001 Hz + armónicos
-│   └── analizar_l1.py          # Validación cruzada en L1
+│   ├── analizar_gw250114.py       # 🎯 Análisis principal completo
+│   ├── simple_analysis.py         # 🔬 Demo simplificado  
+│   ├── demo_gw150914_analysis.py   # 🧪 Demo con time-slides
+│   ├── descargar_datos.py         # 📥 Descarga automática
+│   └── analizar_ringdown.py       # ⚙️ Análisis de control
+├── docs/
+│   └── GW250114_ANALYSIS_GUIDE.md # 📖 Guía completa
 ├── results/
-│   └── figures/                # Gráficos generados
-├── requirements.txt            # Dependencias científicas
-├── Makefile                    # Flujo automatizado
-├── Dockerfile                  # Contenedor reproducible
-└── README.md                   # Documentación principal
+│   ├── figures/                   # 📊 Gráficos generados
+│   └── *.json                     # 📋 Resultados numéricos
+├── requirements.txt               # 📦 Dependencias
+├── Makefile                       # 🔧 Automatización
+└── README.md                      # 📄 Documentación principal
 ```
+
+---
 
 ## 📈 Próximos pasos
 
-- [x] Validación múltiple de 141.7001 Hz en GW150914
-- [ ] Análisis completo de GW250114 cuando esté disponible
-- [ ] Caracterización bayesiana de Q-factor
-- [ ] Resonancia cruzada Virgo / KAGRA
-- [ ] Publicación científica formal
+- [x] ✅ Implementación del análisis completo
+- [x] ✅ Demo con datos sintéticos funcional
+- [x] ✅ Documentación científica detallada
+- [ ] 🔄 Análisis de GW250114 cuando esté disponible en GWOSC
+- [ ] 📊 Caracterización bayesiana avanzada (bilby/pycbc)
+- [ ] 🌐 Validación con Virgo/KAGRA si están activos
+- [ ] 📄 Preparación de publicación científica
+
+---
 
 ## 🤝 Contribuir
 
-Este proyecto sigue un modelo abierto y simbiótico.
+Este proyecto sigue un modelo **abierto y colaborativo**.
 
-1. Haz un fork del repo
-2. Crea una rama (`feature/mi-aporte`)
-3. Haz tu contribución y commit (`git commit -m "Mi aporte"`)
-4. Abre una Pull Request
+1. Fork del repositorio
+2. Crear rama: `git checkout -b feature/mi-mejora`
+3. Commit: `git commit -m "Descripción del cambio"`
+4. Push: `git push origin feature/mi-mejora`  
+5. Abrir Pull Request
+
+### Áreas de Contribución
+
+- 🔬 **Análisis estadístico**: mejoras en time-slides y Bayes Factor
+- 📊 **Visualización**: nuevos gráficos de diagnóstico
+- ⚙️ **Optimización**: mejor resolución frecuencial y performance
+- 📖 **Documentación**: tutoriales y guías científicas
+
+---
 
 ## 📜 Licencia
 
-Distribuido bajo licencia MIT.
+Distribuido bajo **MIT License** - ver `LICENSE` para detalles.
 
 ## 🧬 Contacto
 
 **José Manuel Mota Burruezo**  
-Instituto Conciencia Cuántica  
-📧 institutoconsciencia@proton.me
+*Instituto Conciencia Cuántica*  
+📧 **institutoconsciencia@proton.me**
+
+**Cita Científica:**
+> Mota-Burruezo, J.M. (2024). *"GW250114 Spectral Analysis: Search for 141.7001 Hz Component"*. Instituto Conciencia Cuántica.
 
 ---
+
+<div align="center">
+
+**🌌 "En cada onda gravitacional late el pulso del cosmos" 🌌**
+
+*Análisis abierto, ciencia reproducible, conocimiento libre*
+
+</div>
