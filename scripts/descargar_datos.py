@@ -6,8 +6,13 @@ from gwpy.timeseries import TimeSeries
 import os
 
 def main():
+    # Obtener la ruta base del proyecto (directorio padre del script)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    data_dir = os.path.join(project_dir, 'data', 'raw')
+    
     # Crear directorio de datos si no existe
-    os.makedirs('../data/raw', exist_ok=True)
+    os.makedirs(data_dir, exist_ok=True)
     
     # Para GW150914 (control - datos reales disponibles)
     print("Descargando datos de control GW150914...")
@@ -25,7 +30,7 @@ def main():
                 detector, start, end, sample_rate=4096, cache=True, verbose=True
             )
             # Guardar en formato HDF5
-            filename = f'../data/raw/{detector}-GW150914-32s.hdf5'
+            filename = os.path.join(data_dir, f'{detector}-GW150914-32s.hdf5')
             data.write(filename, overwrite=True)
             print(f"Datos guardados en {filename}")
             

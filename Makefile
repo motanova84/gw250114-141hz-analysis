@@ -1,16 +1,21 @@
-.PHONY: all download analyze clean venv
+.PHONY: all download analyze clean venv setup test-data
 
-all: download analyze
+all: setup test-data analyze
 
 venv:
 	python3 -m venv venv
-	source venv/bin/activate && pip install -r requirements.txt
+
+setup: venv
+	./venv/bin/pip install -r requirements.txt
 
 download:
-	python scripts/descargar_datos.py
+	./venv/bin/python scripts/descargar_datos.py
+
+test-data:
+	./venv/bin/python scripts/generar_datos_prueba.py
 
 analyze:
-	python scripts/analizar_ringdown.py
+	./venv/bin/python scripts/analizar_ringdown.py
 
 clean:
 	rm -rf data/raw/*.hdf5
