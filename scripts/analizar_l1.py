@@ -35,6 +35,23 @@ def main():
             print(f"   SNR: {snr:.2f}")
             print(f"   Diferencia con objetivo: {abs(detected_freq - target_freq):.3f} Hz")
             
+            # Guardar resultados estructurados
+            difference = abs(detected_freq - target_freq)
+            status = "✅ Confirmado" if difference < 1.0 else "⚠️ Revisión necesaria"
+            
+            results = {
+                'detector': 'L1',
+                'frequency': f"{detected_freq:.2f}",
+                'snr': f"{snr:.2f}",
+                'difference': f"{difference:.3f}",
+                'status': status,
+                'timestamp': data.t0.value
+            }
+            
+            import json
+            with open(f'{output_dir}/../L1_results.json', 'w') as f:
+                json.dump(results, f, indent=2)
+            
             # Gráfico comparativo
             plt.figure(figsize=(10, 6))
             plt.semilogy(spectrum.frequencies.value, spectrum.value, 'b-', label='L1', alpha=0.8)

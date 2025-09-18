@@ -127,6 +127,25 @@ def main():
         print(f"  - SNR aproximado: {snr:.2f}")
         print(f"  - ¿Coincide con 141.7 Hz? {'SÍ' if abs(freq_pico-141.7)<1 else 'NO'}")
         
+        # Guardar resultados estructurados
+        target_freq = 141.7001
+        difference = abs(freq_pico - target_freq)
+        status = "✅ Confirmado" if difference < 1.0 else "⚠️ Revisión necesaria"
+        
+        results = {
+            'detector': 'H1',
+            'frequency': f"{freq_pico:.2f}",
+            'snr': f"{snr:.2f}",
+            'difference': f"{difference:.3f}",
+            'status': status,
+            'timestamp': tiempo[0]
+        }
+        
+        os.makedirs(output_dir, exist_ok=True)
+        import json
+        with open(f"{output_dir}/../H1_results.json", "w") as f:
+            json.dump(results, f, indent=2)
+        
         # Crear gráficos
         crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', output_dir)
         print(f"Gráficos guardados en {output_dir}/")

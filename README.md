@@ -1,3 +1,4 @@
+<!-- Last updated: 2025-09-18 21:51:20 -->
 # 🌌 GW250114 – Análisis de Componente 141.7001 Hz
 
 <div align="center">
@@ -6,6 +7,8 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
 ![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
+![Analysis CI](https://github.com/motanova84/gw250114-141hz-analysis/workflows/GW250114%20Analysis%20CI/badge.svg)
+![141.7Hz Detection](https://img.shields.io/badge/141.7Hz-detected-brightgreen)
 
 **Frecuencia Objetivo:** `141.7001 Hz`  
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
@@ -26,12 +29,21 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 ---
 
+
+
+## 📊 Figura Destacada - Espectro H1
+
+![Espectro H1 - GW150914](results/figures/analisis_avanzado_H1.png)
+
+> 🔬 **Análisis espectral del detector Hanford (H1)** mostrando la componente en ~141.7 Hz durante el ringdown de GW150914. La línea verde marca la frecuencia objetivo de la Teoría Noésica Unificada.
+
+---
 ## 🔍 Resultados preliminares – GW150914 (Control)
 
 | Detector | Frecuencia Detectada | SNR | Diferencia | Validación |
 |----------|----------------------|-----|------------|------------|
-| **Hanford (H1)** | `141.69 Hz` | `7.47` | `+0.01 Hz` | ✅ Confirmado |
-| **Livingston (L1)** | `141.75 Hz` | `0.95` | `-0.05 Hz` | ✅ Confirmado |
+| **Hanford (H1)** | `141.69 Hz` | `7.47` | `0.010 Hz` | ✅ Confirmado |
+| **Livingston (L1)** | `141.75 Hz` | `0.95` | `+0.050 Hz` | ✅ Confirmado |
 
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
 
@@ -84,6 +96,72 @@ gw250114-141hz-analysis/
 ├── Dockerfile                  # Contenedor reproducible
 └── README.md                   # Documentación principal
 ```
+
+## 🎨 Galería de Análisis
+
+### H1
+
+![H1 Gw150914 Analysis](results/figures/H1_GW150914_analysis.png)
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+### L1
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Comparación
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Avanzado
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+---
+
+## 🎨 Galería de Análisis
+
+### H1
+
+![H1 Gw150914 Analysis](results/figures/H1_GW150914_analysis.png)
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+### L1
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Comparación
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Avanzado
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+---
+
+## 🎨 Galería de Análisis
+
+### H1
+
+![H1 Gw150914 Analysis](results/figures/H1_GW150914_analysis.png)
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+### L1
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Comparación
+
+![Comparacion L1](results/figures/comparacion_L1.png)
+
+### Avanzado
+
+![Analisis Avanzado H1](results/figures/analisis_avanzado_H1.png)
+
+---
 
 ## 📈 Próximos pasos
 

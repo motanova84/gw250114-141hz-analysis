@@ -1,17 +1,23 @@
-.PHONY: install data analyze clean docker
+.PHONY: install data analyze update-readme clean docker
 
 install:
 	python3 -m venv venv
-	source venv/bin/activate && pip install --upgrade pip
-	source venv/bin/activate && pip install -r requirements.txt
+	./venv/bin/pip install --upgrade pip
+	./venv/bin/pip install -r requirements.txt
 
 data:
-	source venv/bin/activate && python scripts/descargar_datos.py
+	./venv/bin/python scripts/descargar_datos.py
 
 analyze:
-	source venv/bin/activate && python scripts/analizar_ringdown.py
-	source venv/bin/activate && python scripts/analizar_l1.py
-	source venv/bin/activate && python scripts/analisis_noesico.py
+	mkdir -p results/figures
+	./venv/bin/python scripts/analizar_ringdown.py
+	./venv/bin/python scripts/analizar_l1.py
+	./venv/bin/python scripts/analisis_noesico.py
+	./venv/bin/python scripts/analisis_avanzado.py
+	$(MAKE) update-readme
+
+update-readme:
+	./venv/bin/python scripts/update_readme.py
 
 docker:
 	docker build -t gw141hz .

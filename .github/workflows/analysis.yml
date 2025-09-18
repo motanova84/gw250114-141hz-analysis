@@ -1,0 +1,124 @@
+name: GW250114 Analysis CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run weekly on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
+
+env:
+  TARGET_FREQUENCY: 141.7001
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Create results directory
+      run: mkdir -p results/figures
+      
+    - name: Download GW data
+      run: python scripts/descargar_datos.py
+      continue-on-error: true
+      
+    - name: Run H1 analysis
+      id: h1_analysis
+      run: python scripts/analizar_ringdown.py
+      continue-on-error: true
+      
+    - name: Run L1 analysis  
+      id: l1_analysis
+      run: python scripts/analizar_l1.py
+      continue-on-error: true
+      
+    - name: Run advanced analysis
+      id: advanced_analysis
+      run: python scripts/analisis_avanzado.py
+      continue-on-error: true
+      
+    - name: Update README with results
+      run: python scripts/update_readme.py
+      
+    - name: Check 141.7 Hz detection
+      id: frequency_check
+      run: |
+        echo "FREQ_DETECTED=false" >> $GITHUB_OUTPUT
+        if [ -f "results/H1_results.json" ] || [ -f "results/L1_results.json" ]; then
+          # Check if frequency is within acceptable range in JSON files
+          if python -c "
+import json, os, sys
+detected = False
+for detector in ['H1', 'L1']:
+    file_path = f'results/{detector}_results.json'
+    if os.path.exists(file_path):
+        with open(file_path) as f:
+            data = json.load(f)
+            freq = float(data.get('frequency', 0))
+            if 141.0 <= freq <= 142.0:
+                detected = True
+                break
+sys.exit(0 if detected else 1)
+          "; then
+            echo "FREQ_DETECTED=true" >> $GITHUB_OUTPUT
+            echo "✅ Target frequency 141.7 Hz detected!"
+          else
+            echo "❌ Target frequency 141.7 Hz not conclusively detected"
+          fi
+        else
+          echo "❌ No results files found"
+        fi
+      
+    - name: Generate CI badge data
+      run: |
+        if [ "${{ steps.frequency_check.outputs.FREQ_DETECTED }}" = "true" ]; then
+          echo "BADGE_MESSAGE=141.7Hz-detected" >> $GITHUB_ENV
+          echo "BADGE_COLOR=brightgreen" >> $GITHUB_ENV
+        else
+          echo "BADGE_MESSAGE=141.7Hz-not_detected" >> $GITHUB_ENV
+          echo "BADGE_COLOR=red" >> $GITHUB_ENV
+        fi
+        
+    - name: Upload analysis artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: analysis-results-${{ github.run_number }}
+        path: |
+          results/figures/
+          results/analysis_results.txt
+        retention-days: 30
+        
+    - name: Commit updated README
+      if: github.ref == 'refs/heads/main'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "🤖 Auto-update README with latest analysis results [skip ci]"
+          git push
+        fi
