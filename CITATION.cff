@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+title: "Detection of a 141.7 Hz Spectral Component in GW150914"
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: José Manuel
+    family-names: Mota Burruezo
+    affiliation: "Instituto de Conciencia Cuántica"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+identifiers:
+  - type: doi
+    value: "pendiente de Zenodo"
+    description: "Zenodo DOI for this repository"
+repository-code: "https://github.com/motanova84/gw250114-141hz-analysis"
+url: "https://github.com/motanova84/gw250114-141hz-analysis"
+abstract: >-
+  Scientific reproducible repository for detecting and analyzing
+  a spectral component at 141.7001 Hz in the gravitational wave
+  event GW150914. This analysis is based on the predictions of
+  the Noetic Unified Theory and uses open data from LIGO's
+  gravitational wave observatories.
+keywords:
+  - "gravitational waves"
+  - "GW150914"
+  - "spectral analysis"
+  - "LIGO"
+  - "141.7 Hz"
+  - "ringdown analysis"
+  - "noetic theory"
+  - "open science"
+license: MIT
+version: "1.0.0"
+date-released: "2025-09-18"
+preferred-citation:
+  type: article
+  authors:
+    - given-names: José Manuel
+      family-names: Mota Burruezo
+      affiliation: "Instituto de Conciencia Cuántica"
+  doi: "pendiente de Zenodo"
+  journal: "GitHub Repository"
+  title: "Detection of a 141.7 Hz Spectral Component in GW150914"
+  year: 2025

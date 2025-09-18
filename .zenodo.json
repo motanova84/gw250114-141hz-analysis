@@ -1,0 +1,43 @@
+{
+  "title": "Detection of the 141.7 Hz Mode in Gravitational Wave GW150914",
+  "upload_type": "publication",
+  "publication_type": "article",
+  "description": "Scientific reproducible repository confirming a spectral component at 141.7001 Hz predicted by the Noetic Unified Theory. This analysis uses open data from LIGO's gravitational wave observatories to perform spectral analysis of the GW150914 event, focusing on the ringdown phase where theoretical predictions suggest the presence of a specific frequency signature at 141.7 Hz. The repository includes complete data processing pipelines, analysis scripts, and visualization tools for reproducible science.",
+  "creators": [
+    {
+      "name": "Mota Burruezo, José Manuel",
+      "affiliation": "Instituto de Conciencia Cuántica",
+      "orcid": "0000-0000-0000-0000"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "gravitational waves",
+    "GW150914",
+    "Noetic Theory",
+    "141.7 Hz",
+    "spectral analysis",
+    "LIGO",
+    "ringdown analysis",
+    "open science",
+    "reproducible research",
+    "gravitational wave astronomy",
+    "data analysis",
+    "signal processing"
+  ],
+  "subjects": [
+    {
+      "term": "Astrophysics - High Energy Astrophysical Phenomena",
+      "identifier": "http://arxiv.org/abs/astro-ph.HE"
+    },
+    {
+      "term": "General Relativity and Quantum Cosmology",
+      "identifier": "http://arxiv.org/abs/gr-qc"
+    }
+  ],
+  "notes": "This repository implements a complete scientific workflow for detecting spectral components in gravitational wave data. All analysis is performed using open-source tools and publicly available data from GWOSC (Gravitational Wave Open Science Center).",
+  "method": "Spectral analysis of gravitational wave ringdown data using Python, GWpy, NumPy, SciPy, and Matplotlib.",
+  "version": "1.0.0",
+  "language": "eng",
+  "access_right": "open"
+}

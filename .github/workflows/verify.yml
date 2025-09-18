@@ -1,0 +1,166 @@
+name: 🔍 Verificación de Repositorio
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  verificacion:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout del repositorio
+      uses: actions/checkout@v4
+    
+    - name: 🐍 Configurar Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: 📦 Instalar dependencias básicas
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: 🔍 Ejecutar script de verificación
+      run: |
+        echo "🚀 Iniciando verificación del repositorio..."
+        chmod +x verify_repository.sh
+        ./verify_repository.sh
+    
+    - name: 📊 Información detallada del sistema
+      run: |
+        echo "🖥️ INFORMACIÓN DEL SISTEMA:"
+        echo "=========================="
+        echo "OS: $(uname -a)"
+        echo "Python: $(python --version)"
+        echo "Pip: $(pip --version)"
+        echo ""
+        
+        echo "💾 ESPACIO EN DISCO:"
+        echo "==================="
+        df -h
+        echo ""
+        
+        echo "🧠 MEMORIA:"
+        echo "==========="
+        free -h
+        echo ""
+    
+    - name: 📁 Análisis de estructura de archivos
+      run: |
+        echo "📋 ESTRUCTURA DETALLADA DEL REPOSITORIO:"
+        echo "========================================"
+        
+        echo "📄 Archivos Python (.py):"
+        find . -name "*.py" -not -path "./venv/*" | sort | while read file; do
+          lines=$(wc -l < "$file" 2>/dev/null || echo "0")
+          echo "   $file ($lines líneas)"
+        done
+        
+        echo ""
+        echo "📝 Archivos Markdown (.md):"
+        find . -name "*.md" | sort | while read file; do
+          size=$(wc -c < "$file" 2>/dev/null || echo "0")
+          echo "   $file (${size} bytes)"
+        done
+        
+        echo ""
+        echo "⚙️ Archivos de configuración (.txt, .yml, .yaml, .json):"
+        find . -name "*.txt" -o -name "*.yml" -o -name "*.yaml" -o -name "*.json" | grep -v venv | sort | while read file; do
+          size=$(wc -c < "$file" 2>/dev/null || echo "0")
+          echo "   $file (${size} bytes)"
+        done
+    
+    - name: 🔬 Verificación de scripts científicos
+      run: |
+        echo "🧪 VERIFICACIÓN DE SCRIPTS CIENTÍFICOS:"
+        echo "======================================"
+        
+        scripts=("descargar_datos.py" "analisis_avanzado.py" "analizar_l1.py" "analizar_ringdown.py" "analisis_noesico.py")
+        
+        for script in "${scripts[@]}"; do
+          if [ -f "scripts/$script" ]; then
+            echo "✅ scripts/$script existe"
+            lines=$(wc -l < "scripts/$script")
+            echo "   📊 $lines líneas de código"
+            
+            # Verificar sintaxis
+            python -m py_compile "scripts/$script" && echo "   ✅ Sintaxis válida" || echo "   ❌ Error de sintaxis"
+            
+            # Buscar imports críticos
+            if grep -q "gwpy" "scripts/$script"; then
+              echo "   📡 Usa GWpy para datos gravitacionales"
+            fi
+            if grep -q "matplotlib\|plt" "scripts/$script"; then
+              echo "   📊 Genera gráficos"
+            fi
+            if grep -q "141.7" "scripts/$script"; then
+              echo "   🎯 Analiza frecuencia objetivo 141.7 Hz"
+            fi
+          else
+            echo "❌ scripts/$script NO EXISTE"
+          fi
+          echo ""
+        done
+    
+    - name: 📚 Verificación de documentación
+      run: |
+        echo "📖 VERIFICACIÓN DE DOCUMENTACIÓN:"
+        echo "================================"
+        
+        if [ -f "README.md" ]; then
+          echo "✅ README.md existe"
+          words=$(wc -w < README.md)
+          echo "   📝 $words palabras"
+          
+          if grep -qi "141.*hz" README.md; then
+            echo "   🎯 Menciona la frecuencia objetivo"
+          fi
+          
+          if grep -qi "gw150914" README.md; then
+            echo "   🌊 Menciona GW150914"
+          fi
+        else
+          echo "❌ README.md NO EXISTE"
+        fi
+        
+        if [ -f "requirements.txt" ]; then
+          echo "✅ requirements.txt existe"
+          packages=$(wc -l < requirements.txt)
+          echo "   📦 $packages dependencias listadas"
+          
+          echo "   🔍 Dependencias críticas:"
+          grep -E "(gwpy|numpy|scipy|matplotlib)" requirements.txt || echo "   ⚠️ Faltan dependencias críticas"
+        else
+          echo "❌ requirements.txt NO EXISTE"
+        fi
+    
+    - name: 🎯 Resumen de verificación
+      run: |
+        echo "📋 RESUMEN DE VERIFICACIÓN:"
+        echo "=========================="
+        
+        total_scripts=$(find scripts/ -name "*.py" 2>/dev/null | wc -l || echo "0")
+        echo "🐍 Scripts Python: $total_scripts"
+        
+        if [ -d "results/figures" ]; then
+          figures=$(find results/figures/ -name "*.png" 2>/dev/null | wc -l || echo "0")
+          echo "📊 Figuras existentes: $figures"
+        else
+          echo "📊 Directorio de figuras: No existe (se creará automáticamente)"
+        fi
+        
+        if [ -d "data/raw" ]; then
+          data_files=$(find data/raw/ -name "*.hdf5" -o -name "*.h5" 2>/dev/null | wc -l || echo "0")
+          echo "💾 Archivos de datos: $data_files"
+        else
+          echo "💾 Directorio de datos: No existe (se creará automáticamente)"
+        fi
+        
+        echo ""
+        echo "✅ VERIFICACIÓN COMPLETADA"
+        echo "🚀 El repositorio está listo para análisis científico"
