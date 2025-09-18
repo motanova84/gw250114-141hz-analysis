@@ -35,32 +35,32 @@ jobs:
     - name: 📡 Descargar datos de GWOSC
       run: |
         echo "🌌 Iniciando descarga de datos gravitacionales..."
-        python scripts/descargar_datos.py
+        cd scripts && python descargar_datos.py
         echo "✅ Descarga completada"
       continue-on-error: true
     
     - name: 📊 Ejecutar análisis de ringdown H1
       run: |
         echo "🔍 Analizando detector Hanford (H1)..."
-        python scripts/analizar_ringdown.py
+        cd scripts && python analizar_ringdown.py
         echo "✅ Análisis H1 completado"
     
     - name: 📊 Ejecutar análisis de L1
       run: |
         echo "🔍 Analizando detector Livingston (L1)..."
-        python scripts/analizar_l1.py
+        cd scripts && python analizar_l1.py
         echo "✅ Análisis L1 completado"
     
     - name: 🧬 Ejecutar análisis noésico
       run: |
         echo "🔍 Ejecutando análisis noésico completo..."
-        python scripts/analisis_noesico.py
+        cd scripts && python analisis_noesico.py
         echo "✅ Análisis noésico completado"
     
     - name: 🔍 Ejecutar análisis avanzado
       run: |
         echo "🔍 Ejecutando análisis avanzado..."
-        python scripts/analisis_avanzado.py || echo "⚠️ Análisis avanzado opcional falló"
+        cd scripts && python analisis_avanzado.py || echo "⚠️ Análisis avanzado opcional falló"
         echo "✅ Análisis avanzado completado"
     
     - name: 📈 Verificar generación de figuras
@@ -136,11 +136,11 @@ jobs:
         fi
         
         echo "💾 Logs de descarga:"
-        python scripts/descargar_datos.py || true
+        cd scripts && python descargar_datos.py || true
         
         echo "🔍 Logs de análisis:"
-        python scripts/analisis_avanzado.py || true
-        python scripts/analizar_l1.py || true
+        cd scripts && python analisis_avanzado.py || true
+        cd scripts && python analizar_l1.py || true
     
     # Fallback compatibility step for older workflow versions
     - name: Upload analysis results
