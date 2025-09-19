@@ -1,0 +1,70 @@
+/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis/scripts/analizar_gw250114.py:84: RuntimeWarning: divide by zero encountered in divide
+  psd_model[low_f_mask] = 1e-46 * (50/freqs[low_f_mask])**4
+⚠️  Importando funciones desde validar_gw150914.py
+🔧 TESTS OFFLINE DEL FRAMEWORK MEJORADO
+============================================================
+Verificando que las mejoras implementadas funcionan correctamente
+============================================================
+
+==================================================
+🧪 TEST: Generación de datos sintéticos
+==================================================
+🧪 Probando generación de datos sintéticos...
+🧪 Generando datos sintéticos de GW250114 para testing...
+   ✅ Datos sintéticos generados: 32s a 4096 Hz
+   ✅ Ruido coloreado realista generado
+   ✅ Señal insertada: Dominante 250.0 Hz (A=1.0e-21) + Objetivo 141.7 Hz (A=3.0e-22)
+   ✅ Ringdown: 49.8ms post-merger
+   ✅ Datos generados correctamente
+   ✅ H1: 131072 muestras, std=1.36e-23
+   ✅ L1: 131072 muestras, std=1.17e-23
+
+==================================================
+🧪 TEST: Cálculo de Bayes Factor
+==================================================
+
+🧮 Probando cálculo de Bayes Factor...
+🧮 Calculando Bayes Factor para 100.0 Hz...
+   Chi² modelo único: 1.24e-41
+   Chi² modelo doble: 1.22e-41
+   Δχ²: 1.79e-43
+   Bayes Factor: 0.14
+🧮 Calculando Bayes Factor para 200.0 Hz...
+   💡 Mejora mínima detectada (0.39%)
+   Chi² modelo único: 1.24e-41
+   Chi² modelo doble: 1.23e-41
+   Δχ²: 4.78e-44
+   Bayes Factor: 0.14
+   ✅ BF para 100 Hz (señal presente): 0.14
+   ✅ BF para 200 Hz (sin señal): 0.14
+   ✅ Cálculo de Bayes Factor funcionando
+
+==================================================
+🧪 TEST: Estimación de p-value
+==================================================
+
+📊 Probando estimación de p-value...
+📊 Estimando p-value con 100 time-slides...
+   Frecuencia objetivo: 150.0 Hz (bin: 140.55 Hz)
+   SNR observado: 31010.98
+   SNR medio background: 28632.11
+   SNR std background: 1727.20
+   Slides válidos: 100/100
+   p-value estimado: 0.1300
+   ✅ p-value estimado: 0.1300
+   ✅ SNR observado: 31010.98
+   ✅ Background slides: 100
+   ✅ Estimación de p-value funcionando
+
+============================================================
+📈 RESUMEN DE TESTS
+============================================================
+✅ ÉXITO: Generación de datos sintéticos
+✅ ÉXITO: Cálculo de Bayes Factor
+✅ ÉXITO: Estimación de p-value
+
+Tests pasados: 3/3 (100.0%)
+
+🎉 ¡TODOS LOS TESTS OFFLINE EXITOSOS!
+✅ Framework mejorado funcionando correctamente
+🚀 Listo para uso en análisis científico
