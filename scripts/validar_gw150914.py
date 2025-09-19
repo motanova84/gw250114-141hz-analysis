@@ -147,7 +147,12 @@ def estimate_p_value_timeslides(data, target_freq=141.7, n_slides=1000):
     
     for i in range(n_slides):
         # Desplazamiento aleatorio que preserve la estructura temporal
-        shift = np.random.randint(sample_rate, len(strain) - sample_rate)
+        max_shift = len(strain) - sample_rate
+        if max_shift <= sample_rate:
+            # Para datos muy cortos, usar todo el rango disponible
+            shift = np.random.randint(1, max(2, len(strain)))
+        else:
+            shift = np.random.randint(sample_rate, max_shift)
         shifted_strain = np.roll(strain, shift)
         
         # Calcular espectro del strain desplazado
