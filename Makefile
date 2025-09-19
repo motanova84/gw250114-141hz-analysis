@@ -1,13 +1,13 @@
-.PHONY: all venv setup install data download test-data analyze clean docker help
+.PHONY: all venv setup install data download test-data analyze validate pipeline clean docker help
 
 # Default target - complete workflow
-all: setup test-data analyze
+all: setup validate
 
 # Show available targets
 help:
 	@echo "🌌 GW250114 - 141.7001 Hz Analysis - Available targets:"
 	@echo ""
-	@echo "  all         - Complete workflow: setup + test-data + analyze"
+	@echo "  all         - Complete workflow: setup + validate"
 	@echo "  setup       - Create virtual environment and install dependencies"
 	@echo "  install     - Alias for setup (compatibility)"
 	@echo "  venv        - Create virtual environment only"
@@ -15,7 +15,8 @@ help:
 	@echo "  download    - Alias for data (compatibility)"
 	@echo "  test-data   - Generate test data (falls back to real data)"
 	@echo "  analyze     - Run complete analysis pipeline"
-	@echo "  validate    - Run complete scientific validation pipeline (NEW)"
+	@echo "  validate    - Run scientific validation pipeline (NEW)"
+	@echo "  pipeline    - Alias for validate (compatibility)"
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"  
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
@@ -48,15 +49,20 @@ test-data:
 	@echo "   Using real GWOSC data instead via 'make data'"
 	$(MAKE) data
 
-# Run complete analysis
+# Run complete analysis (legacy scripts)
 analyze:
 	./venv/bin/python scripts/analizar_ringdown.py
 	./venv/bin/python scripts/analizar_l1.py
 	./venv/bin/python scripts/analisis_noesico.py
 
-# Scientific validation pipeline (NEW)
+# Run scientific validation pipeline (NEW - from problem statement)
 validate:
+	@echo "🚀 Ejecutando Pipeline de Validación Científica"
+	@echo "   Implementa los requisitos del problema statement"
 	./venv/bin/python scripts/pipeline_validacion.py
+
+# Alias for validate
+pipeline: validate
 
 # Individual validation steps  
 validate-connectivity:
