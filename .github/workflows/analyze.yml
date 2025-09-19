@@ -32,6 +32,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Run validation pipeline
+      run: python scripts/pipeline_validacion.py
+      continue-on-error: true
+    
     - name: Download test data
       run: python scripts/descargar_datos.py
       continue-on-error: true
@@ -53,4 +57,5 @@ jobs:
           *.png
           *.jpg
           *.pdf
+          *.md
         retention-days: 30
