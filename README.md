@@ -540,6 +540,49 @@ def whitening_vs_analisis_directo():
 
 ## ⚙️ Quick Start
 
+### 🚀 Pipeline de Validación Científica (NUEVO)
+
+**Implementa los requisitos del problema statement para validación reproducible:**
+
+```bash
+# Instalación rápida
+pip install gwpy lalsuite matplotlib scipy numpy
+
+# Ejecutar pipeline completo de validación
+make all
+# O directamente:
+make validate
+```
+
+**El pipeline incluye:**
+1. ✅ **Validación de conectividad GWOSC**
+2. ✅ **Control GW150914** (SNR 7.47 H1, SNR 0.95 L1)  
+3. ✅ **Cálculo de Bayes Factor** (criterio: BF > 10)
+4. ✅ **Estimación p-value** con time-slides (criterio: p < 0.01)
+5. ✅ **Framework GW250114** preparado para ejecución automática
+
+### 📊 Validación Paso a Paso (Jupyter)
+
+```bash
+# Abrir notebook interactivo
+jupyter notebook validacion_paso_a_paso.ipynb
+```
+
+### 🔧 Ejecución Individual
+
+```bash
+# Solo validar conectividad
+python scripts/validar_conectividad.py
+
+# Solo validar GW150914 (control)  
+python scripts/validar_gw150914.py
+
+# Framework GW250114 (cuando esté disponible)
+python scripts/analizar_gw250114.py
+```
+
+### 🔄 Método Original (Compatibilidad)
+
 ```bash
 # 1. Clona el repositorio
 git clone https://github.com/motanova84/gw250114-141hz-analysis
@@ -574,20 +617,41 @@ Donde:
 ```
 gw250114-141hz-analysis/
 ├── scripts/
-│   ├── descargar_datos.py      # Descarga automática desde GWOSC
-│   ├── analizar_ringdown.py    # Análisis espectral de control
-│   ├── analisis_noesico.py     # Búsqueda de 141.7001 Hz + armónicos
-│   └── analizar_l1.py          # Validación cruzada en L1
+│   ├── descargar_datos.py         # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py       # Análisis espectral de control  
+│   ├── analisis_noesico.py        # Búsqueda de 141.7001 Hz + armónicos
+│   ├── analizar_l1.py             # Validación cruzada en L1
+│   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
+│   ├── validar_gw150914.py        # NEW: Validación control GW150914
+│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
+│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
+├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
-│   └── 141hz_validation.ipynb  # Notebook reproducible en Colab
+│   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
 ├── results/
-│   └── figures/                # Gráficos generados
-├── requirements.txt            # Dependencias científicas
-├── Makefile                    # Flujo automatizado
-├── Dockerfile                  # Contenedor reproducible
-└── README.md                   # Documentación principal
+│   └── figures/                   # Gráficos generados
+├── requirements.txt               # Dependencias científicas
+├── Makefile                       # Flujo automatizado (con validate)
+├── Dockerfile                     # Contenedor reproducible
+└── README.md                      # Documentación principal
 ```
 
+### 🚀 Scripts de Validación (NUEVOS)
+
+- **`pipeline_validacion.py`**: Ejecutor principal que implementa el pipeline completo
+- **`validar_conectividad.py`**: Verifica conexión a GWOSC (paso 1)
+- **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
+- **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
+- **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
+
+
+## 📈 Próximos pasos
+
+- [x] Validación múltiple de 141.7001 Hz en GW150914
+- [ ] Análisis completo de GW250114 cuando esté disponible
+- [ ] Caracterización bayesiana de Q-factor
+- [ ] Resonancia cruzada Virgo / KAGRA
+- [ ] Publicación científica formal
 
 ## 🤝 Contribuir
 
