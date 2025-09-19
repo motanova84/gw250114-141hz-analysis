@@ -6,3 +6,4 @@ astropy>=5.0
 h5py>=3.7.0
 jupyter>=1.0.0
 python-dotenv>=1.0.0
+gwosc>=0.7.0
