@@ -11,7 +11,8 @@
 
 **Frecuencia Objetivo:** `141.7001 Hz`  
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
-**Ecuación de Campo:** Ψ = mc² · A_eff²
+**Ecuación de Campo:** Ψ = mc² · A_eff²  
+**Marco Teórico:** Ecuación del Origen Vibracional (EOV) - QCAL ∞³
 
 </div>
 
@@ -612,20 +613,61 @@ Donde:
 - **A_eff²** es el área efectiva proyectada del sistema
 - **πf** introduce la fase armónica universal
 
+### 🌌 Ecuación del Origen Vibracional (EOV)
+
+**NUEVO:** El marco teórico se ha ampliado con la **Ecuación del Origen Vibracional (EOV)**, una extensión de las ecuaciones de Einstein que incorpora modulación holográfica del campo noético:
+
+```
+G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R cos(2πf₀t)|Ψ|²
+```
+
+**Término novedoso:** `R cos(2πf₀t)|Ψ|²` 
+- **R**: Escalar de Ricci (curvatura del espacio-tiempo)
+- **f₀ = 141.7001 Hz**: Frecuencia madre universal
+- **|Ψ|²**: Densidad del campo noético
+
+Este término introduce **oscilación holográfica** que:
+- Modula la curvatura con periodicidad irreducible
+- Predice ondas gravitacionales moduladas a 141.7 Hz
+- Genera vórtices informativos detectables
+
+**Predicciones experimentales:**
+1. 📡 Modulaciones gravitacionales temporales (~10⁻¹⁵ g a 141.7 Hz)
+2. 🌊 Fondo de ondas gravitacionales en banda estrecha
+3. 🔗 Anomalías en entrelazamiento cuántico (ER=EPR)
+
+📖 **Documentación completa:** [`docs/ECUACION_ORIGEN_VIBRACIONAL.md`](docs/ECUACION_ORIGEN_VIBRACIONAL.md)
+
+**Herramientas computacionales:**
+- 🐍 **Módulo Python EOV:** `scripts/ecuacion_origen_vibracional.py`
+- 🔄 **Pipeline de análisis:** `scripts/pipeline_eov.py`
+
+```bash
+# Ejecutar análisis EOV con datos sintéticos
+python scripts/pipeline_eov.py
+
+# Ver ayuda y opciones
+python scripts/pipeline_eov.py --help
+```
+
 ## 🗂️ Estructura del Proyecto
 
 ```
 gw250114-141hz-analysis/
+├── docs/
+│   └── ECUACION_ORIGEN_VIBRACIONAL.md  # 🌌 NEW: Documentación completa EOV
 ├── scripts/
 │   ├── descargar_datos.py         # Descarga automática desde GWOSC
 │   ├── analizar_ringdown.py       # Análisis espectral de control  
 │   ├── analisis_noesico.py        # Búsqueda de 141.7001 Hz + armónicos
 │   ├── analizar_l1.py             # Validación cruzada en L1
-│   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
-│   ├── validar_gw150914.py        # NEW: Validación control GW150914
-│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
-│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
-├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
+│   ├── validar_conectividad.py    # Validador GWOSC conectividad
+│   ├── validar_gw150914.py        # Validación control GW150914
+│   ├── analizar_gw250114.py       # Framework preparado GW250114
+│   ├── pipeline_validacion.py     # Pipeline completo validación
+│   ├── ecuacion_origen_vibracional.py  # 🌌 NEW: Módulo computacional EOV
+│   └── pipeline_eov.py            # 🌌 NEW: Pipeline de análisis EOV
+├── validacion_paso_a_paso.ipynb   # Notebook interactivo Jupyter
 ├── notebooks/
 │   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
 ├── results/
