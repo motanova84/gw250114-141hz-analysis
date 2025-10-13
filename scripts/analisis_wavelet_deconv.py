@@ -30,26 +30,27 @@ def wavelet_transform_analysis(data, target_freq=141.7, sample_rate=4096):
     """
     print(f"🌊 Aplicando Transformada Wavelet Continua...")
     
-    # Calcular escalas para CWT (enfocadas en 130-160 Hz)
-    freq_range = np.linspace(130, 160, 100)
+    # Calcular escalas para CWT (enfocadas en 130-160 Hz con mayor resolución)
+    freq_range = np.linspace(130, 160, 200)  # Mayor resolución
     scales = sample_rate / (2 * np.pi * freq_range)
-    
-    # Aplicar CWT usando wavelet Morlet compleja
-    # wavelet = 'cmor1.5-1.0' proporciona buena resolución tiempo-frecuencia
-    widths = scales * sample_rate / (2 * np.pi * target_freq)
     
     # Calcular espectrograma wavelet
     cwt_matrix = np.zeros((len(freq_range), len(data)), dtype=complex)
     
     for i, freq in enumerate(freq_range):
         # Wavelet Morlet: psi(t) = exp(i*2*pi*f*t) * exp(-t^2/(2*sigma^2))
-        sigma = 0.01  # Ancho del wavelet (en segundos)
-        wavelet_size = int(5 * sigma * sample_rate)  # 5-sigma width
+        # Ajustar sigma para mejorar resolución frecuencial
+        sigma = 2.0 / (2 * np.pi * freq)  # Ancho adaptativo basado en frecuencia
+        wavelet_size = int(6 * sigma * sample_rate)  # 6-sigma width para mejor cobertura
+        
+        # Limitar tamaño del wavelet
         if wavelet_size > len(data):
             wavelet_size = len(data) // 2
+        if wavelet_size < 10:
+            wavelet_size = 10
         
-        t = np.linspace(-5*sigma, 5*sigma, wavelet_size)
-        wavelet = np.exp(1j * 2 * np.pi * freq * t) * np.exp(-t**2 / (2 * sigma**2))
+        t_wavelet = np.linspace(-3*sigma, 3*sigma, wavelet_size)
+        wavelet = np.exp(1j * 2 * np.pi * freq * t_wavelet) * np.exp(-t_wavelet**2 / (2 * sigma**2))
         wavelet = wavelet / np.sqrt(np.sum(np.abs(wavelet)**2))
         
         # Convolución con modo 'same' para mantener tamaño
@@ -66,12 +67,32 @@ def wavelet_transform_analysis(data, target_freq=141.7, sample_rate=4096):
     median_power = np.median(power)
     
     # Calcular SNR wavelet
-    snr_wavelet = max_power / median_power
+    snr_wavelet = max_power / (median_power + 1e-30)
     
-    # Detectar frecuencia dominante
+    # Detectar frecuencia dominante con mejor precisión
+    # Usar perfil frecuencial promediado en tiempo
     freq_profile = np.mean(power, axis=1)
+    
+    # Encontrar pico principal
     detected_freq_idx = np.argmax(freq_profile)
     detected_freq = freq_range[detected_freq_idx]
+    
+    # Refinamiento: ajuste parabólico alrededor del pico
+    if 1 <= detected_freq_idx < len(freq_profile) - 1:
+        # Usar 3 puntos para ajuste parabólico
+        y1, y2, y3 = freq_profile[detected_freq_idx-1:detected_freq_idx+2]
+        f1, f2, f3 = freq_range[detected_freq_idx-1:detected_freq_idx+2]
+        
+        # Ajuste parabólico para subpixel accuracy
+        denom = (f1-f2)*(f1-f3)*(f2-f3)
+        if abs(denom) > 1e-10:
+            A = (f3*(y2-y1) + f2*(y1-y3) + f1*(y3-y2)) / denom
+            B = (f3*f3*(y1-y2) + f2*f2*(y3-y1) + f1*f1*(y2-y3)) / denom
+            if abs(A) > 1e-10:
+                detected_freq = -B / (2*A)
+                # Verificar que está en rango razonable
+                if not (f1 <= detected_freq <= f3):
+                    detected_freq = f2  # Usar valor original si el ajuste falla
     
     print(f"   ✅ CWT completada")
     print(f"   📊 Frecuencia detectada: {detected_freq:.2f} Hz")
