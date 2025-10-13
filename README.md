@@ -278,6 +278,24 @@ print(f"¿Posible artefacto?: {'SÍ' if min_distance < tolerance else 'NO'}")
 
 ## 🔁 Guía de Replicación Independiente
 
+### 🚀 Demo Rápida (5 minutos)
+```bash
+# Ejecutar demostración completa del análisis GW250114
+git clone https://github.com/motanova84/gw250114-141hz-analysis
+cd gw250114-141hz-analysis
+pip install -r requirements.txt
+python scripts/demo_gw250114.py
+
+# 🎯 Este script ejecuta automáticamente:
+#   • Generación de datos sintéticos GW250114
+#   • Análisis Wavelet (CWT)
+#   • Deconvolución Cuántica Espectral
+#   • FFT tradicional (control)
+#   • Visualizaciones tiempo-frecuencia
+#
+# 📊 Resultados: results/figures/analisis_wavelet_deconv_*.png
+```
+
 ### Replicación Básica (15 minutos)
 ```bash
 # 1. Clonar repositorio
