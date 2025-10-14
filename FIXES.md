@@ -58,6 +58,7 @@ El script corregido:
 - ✅ Utiliza lógica robusta para encontrar frecuencias cercanas
 - ✅ Incluye documentación y comentarios explicativos
 - ✅ Es ejecutable (`chmod +x`)
+- ✅ Tests unitarios validan la corrección (ver `scripts/test_corrections.py`)
 
 ## Uso
 
@@ -65,8 +66,11 @@ El script corregido:
 # Activar entorno virtual
 source venv/bin/activate
 
-# Ejecutar el script
+# Ejecutar el script corregido
 python scripts/analizar_gw150914_ejemplo.py
+
+# Ejecutar tests de validación
+python scripts/test_corrections.py
 ```
 
 ## Notas Técnicas
