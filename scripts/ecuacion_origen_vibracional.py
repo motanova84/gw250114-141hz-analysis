@@ -440,7 +440,7 @@ def main():
     print("=" * 70)
     print(f"\n📊 Constantes Físicas:")
     print(f"   G = {G:.5e} m³ kg⁻¹ s⁻²")
-    print(f"   c = {c:.0f} m/s")
+    print(f"   c = {C:.0f} m/s")
     print(f"   Λ = {Lambda:.5e} m⁻²")
     print(f"\n🎯 Parámetros Noéticos:")
     print(f"   f₀ = {F_0} Hz (Frecuencia madre)")
