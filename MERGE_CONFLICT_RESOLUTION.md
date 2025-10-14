@@ -174,7 +174,7 @@ all: setup validate
 - [x] Notebook Jupyter con JSON válido
 - [x] Comando `make help` funcional
 - [x] Comando `make status` funcional
-- [x] Todos los 20 targets declarados en `.PHONY`
+- [x] Todos los 18 targets declarados en `.PHONY`
 - [x] No hay archivos `.orig` o `.rej` residuales
 - [x] Git working tree limpio
 
