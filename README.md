@@ -17,6 +17,37 @@
 
 ---
 
+## 🚀 NUEVO: Sistema de Validación Avanzada
+
+> 📖 **Documentación completa**: Ver [ADVANCED_VALIDATION_SYSTEM.md](ADVANCED_VALIDATION_SYSTEM.md)
+
+Sistema proactivo de validación implementado para preparar el análisis de GW250114:
+
+### Módulos Implementados
+- ✅ **Caracterización Bayesiana** - Estimación de Q-factor y análisis de armónicos
+- ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
+- ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
+- ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
+
+### Uso Rápido
+```bash
+# Ejecución completa
+bash scripts/ejecutar_validacion_completa.sh
+
+# O usando Python directamente
+python3 scripts/sistema_validacion_completo.py
+
+# O usando Make
+make validate
+```
+
+### Resultados Generados
+- `results/informe_validacion_gw250114.json` - Informe completo
+- `results/resumen_validacion.txt` - Resumen legible
+- `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
+
+---
+
 ## 📡 Descripción
 
 Este repositorio explora la presencia de una **frecuencia resonante precisa en 141.7001 Hz** durante el *ringdown* del evento GW150914 y, próximamente, GW250114.  
