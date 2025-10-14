@@ -24,7 +24,7 @@ try:
         generar_señal_eov,
         campo_noético_temporal,
         F_0,
-        G, c
+        G, C
     )
 except ImportError:
     print("❌ Error: No se pudo importar módulo EOV")
