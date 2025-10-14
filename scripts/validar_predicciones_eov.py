@@ -101,12 +101,12 @@ class ValidadorEOV:
         señal_total = señal_pura + ruido
         
         # Calcular SNR teórico
-        snr_teorico = np.std(señal_pura) / np.std(ruido)
+        snr_teórico = np.std(señal_pura) / np.std(ruido)
         
         # Detectar
         freq, snr, power = detectar_firma_eov(t, señal_total, sample_rate)
         
-        print(f"SNR teórico: {snr_teorico:.2f}")
+        print(f"SNR teórico: {snr_teórico:.2f}")
         print(f"SNR detectado: {snr:.2f}")
         print(f"Frecuencia detectada: {freq:.4f} Hz")
         
