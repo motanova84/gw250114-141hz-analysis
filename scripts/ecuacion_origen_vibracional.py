@@ -225,13 +225,13 @@ def curvatura_escalar_schwarzschild(
     float or array
         Escalar de Ricci aproximado (m⁻²)
     """
-    r_s = 2 * G * M / c**2  # Radio de Schwarzschild
+    r_s = 2 * G * M / C**2  # Radio de Schwarzschild
     
     # Evitar división por cero
     r_safe = np.maximum(r, r_s * 1.1)
     
     # Aproximación: curvatura aumenta cerca del horizonte
-    R = (c**6 / (G**2 * M**2)) * np.exp(-(r_safe - r_s) / r_s)
+    R = (C**6 / (G**2 * M**2)) * np.exp(-(r_safe - r_s) / r_s)
     
     return R
 
