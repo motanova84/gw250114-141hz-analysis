@@ -377,8 +377,8 @@ def generar_señal_eov(
     termino_eov = termino_oscilatorio(tiempo, R, Psi_sq, f_0)
     
     # Convertir a strain (normalización aproximada)
-    # h ~ (G/c⁴) × R × |Ψ|²
-    h = amplitud * termino_eov / R
+    # h ~ (G/C⁴) × R × |Ψ|²
+    h = amplitud * (G / C**4) * R * np.abs(Psi_sq)
     
     return h
 
