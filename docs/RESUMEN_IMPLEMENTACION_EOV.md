@@ -204,18 +204,13 @@ python scripts/validar_predicciones_eov.py
 
 ```
 docs/
-└── ECUACION_ORIGEN_VIBRACIONAL.md     (8.7 KB)
+└── ECUACION_ORIGEN_VIBRACIONAL.md
 
 scripts/
-├── ecuacion_origen_vibracional.py     (13.0 KB)
-├── pipeline_eov.py                    (14.7 KB)
-├── integracion_noesico_eov.py         (10.7 KB)
-└── validar_predicciones_eov.py        (10.7 KB)
-```
-
-**Total de código nuevo (scripts .py):** ~49.1 KB  
-**Total de documentación nueva (.md):** ~8.7 KB
-
+├── ecuacion_origen_vibracional.py
+├── pipeline_eov.py
+├── integracion_noesico_eov.py
+└── validar_predicciones_eov.py
 ### Archivos Modificados
 
 - `README.md` - Sección EOV añadida, estructura actualizada
