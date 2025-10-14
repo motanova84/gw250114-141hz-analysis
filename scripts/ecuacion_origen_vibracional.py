@@ -22,7 +22,7 @@ from dataclasses import dataclass
 
 # Constantes fundamentales
 G = 6.67430e-11          # m³ kg⁻¹ s⁻² (constante gravitacional)
-c = 299792458            # m/s (velocidad de la luz)
+C = 299792458            # m/s (velocidad de la luz)
 h_planck = 6.62607015e-34  # J·s (constante de Planck)
 Lambda = 1.1056e-52      # m⁻² (constante cosmológica)
 
