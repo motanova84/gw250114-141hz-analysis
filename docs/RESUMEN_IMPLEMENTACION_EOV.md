@@ -213,7 +213,8 @@ scripts/
 └── validar_predicciones_eov.py        (10.7 KB)
 ```
 
-**Total de código nuevo:** ~57.8 KB
+**Total de código nuevo (scripts .py):** ~49.1 KB  
+**Total de documentación nueva (.md):** ~8.7 KB
 
 ### Archivos Modificados
 
