@@ -33,7 +33,7 @@ El problema mostraba conflictos de merge en el PR #19 entre dos branches:
 ## 🧪 Pruebas Realizadas
 
 ```bash
-✅ make help    → Muestra 20 targets disponibles
+✅ make help    → Muestra 18 targets disponibles
 ✅ make status  → Muestra estado del proyecto
 ✅ python3 -m py_compile scripts/*.py → Todos compilan sin errores
 ✅ git status   → Working tree limpio, sin conflictos
