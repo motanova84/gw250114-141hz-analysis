@@ -612,6 +612,46 @@ python scripts/validar_gw150914.py
 python scripts/analizar_gw250114.py
 ```
 
+### 🎯 Verificador de Disponibilidad GW250114 (NUEVO)
+
+**Sistema proactivo de verificación de eventos:**
+
+```bash
+# Verificar disponibilidad de GW250114 y buscar eventos similares
+python demo_verificador.py
+
+# Ejecutar pruebas completas (online y offline)
+python scripts/test_verificador_gw250114.py
+```
+
+**Uso programático:**
+
+```python
+from datetime import datetime
+from scripts.analizar_gw250114 import VerificadorGW250114
+
+# Crear verificador
+verificador = VerificadorGW250114()
+
+# Verificar disponibilidad del evento GW250114
+estado_actual = verificador.verificar_disponibilidad_evento()
+
+print(f"\n📅 FECHA ACTUAL: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print(f"🎯 ESTADO GW250114: {verificador.estado_actual}")
+
+if verificador.estado_actual == "NO_DISPONIBLE":
+    print("\n🔍 BUSCANDO EVENTOS SIMILARES DISPONIBLES...")
+    verificador.verificar_eventos_similares()
+```
+
+**Características:**
+- ✅ Verificación automática de disponibilidad en GWOSC
+- ✅ Búsqueda de eventos similares (BBH) del catálogo GWTC
+- ✅ Modo offline para demostraciones sin conectividad
+- ✅ Información detallada de cada evento (tipo, GPS, masa)
+
+📖 **Documentación completa**: Ver [VERIFICADOR_GW250114.md](VERIFICADOR_GW250114.md)
+
 ### 🔄 Método Original (Compatibilidad)
 
 ```bash
@@ -716,23 +756,26 @@ Este análisis proporciona la primera **validación experimental directa** de la
 ```
 gw250114-141hz-analysis/
 ├── scripts/
-│   ├── descargar_datos.py         # Descarga automática desde GWOSC
-│   ├── analizar_ringdown.py       # Análisis espectral de control  
-│   ├── analisis_noesico.py        # Búsqueda de 141.7001 Hz + armónicos
-│   ├── analizar_l1.py             # Validación cruzada en L1
-│   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
-│   ├── validar_gw150914.py        # NEW: Validación control GW150914
-│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
-│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
-├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
+│   ├── descargar_datos.py          # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py        # Análisis espectral de control  
+│   ├── analisis_noesico.py         # Búsqueda de 141.7001 Hz + armónicos
+│   ├── analizar_l1.py              # Validación cruzada en L1
+│   ├── validar_conectividad.py     # NEW: Validador GWOSC conectividad
+│   ├── validar_gw150914.py         # NEW: Validación control GW150914
+│   ├── analizar_gw250114.py        # NEW: Framework + VerificadorGW250114
+│   ├── pipeline_validacion.py      # NEW: Pipeline completo validación
+│   └── test_verificador_gw250114.py # NEW: Tests del verificador
+├── demo_verificador.py             # NEW: Demo VerificadorGW250114
+├── validacion_paso_a_paso.ipynb    # NEW: Notebook interactivo Jupyter
 ├── notebooks/
-│   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
+│   └── 141hz_validation.ipynb      # Notebook reproducible en Colab
 ├── results/
-│   └── figures/                   # Gráficos generados
-├── requirements.txt               # Dependencias científicas
-├── Makefile                       # Flujo automatizado (con validate)
-├── Dockerfile                     # Contenedor reproducible
-└── README.md                      # Documentación principal
+│   └── figures/                    # Gráficos generados
+├── requirements.txt                # Dependencias científicas
+├── Makefile                        # Flujo automatizado (con validate)
+├── Dockerfile                      # Contenedor reproducible
+├── README.md                       # Documentación principal
+└── VERIFICADOR_GW250114.md         # NEW: Documentación del verificador
 ```
 
 ### 🚀 Scripts de Validación (NUEVOS)
@@ -740,8 +783,10 @@ gw250114-141hz-analysis/
 - **`pipeline_validacion.py`**: Ejecutor principal que implementa el pipeline completo
 - **`validar_conectividad.py`**: Verifica conexión a GWOSC (paso 1)
 - **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
-- **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
+- **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5) + **VerificadorGW250114**
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
+- **`test_verificador_gw250114.py`**: Tests del sistema de verificación
+- **`demo_verificador.py`**: Demostración del VerificadorGW250114
 
 
 ## 📈 Próximos pasos
