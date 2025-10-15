@@ -7,8 +7,6 @@ import healpy as hp
 import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
-import os
-
 class AnalisisCMB:
     def __init__(self):
         self.l_max = 300
