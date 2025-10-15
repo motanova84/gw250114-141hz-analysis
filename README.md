@@ -111,7 +111,10 @@ evidencia_concluyente = {
 
 > 📊 **Conclusión**: La detección sistemática de 141.7 Hz en múltiples eventos de ondas gravitacionales independientes constituye evidencia estadísticamente robusta de una componente espectral reproducible.
 
-Para más detalles técnicos, ver [`scripts/evidencia_concluyente.py`](scripts/evidencia_concluyente.py)
+Para más detalles técnicos, ver:
+- **Módulo principal**: [`scripts/evidencia_concluyente.py`](scripts/evidencia_concluyente.py)
+- **Guía de uso**: [docs/EVIDENCIA_CONCLUYENTE.md](docs/EVIDENCIA_CONCLUYENTE.md)
+- **Tests**: [`scripts/test_evidencia_concluyente.py`](scripts/test_evidencia_concluyente.py)
 
 ---
 
