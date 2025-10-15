@@ -723,15 +723,22 @@ gw250114-141hz-analysis/
 │   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
 │   ├── validar_gw150914.py        # NEW: Validación control GW150914
 │   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
-│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
+│   ├── pipeline_validacion.py     # NEW: Pipeline completo validación
+│   ├── verificador_gw250114.py    # NEW: Sistema verificación tiempo real
+│   ├── test_verificador_gw250114.py    # NEW: Tests verificador
+│   └── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
 │   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
+├── data/
+│   └── raw/                       # Datos descargados de GWOSC
+├── resultados/                    # Resultados de análisis JSON
 ├── results/
 │   └── figures/                   # Gráficos generados
 ├── requirements.txt               # Dependencias científicas
 ├── Makefile                       # Flujo automatizado (con validate)
 ├── Dockerfile                     # Contenedor reproducible
+├── VERIFICADOR_GW250114_DOC.md    # NEW: Documentación verificador
 └── README.md                      # Documentación principal
 ```
 
@@ -742,6 +749,33 @@ gw250114-141hz-analysis/
 - **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
 - **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
+
+### 🌐 Sistema de Verificación en Tiempo Real (NUEVO)
+
+> 📖 **Documentación completa**: Ver [VERIFICADOR_GW250114_DOC.md](VERIFICADOR_GW250114_DOC.md)
+
+Sistema automatizado para detectar y analizar GW250114 cuando esté disponible en GWOSC:
+
+- **`verificador_gw250114.py`**: Sistema principal de verificación y análisis
+  - ✅ Monitoreo automático de catálogo GWOSC
+  - ✅ Descarga automática de datos cuando evento esté disponible
+  - ✅ Análisis espectral de 141.7001 Hz
+  - ✅ Generación de informes JSON estructurados
+  
+- **`test_verificador_gw250114.py`**: Suite de tests unitarios
+- **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso e integración
+
+**Uso básico:**
+```bash
+# Verificación única
+python scripts/verificador_gw250114.py
+
+# Ejecutar tests
+python scripts/test_verificador_gw250114.py
+
+# Ver ejemplos
+python scripts/ejemplo_verificador_gw250114.py
+```
 
 
 ## 📈 Próximos pasos
