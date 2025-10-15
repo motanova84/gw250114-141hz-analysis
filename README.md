@@ -48,6 +48,41 @@ make validate
 
 ---
 
+## 🚀 Sistema de Optimización Máxima
+
+> 📖 **Documentación completa**: Ver [OPTIMIZACION_MAXIMA.md](OPTIMIZACION_MAXIMA.md)
+
+Sistema de optimización y monitoreo en tiempo real con dashboard web:
+
+### Componentes
+- 🔧 **Optimización de Sistema** - Configuración de kernel para máximo rendimiento
+- 📊 **Monitor Avanzado** - Supervisión continua del análisis GW250114
+- 💻 **Monitor de Recursos** - CPU, memoria, disco en tiempo real
+- 🌐 **Dashboard Web** - Interfaz moderna con métricas en vivo
+
+### Inicio Rápido
+```bash
+# Iniciar sistema completo
+./scripts/optimizacion_maxima.sh
+
+# Con optimizaciones de sistema (requiere sudo)
+sudo ./scripts/optimizacion_maxima.sh
+
+# Acceder al dashboard
+# http://localhost:5000
+
+# Detener todos los servicios
+./scripts/detener_servicios.sh
+```
+
+### APIs Disponibles
+- `GET /api/estado-completo` - Estado completo del sistema
+- `GET /api/metricas` - Métricas de análisis
+- `GET /api/stream` - Stream de eventos en tiempo real (SSE)
+- `GET /health` - Health check
+
+---
+
 ## 📡 Descripción
 
 Este repositorio explora la presencia de una **frecuencia resonante precisa en 141.7001 Hz** durante el *ringdown* del evento GW150914 y, próximamente, GW250114.  

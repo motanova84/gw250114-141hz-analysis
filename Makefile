@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 workflow status clean docker help optimize optimize-sudo stop-optimize status-optimize
 
 # Default target - complete workflow
 all: setup validate
@@ -54,6 +54,10 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  optimize              - Start optimization system with dashboard (NEW)"
+	@echo "  optimize-sudo         - Start optimization system with root privileges (NEW)"
+	@echo "  stop-optimize         - Stop all optimization services (NEW)"
+	@echo "  status-optimize       - Check optimization system status (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -148,6 +152,47 @@ docker:
 workflow: setup data analyze
 	@echo "🎉 Workflow completo finalizado"
 	@echo "📊 Datos descargados y análisis ejecutado"
+
+# Optimization system targets
+optimize: setup
+	@echo "🚀 Iniciando sistema de optimización máxima..."
+	./scripts/optimizacion_maxima.sh
+
+optimize-sudo: setup
+	@echo "🚀 Iniciando sistema de optimización máxima (con privilegios)..."
+	sudo ./scripts/optimizacion_maxima.sh
+
+stop-optimize:
+	@echo "🛑 Deteniendo sistema de optimización..."
+	./scripts/detener_servicios.sh
+
+status-optimize:
+	@echo "📊 Estado del sistema de optimización:"
+	@if curl -s http://localhost:5000/health > /dev/null 2>&1; then \
+		echo "   ✅ Dashboard: ACTIVO (http://localhost:5000)"; \
+		curl -s http://localhost:5000/api/estado-completo | python3 -m json.tool || true; \
+	else \
+		echo "   ❌ Dashboard: INACTIVO"; \
+	fi
+	@echo ""
+	@if [ -f /tmp/monitor_avanzado.pid ]; then \
+		if ps -p $$(cat /tmp/monitor_avanzado.pid) > /dev/null 2>&1; then \
+			echo "   ✅ Monitor Avanzado: ACTIVO"; \
+		else \
+			echo "   ❌ Monitor Avanzado: INACTIVO"; \
+		fi; \
+	else \
+		echo "   ❌ Monitor Avanzado: NO INICIADO"; \
+	fi
+	@if [ -f /tmp/monitor_recursos.pid ]; then \
+		if ps -p $$(cat /tmp/monitor_recursos.pid) > /dev/null 2>&1; then \
+			echo "   ✅ Monitor de Recursos: ACTIVO"; \
+		else \
+			echo "   ❌ Monitor de Recursos: INACTIVO"; \
+		fi; \
+	else \
+		echo "   ❌ Monitor de Recursos: NO INICIADO"; \
+	fi
 
 # Clean up generated files
 clean:
