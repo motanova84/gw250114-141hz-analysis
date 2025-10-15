@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,6 +54,7 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  test-rpsi             - Test A_Rpsi symmetry calculation (PASO 4)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -138,6 +139,11 @@ validate-gw150914: setup
 validate-gw250114: setup  
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
+
+# Test A_Rpsi symmetry calculation (PASO 4)
+test-rpsi: setup
+	@echo "🧪 Testando cálculo de simetría A_Rpsi (PASO 4)..."
+	./venv/bin/python scripts/test_rpsi_symmetry.py
 
 # Docker support
 docker:
