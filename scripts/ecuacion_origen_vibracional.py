@@ -260,8 +260,8 @@ def energia_noética(
     float or array
         Densidad de energía (J/m³)
     """
-    energia_potencial = 0.5 * m_eff**2 * c**4 * Psi_squared
-    energia_cinetica = 0.5 * c**2 * nabla_Psi_squared
+    energia_potencial = 0.5 * m_eff**2 * C**4 * Psi_squared
+    energia_cinetica = 0.5 * C**2 * nabla_Psi_squared
     
     return energia_potencial + energia_cinetica
 
