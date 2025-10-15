@@ -159,7 +159,7 @@ class ValidadorEOV:
         
         # Criterios
         test1 = abs(amplitud_max - amplitud_esperada) / amplitud_esperada < 0.01
-        test2 = abs(freq_dominante - F_0) < 1.0
+        test2 = abs(freq_dominante - F_0) / F_0 < 0.01  # 1% relative tolerance
         
         exito = test1 and test2
         self._registrar_resultado("Término oscilatorio", exito)
