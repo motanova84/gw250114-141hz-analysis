@@ -28,6 +28,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
+- ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
 
 ### Uso Rápido
 ```bash
@@ -39,6 +40,9 @@ python3 scripts/sistema_validacion_completo.py
 
 # O usando Make
 make validate
+
+# Análisis multi-evento automatizado (NUEVO)
+make multievento
 ```
 
 ### Resultados Generados
@@ -722,7 +726,8 @@ gw250114-141hz-analysis/
 │   ├── analizar_l1.py             # Validación cruzada en L1
 │   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
 │   ├── validar_gw150914.py        # NEW: Validación control GW150914
-│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
+│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114
+│   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
 │   └── pipeline_validacion.py     # NEW: Pipeline completo validación
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
@@ -741,7 +746,40 @@ gw250114-141hz-analysis/
 - **`validar_conectividad.py`**: Verifica conexión a GWOSC (paso 1)
 - **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
 - **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
+- **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
+
+### 🌌 Análisis Bayesiano Multi-evento (NUEVO)
+
+Implementación del análisis automatizado descrito en el Listing 3 del paper. Evalúa la consistencia 
+de la frecuencia 141.7001 Hz a través de múltiples eventos del catálogo GWTC-1–3:
+
+```bash
+# Ejecutar análisis multi-evento
+make multievento
+
+# O directamente con Python
+python3 scripts/analisis_bayesiano_multievento.py
+```
+
+**Eventos analizados:**
+- GW150914 (11 Sep 2015) - Primer evento detectado
+- GW151012 (12 Oct 2015) - Segunda detección  
+- GW170104 (4 Jan 2017) - GWTC-1
+- GW190521 (21 May 2019) - GWTC-2, masa más alta
+- GW200115 (15 Jan 2020) - GWTC-3
+
+**Resultados esperados:**
+```
+Frecuencia media: 141.XXXX ± 0.XXXX Hz
+```
+
+El script automáticamente:
+1. Descarga datos de GWOSC para cada evento
+2. Calcula PSD con FFT length de 4 segundos
+3. Identifica pico máximo en banda 140-143 Hz
+4. Calcula estadísticas (media, desviación estándar)
+5. Compara con frecuencia objetivo 141.7001 Hz
 
 
 ## 📈 Próximos pasos
