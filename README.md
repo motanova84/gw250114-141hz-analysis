@@ -744,9 +744,60 @@ gw250114-141hz-analysis/
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
 
 
+## 🔬 NUEVO: Formalización Matemática de la Simetría Discreta
+
+> 📖 **Guía rápida**: Ver [GUIA_RAPIDA_SIMETRIA.md](GUIA_RAPIDA_SIMETRIA.md)  
+> 📖 **Documentación completa**: Ver [SIMETRIA_DISCRETA_DOCUMENTACION.md](SIMETRIA_DISCRETA_DOCUMENTACION.md)
+
+### Justificación Rigurosa del Término A(R_Ψ)
+
+Hemos implementado la **formalización matemática completa** que demuestra que el término $A(R_\Psi) = \sin^2(\log R_\Psi / \log \pi)$ **no es un ajuste arbitrario**, sino una **consecuencia necesaria** de un grupo de simetría discreta:
+
+$$G = \{R_\Psi \mapsto \pi^k R_\Psi \mid k \in \mathbb{Z}\}$$
+
+### Características Implementadas
+
+- ✅ **Grupo de simetría discreta G** - Grupo abeliano con periodo logarítmico $\log \pi$
+- ✅ **Potencial invariante** - Expansión de Fourier periódica
+- ✅ **Análisis variacional** - Energía de vacío con demostración de coercividad
+- ✅ **Existencia de mínimos** - Soluciones en cada celda $[\pi^n, \pi^{n+1}]$
+- ✅ **Estabilidad** - Verificación de $\partial^2 E/\partial R^2 > 0$
+- ✅ **Predicciones independientes** - Frecuencias armónicas $f_n = f_0/\pi^{2n}$
+
+### Uso Rápido
+
+```bash
+# Ejecutar análisis completo
+python scripts/simetria_discreta.py
+
+# Ejecutar tests (5/5 pasando)
+python scripts/test_simetria_discreta.py
+
+# Notebook interactivo
+jupyter notebook notebooks/simetria_discreta_analisis.ipynb
+```
+
+### Predicciones Falsables
+
+El análisis predice **armónicos superiores** en frecuencias específicas:
+
+| n | Frecuencia (Hz) | Detectable LIGO |
+|---|-----------------|-----------------|
+| 0 | 141.7001       | ✅ Sí           |
+| 1 | 14.3572        | ✅ Sí           |
+| 2 | 1.4547         | ⚠️ Difícil      |
+| 3 | 0.1474         | ❌ No           |
+
+Estas frecuencias pueden **buscarse experimentalmente** en datos LIGO/Virgo como validación independiente.
+
+---
+
 ## 📈 Próximos pasos
 
 - [x] Validación múltiple de 141.7001 Hz en GW150914
+- [x] **NUEVO**: Formalización matemática rigurosa del término A(R_Ψ)
+- [x] **NUEVO**: Predicción de frecuencias armónicas verificables
+- [ ] Búsqueda experimental de armónicos superiores en LIGO
 - [ ] Análisis completo de GW250114 cuando esté disponible
 - [ ] Caracterización bayesiana de Q-factor
 - [ ] Resonancia cruzada Virgo / KAGRA
