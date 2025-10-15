@@ -48,6 +48,41 @@ make validate
 
 ---
 
+## 📊 Dashboard Avanzado en Tiempo Real
+
+> 🌐 **Nuevo**: Sistema de monitoreo web interactivo para GW250114
+
+Monitor avanzado de máxima eficiencia con visualización en tiempo real de métricas del sistema:
+
+### Características
+- 📊 **Métricas en Tiempo Real**: CPU, memoria, latencia de red, eventos procesados
+- 🎯 **Monitoreo de Detección**: Confianza de detección y estado del sistema
+- 🌐 **Stream de Datos**: Server-Sent Events (SSE) para actualizaciones cada segundo
+- 📈 **Visualización Avanzada**: Dashboard moderno con gradientes y animaciones
+- 🔧 **API REST**: Endpoints JSON para integración con otros sistemas
+
+### Iniciar el Dashboard
+```bash
+# Instalar Flask (si no está instalado)
+pip install flask
+
+# Iniciar el servidor
+cd dashboard
+python dashboard_avanzado.py
+
+# Acceder al dashboard
+# Abrir en navegador: http://localhost:5000
+```
+
+### Endpoints Disponibles
+- `GET /` - Dashboard principal interactivo
+- `GET /api/stream` - Stream de métricas en tiempo real (SSE)
+- `GET /api/estado-completo` - Estado completo del sistema (JSON)
+
+📖 **Documentación completa**: Ver [dashboard/README.md](dashboard/README.md)
+
+---
+
 ## 📡 Descripción
 
 Este repositorio explora la presencia de una **frecuencia resonante precisa en 141.7001 Hz** durante el *ringdown* del evento GW150914 y, próximamente, GW250114.  
