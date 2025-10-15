@@ -55,8 +55,8 @@ def wavelet_transform_analysis(data, target_freq=141.7, sample_rate=4096):
         wavelet = np.exp(1j * 2 * np.pi * freq * t_wavelet) * np.exp(-t_wavelet**2 / (2 * sigma**2))
         wavelet = wavelet / np.sqrt(np.sum(np.abs(wavelet)**2))
         
-        # Convolución con modo 'same' para mantener tamaño
-        conv_result = np.convolve(data, wavelet, mode='same')
+        # Convolución con modo 'same' para mantener tamaño (usar fftconvolve para eficiencia)
+        conv_result = signal.fftconvolve(data, wavelet, mode='same')
         cwt_matrix[i, :] = conv_result
     
     # Calcular potencia wavelet
