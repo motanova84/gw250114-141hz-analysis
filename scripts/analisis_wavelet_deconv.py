@@ -43,11 +43,13 @@ def wavelet_transform_analysis(data, target_freq=141.7, sample_rate=4096):
         sigma = 2.0 / (2 * np.pi * freq)  # Ancho adaptativo basado en frecuencia
         wavelet_size = int(6 * sigma * sample_rate)  # 6-sigma width para mejor cobertura
         
-        # Limitar tamaño del wavelet
+        # Limitar tamaño del wavelet y asegurar mínimo de ciclos
+        min_cycles = 3  # mínimo de ciclos para que el wavelet sea significativo
+        min_wavelet_size = int(np.ceil(min_cycles * sample_rate / freq))
         if wavelet_size > len(data):
             wavelet_size = len(data) // 2
-        if wavelet_size < 10:
-            wavelet_size = 10
+        if wavelet_size < min_wavelet_size:
+            wavelet_size = min_wavelet_size
         
         t_wavelet = np.linspace(-3*sigma, 3*sigma, wavelet_size)
         wavelet = np.exp(1j * 2 * np.pi * freq * t_wavelet) * np.exp(-t_wavelet**2 / (2 * sigma**2))
