@@ -56,7 +56,7 @@ gh release create v1.0.0-paso4 \
 
 ### 2. Conectar GitHub con Zenodo
 
-1. **Registrarse en Zenodo:**
+1. **Register in Zenodo:**
    - Ve a https://zenodo.org/
    - Inicia sesión con tu cuenta de GitHub
    - Autoriza a Zenodo para acceder a tus repositorios
