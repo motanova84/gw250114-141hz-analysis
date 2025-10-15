@@ -91,5 +91,13 @@ Thumbs.db
 # Log files
 *.log
 
+# Monitoring files
+monitoreo_gw250114.pid
+GW250114_DISPONIBLE.txt
+
+# Created directories (runtime)
+dashboard/
+resultados/
+
 # Environment variables
 .env
