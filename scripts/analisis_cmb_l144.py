@@ -5,7 +5,6 @@ Búsqueda de anomalía en CMB en l=144
 """
 import healpy as hp
 import numpy as np
-from scipy import stats
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 import os
