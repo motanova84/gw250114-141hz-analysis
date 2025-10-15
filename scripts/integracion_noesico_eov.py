@@ -302,7 +302,7 @@ def main():
     
     # Señal sintética: modo dominante + componente EOV + ruido
     h_dom = 1e-21 * np.exp(-t/0.01) * np.cos(2*np.pi*250*t)
-    h_eov = 5e-23 * campo_noético_temporal(t) * np.cos(2*np.pi*141.7*t)
+    h_eov = 5e-23 * campo_noético_temporal(t) * np.cos(2*np.pi*F_0*t)
     ruido = np.random.normal(0, 1e-23, len(t))
     
     data = h_dom + h_eov + ruido
