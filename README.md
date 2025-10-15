@@ -28,6 +28,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
+- ✅ **Sistema de Alertas Automáticas** - Notificaciones cuando GW250114 esté disponible
 
 ### Uso Rápido
 ```bash
@@ -45,6 +46,35 @@ make validate
 - `results/informe_validacion_gw250114.json` - Informe completo
 - `results/resumen_validacion.txt` - Resumen legible
 - `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
+
+---
+
+## 📡 Sistema de Alertas Automáticas
+
+> 📖 **Documentación completa**: Ver [SISTEMA_ALERTAS.md](SISTEMA_ALERTAS.md)
+
+Sistema automático de notificaciones que envía alertas cuando:
+1. **GW250114 está disponible** en GWOSC
+2. **Análisis completado** con resultados
+
+### Características
+- 📧 **Email**: Soporte para ProtonMail (SMTP)
+- 🔔 **Webhooks**: Integración Slack/Discord
+- 📊 **Reportes**: Resúmenes automáticos de resultados
+
+### Prueba Rápida
+```bash
+# Test del sistema de alertas
+python scripts/test_sistema_alertas.py
+
+# Demostración completa
+python scripts/sistema_alertas_gw250114.py
+```
+
+### Integración Automática
+El sistema de alertas está integrado en:
+- ✅ `analizar_gw250114.py` - Análisis de evento objetivo
+- ✅ `busqueda_sistematica_gwtc1.py` - Búsqueda sistemática
 
 ---
 
