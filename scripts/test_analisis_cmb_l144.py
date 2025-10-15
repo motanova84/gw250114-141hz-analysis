@@ -154,7 +154,6 @@ def main():
     else:
         print("❌ ALGUNOS TESTS FALLARON")
         return 1
-    print("=" * 70)
 
 if __name__ == "__main__":
     sys.exit(main())
