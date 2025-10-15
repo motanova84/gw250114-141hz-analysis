@@ -25,7 +25,7 @@ class AnalisisCMB:
             cl_teorico = hp.anafast(mapa_t, lmax=self.l_max)
             
             return cl_teorico
-        except:
+        except Exception:
             # Simulación si no hay datos locales
             print("   ⚠️ Usando simulación CMB")
             return self.simular_espectro_cmb()
