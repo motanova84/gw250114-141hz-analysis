@@ -597,7 +597,17 @@ make validate
 ```bash
 # Abrir notebook interactivo
 jupyter notebook validacion_paso_a_paso.ipynb
+
+# PASO 4 - Reproducibilidad computacional
+jupyter notebook notebooks/A_Rpsi_symmetry.ipynb
 ```
+
+**Nuevo: `A_Rpsi_symmetry.ipynb`** - Análisis simbólico con SymPy del parámetro R (radio) en la función de energía noésica. Incluye:
+- ✅ Cálculo simbólico completo con SymPy
+- ✅ Solución numérica del mínimo de energía
+- ✅ Verificación de segunda derivada
+- ✅ Salida reproducible con todos los cálculos ejecutados
+- 📝 Preparado para publicación en Zenodo/GitHub con DOI
 
 ### 🔧 Ejecución Individual
 
@@ -726,6 +736,7 @@ gw250114-141hz-analysis/
 │   └── pipeline_validacion.py     # NEW: Pipeline completo validación
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
+│   ├── A_Rpsi_symmetry.ipynb      # NEW: PASO 4 - Reproducibilidad computacional
 │   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
 ├── results/
 │   └── figures/                   # Gráficos generados
