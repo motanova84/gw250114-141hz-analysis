@@ -219,26 +219,6 @@ def run_sync_tests():
     return result.wasSuccessful()
 
 
-async def run_async_tests():
-    """Ejecutar tests asíncronos"""
-    print("\n" + "=" * 70)
-    print("🧪 EJECUTANDO TESTS ASÍNCRONOS")
-    print("=" * 70)
-    
-    # Crear suite de tests
-    loader = unittest.TestLoader()
-    suite = unittest.TestSuite()
-    
-    # Agregar tests asíncronos
-    suite.addTests(loader.loadTestsFromTestCase(TestAlertasAsync))
-    
-    # Ejecutar tests
-    runner = unittest.TextTestRunner(verbosity=2)
-    result = runner.run(suite)
-    
-    return result.wasSuccessful()
-
-
 async def main():
     """Ejecutar todos los tests"""
     print("🌌 SISTEMA DE TESTS - ALERTAS AVANZADAS")
@@ -248,8 +228,55 @@ async def main():
         # Tests síncronos
         sync_success = run_sync_tests()
         
-        # Tests asíncronos
-        async_success = await run_async_tests()
+        # Tests asíncronos - ejecutar directamente en el contexto async actual
+        print("\n" + "=" * 70)
+        print("🧪 EJECUTANDO TESTS ASÍNCRONOS")
+        print("=" * 70)
+        
+        sistema = SistemaAlertasAvanzado()
+        
+        print("test_enviar_email_prioridad ... ", end="")
+        try:
+            resultado = await sistema.enviar_email_prioridad("Test mensaje", "alta")
+            if resultado:
+                print("ok")
+                async_test1_pass = True
+            else:
+                print("FAIL")
+                async_test1_pass = False
+        except Exception as e:
+            print(f"ERROR: {e}")
+            async_test1_pass = False
+        
+        print("test_alerta_validacion_psi ... ", end="")
+        try:
+            evento = {
+                'nombre': 'GW250114',
+                'detector': 'H1-L1'
+            }
+            
+            resultados = {
+                'frecuencia': 141.7001,
+                'snr': 15.2,
+                'p_value': 0.0001,
+                'diferencia': 0.0000
+            }
+            
+            await sistema.alerta_validacion_psi(evento, resultados)
+            print("ok")
+            async_test2_pass = True
+        except Exception as e:
+            print(f"ERROR: {e}")
+            async_test2_pass = False
+        
+        print("\n----------------------------------------------------------------------")
+        if async_test1_pass and async_test2_pass:
+            print("Ran 2 async tests - OK")
+            async_success = True
+        else:
+            failures = (0 if async_test1_pass else 1) + (0 if async_test2_pass else 1)
+            print(f"Ran 2 async tests - FAILED (failures={failures})")
+            async_success = False
         
         # Test de integración
         print("\n" + "=" * 70)
