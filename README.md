@@ -39,6 +39,9 @@ python3 scripts/sistema_validacion_completo.py
 
 # O usando Make
 make validate
+
+# Verificar optimización máxima del sistema
+make verify-optimization
 ```
 
 ### Resultados Generados
