@@ -751,6 +751,8 @@ gw250114-141hz-analysis/
 
 ### 🌌 Análisis Bayesiano Multi-evento (NUEVO)
 
+> 📖 **Documentación completa**: Ver [ANALISIS_BAYESIANO_MULTIEVENTO.md](ANALISIS_BAYESIANO_MULTIEVENTO.md)
+
 Implementación del análisis automatizado descrito en el Listing 3 del paper. Evalúa la consistencia 
 de la frecuencia 141.7001 Hz a través de múltiples eventos del catálogo GWTC-1–3:
 
