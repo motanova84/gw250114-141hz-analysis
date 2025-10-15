@@ -93,3 +93,7 @@ Thumbs.db
 
 # Environment variables
 .env
+.env.*
+!.env.template
+config/alertas.env
+config/*.env
