@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 multievento test-multievento workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -56,6 +56,8 @@ help:
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
+	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -151,6 +153,17 @@ multievento: setup
 test-multievento: setup
 	@echo "🧪 Testing análisis bayesiano multi-evento..."
 	./venv/bin/python scripts/test_analisis_bayesiano_multievento.py
+
+# Calculate quantum energy of fundamental mode
+energia-cuantica: setup
+	@echo "⚛️  Calculando energía cuántica del modo fundamental..."
+	@echo "   E_Ψ = hf₀ con f₀ = 141.7001 Hz"
+	./venv/bin/python scripts/energia_cuantica_fundamental.py
+
+# Test quantum energy calculations
+test-energia-cuantica: setup
+	@echo "🧪 Testing cálculos de energía cuántica..."
+	./venv/bin/python scripts/test_energia_cuantica.py
 
 # Docker support
 docker:

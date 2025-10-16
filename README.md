@@ -17,6 +17,32 @@
 
 ---
 
+## ⚛️ NUEVO: Energía Cuántica del Modo Fundamental
+
+> 📖 **Documentación completa**: Ver [ENERGIA_CUANTICA.md](ENERGIA_CUANTICA.md)
+
+Cálculo de la energía cuántica del modo fundamental del campo noésico:
+
+**E_Ψ = hf₀ = 9.39×10⁻³² J ≈ 5.86×10⁻¹³ eV**
+
+Esta magnitud infinitesimal, pero no nula, representa el **cuanto de coherencia del universo**, el nivel energético más bajo del campo Ψ, donde lo cuántico y lo cosmológico se entrelazan.
+
+### Uso Rápido
+
+```bash
+# Calcular energía cuántica fundamental
+make energia-cuantica
+
+# Ejecutar tests de validación (13 tests)
+make test-energia-cuantica
+```
+
+### Resultados Generados
+- `results/energia_cuantica_fundamental.json` - Valores numéricos exactos
+- `results/figures/energia_cuantica_fundamental.png` - Visualizaciones
+
+---
+
 ## 🚀 NUEVO: Sistema de Validación Avanzada
 
 > 📖 **Documentación completa**: Ver [ADVANCED_VALIDATION_SYSTEM.md](ADVANCED_VALIDATION_SYSTEM.md)
