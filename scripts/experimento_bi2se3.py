@@ -4,7 +4,6 @@ Experimento Bi₂Se₃ @ 141.7 mV
 Espectroscopía STS (Scanning Tunneling Spectroscopy) para validación de teoría Ψ
 """
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy import signal
 import warnings
 warnings.filterwarnings('ignore')
