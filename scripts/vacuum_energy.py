@@ -48,6 +48,8 @@ def E_vac_log(log_r):
     The minimum of this function represents the equilibrium radius scale
     where vacuum energy is minimized.
     """
+    # Ensure log_r is a float for numpy operations
+    log_r = float(log_r)
     R = 10**log_r  # R / ℓ_P (radius in Planck length units)
     
     # Term 1: Planck-scale corrections (dominant at small R)
