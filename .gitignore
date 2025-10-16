@@ -62,6 +62,9 @@ ipython_config.py
 # Data files
 data/
 results/
+# But keep verification figures
+!results/figures/
+!results/figures/*.png
 
 # Temporary files
 *.tmp
