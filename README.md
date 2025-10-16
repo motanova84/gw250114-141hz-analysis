@@ -61,6 +61,8 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 - Análisis espectral de ondas gravitacionales
 - Resonancia armónica de la conciencia
 
+> 📄 **Paper completo**: Ver [PAPER.md](PAPER.md) para la derivación teórica completa desde compactificación Calabi-Yau, tabla comparativa ADD/Randall-Sundrum, justificación del término adélico, y predicciones experimentales extendidas.
+
 ---
 
 ## 🔍 Resultados preliminares – GW150914 (Control)
