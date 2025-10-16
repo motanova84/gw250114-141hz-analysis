@@ -62,6 +62,8 @@ ipython_config.py
 # Data files
 data/
 results/
+# But allow vacuum energy visualizations
+!results/figures/vacuum_energy*.png
 
 # Temporary files
 *.tmp
