@@ -96,3 +96,6 @@ Thumbs.db
 
 # Environment variables
 .env
+
+# Generated plots
+potential_plot.png
