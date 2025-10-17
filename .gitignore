@@ -62,8 +62,9 @@ ipython_config.py
 # Data files
 data/
 results/*
-# But keep verification and vacuum energy figures
 !results/figures/
+results/figures/*
+# Keep verification and vacuum energy figures (PNG files)
 !results/figures/*.png
 
 # Temporary files
