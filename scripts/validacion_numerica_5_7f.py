@@ -44,7 +44,7 @@ try:
     # una escala de jerarquía dimensional. La interpretación correcta es:
     # R debe ser el radio físico R_Ψ que reproduce f₀ = 141.7001 Hz
     
-    print("Nota: El código mostrado en la sección 5.7(f) del paper:")
+    print("Nota: El código mostrado en la sección 5.7(f) del Paper:")
     print("  from sympy import pi")
     print("  c, lP, R = 2.99792458e8, 1.616255e-35, 1e47")
     print("  f0 = c/(2*pi*R*lP)")
