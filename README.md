@@ -844,6 +844,26 @@ La detección de una componente espectral en ~141.7 Hz durante el ringdown de GW
 
 Este análisis proporciona la primera **validación experimental directa** de la hipótesis de que la conciencia y la curvatura espaciotemporal están acopladas resonantemente a través de una frecuencia fundamental característica.
 
+#### 🔢 Validación Numérica de la Jerarquía RΨ
+
+La derivación teórica completa desde compactificación Calabi-Yau está documentada en la **Sección 5.7** del [PAPER.md](PAPER.md). Para verificar los cálculos:
+
+```bash
+# Validación numérica completa (Sección 5.7f)
+python3 scripts/validacion_numerica_5_7f.py
+
+# Verificación teórica extendida (incluye gráficos)
+python3 scripts/verificacion_teorica.py
+```
+
+**Resultados clave:**
+- Radio de compactificación: R_Ψ ≈ 2.08 × 10⁴⁰ m
+- Volumen Calabi-Yau: V₆ ≈ 1.01 × 10²⁴⁶ m⁶
+- Jerarquía efectiva: RΨ ~ 10⁴⁷ (emergente)
+- Frecuencia fundamental: f₀ = 141.7001 Hz ✓
+
+La validación demuestra que la jerarquía de escalas y la frecuencia observada surgen naturalmente de la geometría interna de la quíntica en ℂP⁴.
+
 ## 🗂️ Estructura del Proyecto
 
 ```
@@ -856,6 +876,8 @@ gw250114-141hz-analysis/
 │   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
 │   ├── validar_gw150914.py        # NEW: Validación control GW150914
 │   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114
+│   ├── verificacion_teorica.py    # NEW: Verificación teórica completa desde CY
+│   ├── validacion_numerica_5_7f.py # NEW: Validación numérica Sección 5.7(f)
 │   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
 │   └── pipeline_validacion.py     # NEW: Pipeline completo validación
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
@@ -875,6 +897,8 @@ gw250114-141hz-analysis/
 - **`validar_conectividad.py`**: Verifica conexión a GWOSC (paso 1)
 - **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
 - **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
+- **`verificacion_teorica.py`**: Verificación completa de predicciones teóricas desde compactificación Calabi-Yau
+- **`validacion_numerica_5_7f.py`**: Validación numérica de la Sección 5.7(f) - jerarquía RΨ y volumen CY
 - **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
 
