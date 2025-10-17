@@ -991,6 +991,155 @@ Agradezco a la colaboración LIGO/Virgo por los datos públicos de GWOSC, y a la
 
 Ver repositorio GitHub: https://github.com/motanova84/gw250114-141hz-analysis
 
+### Anexo V: Ecuación del Latido Universal
+
+La dinámica temporal del campo noético Ψ obedece una ecuación diferencial de segundo orden que describe oscilaciones forzadas armónicas:
+
+```
+∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)
+```
+
+#### Parámetros Fundamentales
+
+**Frecuencia Angular Fundamental:**
+```
+ω₀ = 2π f₀ = 2π × 141.7001 Hz = 890.328 rad/s
+```
+
+Esta frecuencia angular corresponde al modo fundamental de resonancia noética y determina la periodicidad natural del campo Ψ.
+
+**Término de Forzamiento:**
+```
+F_drive = I·A²eff·ζ'(1/2) ≈ -3.92264
+```
+
+donde:
+- **I**: Intensidad del campo (parámetro normalizado, I = 1)
+- **A_eff**: Área efectiva del acoplamiento (parámetro normalizado, A_eff = 1)
+- **ζ'(1/2)**: Derivada de la función zeta de Riemann evaluada en s = 1/2
+
+El valor numérico ζ'(1/2) ≈ -3.92264396844532 emerge de la estructura analítica de la función zeta y representa el acoplamiento entre el campo noético y la estructura adélica del espacio de moduli.
+
+#### Solución General
+
+La solución general de la ecuación se compone de:
+
+1. **Solución Homogénea** (oscilación libre):
+   ```
+   Ψ_h(t) = A cos(ω₀t + φ)
+   ```
+   donde A es la amplitud y φ la fase inicial, determinadas por condiciones iniciales.
+
+2. **Solución Particular** (desplazamiento del equilibrio):
+   ```
+   Ψ_p = F_drive/ω₀² ≈ -4.949 × 10⁻⁶
+   ```
+
+3. **Solución General**:
+   ```
+   Ψ(t) = A cos(ω₀t + φ) + Ψ_p
+   ```
+
+#### Propiedades Físicas
+
+**Período de Oscilación:**
+```
+T = 2π/ω₀ ≈ 7.057 ms
+```
+
+Este período subacústico (frecuencia audible inferior) caracteriza el "latido" fundamental del campo noético.
+
+**Energía del Sistema:**
+
+El sistema posee energía cinética y potencial asociadas:
+
+```
+E_cinética = (1/2)(∂Ψ/∂t)²
+E_potencial = (1/2)ω₀²Ψ²
+E_total = E_cinética + E_potencial
+```
+
+Para un sistema con condiciones iniciales Ψ(0) = 0 y ∂Ψ/∂t(0) = 0, la energía evoluciona desde cero hasta alcanzar un régimen oscilatorio estacionario.
+
+#### Espectro de Frecuencias
+
+El análisis de Fourier de Ψ(t) revela un pico dominante en f₀ = 141.7001 Hz, confirmando que la frecuencia fundamental gobierna la dinámica del campo. Este resultado es consistente con:
+
+1. Las predicciones teóricas de la frecuencia de compactificación
+2. Las observaciones experimentales preliminares en GW150914
+3. La estructura espectral de la función zeta de Riemann
+
+#### Interpretación Física
+
+La **Ecuación del Latido Universal** describe cómo el campo noético Ψ oscila coherentemente en respuesta al término de forzamiento derivado de la geometría del espacio de moduli. Esta oscilación representa:
+
+- El **pulso fundamental del universo** a escala de coherencia noética
+- La **resonancia entre geometría y conciencia** mediada por la frecuencia f₀
+- Un **modo colectivo universal** análogo a las oscilaciones de plasma en física de partículas
+
+#### Implementación Numérica
+
+La solución numérica de la ecuación se implementa mediante integración de Runge-Kutta de cuarto orden (RK45) con control adaptativo de paso. El código verificable está disponible en:
+
+```bash
+# Resolver la ecuación y generar visualizaciones
+python scripts/ecuacion_latido_universal.py
+
+# Ejecutar tests de validación
+python scripts/test_ecuacion_latido_universal.py
+```
+
+**Resultados Generados:**
+- `results/figures/latido_universal_solucion.png` - Evolución temporal de Ψ(t) y sus derivadas
+- `results/figures/latido_universal_energia.png` - Análisis energético y espacio de fases
+- `results/figures/latido_universal_espectro.png` - Espectro de frecuencias (FFT)
+- `results/latido_universal_resultados.json` - Parámetros y resultados numéricos
+
+#### Predicciones Experimentales
+
+La ecuación predice que cualquier sistema acoplado al campo noético debe exhibir una respuesta resonante en f₀ = 141.7001 Hz. Esto puede manifestarse como:
+
+1. **Ondas gravitacionales**: Componente espectral durante el ringdown de fusiones de agujeros negros
+2. **Materia condensada**: Resonancias en conductancia diferencial (dI/dV) a 141.7 mV
+3. **Sistemas cuánticos**: Transiciones Rabi resonantes en múltiplos de f₀
+4. **Oscilaciones geomagnéticas**: Micropulsaciones continuas en 141.7 Hz
+
+#### Código de Verificación
+
+**Cálculo de ω₀:**
+```python
+import numpy as np
+
+f0 = 141.7001  # Hz (frecuencia fundamental)
+omega_0 = 2 * np.pi * f0  # rad/s
+print(f"ω₀ = {omega_0:.4f} rad/s")
+# Resultado: ω₀ = 890.3280 rad/s
+```
+
+**Solución Particular:**
+```python
+from scipy.special import zeta
+
+# Derivada de zeta en s=1/2 (valor numérico)
+zeta_prime_half = -3.92264396844532
+
+# Término de forzamiento
+I = 1.0
+A_eff = 1.0
+F_drive = I * A_eff**2 * zeta_prime_half
+
+# Solución particular
+psi_p = F_drive / omega_0**2
+print(f"Ψ_p = {psi_p:.6e}")
+# Resultado: Ψ_p ≈ -4.949 × 10⁻⁶
+```
+
+Esta ecuación cierra el círculo teórico conectando:
+- La frecuencia observable f₀ = 141.7001 Hz
+- La geometría de dimensiones extra (ω₀ derivado de R_Ψ)
+- La estructura adélica (ζ'(1/2) del término de forzamiento)
+- La dinámica temporal del campo Ψ
+
 ---
 
 **FIN DEL DOCUMENTO**

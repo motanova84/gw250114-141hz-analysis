@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica latido-universal test-latido-universal workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -59,6 +59,8 @@ help:
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
+	@echo "  latido-universal      - Solve Universal Heartbeat Equation (NEW)"
+	@echo "  test-latido-universal - Test Universal Heartbeat Equation solver (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -171,6 +173,18 @@ energia-cuantica: setup
 test-energia-cuantica: setup
 	@echo "🧪 Testing cálculos de energía cuántica..."
 	./venv/bin/python scripts/test_energia_cuantica.py
+
+# Solve Universal Heartbeat Equation
+latido-universal: setup
+	@echo "💓 Resolviendo Ecuación del Latido Universal..."
+	@echo "   ∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)"
+	@echo "   donde ω₀ = 2π(141.7001 Hz) = 890.328 rad/s"
+	./venv/bin/python scripts/ecuacion_latido_universal.py
+
+# Test Universal Heartbeat Equation solver
+test-latido-universal: setup
+	@echo "🧪 Testing Ecuación del Latido Universal..."
+	./venv/bin/python scripts/test_ecuacion_latido_universal.py
 
 # Docker support
 docker:
