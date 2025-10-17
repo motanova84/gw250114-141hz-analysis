@@ -33,6 +33,7 @@ class DashboardAvanzado:
                 'system_status': self.estado_sistema
             }
             
+            self.ultima_actualizacion = time.time()
             time.sleep(1)  # Actualizar cada segundo
 
 @app.route('/')
