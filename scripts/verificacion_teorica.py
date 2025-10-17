@@ -208,13 +208,13 @@ print(f"                                 = {E_photon/1.602e-19:.6e} eV")
 print("\n7. ANÁLISIS DEL TÉRMINO ADÉLICO A(R_Ψ)")
 print("-" * 80)
 
-def adelic_term(R, n=81.1, b=np.e):
+def adelic_term(R, n=81.1, b=np.pi):
     """Término adélico en el potencial efectivo"""
     return np.log(R / l_P)**n / np.log(b)**n
 
 A_value = adelic_term(R_psi)
 print(f"   Exponente dominante:        n = 81.1")
-print(f"   Base logarítmica:           b = e (natural)")
+print(f"   Base logarítmica:           b = π (adélica)")
 print(f"   Valor en R_Ψ:               A(R_Ψ) = {A_value:.6f}")
 
 # Comparación con modo excitado n = 94.56
