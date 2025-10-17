@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,6 +54,7 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
@@ -142,6 +143,12 @@ validate-gw150914: setup
 validate-gw250114: setup  
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
+
+# Test R_Ψ symmetry and compactification radius
+test-rpsi: setup
+	@echo "🔬 Testing R_Ψ symmetry and compactification radius..."
+	@echo "   Validating R_Ψ = 1.687e-35 m and f₀ = 141.7001 Hz relationship"
+	./venv/bin/python scripts/test_rpsi_symmetry.py
 
 # Multi-event Bayesian analysis
 multievento: setup
