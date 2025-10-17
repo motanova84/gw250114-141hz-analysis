@@ -25,11 +25,11 @@ class DashboardAvanzado:
             # Métricas del sistema
             self.metricas_tiempo_real = {
                 'timestamp': datetime.now().isoformat(),
-                'cpu_usage': np.random.uniform(10, 30),
-                'memory_usage': np.random.uniform(40, 60),
-                'network_latency': np.random.uniform(5, 20),
-                'events_processed': np.random.randint(100, 1000),
-                'detection_confidence': np.random.uniform(0.8, 0.99),
+                'cpu_usage': float(np.random.uniform(10, 30)),
+                'memory_usage': float(np.random.uniform(40, 60)),
+                'network_latency': float(np.random.uniform(5, 20)),
+                'events_processed': int(np.random.randint(100, 1000)),
+                'detection_confidence': float(np.random.uniform(0.8, 0.99)),
                 'system_status': self.estado_sistema
             }
             
