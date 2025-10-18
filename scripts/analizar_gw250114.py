@@ -39,7 +39,7 @@ class VerificadorGW250114:
             'GW151226': {'gps': 1135136350.6, 'tipo': 'BBH', 'mass_total': 22},
             'GW170104': {'gps': 1167559936.6, 'tipo': 'BBH', 'mass_total': 50},
             'GW170814': {'gps': 1186741861.5, 'tipo': 'BBH', 'mass_total': 56},
-            'GW170823': {'gps': 1187008882.4, 'tipo': 'BBH', 'mass_total': 40},
+            'GW170823': {'gps': 1187529256.5, 'tipo': 'BBH', 'mass_total': 40},
             'GW170817': {'gps': 1187008882.4, 'tipo': 'BNS', 'mass_total': 2.8}
         }
         self.eventos_similares = []
