@@ -6,6 +6,8 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
 ![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
+[![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
 
@@ -14,6 +16,39 @@
 **Ecuación de Campo:** Ψ = mc² · A_eff²
 
 </div>
+
+---
+
+## 🔄 CI/CD Automatizado y Reproducibilidad
+
+Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza la calidad y reproducibilidad del análisis:
+
+### ✅ Tests Automatizados
+- **Suite de tests completa**: 9 archivos de test con >50 casos de prueba
+- **Ejecución automática**: Cada push/PR ejecuta todos los tests
+- **Validación científica**: Tests de energía cuántica, simetría discreta, análisis bayesiano
+- **Estado actual**: [![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
+
+### 📊 Quality Gates
+- **Linting automático**: Validación de código con flake8
+- **Syntax checking**: Detección de errores de Python
+- **Test coverage**: Cobertura de tests unitarios
+- **Build verification**: Validación de dependencias
+
+### 🚀 Pipeline de CI/CD
+```yaml
+1. Unit Tests     → Ejecuta suite de tests (9 archivos)
+2. Code Quality   → Lint con flake8 (sintaxis y estilo)
+3. Analysis       → Validación científica con datos GWOSC
+```
+
+### 💰 Funding Transparente
+[![Sponsor this project](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
+
+**GitHub Sponsors habilitado explícitamente**. Tu apoyo ayuda a:
+- Mantener el análisis actualizado con nuevos eventos GWTC
+- Mejorar la infraestructura de tests y validación
+- Desarrollar herramientas de análisis open source para la comunidad
 
 ---
 
@@ -998,12 +1033,26 @@ Estas frecuencias pueden **buscarse experimentalmente** en datos LIGO/Virgo como
 
 ## 🤝 Contribuir
 
-Este proyecto sigue un modelo abierto y simbiótico.
+Este proyecto sigue un modelo abierto y simbiótico con **CI/CD automatizado real**.
 
-1. Haz un fork del repo
+📖 **Ver guía completa**: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+### Proceso Rápido
+
+1. Fork el repositorio
 2. Crea una rama (`feature/mi-aporte`)
-3. Haz tu contribución y commit (`git commit -m "Mi aporte"`)
-4. Abre una Pull Request
+3. **Ejecuta tests localmente**: `python scripts/run_all_tests.py`
+4. Haz commit con tests pasando
+5. Abre una Pull Request
+
+### Requisitos de Calidad
+
+- ✅ Todos los tests deben pasar (CI/CD automático)
+- ✅ Sin errores críticos de lint
+- ✅ Código documentado
+- ✅ Tests para nuevo código
+
+**Estado CI/CD**: [![Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
 
 ## 📜 Licencia
 
