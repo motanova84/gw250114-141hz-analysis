@@ -12,10 +12,14 @@ Basado en el problema statement:
 """
 
 import numpy as np
+from typing import TYPE_CHECKING, List, Tuple, Dict, Optional
+import matplotlib.pyplot as plt
+
+if TYPE_CHECKING:
+    import sympy
+
 from sympy import symbols, diff, sin, cos, log, pi, sqrt, exp, simplify, lambdify
 from sympy import Sum, oo, Derivative, solve, series
-from typing import List, Tuple, Dict, Optional
-import matplotlib.pyplot as plt
 
 
 class GrupoSimetriaDiscreta:
