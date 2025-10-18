@@ -87,7 +87,7 @@ class VerificadorGW250114:
         except Exception as e:
             print(f"   ❌ Error accediendo catálogo: {str(e)[:100]}...")
             print("   💡 Posible problema de conectividad o modo offline")
-            self.estado_actual = "NO_DISPONIBLE"
+            self.estado_actual = "ERROR_CONEXION"
             return False
     
     def verificar_eventos_similares(self, offline_mode=False):
