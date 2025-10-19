@@ -887,6 +887,11 @@ La derivación teórica completa desde compactificación Calabi-Yau está docume
 # Validación numérica completa (Sección 5.7f)
 python3 scripts/validacion_numerica_5_7f.py
 
+# Validación de compactificación sobre la quíntica (Sección 5.7f)
+python3 scripts/validacion_compactificacion_quintica.py
+# O usando Make:
+make validacion-quintica
+
 # Verificación teórica extendida (incluye gráficos)
 python3 scripts/verificacion_teorica.py
 ```
@@ -913,6 +918,7 @@ gw250114-141hz-analysis/
 │   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114
 │   ├── verificacion_teorica.py    # NEW: Verificación teórica completa desde CY
 │   ├── validacion_numerica_5_7f.py # NEW: Validación numérica Sección 5.7(f)
+│   ├── validacion_compactificacion_quintica.py # NEW: Validación compactificación quíntica
 │   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
 │   └── pipeline_validacion.py     # NEW: Pipeline completo validación
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
@@ -934,6 +940,7 @@ gw250114-141hz-analysis/
 - **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
 - **`verificacion_teorica.py`**: Verificación completa de predicciones teóricas desde compactificación Calabi-Yau
 - **`validacion_numerica_5_7f.py`**: Validación numérica de la Sección 5.7(f) - jerarquía RΨ y volumen CY
+- **`validacion_compactificacion_quintica.py`**: Validación de compactificación sobre la quíntica en ℂP⁴ (Sección 5.7f)
 - **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
 
