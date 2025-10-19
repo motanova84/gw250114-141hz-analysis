@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -149,6 +149,12 @@ test-rpsi: setup
 	@echo "🔬 Testing R_Ψ symmetry and compactification radius..."
 	@echo "   Validating R_Ψ = 1.687e-35 m and f₀ = 141.7001 Hz relationship"
 	./venv/bin/python scripts/test_rpsi_symmetry.py
+
+# Validate Calabi-Yau compactification (Section 5.7f)
+validacion-quintica: setup
+	@echo "🔬 Validación numérica de compactificación sobre la quíntica en ℂP⁴..."
+	@echo "   Sección 5.7(f): Jerarquía RΨ ≈ 10⁴⁷ y frecuencia f₀ = 141.7001 Hz"
+	./venv/bin/python scripts/validacion_compactificacion_quintica.py
 
 # Multi-event Bayesian analysis
 multievento: setup
