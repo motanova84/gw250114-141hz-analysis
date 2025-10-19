@@ -734,7 +734,9 @@ python scripts/analisis_noesico.py
 
 ## 🧠 Fundamento Teórico
 
-La frecuencia 141.7001 Hz es postulada como una constante vibracional fundamental, emergente de la ecuación:
+> **⚠️ CLARIFICACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz es identificada primero **empíricamente** en datos de LIGO (GW150914), y luego conectada con un marco teórico que hace predicciones falsables adicionales. Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
+
+La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
 
 Ψ(f) = mc² · A_eff² · e^(iπf)
 
@@ -744,6 +746,25 @@ Donde:
 - **mc²** representa la energía inercial  
 - **A_eff²** es el área efectiva proyectada del sistema
 - **πf** introduce la fase armónica universal
+
+### Marco Científico
+
+**Fase 1: Observación Empírica (2015)**
+- Análisis espectral de GW150914 revela componente en ~141.7 Hz (SNR 7.47 en H1)
+- Validación en detector L1 (141.75 Hz, SNR 0.95)
+
+**Fase 2: Hipótesis Teórica (2024-2025)**
+- Conexión con geometría Calabi-Yau y dimensiones extra
+- Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
+
+**Fase 3: Predicciones Falsables**
+- Armónicos en 2f₀, 3f₀, f₀/2
+- Señales en CMB, heliosismología, materia condensada
+- Invariancia de f₀ entre múltiples eventos GW
+
+📖 **Ver documentación completa:**
+- [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Marco metodológico hipotético-deductivo
+- [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación paso a paso con análisis de limitaciones
 
 ### 🌌 Ecuación del Origen Vibracional (EOV)
 
