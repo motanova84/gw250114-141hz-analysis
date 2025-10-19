@@ -21,8 +21,11 @@ try:
     from analisis_noesico import AnalizadorNoesico
 except ImportError:
     print("⚠️  No se pudo importar AnalizadorNoesico")
-    print("   Asegúrate de estar en el directorio scripts/")
-
+    print("   Verifica que el archivo 'analisis_noesico.py' existe en el directorio 'scripts/'.")
+    analisis_path = Path(__file__).parent / "analisis_noesico.py"
+    if not analisis_path.exists():
+        print(f"   Archivo no encontrado: {analisis_path}")
+    print("   Asegúrate de estar en el directorio scripts/ y que el archivo no esté renombrado o movido.")
 # Importar módulo EOV
 try:
     from ecuacion_origen_vibracional import (
