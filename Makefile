@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -64,6 +64,7 @@ help:
 	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
+	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -226,6 +227,14 @@ demo-pycbc: setup
 		echo "⚠️  venv sin matplotlib, usando Python del sistema"; \
 		python3 scripts/demo_pycbc_analysis.py; \
 	fi
+
+# Generate coherence multi-scale visualization
+coherencia-escalas: setup
+	@echo "🌈 Generando visualización de coherencia multi-escala..."
+	@echo "   f₀ = 141.7001 Hz a través de escalas Planck, LIGO y CMB"
+	@mkdir -p results/figures
+	./venv/bin/python scripts/generar_coherencia_escalas.py
+	@echo "✅ Visualización guardada en coherence_f0_scales.png"
 
 # Docker support
 docker:

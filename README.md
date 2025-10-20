@@ -19,6 +19,25 @@
 
 ---
 
+## 🌈 Visualización de Coherencia Multi-escala
+
+La frecuencia fundamental **f₀ = 141.7001 Hz** exhibe coherencia a través de múltiples escalas del universo, desde la escala de Planck hasta estructuras cosmológicas:
+
+<div align="center">
+
+![Coherencia f₀ en Distintas Escalas](coherence_f0_scales.png)
+
+**Figura:** Visualización de la coherencia de f₀ a través de escalas Planck (cuántica), LIGO (gravitacional) y CMB (cosmológica). Las líneas verticales discontinuas marcan la frecuencia objetivo en cada dominio.
+
+</div>
+
+```bash
+# Regenerar visualización
+python scripts/generar_coherencia_escalas.py
+```
+
+---
+
 ## 🔄 CI/CD Automatizado y Reproducibilidad
 
 Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza la calidad y reproducibilidad del análisis:
