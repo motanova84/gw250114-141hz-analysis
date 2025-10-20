@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -63,6 +63,7 @@ help:
 	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
 	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
+	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -214,6 +215,17 @@ pycbc-analysis: setup
 test-pycbc: setup
 	@echo "🧪 Testing script de análisis PyCBC..."
 	./venv/bin/python scripts/test_analizar_gw150914_pycbc.py
+
+# Run PyCBC demo with simulated data
+demo-pycbc: setup
+	@echo "🎬 Ejecutando demostración de análisis PyCBC con datos simulados..."
+	@mkdir -p results/figures
+	@if ./venv/bin/python -c "import matplotlib" 2>/dev/null; then \
+		./venv/bin/python scripts/demo_pycbc_analysis.py; \
+	else \
+		echo "⚠️  venv sin matplotlib, usando Python del sistema"; \
+		python3 scripts/demo_pycbc_analysis.py; \
+	fi
 
 # Docker support
 docker:
