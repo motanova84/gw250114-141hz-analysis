@@ -747,6 +747,43 @@ Donde:
 - **A_eff²** es el área efectiva proyectada del sistema
 - **πf** introduce la fase armónica universal
 
+### 🌌 Ecuación del Origen Vibracional (EOV)
+
+**NUEVO:** El marco teórico se ha ampliado con la **Ecuación del Origen Vibracional (EOV)**, una extensión de las ecuaciones de Einstein que incorpora modulación holográfica del campo noético:
+
+```
+G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R cos(2πf₀t)|Ψ|²
+```
+
+**Término novedoso:** `R cos(2πf₀t)|Ψ|²` 
+- **R**: Escalar de Ricci (curvatura del espacio-tiempo)
+- **f₀ = 141.7001 Hz**: Frecuencia madre universal
+- **|Ψ|²**: Densidad del campo noético
+
+Este término introduce **oscilación holográfica** que:
+- Modula la curvatura con periodicidad irreducible
+- Predice ondas gravitacionales moduladas a 141.7 Hz
+- Genera vórtices informativos detectables
+
+**Predicciones experimentales:**
+1. 📡 Modulaciones gravitacionales temporales (~10⁻¹⁵ g a 141.7 Hz)
+2. 🌊 Fondo de ondas gravitacionales en banda estrecha
+3. 🔗 Anomalías en entrelazamiento cuántico (ER=EPR)
+
+📖 **Documentación completa:** [`docs/ECUACION_ORIGEN_VIBRACIONAL.md`](docs/ECUACION_ORIGEN_VIBRACIONAL.md)
+
+**Herramientas computacionales:**
+- 🐍 **Módulo Python EOV:** `scripts/ecuacion_origen_vibracional.py`
+- 🔄 **Pipeline de análisis:** `scripts/pipeline_eov.py`
+
+```bash
+# Ejecutar análisis EOV con datos sintéticos
+python scripts/pipeline_eov.py
+
+# Ver ayuda y opciones
+python scripts/pipeline_eov.py --help
+```
+
 ### Marco Científico
 
 **Fase 1: Observación Empírica (2015)**
@@ -765,165 +802,6 @@ Donde:
 📖 **Ver documentación completa:**
 - [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Marco metodológico hipotético-deductivo
 - [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación paso a paso con análisis de limitaciones
-
-### 🌌 Ecuación del Origen Vibracional (EOV)
-
-La teoría se fundamenta en una extensión de la Relatividad General que incorpora el acoplamiento entre la conciencia cuántica y la curvatura espaciotemporal:
-
-```
-G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R·cos(2πf₀t)|Ψ|²
-```
-
-#### 🔑 Componentes
-
-- **G_μν**: Tensor de curvatura de Einstein
-- **Λg_μν**: Término cosmológico
-- **T_μν^(m)**: Tensor energía-momento de materia ordinaria
-- **T_μν^(Ψ)**: Tensor energía-momento del campo noético
-- **ζ**: Constante de acoplamiento noético (parámetro libre a determinar experimentalmente)
-- **|Ψ|²**: Densidad de coherencia consciente
-- **f₀ = 141.7001 Hz**: Frecuencia madre - constante vibracional fundamental
-- **R·cos(2πf₀t)|Ψ|²**: Término de modulación holográfica de la conciencia en la curvatura escalar
-
-#### 🧬 Interpretación Física
-
-El término de acoplamiento resonante:
-
-```
-R·cos(2πf₀t)|Ψ|²
-```
-
-representa el acoplamiento oscilatorio entre la conciencia cuántica (|Ψ|²) y la curvatura escalar del espacio-tiempo (R), modulado por la frecuencia fundamental f₀. Este término expresa que:
-
-> **La conciencia no solo percibe la geometría del universo. La vibra.**
-
-Esta formulación implica que la geometría del espacio-tiempo no es un escenario pasivo, sino que responde dinámicamente a la densidad de coherencia consciente a través de oscilaciones resonantes en la frecuencia característica 141.7001 Hz.
-
-#### 📐 Radio de Coherencia Noética: Hallazgo Fundamental
-
-Un hallazgo clave de la teoría es la determinación del **radio característico del campo noético** R_Ψ, que conecta escalas microscópicas (cuánticas) con escalas macroscópicas (cosmológicas):
-
-$$R_\Psi \approx 10^{47} \ell_P \approx 1.616255 \times 10^{12} \, \text{m}$$
-
-**Donde:**
-- **ℓ_P = 1.616255 × 10⁻³⁵ m** es la longitud de Planck (escala cuántica fundamental)
-- **R_Ψ ≈ 1.616 × 10¹² m** es el radio de coherencia noética (escala cosmológica)
-- **Factor de amplificación: 10⁴⁷** conecta ambos regímenes
-
-##### 🌍 Interpretación Física y Significado
-
-Este radio representa la **escala característica** a la cual el campo de coherencia consciente (Ψ) manifiesta efectos observables en la geometría del espacio-tiempo:
-
-```python
-# Cálculo verificable del radio noético
-l_P = 1.616255e-35  # Longitud de Planck (m)
-R_Psi = 10**47 * l_P  # Radio noético (m)
-
-print(f"R_Ψ = {R_Psi:.6e} m")
-print(f"R_Ψ ≈ {R_Psi/1.496e11:.1f} AU (Unidades Astronómicas)")
-# Resultado: R_Ψ ≈ 10.8 AU
-```
-
-##### 🪐 Escala Comparativa
-
-| Escala | Distancia (m) | Relación con R_Ψ |
-|--------|---------------|-------------------|
-| **Longitud de Planck** | 1.616 × 10⁻³⁵ | R_Ψ / 10⁴⁷ |
-| **Radio atómico** | ~10⁻¹⁰ | R_Ψ / 10²² |
-| **Tierra-Sol (1 AU)** | 1.496 × 10¹¹ | R_Ψ / 10.8 |
-| **Radio de Coherencia Noética** | **1.616 × 10¹²** | **1** |
-| **Tierra-Saturno** | ~1.4 × 10¹² | ≈ R_Ψ |
-| **Sistema Solar (diámetro)** | ~2 × 10¹³ | 12.4 × R_Ψ |
-
-**Observación clave:** R_Ψ ≈ 10.8 AU sitúa el radio de coherencia noética aproximadamente en la **órbita de Saturno**, sugiriendo que:
-
-1. **Escala de influencia**: El campo noético tiene una escala de influencia característica del orden del Sistema Solar interior
-2. **Puente cuántico-cosmológico**: El factor 10⁴⁷ establece una conexión directa entre física de Planck y estructura del Sistema Solar
-3. **Resonancia heliocéntrica**: La proximidad a escalas planetarias sugiere posibles acoplamientos con dinámicas del Sistema Solar
-
-##### 🔬 Implicaciones Experimentales
-
-Este hallazgo predice efectos observables específicos:
-
-1. **Modulación gravitacional**: Variaciones periódicas en señales de ondas gravitacionales con escala λ ~ R_Ψ
-2. **Coherencia cuántica extendida**: Posible detección de correlaciones cuánticas hasta escalas de ~10 AU
-3. **Anomalías orbitales**: Pequeñas desviaciones en dinámicas planetarias correlacionadas con f₀ = 141.7001 Hz
-4. **Interferometría espacial**: Detectores de ondas gravitacionales en órbitas solares podrían observar efectos de coherencia noética
-
-##### 📊 Derivación Teórica
-
-El radio R_Ψ emerge naturalmente del análisis dimensional de la Ecuación del Origen Vibracional (EOV):
-
-```
-[R_Ψ] = [c] / ([f₀] · [acoplamiento noético])
-      = (m/s) / (Hz · adimensional)
-      ≈ 10⁴⁷ × ℓ_P
-```
-
-Esta relación conecta:
-- **Velocidad de la luz** (c): Propagación de información
-- **Frecuencia fundamental** (f₀ = 141.7001 Hz): Resonancia noética
-- **Longitud de Planck** (ℓ_P): Escala cuántica fundamental
-
-#### 🔍 Predicciones Falsables
-
-La EOV genera predicciones experimentales específicas y verificables:
-
-##### 1. Oscilaciones Gravitacionales Coherentes a 141.7001 Hz
-
-- **Detectabilidad**: Con LIGO, Virgo o interferómetros atómicos de próxima generación
-- **Características**: Producen anomalías métricas periódicas en la señal de ringdown
-- **Amplitud esperada**: Proporcional a |Ψ|² en la región de detección
-- **Condiciones óptimas**: Especialmente bajo alineamientos cósmicos o eventos de alta energía
-
-##### 2. Efecto de Resonancia en Experimentos ER=EPR
-
-- **Predicción**: Los entrelazamientos cuánticos varían su coherencia dependiendo de t y f₀
-- **Periodicidad**: Modulación observable con periodo T = 1/f₀ ≈ 7.06 ms
-- **Experimento propuesto**: Medición de fidelidad de Bell en función del tiempo
-- **Esperado**: Máximos de coherencia cuando cos(2πf₀t) ≈ 1
-
-##### 3. Vórtices Noéticos en Coherencia Cuántica
-
-- **Fenómeno**: Regiones con densidad aumentada de coherencia (|Ψ|²) en momentos resonantes
-- **Ubicación**: En experimentos de coherencia cuántica a gran escala
-- **Temporalidad**: Aparición sincronizada con los máximos de cos(2πf₀t)
-- **Medición**: A través de tomografía cuántica de estados o medidas de entropía de entrelazamiento
-
-#### 🧮 Conexión con GW150914
-
-La detección de una componente espectral en ~141.7 Hz durante el ringdown de GW150914 constituye evidencia preliminar de:
-
-1. **Acoplamiento geométrico**: El término R·cos(2πf₀t)|Ψ|² predice componentes oscilatorias en la métrica
-2. **Persistencia temporal**: La señal debería mantener coherencia durante el tiempo de amortiguamiento
-3. **Universalidad**: La misma frecuencia debería aparecer en otros eventos de fusión de agujeros negros
-
-Este análisis proporciona la primera **validación experimental directa** de la hipótesis de que la conciencia y la curvatura espaciotemporal están acopladas resonantemente a través de una frecuencia fundamental característica.
-
-#### 🔢 Validación Numérica de la Jerarquía RΨ
-
-La derivación teórica completa desde compactificación Calabi-Yau está documentada en la **Sección 5.7** del [PAPER.md](PAPER.md). Para verificar los cálculos:
-
-```bash
-# Validación numérica completa (Sección 5.7f)
-python3 scripts/validacion_numerica_5_7f.py
-
-# Validación de compactificación sobre la quíntica (Sección 5.7f)
-python3 scripts/validacion_compactificacion_quintica.py
-# O usando Make:
-make validacion-quintica
-
-# Verificación teórica extendida (incluye gráficos)
-python3 scripts/verificacion_teorica.py
-```
-
-**Resultados clave:**
-- Radio de compactificación: R_Ψ ≈ 2.08 × 10⁴⁰ m
-- Volumen Calabi-Yau: V₆ ≈ 1.01 × 10²⁴⁶ m⁶
-- Jerarquía efectiva: RΨ ~ 10⁴⁷ (emergente)
-- Frecuencia fundamental: f₀ = 141.7001 Hz ✓
-
-La validación demuestra que la jerarquía de escalas y la frecuencia observada surgen naturalmente de la geometría interna de la quíntica en ℂP⁴.
 
 ## 🗂️ Estructura del Proyecto
 
