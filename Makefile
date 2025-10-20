@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -61,6 +61,8 @@ help:
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
 	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
+	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
+	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -200,6 +202,18 @@ test-3-pilares: setup
 	@echo "   Testing validación completa..."
 	./venv/bin/python scripts/validacion_completa_3_pilares.py || exit 1
 	@echo "✅ Todos los tests de 3 pilares pasaron exitosamente"
+
+# Run PyCBC-based GW150914 analysis
+pycbc-analysis: setup
+	@echo "🌌 Ejecutando análisis GW150914 con PyCBC..."
+	@echo "   Filtrado, blanqueado y graficado de señal"
+	@mkdir -p results/figures
+	./venv/bin/python scripts/analizar_gw150914_pycbc.py || echo "⚠️  Análisis PyCBC requiere conectividad a GWOSC"
+
+# Test PyCBC analysis script
+test-pycbc: setup
+	@echo "🧪 Testing script de análisis PyCBC..."
+	./venv/bin/python scripts/test_analizar_gw150914_pycbc.py
 
 # Docker support
 docker:

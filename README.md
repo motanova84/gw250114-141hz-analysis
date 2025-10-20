@@ -753,6 +753,34 @@ python scripts/validar_gw150914.py
 python scripts/analizar_gw250114.py
 ```
 
+### 🌌 Análisis con PyCBC (NUEVO)
+
+**Implementación del código especificado en el problem statement:**
+
+```bash
+# Instalar PyCBC (si no está instalado)
+pip install pycbc>=2.0.0
+
+# Ejecutar análisis de GW150914 con PyCBC
+make pycbc-analysis
+# O directamente:
+python scripts/analizar_gw150914_pycbc.py
+
+# Ejecutar tests
+make test-pycbc
+```
+
+**Características:**
+- ✅ Carga automática de datos de GW150914 desde GWOSC
+- ✅ Filtrado pasa-alto (15 Hz) y pasa-bajo (300 Hz)
+- ✅ Cálculo de PSD con método de Welch
+- ✅ Blanqueado (whitening) de la señal
+- ✅ Suavizado en banda 35-300 Hz
+- ✅ Corrección de fase para detector L1
+- ✅ Visualización de ambos detectores (H1 y L1)
+
+📖 **Documentación completa**: Ver [scripts/README_PYCBC_ANALYSIS.md](scripts/README_PYCBC_ANALYSIS.md)
+
 ### 🔄 Método Original (Compatibilidad)
 
 ```bash
