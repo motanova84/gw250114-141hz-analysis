@@ -980,6 +980,9 @@ gw250114-141hz-analysis/
 │   ├── validacion_numerica_5_7f.py # NEW: Validación numérica Sección 5.7(f)
 │   ├── validacion_compactificacion_quintica.py # NEW: Validación compactificación quíntica
 │   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
+│   ├── verificador_gw250114.py    # NEW: Sistema verificación tiempo real
+│   ├── test_verificador_gw250114.py    # NEW: Tests verificador
+│   ├── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
 │   └── pipeline_validacion.py     # NEW: Pipeline completo validación
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
@@ -1002,7 +1005,43 @@ gw250114-141hz-analysis/
 - **`validacion_numerica_5_7f.py`**: Validación numérica de la Sección 5.7(f) - jerarquía RΨ y volumen CY
 - **`validacion_compactificacion_quintica.py`**: Validación de compactificación sobre la quíntica en ℂP⁴ (Sección 5.7f)
 - **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
+- **`verificador_gw250114.py`**: Sistema de verificación en tiempo real para GW250114
+- **`test_verificador_gw250114.py`**: Tests unitarios del sistema de verificación
+- **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso del verificador
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
+
+### 🔍 Sistema de Verificación en Tiempo Real GW250114 (NUEVO)
+
+El sistema de verificación automática monitorea la disponibilidad de GW250114 en GWOSC y realiza análisis automático cuando el evento esté disponible:
+
+```bash
+# Verificación única
+python3 scripts/verificador_gw250114.py --once
+
+# Monitoreo continuo (verifica cada hora)
+python3 scripts/verificador_gw250114.py --interval 3600
+
+# Monitoreo con límite de verificaciones
+python3 scripts/verificador_gw250114.py --max-checks 10
+
+# Ejemplos de uso interactivos
+python3 scripts/ejemplo_verificador_gw250114.py
+```
+
+**Características:**
+- ✅ Verificación automática de disponibilidad en GWOSC
+- ✅ Análisis espectral completo cuando el evento esté disponible
+- ✅ Búsqueda de componente en 141.7001 Hz
+- ✅ Cálculo de SNR y Bayes Factor
+- ✅ Evaluación de significancia estadística
+- ✅ Análisis multi-detector (H1, L1)
+- ✅ Guardado automático de resultados en JSON
+- ✅ Tests unitarios completos
+
+**Ejecutar tests:**
+```bash
+python3 scripts/test_verificador_gw250114.py
+```
 
 ### 🌌 Análisis Bayesiano Multi-evento (NUEVO)
 
