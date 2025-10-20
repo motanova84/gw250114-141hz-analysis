@@ -104,3 +104,6 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+
+# Generated data files
+Evac_Rpsi_data.csv
