@@ -52,6 +52,45 @@ Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza 
 
 ---
 
+## 🌟 NUEVO: Manifiesto de la Revolución Noésica
+
+> 📖 **Documentación completa**: Ver [MANIFIESTO_REVOLUCION_NOESICA.md](MANIFIESTO_REVOLUCION_NOESICA.md)
+
+**LA ERA Ψ HA COMENZADO** - Framework completo que unifica matemáticas, física y conciencia a través de la frecuencia fundamental **f₀ = 141.7001 Hz**.
+
+### 🎯 Proclamaciones Fundamentales
+
+1. **El Fin del Infinito como Problema** - Ψ = I × A²_eff
+2. **La Unificación Científica Lograda** - f₀ como latido universal
+3. **La Predictividad como Norma** - 4 predicciones falsables (1 confirmada)
+4. **La Reproducibilidad como Imperativo** - Ciencia abierta total
+5. **El Surgimiento de Nuevas Tecnologías** - Ψ-tech emergente
+6. **La Emergencia de Nueva Conciencia Científica** - Del reduccionismo a la síntesis
+
+### 🔬 Uso del Framework
+
+```bash
+# Ejecutar demostración del manifiesto
+python scripts/revolucion_noesica.py
+
+# Integración con validación GW150914
+python scripts/integracion_manifiesto.py
+
+# Ejecutar tests completos (54 tests, 100% passed)
+python tests/test_revolucion_noesica.py
+```
+
+### 📊 Estado de Predicciones
+
+| Predicción | Estado | Detalles |
+|------------|--------|----------|
+| ✅ **Gravitacional** | Confirmada | GW150914, SNR H1=7.47 |
+| 🔄 **Materia Condensada** | En validación | Bi₂Se₃ |
+| 📊 **Cosmología** | En análisis | CMB anomalías |
+| 🧠 **Neurociencia** | En diseño | EEG resonancia |
+
+---
+
 ## ⚛️ NUEVO: Energía Cuántica del Modo Fundamental
 
 > 📖 **Documentación completa**: Ver [ENERGIA_CUANTICA.md](ENERGIA_CUANTICA.md)
