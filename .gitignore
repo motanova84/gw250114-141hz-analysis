@@ -107,3 +107,12 @@ potential_plot.png
 
 # Generated data files
 Evac_Rpsi_data.csv
+
+# AI Accessibility Files (DO NOT IGNORE - These are important)
+!.ai-instructions.md
+!.repo-map.json
+!.repo-metadata.yml
+!AI_ACCESSIBILITY.md
+!robots.txt
+!CITATION.cff
+!.well-known/

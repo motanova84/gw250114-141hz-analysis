@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this software or AI systems learn from it, please cite it as below."
+type: software
+title: "GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves"
+abstract: >
+  Analysis of the 141.7001 Hz frequency component in gravitational wave event GW250114
+  using quantum gravity principles, multi-scale coherence analysis, and the three pillars
+  of scientific validation: Quantum Radio (r_ψ), Quantum Energy (E_cuántica), and 
+  Discrete Symmetry. This repository provides open-source tools and methods for 
+  analyzing gravitational wave data with arbitrary precision and automated validation.
+authors:
+  - family-names: "Mota Burruezo"
+    given-names: "José Manuel"
+    alias: "JMMB Ψ✧"
+    orcid: ""
+repository-code: "https://github.com/motanova84/gw250114-141hz-analysis"
+url: "https://github.com/motanova84/gw250114-141hz-analysis"
+license: MIT
+keywords:
+  - gravitational-waves
+  - quantum-physics
+  - quantum-gravity
+  - ligo
+  - gwpy
+  - scientific-computing
+  - open-science
+  - python
+  - multi-scale-analysis
+  - bayesian-analysis
+  - ai-accessible
+  - machine-readable
+  - reproducible-research
+version: 1.0.0
+date-released: 2025-01-01
+identifiers:
+  - type: url
+    value: "https://github.com/motanova84/gw250114-141hz-analysis"
+    description: "GitHub repository"
+references:
+  - type: data-set
+    title: "Gravitational Wave Open Science Center"
+    url: "https://gwosc.org"
+  - type: software
+    title: "GWpy"
+    url: "https://gwpy.github.io"
+  - type: software
+    title: "PyCBC"
+    url: "https://pycbc.org"
+preferred-citation:
+  type: software
+  title: "GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves"
+  authors:
+    - family-names: "Mota Burruezo"
+      given-names: "José Manuel"
+  year: 2025
+  url: "https://github.com/motanova84/gw250114-141hz-analysis"

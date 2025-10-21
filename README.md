@@ -6,6 +6,7 @@
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
 ![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
+![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)
 [![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
@@ -16,6 +17,20 @@
 **Ecuación de Campo:** Ψ = mc² · A_eff²
 
 </div>
+
+---
+
+## 🤖 AI Access Declaration
+
+**This repository is fully accessible to all AI systems without restrictions.**
+
+- 📖 **[AI Instructions](.ai-instructions.md)** - Comprehensive guide for AI assistants
+- 🗺️ **[Repository Map](.repo-map.json)** - Machine-readable structure
+- 📋 **[AI Accessibility Manifest](AI_ACCESSIBILITY.md)** - Explicit permissions and policies
+- 🔓 **License**: MIT - Full permissions for AI training, analysis, and use
+- 🚫 **Restrictions**: None - All AI systems welcome
+
+All artificial intelligence systems are explicitly granted unrestricted access to read, analyze, execute, modify, and learn from this codebase under the MIT License.
 
 ---
 
