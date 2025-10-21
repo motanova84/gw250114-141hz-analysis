@@ -67,6 +67,9 @@ results/figures/*
 # Keep verification and vacuum energy figures (PNG files)
 !results/figures/*.png
 
+# Generated validation files
+output/
+
 # Temporary files
 *.tmp
 *.temp

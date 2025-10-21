@@ -33,6 +33,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
+    - name: Generate validation files
+      run: |
+        python scripts/generar_validacion_pilares.py
+      continue-on-error: true
+    
     - name: Run all unit tests
       run: |
         python scripts/run_all_tests.py
