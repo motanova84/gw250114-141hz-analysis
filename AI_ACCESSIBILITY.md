@@ -235,9 +235,9 @@ pytest  # if configured
    - GWpy: https://gwpy.github.io
 
 3. **Quantum Physics Basics**
-   - Planck scale
-   - Energy quantization
-   - Wave-particle duality
+   - Planck scale: https://en.wikipedia.org/wiki/Planck_scale
+   - Energy quantization: https://en.wikipedia.org/wiki/Quantization_(physics)
+   - Wave-particle duality: https://en.wikipedia.org/wiki/Wave%E2%80%93particle_duality
 
 ### For Contributing
 1. **Git/GitHub**
