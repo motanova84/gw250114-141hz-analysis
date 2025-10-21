@@ -13,6 +13,19 @@ import json
 from pathlib import Path
 
 
+def _guardar_resultados(nombre_archivo: str, datos: dict) -> Path:
+    """Guardar resultados JSON en ``results/`` creando directorios si es necesario."""
+
+    output_dir = Path('results')
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = output_dir / nombre_archivo
+    with output_file.open('w', encoding='utf-8') as handler:
+        json.dump(datos, handler, indent=2, ensure_ascii=False)
+
+    return output_file
+
+
 def criterios_falsacion():
     """
     Define criterios explícitos de falsación científica.
@@ -90,22 +103,16 @@ def criterios_falsacion():
     print(f"   Verificación: {resultado_falsabilidad['verificacion']}")
     print()
     
+    _guardar_resultados('criterios_falsacion.json', resultado_falsabilidad)
+
     return resultado_falsabilidad
 
 
 if __name__ == '__main__':
     try:
         resultados = criterios_falsacion()
-        
-        # Guardar resultados
-        output_dir = Path('results')
-        output_dir.mkdir(exist_ok=True)
-        
-        output_file = output_dir / 'criterios_falsacion.json'
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, indent=2, ensure_ascii=False)
-        
-        print(f"📊 Resultados guardados en: {output_file}")
+
+        print("📊 Resultados guardados en: results/criterios_falsacion.json")
         print()
         sys.exit(0)
         

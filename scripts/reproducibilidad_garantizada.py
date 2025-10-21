@@ -15,6 +15,19 @@ import json
 from pathlib import Path
 
 
+def _guardar_resultados(nombre_archivo: str, datos: dict) -> Path:
+    """Guardar resultados en ``results/`` asegurando la existencia del directorio."""
+
+    output_dir = Path('results')
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = output_dir / nombre_archivo
+    with output_file.open('w', encoding='utf-8') as handler:
+        json.dump(datos, handler, indent=2, ensure_ascii=False)
+
+    return output_file
+
+
 def garantizar_reproducibilidad():
     """
     Implementa garantías de reproducibilidad completa.
@@ -80,22 +93,16 @@ def garantizar_reproducibilidad():
     print(f"Estado: {resultados_reproducibilidad['estado']}")
     print()
     
+    _guardar_resultados('validacion_reproducibilidad.json', resultados_reproducibilidad)
+
     return resultados_reproducibilidad
 
 
 if __name__ == '__main__':
     try:
         resultados = garantizar_reproducibilidad()
-        
-        # Guardar resultados
-        output_dir = Path('results')
-        output_dir.mkdir(exist_ok=True)
-        
-        output_file = output_dir / 'validacion_reproducibilidad.json'
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, indent=2, ensure_ascii=False)
-        
-        print(f"📊 Resultados guardados en: {output_file}")
+
+        print("📊 Resultados guardados en: results/validacion_reproducibilidad.json")
         print()
         sys.exit(0)
         
