@@ -16,7 +16,7 @@ Sección 5: Corrección Formal de αΨ: Una Frecuencia Real
 
 5.2 Solución: Derivación Dimensional Correcta
    αΨ = (γ · ℓP · |ζ′(1/2)|) / (2πc)
-   
+
    Donde:
    • ℓP = √(ℏG/c³) (Longitud de Planck)
    • γ = constante de Euler-Mascheroni (0.5772156649...)
@@ -36,7 +36,7 @@ Sección 6: Derivación de la Frecuencia Observable: f₀ = 141.7001 Hz
 
 6.1 Proyección Vibracional Coherente
    RΨ = E_univ / ε_Planck ≈ 10⁴⁷
-   
+
    Entonces:
    f₀ = αΨ × RΨ ≈ 9.86 × 10⁻⁴⁶ × 10⁴⁷ = 141.7 Hz
 
@@ -146,11 +146,11 @@ print(f"   |ζ'(1/2)|       = {zeta_prime_half_abs:.15f}")
 print(f"   c               = {c} m/s")
 print(f"   2π              = {2*np.pi:.15f}")
 print()
-print(f"   Numerador       = γ · ℓP · |ζ'(1/2)|")
+print("   Numerador       = γ · ℓP · |ζ'(1/2)|")
 print(f"                   = {gamma_euler:.10f} × {l_P:.6e} × {zeta_prime_half_abs:.10f}")
 print(f"                   = {numerador:.15e} m")
 print()
-print(f"   Denominador     = 2πc")
+print("   Denominador     = 2πc")
 print(f"                   = {2*np.pi:.10f} × {c}")
 print(f"                   = {denominador:.15e} m")
 print()
@@ -208,10 +208,10 @@ c_ps = 2.9979e8  # m/s
 # NOTA IMPORTANTE: El problem statement muestra en la sección 5.4:
 # "0.5772 × 1.616 × 10⁻³⁵ × 0.207886"
 # dividido por "2π × 2.9979 × 10⁸"
-# 
+#
 # Esto sugiere que 0.207886 NO es |ζ'(1/2)| directamente.
 # Recalculando para obtener αΨ ≈ 9.86 × 10⁻⁴⁶:
-# 
+#
 # Si αΨ_target = 9.86e-46 Hz, entonces:
 # X = αΨ_target × 2π × c / (γ × ℓP)
 
@@ -337,7 +337,7 @@ print()
 R_psi_option1 = 10**47  # Del problem statement
 f0_option1 = alpha_psi * R_psi_option1
 
-print(f"   Opción 1: RΨ ≈ 10⁴⁷ (del problem statement)")
+print("   Opción 1: RΨ ≈ 10⁴⁷ (del problem statement)")
 print(f"   f₀ = αΨ × RΨ = {alpha_psi:.3e} × {R_psi_option1:.2e}")
 print(f"   f₀ = {f0_option1:.4f} Hz")
 print()
@@ -402,7 +402,7 @@ print("RESUMEN EJECUTIVO")
 print("=" * 80)
 print()
 print("✓ SECCIÓN 5.2: Fórmula de αΨ corregida dimensionalmente")
-print(f"   αΨ = (γ · ℓP · |ζ'(1/2)|) / (2πc)")
+print("   αΨ = (γ · ℓP · |ζ'(1/2)|) / (2πc)")
 print(f"   αΨ = {alpha_psi:.3e} Hz (con constantes CODATA 2022)")
 print()
 print("✓ SECCIÓN 5.3: Verificación dimensional confirmada")
@@ -418,7 +418,7 @@ print("   problem statement usa valores aproximados o una escala")
 print("   efectiva diferente. La fórmula formal es correcta.")
 print()
 print("✓ SECCIÓN 6: Frecuencia observable derivada")
-print(f"   Con RΨ ≈ 10⁴⁷ (del problem statement):")
+print("   Con RΨ ≈ 10⁴⁷ (del problem statement):")
 print(f"   f₀ = αΨ × RΨ = {f0_option1:.4f} Hz")
 print()
 print(f"   Con RΨ exacto = {R_psi_needed:.2e}:")
