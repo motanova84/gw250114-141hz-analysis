@@ -2,11 +2,11 @@
 
 <div align="center">
 
-![GitHub](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)
-![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
-![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
-![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)
+[![License: MIT](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)](https://github.com/motanova84/gw250114-141hz-analysis/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)](https://gwpy.github.io/)
+[![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
+[![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](AI_ACCESSIBILITY.md)
 [![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
