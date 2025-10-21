@@ -15,3 +15,8 @@ pytest>=7.0.0
 pytest-cov>=4.0.0
 flake8>=6.0.0
 pycbc>=2.0.0
+# Performance and optimization packages
+numba>=0.56.0
+llvmlite>=0.39.0
+python-igraph>=0.10.0
+numexpr>=2.8.0
