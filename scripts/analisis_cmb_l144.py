@@ -78,7 +78,7 @@ class AnalisisCMB:
         
         print(f"📊 RESULTADOS CMB:")
         print(f"   • l del pico: {resultados.get('l_pico') if resultados.get('l_pico') is not None else 'N/A'}")
-        print(f"   • Diferencia: {resultados.get('diferencia_l', 'N/A'):.2f}")
+        print(f"   • Diferencia: {resultados['diferencia_l']:.2f}" if 'diferencia_l' in resultados and resultados['diferencia_l'] is not None else "   • Diferencia: N/A")
         print(f"   • Anomalía en l=144: {'✅ DETECTADA' if resultados.get('significativo') else '❌ NO DETECTADA'}")
         
         return resultados
