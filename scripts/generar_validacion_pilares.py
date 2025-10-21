@@ -8,12 +8,12 @@ creándolos con contenido mínimo válido si no existen.
 
 from pathlib import Path
 import json
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 OUTPUT_DIR = Path("output")
 
 
-def generar_archivo_si_no_existe(nombre: str, contenido: Dict[str, Any] | None = None) -> Path:
+def generar_archivo_si_no_existe(nombre: str, contenido: Optional[Dict[str, Any]] = None) -> Path:
     """
     Crea OUTPUT_DIR/nombre si no existe.
     Devuelve la Path creada/usada.
