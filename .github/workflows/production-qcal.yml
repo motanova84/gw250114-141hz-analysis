@@ -18,6 +18,16 @@ jobs:
         with:
           python-version: '3.11'
       
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libigraph-dev \
+            libigraph3t64 \
+            llvm-dev \
+            build-essential \
+            gfortran
+      
       - name: Cache pip dependencies
         uses: actions/cache@v3
         with:
@@ -30,14 +40,23 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+        env:
+          NUMEXPR_MAX_THREADS: 4
+          NUMEXPR_NUM_THREADS: 2
 
       - name: Validate core with precision
         run: python3 validate_v5_coronacion.py --precision 30
         continue-on-error: false
+        env:
+          NUMEXPR_MAX_THREADS: 4
+          NUMEXPR_NUM_THREADS: 2
 
       - name: Aggregate results
         run: python3 scripts/aggregate_results.py
         continue-on-error: true
+        env:
+          NUMEXPR_MAX_THREADS: 4
+          NUMEXPR_NUM_THREADS: 2
 
       - name: Publish dataset to Hugging Face
         if: success() && github.event_name == 'schedule'
