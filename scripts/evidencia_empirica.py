@@ -11,6 +11,19 @@ import json
 from pathlib import Path
 
 
+def _guardar_resultados(nombre_archivo: str, datos: dict) -> Path:
+    """Guardar resultados en ``results/`` asegurando la existencia del directorio."""
+
+    output_dir = Path('results')
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = output_dir / nombre_archivo
+    with output_file.open('w', encoding='utf-8') as handler:
+        json.dump(datos, handler, indent=2, ensure_ascii=False)
+
+    return output_file
+
+
 def resultados_gw150914():
     """
     Presenta evidencia empírica concreta del análisis GW150914.
@@ -130,22 +143,16 @@ def resultados_gw150914():
     print(f"Estado Final: {resultado_completo['estado_validacion']}")
     print()
     
+    _guardar_resultados('evidencia_empirica_gw150914.json', resultado_completo)
+
     return resultado_completo
 
 
 if __name__ == '__main__':
     try:
         resultados = resultados_gw150914()
-        
-        # Guardar resultados
-        output_dir = Path('results')
-        output_dir.mkdir(exist_ok=True)
-        
-        output_file = output_dir / 'evidencia_empirica_gw150914.json'
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, indent=2, ensure_ascii=False)
-        
-        print(f"📊 Resultados guardados en: {output_file}")
+
+        print("📊 Resultados guardados en: results/evidencia_empirica_gw150914.json")
         print()
         sys.exit(0)
         
