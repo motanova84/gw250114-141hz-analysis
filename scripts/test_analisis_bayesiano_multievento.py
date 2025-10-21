@@ -150,8 +150,12 @@ def main():
     
     for test_name, test_func in tests:
         try:
-            test_func()
-            passed += 1
+            result = test_func()
+            if result is False:
+                print(f"❌ Test {test_name} falló (retornó False)")
+                failed += 1
+            else:
+                passed += 1
         except Exception as e:
             print(f"❌ Test {test_name} falló con excepción: {e}")
             failed += 1
