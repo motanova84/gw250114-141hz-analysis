@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250914 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas dashboard dashboard-status workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -65,6 +65,8 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
+	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -235,6 +237,19 @@ coherencia-escalas: setup
 	@mkdir -p results/figures
 	./venv/bin/python scripts/generar_coherencia_escalas.py
 	@echo "✅ Visualización guardada en coherence_f0_scales.png"
+
+# Run real-time monitoring dashboard
+dashboard: setup
+	@echo "📊 Iniciando Dashboard de Monitoreo GW250114..."
+	@echo "🌐 Dashboard disponible en http://localhost:5000"
+	@cd dashboard && ../venv/bin/python dashboard_avanzado.py
+
+# Run GW250114 status dashboard
+dashboard-status: setup
+	@echo "📊 Iniciando Dashboard de Estado GW250114..."
+	@echo "🌐 Monitor disponible en http://localhost:5000/monitor-gw"
+	@echo "📊 API JSON en http://localhost:5000/estado-gw250114"
+	./venv/bin/python scripts/run_dashboard.py
 
 # Docker support
 docker:
