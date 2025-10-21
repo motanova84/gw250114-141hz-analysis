@@ -2,10 +2,10 @@
 
 <div align="center">
 
-![GitHub](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)
-![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)
-![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)
+[![Licencia: MIT](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)](https://github.com/motanova84/gw250114-141hz-analysis/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+[![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)](https://gwpy.github.io/)
+[![Ciencia Abierta](https://img.shields.io/badge/Ciencia-Abierta-✓-brightgreen)](https://www.fosteropenscience.eu/)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
 
