@@ -80,6 +80,14 @@ def garantizar_reproducibilidad():
     print(f"Estado: {resultados_reproducibilidad['estado']}")
     print()
     
+    # Guardar resultados - Ahora se ejecuta dentro de la función
+    output_dir = Path('results')
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / 'validacion_reproducibilidad.json'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(resultados_reproducibilidad, f, indent=2, ensure_ascii=False)
+    
     return resultados_reproducibilidad
 
 
