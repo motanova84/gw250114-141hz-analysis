@@ -136,7 +136,7 @@ ai_accessibility:
 entry_points:
   main_script: validate_v5_coronacion.py
   interactive: notebooks/141hz_validation.ipynb
-  step_by_step: validacion_paso_a_paso.ipynb
+  step_by_step: notebooks/validacion_paso_a_paso.ipynb
   analysis: analisis
 
 documentation:
