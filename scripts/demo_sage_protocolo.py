@@ -74,7 +74,7 @@ def main():
         print("✅ Sage está instalado. Ejecutando validación del Radio Cuántico RΨ...")
         print()
         try:
-            resultado = sage_activation.activar_sabio(sabios[0])
+            sage_activation.activar_sabio(sabios[0])
             print()
             print("✅ Validación completada exitosamente")
             return 0
