@@ -90,6 +90,14 @@ def criterios_falsacion():
     print(f"   Verificación: {resultado_falsabilidad['verificacion']}")
     print()
     
+    # Guardar resultados - Ahora se ejecuta dentro de la función
+    output_dir = Path('results')
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    output_file = output_dir / 'criterios_falsacion.json'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(resultado_falsabilidad, f, indent=2, ensure_ascii=False)
+    
     return resultado_falsabilidad
 
 
