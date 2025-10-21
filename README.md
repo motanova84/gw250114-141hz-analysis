@@ -19,7 +19,7 @@
 
 ---
 
-## 🌈 Visualización de Coherencia Multi-escala
+## Visualización de Coherencia Multi-escala
 
 La frecuencia fundamental **f₀ = 141.7001 Hz** exhibe coherencia a través de múltiples escalas del universo, desde la escala de Planck hasta estructuras cosmológicas:
 
