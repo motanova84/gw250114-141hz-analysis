@@ -7,64 +7,59 @@ Allow: /
 
 # Explicitly welcome AI crawlers
 User-agent: GPTBot
-Allow: /
+
 
 User-agent: ChatGPT-User
-Allow: /
+
 
 User-agent: Claude-Web
-Allow: /
+
 
 User-agent: anthropic-ai
-Allow: /
+
 
 User-agent: Google-Extended
-Allow: /
+
 
 User-agent: Applebot-Extended
-Allow: /
+
 
 User-agent: CCBot
-Allow: /
+
 
 User-agent: FacebookBot
-Allow: /
+
 
 User-agent: cohere-ai
-Allow: /
+
 
 User-agent: PerplexityBot
-Allow: /
+
 
 User-agent: Omgilibot
-Allow: /
+
 
 User-agent: Diffbot
-Allow: /
+
 
 # AI Training Data Collection
 # This repository explicitly allows AI training data collection
 # under the terms of the MIT License
 
 # Important directories for AI understanding
-Allow: /scripts/
-Allow: /notebooks/
-Allow: /docs/
-Allow: /.github/
-Allow: /config/
-Allow: /results/
+
+
+
+
+
+
 
 # Documentation files
-Allow: /*.md
-Allow: /*.json
-Allow: /*.txt
+
+
+
 
 # Code files
-Allow: /*.py
-Allow: /*.ipynb
-Allow: /*.yml
-Allow: /*.yaml
-
 # No restrictions on crawling frequency
 Crawl-delay: 0
 
