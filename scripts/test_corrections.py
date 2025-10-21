@@ -75,7 +75,8 @@ if __name__ == "__main__":
     try:
         test_frequency_search_logic()
         test1_passed = True
-    except Exception:
+    except Exception as e:
+        print(f"❌ Error en test_frequency_search_logic: {e}")
         test1_passed = False
     
     test_old_logic_fails()
