@@ -77,7 +77,7 @@ class AnalisisCMB:
         resultados = self.buscar_anomalia_l144(espectro)
         
         print(f"📊 RESULTADOS CMB:")
-        print(f"   • l del pico: {resultados.get('l_pico') if resultados.get('l_pico') is not None else 'N/A'}")
+        print(f"   • l del pico: {resultados['l_pico'] if resultados.get('l_pico') is not None else 'N/A'}")
         print(f"   • Diferencia: {resultados['diferencia_l']:.2f}" if 'diferencia_l' in resultados and resultados['diferencia_l'] is not None else "   • Diferencia: N/A")
         print(f"   • Anomalía en l=144: {'✅ DETECTADA' if resultados.get('significativo') else '❌ NO DETECTADA'}")
         
