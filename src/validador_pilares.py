@@ -23,6 +23,19 @@ def _serialise_section(section: object) -> object:
     return section
 
 
+def guardar_json(nombre_archivo: str, contenido: object, output_dir: PathLike) -> Path:
+    """Escribe ``contenido`` como JSON en ``output_dir`` y devuelve su ruta."""
+
+    base_path = Path(output_dir)
+    base_path.mkdir(parents=True, exist_ok=True)
+
+    ruta = base_path / nombre_archivo
+    with ruta.open("w", encoding="utf-8") as handler:
+        json.dump(_serialise_section(contenido), handler, indent=2, ensure_ascii=False)
+
+    return ruta
+
+
 def generar_reporte_pilares(data: Dict[str, object], output_dir: PathLike) -> List[Path]:
     """Genera los archivos JSON para cada pilar del método científico.
 
@@ -43,9 +56,6 @@ def generar_reporte_pilares(data: Dict[str, object], output_dir: PathLike) -> Li
         escribieron.
     """
 
-    base_path = Path(output_dir)
-    base_path.mkdir(parents=True, exist_ok=True)
-
     archivos = {
         "reproducibilidad.json": _serialise_section(data.get("reproducibilidad")),
         "falsabilidad.json": _serialise_section(data.get("falsabilidad")),
@@ -54,12 +64,9 @@ def generar_reporte_pilares(data: Dict[str, object], output_dir: PathLike) -> Li
 
     rutas: List[Path] = []
     for nombre, contenido in archivos.items():
-        ruta = base_path / nombre
-        with ruta.open("w", encoding="utf-8") as handler:
-            json.dump(contenido, handler, indent=2, ensure_ascii=False)
-        rutas.append(ruta)
+        rutas.append(guardar_json(nombre, contenido, output_dir))
 
     return rutas
 
 
-__all__: Iterable[str] = ["generar_reporte_pilares"]
+__all__: Iterable[str] = ["generar_reporte_pilares", "guardar_json"]
