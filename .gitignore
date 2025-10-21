@@ -111,6 +111,9 @@ potential_plot.png
 # Generated data files
 Evac_Rpsi_data.csv
 
+# Test results directories
+scripts/results/
+
 # AI Accessibility Files (DO NOT IGNORE - These are important)
 !.ai-instructions.md
 !.repo-map.json
