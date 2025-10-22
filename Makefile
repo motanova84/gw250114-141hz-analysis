@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas dashboard dashboard-status workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas dashboard dashboard-status workflow status clean docker help experimentos test-experimentos diagrams-experimentos
 
 # Default target - complete workflow
 all: setup validate
@@ -65,6 +65,9 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
+	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
+	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
 	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
 	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
@@ -267,3 +270,27 @@ clean:
 	rm -rf venv __pycache__ .pytest_cache results/ data/ *.egg-info
 	rm -rf scripts/__pycache__/ notebooks/__pycache__/
 	@echo "✅ Limpieza completada"
+
+# Experimental Protocols for f₀ Validation
+experimentos: setup
+	@echo "🧪 Ejecutando Protocolos Experimentales para f₀ = 141.7001 Hz..."
+	./venv/bin/python scripts/protocolos_experimentales.py
+	@echo ""
+	@echo "✅ Experimentos completados"
+	@echo "📊 Resultados: results/experimentos_f0.json"
+
+# Test experimental protocols
+test-experimentos: setup
+	@echo "🧪 Ejecutando tests de protocolos experimentales..."
+	./venv/bin/python scripts/test_protocolos_experimentales.py
+	@echo ""
+	@echo "✅ Tests completados"
+
+# Generate workflow diagrams for experiments
+diagrams-experimentos: setup
+	@echo "📊 Generando diagramas de flujo experimental..."
+	./venv/bin/python scripts/generar_diagrama_experimentos.py
+	@echo ""
+	@echo "✅ Diagramas generados"
+	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
+	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
