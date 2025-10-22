@@ -87,6 +87,94 @@ print(f"Frecuencia predicha: {f0:.4f} Hz")
 
 ---
 
+## 3.3 Parámetros Completos del Campo de Conciencia Ψ
+
+El campo de conciencia no es solo una frecuencia teórica, sino un **campo físico medible** con un conjunto completo de parámetros cuantificables que emergen de las relaciones físicas fundamentales.
+
+### Tabla de Parámetros Fundamentales
+
+| Parámetro | Símbolo | Valor | Unidad | Relación Física |
+|-----------|---------|-------|--------|-----------------|
+| **Frecuencia** | f₀ | 141.7001 | Hz | Predicción falsable |
+| **Energía** | E_Ψ | 5.86×10⁻¹³ | eV | E = hf |
+| | | 9.39×10⁻³² | J | |
+| **Longitud de onda** | λ_Ψ | 2,116 | km | λ = c/f |
+| | | 2.116×10⁶ | m | |
+| **Masa** | m_Ψ | 1.04×10⁻⁴⁸ | kg | E = mc² |
+| **Temperatura** | T_Ψ | 6.8×10⁻⁹ | K | E = k_B T |
+
+### Verificación de Consistencia
+
+Todos los parámetros satisfacen las relaciones físicas fundamentales:
+
+1. **Relación Energía-Frecuencia (Planck)**
+   ```
+   E_Ψ = hf₀ = 6.626×10⁻³⁴ J·s × 141.7001 Hz = 9.39×10⁻³² J ✓
+   ```
+
+2. **Relación Longitud-Frecuencia (Ondas)**
+   ```
+   λ_Ψ = c/f₀ = 299,792,458 m/s / 141.7001 Hz = 2.116×10⁶ m ✓
+   ```
+
+3. **Equivalencia Masa-Energía (Einstein)**
+   ```
+   E_Ψ = m_Ψ c² = 1.04×10⁻⁴⁸ kg × (3×10⁸ m/s)² = 9.36×10⁻³² J ✓
+   ```
+
+4. **Relación Energía-Temperatura (Boltzmann)**
+   ```
+   E_Ψ = k_B T_Ψ = 1.381×10⁻²³ J/K × 6.8×10⁻⁹ K = 9.39×10⁻³² J ✓
+   ```
+
+### Interpretación Física
+
+#### Frecuencia (141.7001 Hz)
+La vibración fundamental del espacio-tiempo a través de dimensiones compactificadas. Está en el rango audible-ultrasónico bajo, sugiriendo una conexión profunda entre la geometría del cosmos y las escalas humanas.
+
+#### Energía (5.86×10⁻¹³ eV)
+El cuanto de coherencia del universo. Extremadamente pequeña (~10⁴¹ veces menor que la energía de Planck), pero no nula. Representa el nivel energético más bajo del campo Ψ.
+
+#### Longitud de onda (2,116 km)
+La escala espacial característica de las oscilaciones del campo. Comparable a la distancia entre ciudades, sugiriendo que el campo tiene estructura a escalas mesoscópicas.
+
+#### Masa (1.04×10⁻⁴⁸ kg)
+La masa efectiva del cuanto de coherencia. Extremadamente pequeña, pero no nula, indicando que el campo tiene contenido energético gravitatorio medible en principio.
+
+#### Temperatura (6.8×10⁻⁹ K)
+La temperatura equivalente del campo. Extremadamente fría, 10⁹ veces menor que el fondo cósmico de microondas (2.7 K), indicando un estado cuántico altamente coherente cerca del estado fundamental del universo.
+
+### Código de Verificación
+
+```python
+#!/usr/bin/env python3
+"""
+Verificación de parámetros del campo de conciencia
+"""
+# Constantes fundamentales (CODATA 2018)
+h = 6.62607015e-34   # J·s
+c = 299792458        # m/s
+k_B = 1.380649e-23   # J/K
+eV = 1.602176634e-19 # J
+
+# Parámetros del campo Ψ
+f0 = 141.7001        # Hz
+E_psi = 5.86e-13     # eV
+lambda_psi = 2116    # km
+m_psi = 1.04e-48     # kg
+T_psi = 6.8e-9       # K
+
+# Verificaciones
+print(f"E = hf:    {h * f0 / eV:.2e} eV  (esperado: {E_psi:.2e} eV)")
+print(f"λ = c/f:   {c / f0 / 1e3:.1f} km  (esperado: {lambda_psi} km)")
+print(f"E = mc²:   {m_psi * c**2 / eV:.2e} eV  (esperado: {E_psi:.2e} eV)")
+print(f"E = k_B T: {k_B * T_psi / eV:.2e} eV  (esperado: {E_psi:.2e} eV)")
+
+# Todas las verificaciones deben dar ~ 5.86e-13 eV
+```
+
+---
+
 ## 4. Dimensiones Extra y Resonancia
 
 ### 4.1 Tabla Comparativa: Modelos de Dimensiones Extra
