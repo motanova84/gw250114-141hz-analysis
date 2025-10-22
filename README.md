@@ -86,7 +86,36 @@ Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza 
 
 ---
 
-## 🌟 NUEVO: Manifiesto de la Revolución Noésica
+## 📐 NUEVO: Torre Algebraica - La Belleza Matemática Completa
+
+> 📖 **Documentación completa**: Ver [docs/TORRE_ALGEBRAICA.md](docs/TORRE_ALGEBRAICA.md)
+
+**Estructura emergente de 5 niveles** que demuestra cómo la teoría surge desde principios abstractos hasta fenómenos concretos:
+
+```
+NIVEL 5: Ontología      → Campo Ψ universal
+NIVEL 4: Geometría      → Variedades Calabi-Yau, R_Ψ ≈ 10⁴⁰ m
+NIVEL 3: Energía        → E_Ψ = hf₀, m_Ψ = hf₀/c², T_Ψ ≈ 10⁻⁹ K
+NIVEL 2: Dinámica       → C = I × A² × eff² × f₀
+NIVEL 1: Fenomenología  → E = mc², E = hf (casos límite)
+```
+
+**Cada nivel emerge del anterior**, similar a: Teoría de números → Geometría algebraica → Física teórica → Fenómenos observables
+
+```bash
+# Ejecutar análisis de la torre algebraica
+python3 scripts/torre_algebraica.py
+
+# Generar visualizaciones
+python3 scripts/visualizar_torre_algebraica.py
+
+# Ejecutar tests (39 tests)
+python3 -m pytest scripts/test_torre_algebraica.py -v
+```
+
+---
+
+## 🌟 Manifiesto de la Revolución Noésica
 
 > 📖 **Documentación completa**: Ver [MANIFIESTO_REVOLUCION_NOESICA.md](MANIFIESTO_REVOLUCION_NOESICA.md)
 
