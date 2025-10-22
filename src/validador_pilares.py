@@ -69,4 +69,4 @@ def generar_reporte_pilares(data: Dict[str, object], output_dir: PathLike) -> Li
     return rutas
 
 
-__all__: Iterable[str] = ["generar_reporte_pilares", "guardar_json"]
+__all__: Iterable[str] = ["guardar_json"]
