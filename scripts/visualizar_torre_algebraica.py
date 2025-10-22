@@ -12,9 +12,7 @@ Fecha: Octubre 2025
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
-import numpy as np
 from pathlib import Path
 
 # Configuración de estilo
@@ -29,7 +27,7 @@ def crear_visualizacion_torre():
     Crea la visualización de la torre algebraica.
     """
     fig, ax = plt.subplots(figsize=(14, 10))
-    
+
     # Definir los niveles de la torre
     niveles = [
         {
@@ -73,7 +71,7 @@ def crear_visualizacion_torre():
             "y_pos": 0.17
         }
     ]
-    
+
     # Dibujar cada nivel como una caja
     for i, nivel in enumerate(niveles):
         # Caja principal
@@ -89,7 +87,7 @@ def crear_visualizacion_torre():
             transform=ax.transAxes
         )
         ax.add_patch(box)
-        
+
         # Título del nivel
         ax.text(
             0.5, nivel['y_pos'] + 0.02,
@@ -99,7 +97,7 @@ def crear_visualizacion_torre():
             color=nivel['color'],
             transform=ax.transAxes
         )
-        
+
         # Descripción
         ax.text(
             0.5, nivel['y_pos'] - 0.015,
@@ -109,7 +107,7 @@ def crear_visualizacion_torre():
             color='black',
             transform=ax.transAxes
         )
-        
+
         # Ecuación
         ax.text(
             0.5, nivel['y_pos'] - 0.04,
@@ -120,7 +118,7 @@ def crear_visualizacion_torre():
             color='#34495e',
             transform=ax.transAxes
         )
-        
+
         # Flecha de emergencia al siguiente nivel (excepto el último)
         if i < len(niveles) - 1:
             arrow = FancyArrowPatch(
@@ -134,7 +132,7 @@ def crear_visualizacion_torre():
                 mutation_scale=30
             )
             ax.add_patch(arrow)
-            
+
             # Texto de la transición
             transiciones = [
                 "Compactificación\ndimensional",
@@ -142,7 +140,7 @@ def crear_visualizacion_torre():
                 "Acoplamiento\nresonante",
                 "Límites\nasintóticos"
             ]
-            
+
             mid_y = (nivel['y_pos'] - 0.07 + niveles[i+1]['y_pos'] + 0.055) / 2
             ax.text(
                 0.65, mid_y,
@@ -153,7 +151,7 @@ def crear_visualizacion_torre():
                 color='#7f8c8d',
                 transform=ax.transAxes
             )
-    
+
     # Título principal
     ax.text(
         0.5, 0.97,
@@ -163,7 +161,7 @@ def crear_visualizacion_torre():
         color='#2c3e50',
         transform=ax.transAxes
     )
-    
+
     # Subtítulo
     ax.text(
         0.5, 0.935,
@@ -174,7 +172,7 @@ def crear_visualizacion_torre():
         color='#7f8c8d',
         transform=ax.transAxes
     )
-    
+
     # Texto explicativo en la parte inferior
     texto_inferior = (
         'Cada nivel emerge naturalmente del anterior, demostrando cómo:\n'
@@ -182,7 +180,7 @@ def crear_visualizacion_torre():
         '• Lo simple da lugar a lo complejo (estructura del universo)\n'
         '• Similar a: Teoría de números → Geometría algebraica → Física teórica → Fenómenos'
     )
-    
+
     ax.text(
         0.5, 0.04,
         texto_inferior,
@@ -192,15 +190,15 @@ def crear_visualizacion_torre():
         transform=ax.transAxes,
         bbox=dict(boxstyle='round', facecolor='#ecf0f1', alpha=0.8, edgecolor='#bdc3c7')
     )
-    
+
     # Configurar ejes
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')
-    
+
     # Ajustar layout
     plt.tight_layout()
-    
+
     return fig
 
 
@@ -209,7 +207,7 @@ def crear_diagrama_flujo():
     Crea un diagrama de flujo simplificado de la emergencia.
     """
     fig, ax = plt.subplots(figsize=(12, 8))
-    
+
     # Definir posiciones y contenido
     boxes = [
         {"pos": (0.5, 0.9), "text": "Ontología\nCampo Ψ", "color": "#9b59b6"},
@@ -218,7 +216,7 @@ def crear_diagrama_flujo():
         {"pos": (0.5, 0.3), "text": "Dinámica\nC = I×A²×eff²×f₀", "color": "#f39c12"},
         {"pos": (0.5, 0.1), "text": "Fenomenología\nE=mc², E=hf", "color": "#e74c3c"}
     ]
-    
+
     # Dibujar cajas
     for i, box in enumerate(boxes):
         rect = FancyBboxPatch(
@@ -231,7 +229,7 @@ def crear_diagrama_flujo():
             linewidth=2
         )
         ax.add_patch(rect)
-        
+
         ax.text(
             box['pos'][0], box['pos'][1],
             box['text'],
@@ -239,7 +237,7 @@ def crear_diagrama_flujo():
             fontsize=11, fontweight='bold',
             color=box['color']
         )
-        
+
         # Flechas
         if i < len(boxes) - 1:
             arrow = FancyArrowPatch(
@@ -251,7 +249,7 @@ def crear_diagrama_flujo():
                 mutation_scale=20
             )
             ax.add_patch(arrow)
-    
+
     # Título
     ax.text(
         0.5, 0.97,
@@ -260,14 +258,14 @@ def crear_diagrama_flujo():
         fontsize=16, fontweight='bold',
         color='#2c3e50'
     )
-    
+
     # Configurar ejes
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis('off')
-    
+
     plt.tight_layout()
-    
+
     return fig
 
 
@@ -279,14 +277,14 @@ def main():
     print("VISUALIZACIÓN DE LA TORRE ALGEBRAICA")
     print("=" * 80)
     print()
-    
+
     # Crear directorio de resultados
     results_dir = Path("results")
     results_dir.mkdir(exist_ok=True)
-    
+
     print("Generando visualizaciones...")
     print()
-    
+
     # 1. Visualización completa de la torre
     print("  1. Torre algebraica completa...")
     fig1 = crear_visualizacion_torre()
@@ -294,7 +292,7 @@ def main():
     fig1.savefig(output_file1, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close(fig1)
     print(f"     ✓ Guardado: {output_file1}")
-    
+
     # 2. Diagrama de flujo
     print("  2. Diagrama de flujo de emergencia...")
     fig2 = crear_diagrama_flujo()
@@ -302,7 +300,7 @@ def main():
     fig2.savefig(output_file2, dpi=300, bbox_inches='tight', facecolor='white')
     plt.close(fig2)
     print(f"     ✓ Guardado: {output_file2}")
-    
+
     print()
     print("=" * 80)
     print("VISUALIZACIONES COMPLETADAS")

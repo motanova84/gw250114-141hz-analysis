@@ -54,28 +54,28 @@ f0 = 141.7001  # Hz
 class NivelOntologia:
     """
     NIVEL 5: Ontología
-    
+
     El nivel más abstracto y fundamental. Define el campo noésico universal Ψ
     como entidad matemática primordial.
-    
+
     Concepto central: El campo Ψ es el sustrato ontológico del universo,
     anterior a la geometría, la energía y la fenomenología.
     """
-    
+
     def __init__(self):
         self.nivel = 5
         self.nombre = "Ontología"
         self.descripcion = "Campo Ψ universal"
-        
+
     def definicion_campo_psi(self):
         """
         Define el campo noésico Ψ como entidad matemática abstracta.
-        
+
         Ψ: ℝ⁴ → ℂ
-        
+
         El campo Ψ es una función compleja en el espacio-tiempo que representa
         la densidad de coherencia cuántica universal.
-        
+
         Returns:
             dict: Definición matemática del campo Ψ
         """
@@ -92,11 +92,11 @@ class NivelOntologia:
                 "coherente": True
             }
         }
-    
+
     def propiedades_algebraicas(self):
         """
         Define las propiedades algebraicas del campo Ψ.
-        
+
         Returns:
             dict: Propiedades algebraicas
         """
@@ -106,11 +106,11 @@ class NivelOntologia:
             "conservacion": ["Carga noésica", "Coherencia"],
             "invarianza": ["Gauge U(1)", "CPT", "Difeomorfismos"]
         }
-    
+
     def emergence_to_geometry(self):
         """
         Describe cómo emerge la geometría (Nivel 4) desde la ontología.
-        
+
         Returns:
             dict: Descripción de la emergencia
         """
@@ -129,28 +129,28 @@ class NivelOntologia:
 class NivelGeometria:
     """
     NIVEL 4: Geometría
-    
+
     Emerge del Nivel 5. Define la estructura geométrica del espacio interno
     mediante variedades de Calabi-Yau.
-    
+
     Parámetro central: R_Ψ ≈ 10⁴⁰ m (radio de compactificación)
     """
-    
+
     def __init__(self):
         self.nivel = 4
         self.nombre = "Geometría"
         self.descripcion = "Variedades de Calabi-Yau"
-        
+
         # Calcular R_Ψ desde f₀
         self.R_psi = c / (2 * np.pi * f0)  # metros
         self.R_psi_adimensional = self.R_psi / l_P
-        
+
     def estructura_calabi_yau(self):
         """
         Define la estructura de la variedad de Calabi-Yau.
-        
+
         Utilizamos la quíntica en ℂP⁴ como variedad concreta.
-        
+
         Returns:
             dict: Estructura geométrica
         """
@@ -171,25 +171,25 @@ class NivelGeometria:
             "topologia": "Simplemente conexa, Ricci-plana",
             "simetrias": "SU(3) holonomy"
         }
-    
+
     def metrica_calabi_yau(self):
         """
         Define la métrica en la variedad de Calabi-Yau.
-        
+
         Returns:
             dict: Estructura de la métrica
         """
         return {
             "metrica": "g_ij = ∂_i∂_j K(z, z̄)",
             "potencial_kahler": "K(z, z̄) = -log(V_CY)",
-            "volumen": f"V_CY ~ R_Ψ⁶ ~ (10⁴⁰ℓ_P)⁶",
+            "volumen": "V_CY ~ R_Ψ⁶ ~ (10⁴⁰ℓ_P)⁶",
             "forma_kahler": "ω = i·g_ij dz^i ∧ dz̄^j"
         }
-    
+
     def emergence_to_energy(self):
         """
         Describe cómo emerge la energía (Nivel 3) desde la geometría.
-        
+
         Returns:
             dict: Descripción de la emergencia
         """
@@ -209,33 +209,33 @@ class NivelGeometria:
 class NivelEnergia:
     """
     NIVEL 3: Energía
-    
+
     Emerge del Nivel 4. Define las escalas energéticas asociadas al modo
     fundamental de vibración.
-    
+
     Parámetros centrales:
         E_Ψ = hf₀
         m_Ψ = hf₀/c²
         T_Ψ ≈ 10⁻⁹ K
     """
-    
+
     def __init__(self):
         self.nivel = 3
         self.nombre = "Energía"
         self.descripcion = "E_Ψ = hf₀, m_Ψ = hf₀/c², T_Ψ ≈ 10⁻⁹ K"
-        
+
         # Calcular cantidades energéticas
         self.E_psi = h * f0                  # Julios
         self.m_psi = self.E_psi / c**2       # kg
         self.T_psi = self.E_psi / k_B        # Kelvin
         self.omega_0 = 2 * np.pi * f0        # rad/s
-    
+
     def energia_cuantica(self):
         """
         Calcula la energía cuántica del modo fundamental.
-        
+
         E_Ψ = ℏω₀ = hf₀
-        
+
         Returns:
             dict: Energía cuántica en diferentes unidades
         """
@@ -248,13 +248,13 @@ class NivelEnergia:
             "formula": "E_Ψ = ℏω₀ = hf₀",
             "interpretacion": "Energía del modo fundamental de coherencia"
         }
-    
+
     def masa_equivalente(self):
         """
         Calcula la masa equivalente del modo fundamental.
-        
+
         m_Ψ = E_Ψ/c² = hf₀/c²
-        
+
         Returns:
             dict: Masa equivalente en diferentes unidades
         """
@@ -266,13 +266,13 @@ class NivelEnergia:
             "formula": "m_Ψ = hf₀/c²",
             "interpretacion": "Masa asociada al cuanto de coherencia"
         }
-    
+
     def temperatura_caracteristica(self):
         """
         Calcula la temperatura característica del modo fundamental.
-        
+
         T_Ψ = E_Ψ/k_B
-        
+
         Returns:
             dict: Temperatura en diferentes escalas
         """
@@ -286,11 +286,11 @@ class NivelEnergia:
             "interpretacion": "Temperatura característica del modo coherente",
             "orden_magnitud": "~10⁻⁹ K (escala nanokelvin)"
         }
-    
+
     def emergence_to_dynamics(self):
         """
         Describe cómo emerge la dinámica (Nivel 2) desde la energía.
-        
+
         Returns:
             dict: Descripción de la emergencia
         """
@@ -309,23 +309,23 @@ class NivelEnergia:
 class NivelDinamica:
     """
     NIVEL 2: Dinámica
-    
+
     Emerge del Nivel 3. Define la dinámica de coherencia cuántica.
-    
+
     Ecuación central: C = I × A² × eff² × f₀
     """
-    
+
     def __init__(self):
         self.nivel = 2
         self.nombre = "Dinámica"
         self.descripcion = "C = I × A² × eff² × f₀"
-    
+
     def coherencia_dinamica(self):
         """
         Define la ecuación de coherencia dinámica.
-        
+
         C = I × A²_eff × eff² × f₀
-        
+
         Returns:
             dict: Estructura de la coherencia dinámica
         """
@@ -347,11 +347,11 @@ class NivelDinamica:
                 "f0": "[f₀] = 1/s (Hz)"
             }
         }
-    
+
     def ecuacion_evolucion(self):
         """
         Define la ecuación de evolución temporal de la coherencia.
-        
+
         Returns:
             dict: Ecuación de evolución
         """
@@ -367,11 +367,11 @@ class NivelDinamica:
             },
             "solucion_estacionaria": "C_ss = η/(γ² + (2πf₀)²)^(1/2)"
         }
-    
+
     def emergence_to_phenomenology(self):
         """
         Describe cómo emerge la fenomenología (Nivel 1) desde la dinámica.
-        
+
         Returns:
             dict: Descripción de la emergencia
         """
@@ -393,22 +393,22 @@ class NivelDinamica:
 class NivelFenomenologia:
     """
     NIVEL 1: Fenomenología
-    
+
     Emerge del Nivel 2. Recupera las leyes físicas observables como casos
     límite de la teoría completa.
-    
+
     Leyes centrales: E = mc², E = hf
     """
-    
+
     def __init__(self):
         self.nivel = 1
         self.nombre = "Fenomenología"
         self.descripcion = "E = mc², E = hf (casos límite)"
-    
+
     def limite_clasico(self):
         """
         Recupera E = mc² como límite clásico.
-        
+
         Returns:
             dict: Límite clásico
         """
@@ -419,11 +419,11 @@ class NivelFenomenologia:
             "interpretacion": "Energía de masa en reposo",
             "derivacion": "De C → ⟨C⟩ (promedio temporal) → E_rest = mc²"
         }
-    
+
     def limite_cuantico(self):
         """
         Recupera E = hf como límite cuántico.
-        
+
         Returns:
             dict: Límite cuántico
         """
@@ -435,11 +435,11 @@ class NivelFenomenologia:
             "derivacion": "De C con f = f₀ → E = hf₀",
             "generalizacion": "Para fotón genérico: E = hf_photon"
         }
-    
+
     def fenomenos_observables(self):
         """
         Lista los fenómenos observables predichos por la teoría.
-        
+
         Returns:
             dict: Fenómenos observables
         """
@@ -471,11 +471,11 @@ class NivelFenomenologia:
 class TorreAlgebraica:
     """
     Torre Algebraica Completa de la Teoría Noésica
-    
+
     Integra los 5 niveles y demuestra la emergencia desde la ontología
     hasta la fenomenología observable.
     """
-    
+
     def __init__(self):
         self.niveles = {
             5: NivelOntologia(),
@@ -484,25 +484,25 @@ class TorreAlgebraica:
             2: NivelDinamica(),
             1: NivelFenomenologia()
         }
-        
+
     def obtener_nivel(self, n):
         """
         Obtiene un nivel específico de la torre.
-        
+
         Args:
             n: Número de nivel (1-5)
-            
+
         Returns:
             Objeto del nivel correspondiente
         """
         if n not in self.niveles:
             raise ValueError(f"Nivel {n} no existe. Niveles disponibles: 1-5")
         return self.niveles[n]
-    
+
     def estructura_completa(self):
         """
         Retorna la estructura completa de la torre algebraica.
-        
+
         Returns:
             dict: Estructura completa con todos los niveles
         """
@@ -512,7 +512,7 @@ class TorreAlgebraica:
             "principio": "Lo abstracto genera lo concreto, lo simple da lugar a lo complejo",
             "niveles": {}
         }
-        
+
         for n in sorted(self.niveles.keys(), reverse=True):
             nivel = self.niveles[n]
             estructura["niveles"][f"NIVEL_{n}"] = {
@@ -520,13 +520,13 @@ class TorreAlgebraica:
                 "nombre": nivel.nombre,
                 "descripcion": nivel.descripcion
             }
-        
+
         return estructura
-    
+
     def flujo_emergencia(self):
         """
         Describe el flujo de emergencia desde el nivel 5 al nivel 1.
-        
+
         Returns:
             dict: Descripción del flujo de emergencia
         """
@@ -541,11 +541,11 @@ class TorreAlgebraica:
             "principio": "Cada nivel emerge naturalmente del anterior",
             "analogia": "Teoría de números → Geometría algebraica → Física teórica → Fenómenos"
         }
-    
+
     def validar_consistencia(self):
         """
         Valida la consistencia matemática de toda la torre.
-        
+
         Returns:
             dict: Resultados de validación
         """
@@ -554,20 +554,17 @@ class TorreAlgebraica:
             "niveles_implementados": len(self.niveles),
             "consistencia": {}
         }
-        
-        # Validar f0 en todos los niveles
-        f0_consistente = True
-        
+
         # Nivel 4: f0 desde R_Ψ
         R_psi_calc = c / (2 * np.pi * f0)
         f0_from_R = c / (2 * np.pi * R_psi_calc)
         consistencia_geometria = abs(f0_from_R - f0) < 1e-6
-        
+
         # Nivel 3: E_Ψ = hf0
         E_psi_calc = h * f0
         f0_from_E = E_psi_calc / h
         consistencia_energia = abs(f0_from_E - f0) < 1e-6
-        
+
         validacion["consistencia"] = {
             "geometria_energia": consistencia_geometria and consistencia_energia,
             "f0_global": f0,
@@ -575,19 +572,19 @@ class TorreAlgebraica:
             "nivel_3_E_psi": float(E_psi_calc),
             "status": "PASS" if (consistencia_geometria and consistencia_energia) else "FAIL"
         }
-        
+
         return validacion
-    
+
     def exportar_json(self, output_path="results/torre_algebraica.json"):
         """
         Exporta la estructura completa de la torre a un archivo JSON.
-        
+
         Args:
             output_path: Ruta del archivo de salida
         """
         # Crear directorio si no existe
         Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-        
+
         # Construir estructura completa
         output = {
             "metadata": {
@@ -624,13 +621,13 @@ class TorreAlgebraica:
                 }
             }
         }
-        
+
         # Guardar JSON
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
-        
+
         print(f"✓ Torre algebraica exportada a: {output_path}")
-        
+
         return output
 
 
@@ -656,17 +653,17 @@ def main():
     print()
     print("-" * 80)
     print()
-    
+
     # Crear torre algebraica
     torre = TorreAlgebraica()
-    
+
     # Mostrar cada nivel
     for n in sorted(torre.niveles.keys(), reverse=True):
         nivel = torre.niveles[n]
         print(f"NIVEL {n}: {nivel.nombre}")
         print(f"  Descripción: {nivel.descripcion}")
         print()
-    
+
     # Validar consistencia
     print("-" * 80)
     print("VALIDACIÓN DE CONSISTENCIA")
@@ -677,13 +674,13 @@ def main():
     print(f"  f₀ global: {validacion['consistencia']['f0_global']} Hz")
     print(f"  Status: {validacion['consistencia']['status']}")
     print()
-    
+
     # Exportar resultados
     print("-" * 80)
     print("EXPORTANDO RESULTADOS")
     print("-" * 80)
     output = torre.exportar_json()
-    
+
     print()
     print("=" * 80)
     print("ANÁLISIS COMPLETADO")
@@ -697,7 +694,7 @@ def main():
     print("Similar a: Teoría de números → Geometría algebraica →")
     print("           Física teórica → Fenómenos observables")
     print()
-    
+
     return output
 
 
