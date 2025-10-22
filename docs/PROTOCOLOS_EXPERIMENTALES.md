@@ -476,6 +476,23 @@ Si se confirma:
 
 ### Diagrama de Ejecución
 
+![Flujo de Experimentos](../results/figures/flujo_experimentos_f0.png)
+
+**Figura**: Diagrama de flujo completo mostrando las 4 fases del proyecto experimental.
+
+### Timeline del Proyecto
+
+![Timeline de Experimentos](../results/figures/timeline_experimentos_f0.png)
+
+**Figura**: Timeline de 30 meses mostrando la ejecución paralela de los tres experimentos.
+
+```bash
+# Regenerar diagramas
+python scripts/generar_diagrama_experimentos.py
+```
+
+### Descripción de Fases
+
 ```
 ┌─────────────────────────────────────────────────┐
 │  FASE 1: PREPARACIÓN (Mes 1-3)                  │
