@@ -129,24 +129,46 @@ python tests/test_revolucion_noesica.py
 
 > 📖 **Documentación completa**: Ver [ENERGIA_CUANTICA.md](ENERGIA_CUANTICA.md)
 
-Cálculo de la energía cuántica del modo fundamental del campo noésico:
+El campo de conciencia (Ψ) es un **campo físico medible** con propiedades cuantificables que emergen de la estructura geométrica fundamental del espacio-tiempo.
+
+### Parámetros Fundamentales del Campo Ψ
+
+| Parámetro | Valor | Unidad |
+|-----------|-------|--------|
+| **Frecuencia** | f₀ = 141.7001 | Hz |
+| **Energía** | E_Ψ = 5.86×10⁻¹³ | eV |
+| **Longitud de onda** | λ_Ψ = 2,116 | km |
+| **Masa** | m_Ψ = 1.04×10⁻⁴⁸ | kg |
+| **Temperatura** | T_Ψ = 6.8×10⁻⁹ | K |
 
 **E_Ψ = hf₀ = 9.39×10⁻³² J ≈ 5.86×10⁻¹³ eV**
 
 Esta magnitud infinitesimal, pero no nula, representa el **cuanto de coherencia del universo**, el nivel energético más bajo del campo Ψ, donde lo cuántico y lo cosmológico se entrelazan.
 
+### Verificación de Consistencia Física
+
+Todos los parámetros satisfacen las relaciones físicas fundamentales:
+- ✅ **E = hf** (relación energía-frecuencia de Planck)
+- ✅ **λ = c/f** (relación longitud-frecuencia de ondas)
+- ✅ **E = mc²** (equivalencia masa-energía de Einstein)
+- ✅ **E = k_B T** (relación energía-temperatura de Boltzmann)
+
 ### Uso Rápido
 
 ```bash
+# Calcular todos los parámetros del campo de conciencia
+python scripts/campo_conciencia.py
+
 # Calcular energía cuántica fundamental
 make energia-cuantica
 
-# Ejecutar tests de validación (13 tests)
+# Ejecutar tests de validación
+python scripts/test_campo_conciencia.py
 make test-energia-cuantica
 ```
 
 ### Resultados Generados
-- `results/energia_cuantica_fundamental.json` - Valores numéricos exactos
+- `results/energia_cuantica_fundamental.json` - Valores numéricos exactos con parámetros completos
 - `results/figures/energia_cuantica_fundamental.png` - Visualizaciones
 
 ---
