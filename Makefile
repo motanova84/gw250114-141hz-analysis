@@ -28,7 +28,19 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 alert-gw250114 test-alert-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas dashboard dashboard-status workflow status clean docker help experimentos test-experimentos diagrams-experimentos
+.PHONY: \
+  all venv setup install \
+  data download test-data check-data \
+  analyze validate validate-offline pipeline \
+  validate-connectivity validate-gw150914 validate-gw250114 \
+  alert-gw250114 test-alert-gw250114 test-rpsi \
+  validacion-quintica multievento test-multievento \
+  energia-cuantica test-energia-cuantica \
+  validate-3-pilares test-3-pilares \
+  pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  dashboard dashboard-status workflow status \
+  clean docker help \
+  experimentos test-experimentos diagrams-experimentos
 
 # Default target - complete workflow
 all: setup validate
