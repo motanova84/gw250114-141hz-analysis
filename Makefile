@@ -28,7 +28,19 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi validacion-quintica multievento test-multievento energia-cuantica test-energia-cuantica validate-3-pilares test-3-pilares pycbc-analysis test-pycbc demo-pycbc coherencia-escalas dashboard dashboard-status workflow status clean docker help experimentos test-experimentos diagrams-experimentos
+.PHONY: \
+  all venv setup install \
+  data download test-data check-data \
+  analyze validate validate-offline pipeline \
+  validate-connectivity validate-gw150914 validate-gw250114 \
+  alert-gw250114 test-alert-gw250114 test-rpsi \
+  validacion-quintica multievento test-multievento \
+  energia-cuantica test-energia-cuantica \
+  validate-3-pilares test-3-pilares \
+  pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  dashboard dashboard-status workflow status \
+  clean docker help \
+  experimentos test-experimentos diagrams-experimentos
 
 # Default target - complete workflow
 all: setup validate
@@ -54,6 +66,8 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  alert-gw250114        - Monitor GW250114 availability continuously (NEW)"
+	@echo "  test-alert-gw250114   - Test GW250114 alert system (NEW)"
 	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
@@ -154,6 +168,18 @@ validate-gw150914: setup
 validate-gw250114: setup  
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
+
+# Alert system for GW250114 availability
+alert-gw250114: setup
+	@echo "🚨 Sistema de alertas automáticas para GW250114"
+	@echo "   Iniciando monitoreo continuo..."
+	@echo "   Presiona Ctrl+C para detener"
+	./venv/bin/python scripts/verificador_gw250114.py
+
+# Test alert system for GW250114
+test-alert-gw250114: setup
+	@echo "🧪 Testing alert system for GW250114..."
+	./venv/bin/python scripts/test_verificador_gw250114.py
 
 # Test R_Ψ symmetry and compactification radius
 test-rpsi: setup
