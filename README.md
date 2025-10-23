@@ -214,6 +214,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
 - ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
+- ✅ **Sistema de Alertas Automáticas** - Notificaciones cuando GW250114 esté disponible
 
 ### Uso Rápido
 ```bash
@@ -228,6 +229,11 @@ make validate
 
 # Análisis multi-evento automatizado (NUEVO)
 make multievento
+
+# Sistema de alertas automáticas para GW250114 (NUEVO)
+python3 scripts/verificador_gw250114.py  # Monitoreo continuo
+python3 scripts/verificador_gw250114.py --once  # Verificación única
+python3 scripts/ejemplo_verificador_gw250114.py  # Ejemplos de uso
 ```
 
 ### Resultados Generados
