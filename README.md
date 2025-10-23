@@ -231,9 +231,11 @@ make validate
 make multievento
 
 # Sistema de alertas automáticas para GW250114 (NUEVO)
+make alert-gw250114  # Monitoreo continuo vía Make
 python3 scripts/verificador_gw250114.py  # Monitoreo continuo
 python3 scripts/verificador_gw250114.py --once  # Verificación única
 python3 scripts/ejemplo_verificador_gw250114.py  # Ejemplos de uso
+make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 ```
 
 ### Resultados Generados
