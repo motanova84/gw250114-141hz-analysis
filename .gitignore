@@ -111,6 +111,13 @@ potential_plot.png
 # Generated data files
 Evac_Rpsi_data.csv
 
+# Multi-event analysis outputs
+multi_event_results.json
+multi_event_analysis.png
+multi_event_h1_results.json
+multi_event_h1_analysis.png
+asd_noise_results.png
+
 # Test results directories
 scripts/results/
 
