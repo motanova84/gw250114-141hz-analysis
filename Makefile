@@ -37,6 +37,7 @@ status:
   validacion-quintica multievento test-multievento \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
+  validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
   dashboard dashboard-status workflow status \
   clean docker help \
@@ -75,6 +76,8 @@ help:
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
 	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
+	@echo "  validate-discovery-standards - Validate scientific discovery standards (>10σ) (NEW)"
+	@echo "  test-discovery-standards     - Test discovery standards validation (NEW)"
 	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
@@ -235,6 +238,21 @@ test-3-pilares: setup
 	@echo "   Testing validación completa..."
 	./venv/bin/python scripts/validacion_completa_3_pilares.py || exit 1
 	@echo "✅ Todos los tests de 3 pilares pasaron exitosamente"
+
+# Validate scientific discovery standards (Particle Physics, Astronomy, Medicine)
+validate-discovery-standards: setup
+	@echo "📊 Validando Estándares de Descubrimiento Científico..."
+	@echo "   • Física de partículas: ≥ 5σ"
+	@echo "   • Astronomía: ≥ 3σ"
+	@echo "   • Medicina (EEG): ≥ 2σ"
+	./venv/bin/python scripts/discovery_standards.py
+	@echo "✅ Validación de estándares completada"
+
+# Test discovery standards validation
+test-discovery-standards: setup
+	@echo "🧪 Testing validación de estándares de descubrimiento..."
+	./venv/bin/python scripts/test_discovery_standards.py
+	@echo "✅ Tests de estándares de descubrimiento pasaron exitosamente"
 
 # Run PyCBC-based GW150914 analysis
 pycbc-analysis: setup
