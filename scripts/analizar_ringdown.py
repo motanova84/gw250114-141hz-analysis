@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Análisis de componente en 141.7 Hz en el ringdown - CORREGIDO
+Análisis de componente en 141.7001 Hz en el ringdown - CORREGIDO
 """
 import h5py
 import numpy as np
@@ -23,7 +23,7 @@ def cargar_datos_gwosc(archivo_hdf5):
     tiempo = np.arange(len(strain)) / sample_rate + gps_start
     return tiempo, strain, sample_rate
 
-def analizar_espectro(tiempo, datos, sample_rate, frecuencia_objetivo=141.7):
+def analizar_espectro(tiempo, datos, sample_rate, frecuencia_objetivo=141.7001):
     """Analizar el espectro en busca de la frecuencia objetivo"""
     # Calcular FFT
     n = len(datos)
@@ -55,7 +55,7 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, sam
     
     # Espectro de potencia
     ax2.semilogy(freqs, potencia, 'r-', linewidth=1, alpha=0.8)
-    ax2.axvline(141.7, color='red', linestyle='--', alpha=0.9, label='141.7 Hz objetivo')
+    ax2.axvline(141.7001, color='red', linestyle='--', alpha=0.9, label='141.7001 Hz objetivo')
     ax2.axvline(freq_pico, color='green', linestyle='--', alpha=0.8, label=f'Pico: {freq_pico:.1f} Hz')
     ax2.set_xlabel('Frecuencia (Hz)')
     ax2.set_ylabel('Potencia')
@@ -64,10 +64,10 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, sam
     ax2.grid(True, alpha=0.3)
     ax2.set_xlim(100, 200)
     
-    # Zoom alrededor de 141.7 Hz
+    # Zoom alrededor de 141.7001 Hz
     mask = (freqs >= 130) & (freqs <= 160)
     ax3.semilogy(freqs[mask], potencia[mask], 'b-', linewidth=1.5)
-    ax3.axvline(141.7, color='red', linestyle='--', alpha=0.9, linewidth=2, label='141.7 Hz')
+    ax3.axvline(141.7001, color='red', linestyle='--', alpha=0.9, linewidth=2, label='141.7001 Hz')
     ax3.axvline(freq_pico, color='green', linestyle='--', alpha=0.8, linewidth=1.5, label=f'Pico: {freq_pico:.1f} Hz')
     ax3.set_xlabel('Frecuencia (Hz)')
     ax3.set_ylabel('Potencia')
@@ -81,7 +81,7 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, sam
         freq_mask = (f >= 130) & (f <= 160)
         im = ax4.pcolormesh(t, f[freq_mask], 10*np.log10(Sxx[freq_mask] + 1e-10), 
                           shading='gouraud', cmap='viridis', alpha=0.8)
-        ax4.axhline(141.7, color='red', linestyle='--', alpha=0.9, linewidth=2)
+        ax4.axhline(141.7001, color='red', linestyle='--', alpha=0.9, linewidth=2)
         ax4.set_xlabel('Tiempo (s)')
         ax4.set_ylabel('Frecuencia (Hz)')
         ax4.set_title('Espectrograma - Zona de Interés')
@@ -125,7 +125,7 @@ def main():
         print(f"\nResultados para H1 - GW150914:")
         print(f"  - Frecuencia del pico más cercano: {freq_pico:.2f} Hz")
         print(f"  - SNR aproximado: {snr:.2f}")
-        print(f"  - ¿Coincide con 141.7 Hz? {'SÍ' if abs(freq_pico-141.7)<1 else 'NO'}")
+        print(f"  - ¿Coincide con 141.7001 Hz? {'SÍ' if abs(freq_pico-141.7001)<1 else 'NO'}")
         
         # Crear gráficos
         crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', sample_rate, output_dir)

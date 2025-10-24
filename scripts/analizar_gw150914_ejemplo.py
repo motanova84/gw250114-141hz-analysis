@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Ejemplo de análisis espectral de GW150914 en 141.7 Hz
+Ejemplo de análisis espectral de GW150914 en 141.7001 Hz
 Script corregido que busca modulación en la frecuencia objetivo
 """
 import numpy as np
