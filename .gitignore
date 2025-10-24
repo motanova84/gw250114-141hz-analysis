@@ -109,9 +109,11 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+gwtc3_results.png
 
 # Generated data files
 Evac_Rpsi_data.csv
+gwtc3_analysis_results.json
 
 # Test results directories
 scripts/results/
