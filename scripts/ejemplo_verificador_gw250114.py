@@ -62,7 +62,7 @@ def ejemplo_analisis_completo():
             for detector, res in resultados.get('detectores', {}).items():
                 print(f"\n   {detector}:")
                 print(f"      Frecuencia pico: {res['frecuencia_pico']:.4f} Hz")
-                print(f"      SNR @ 141.7 Hz: {res['snr']:.2f}")
+                print(f"      SNR @ 141.7001 Hz: {res['snr']:.2f}")
                 print(f"      Bayes Factor: {res['bayes_factor']:.2e}")
                 print(f"      Significancia: {res['significancia']}")
             

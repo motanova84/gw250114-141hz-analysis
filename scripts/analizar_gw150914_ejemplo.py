@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Ejemplo de análisis espectral de GW150914 en 141.7 Hz
+Ejemplo de análisis espectral de GW150914 en 141.7001 Hz
 Script corregido que busca modulación en la frecuencia objetivo
 """
 import numpy as np
@@ -16,7 +16,7 @@ data = data.highpass(20).notch(60)
 # Análisis espectral
 frequencies, times, power = scipy.signal.spectrogram(data, fs=4096, nperseg=1024)
 
-# Buscar modulación en 141.7 Hz
+# Buscar modulación en 141.7001 Hz
 target_freq = 141.7001
 # Encontrar el índice de frecuencia más cercano al objetivo
 freq_idx = np.argmin(np.abs(frequencies - target_freq))

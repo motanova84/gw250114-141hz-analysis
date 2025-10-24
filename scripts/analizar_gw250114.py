@@ -76,18 +76,18 @@ def generate_synthetic_gw250114():
     merger_idx = len(t) // 2
     merger_time_synthetic = t[merger_idx]
     
-    # Simular señal de ringdown con componente en 141.7 Hz
+    # Simular señal de ringdown con componente en 141.7001 Hz
     ringdown_start_idx = merger_idx + int(0.01 * sample_rate)  # 10ms post-merger
     ringdown_duration = int(0.05 * sample_rate)  # 50ms de ringdown
     
-    # Modelo de dos modos: dominante (~250 Hz) + objetivo (141.7 Hz)
+    # Modelo de dos modos: dominante (~250 Hz) + objetivo (141.7001 Hz)
     t_ringdown = t[ringdown_start_idx:ringdown_start_idx + ringdown_duration] - merger_time_synthetic
     
     # Modo dominante
     signal_dominant = 2e-21 * np.exp(-t_ringdown/0.01) * np.cos(2*np.pi*250*t_ringdown)
     
-    # Modo objetivo (141.7 Hz) - más fuerte que en GW150914 para testing
-    signal_target = 5e-22 * np.exp(-t_ringdown/0.015) * np.cos(2*np.pi*141.7*t_ringdown + np.pi/4)
+    # Modo objetivo (141.7001 Hz) - más fuerte que en GW150914 para testing
+    signal_target = 5e-22 * np.exp(-t_ringdown/0.015) * np.cos(2*np.pi*141.7001*t_ringdown + np.pi/4)
     
     # Combinar señales
     signal_total = signal_dominant + signal_target
@@ -100,7 +100,7 @@ def generate_synthetic_gw250114():
     synthetic_l1[ringdown_start_idx:ringdown_start_idx + ringdown_duration] += signal_total * 0.7  # Factor de detector
     
     print(f"   ✅ Datos sintéticos generados: {duration}s a {sample_rate} Hz")
-    print(f"   ✅ Señal insertada: Dominante 250 Hz + Objetivo 141.7 Hz")
+    print(f"   ✅ Señal insertada: Dominante 250 Hz + Objetivo 141.7001 Hz")
     
     return synthetic_h1, synthetic_l1, merger_time_synthetic, sample_rate
 
