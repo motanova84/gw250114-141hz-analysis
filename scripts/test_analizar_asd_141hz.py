@@ -17,12 +17,32 @@ import tempfile
 import shutil
 from unittest.mock import Mock, patch, MagicMock
 
-import pytest
-import numpy as np
+try:
+    import pytest
+    PYTEST_AVAILABLE = True
+except ImportError:
+    PYTEST_AVAILABLE = False
+    # Mock pytest decorators for standalone execution
+    def pytest_decorator(*args, **kwargs):
+        def decorator(func):
+            return func
+        return decorator
+    pytest = type('MockPytest', (), {'mark': type('MockMark', (), {'parametrize': pytest_decorator})})()
+
+try:
+    import numpy as np
+except ImportError:
+    print("⚠️  numpy no disponible, algunos tests pueden fallar")
+    np = None
 
 # Importar el módulo a testear
 sys.path.insert(0, os.path.dirname(__file__))
-import analizar_asd_141hz as asd_module
+try:
+    import analizar_asd_141hz as asd_module
+except ImportError as e:
+    print(f"❌ Error importando analizar_asd_141hz: {e}")
+    print("   Asegúrate de que el archivo existe y las dependencias están instaladas")
+    sys.exit(1)
 
 
 class TestConstants:
@@ -367,9 +387,8 @@ def run_tests():
 
 if __name__ == '__main__':
     # Si pytest está disponible, usarlo; si no, ejecutar manualmente
-    try:
-        import pytest
+    if PYTEST_AVAILABLE:
         sys.exit(pytest.main([__file__, '-v']))
-    except ImportError:
+    else:
         print("⚠️  pytest no disponible, ejecutando tests manualmente")
         sys.exit(run_tests())
