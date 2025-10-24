@@ -327,6 +327,32 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 ---
 
+## 📓 Notebook de Análisis Interactivo
+
+Puedes acceder al notebook interactivo en Google Colab aquí:  
+[Análisis Multi‑Evento 141.7 Hz](https://colab.research.google.com/drive/1qaMqgx3sfHUQFGE7VAFepCL2JErQHJEP#scrollTo=ZJOrb8ZllG3P)
+
+> **Nota:** Este notebook contiene la versión ejecutable paso a paso del análisis H1/L1, generando los resultados JSON y gráficos descritos en este repositorio. Incluye:
+> - 📊 Análisis espectral completo de GW150914
+> - 🔍 Detección de la componente 141.7 Hz en detectores H1 y L1
+> - 📈 Generación de visualizaciones y métricas de SNR
+> - 💾 Exportación de resultados en formato JSON
+> - 🧪 Validación estadística con cálculo de p-values
+
+**Características del Notebook:**
+- ✅ Ejecución en la nube sin instalación local
+- ✅ Datos descargados automáticamente desde GWOSC
+- ✅ Visualizaciones interactivas con matplotlib
+- ✅ Código documentado paso a paso
+- ✅ Compatible con Google Colab (acceso gratuito con cuenta Google)
+
+**Requisitos de Acceso:**
+- El notebook está compartido como "Anyone with the link can view"
+- Puedes ejecutarlo directamente en Google Colab
+- Para guardar cambios, haz una copia en tu Google Drive (Archivo → Guardar una copia en Drive)
+
+---
+
 ## 🔍 Resultados preliminares – GW150914 (Control)
 
 | Detector | Frecuencia Detectada | SNR | Diferencia | Validación |
@@ -501,6 +527,52 @@ print(f"¿Posible artefacto?: {'SÍ' if min_distance < tolerance else 'NO'}")
 
 ## 🔁 Guía de Replicación Independiente
 
+### 📦 Requisitos / Dependencias
+
+Para replicar el análisis en tu entorno local, necesitas instalar las siguientes dependencias:
+
+**Requisitos del Sistema:**
+- Python 3.9 o superior (recomendado: Python 3.11)
+- pip (gestor de paquetes de Python)
+- Git (para clonar el repositorio)
+- Al menos 2GB de espacio en disco (para datos de GWOSC)
+- Conexión a internet (para descargar datos de ondas gravitacionales)
+
+**Dependencias Principales:**
+
+| Paquete | Versión | Propósito |
+|---------|---------|-----------|
+| **gwpy** | ≥ 3.0.0 | Análisis de ondas gravitacionales (framework oficial LIGO) |
+| **numpy** | ≥ 1.21.0 | Cálculos numéricos y arrays |
+| **scipy** | ≥ 1.7.0 | Análisis espectral y estadística |
+| **matplotlib** | ≥ 3.5.0 | Visualización de datos y gráficos |
+| **astropy** | ≥ 5.0 | Manejo de tiempos GPS y formatos astronómicos |
+| **h5py** | ≥ 3.7.0 | Lectura de archivos HDF5 (formato datos LIGO) |
+| **pycbc** | ≥ 2.0.0 | Análisis avanzado de ondas gravitacionales |
+| **jupyter** | ≥ 1.0.0 | Notebooks interactivos |
+| **mpmath** | ≥ 1.3.0 | Aritmética de precisión arbitraria |
+
+**Instalación Rápida:**
+
+```bash
+# Instalar todas las dependencias desde requirements.txt
+pip install -r requirements.txt
+
+# O instalar manualmente las dependencias principales:
+pip install gwpy numpy scipy matplotlib astropy h5py pycbc jupyter mpmath
+```
+
+**Verificar Instalación:**
+
+```bash
+# Verificar que todas las dependencias están correctamente instaladas
+python -c "import gwpy, numpy, scipy, matplotlib, pycbc; print('✅ Todas las dependencias instaladas correctamente')"
+```
+
+> **Nota:** El archivo `requirements.txt` incluye todas las dependencias necesarias con versiones específicas para garantizar la reproducibilidad exacta del análisis.
+
+---
+
 ### Replicación Básica (15 minutos)
 ```bash
 # 1. Clonar repositorio
@@ -514,9 +586,9 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 # 3. Verificar versiones críticas
-python -c "import gwpy; print('GWPy:', gwpy.__version__)"      # Esperado: 3.0.13
-python -c "import numpy; print('NumPy:', numpy.__version__)"   # Esperado: >=1.21.0
-python -c "import scipy; print('SciPy:', scipy.__version__)"   # Esperado: >=1.7.0
+python -c "import gwpy; print('GWPy:', gwpy.__version__)"      # Esperado: ≥3.0.0
+python -c "import numpy; print('NumPy:', numpy.__version__)"   # Esperado: ≥1.21.0
+python -c "import scipy; print('SciPy:', scipy.__version__)"   # Esperado: ≥1.7.0
 
 # 4. Descargar datos oficiales GWOSC
 python scripts/descargar_datos.py
