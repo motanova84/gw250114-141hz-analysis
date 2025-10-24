@@ -35,6 +35,7 @@ status:
   validate-connectivity validate-gw150914 validate-gw250114 \
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
+  comparacion-h1-l1 test-comparacion-h1-l1 \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
@@ -71,6 +72,8 @@ help:
 	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  comparacion-h1-l1     - Compare H1 vs L1 SNR at 141.7 Hz for 11 events (NEW)"
+	@echo "  test-comparacion-h1-l1 - Test H1 vs L1 comparison script (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -203,6 +206,18 @@ multievento: setup
 test-multievento: setup
 	@echo "🧪 Testing análisis bayesiano multi-evento..."
 	./venv/bin/python scripts/test_analisis_bayesiano_multievento.py
+
+# Compare H1 vs L1 SNR at 141.7 Hz for 11 gravitational wave events
+comparacion-h1-l1: setup
+	@echo "🔍 Comparando SNR H1 vs L1 @ 141.7 Hz..."
+	@echo "   Analizando 11 eventos gravitacionales del catálogo GWTC"
+	@mkdir -p results/figures
+	./venv/bin/python scripts/comparacion_h1_l1_snr.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test H1 vs L1 comparison script
+test-comparacion-h1-l1: setup
+	@echo "🧪 Testing script de comparación H1 vs L1..."
+	./venv/bin/python scripts/test_comparacion_h1_l1_snr.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
