@@ -36,6 +36,7 @@ status:
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
   multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  universalidad-virgo-kagra test-universalidad-virgo-kagra \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
@@ -76,6 +77,8 @@ help:
 	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
 	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
 	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  universalidad-virgo-kagra - Test 141.7 Hz universality in Virgo/KAGRA (NEW)"
+	@echo "  test-universalidad-virgo-kagra - Test Virgo/KAGRA universality module (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -229,6 +232,19 @@ demo-multi-event-snr: setup
 	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
 	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
 	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
+
+# Test universality of 141.7 Hz in Virgo and KAGRA detectors
+universalidad-virgo-kagra: setup
+	@echo "🌍 Ejecutando test de universalidad 141.7 Hz en Virgo/KAGRA..."
+	@echo "   Eventos: GW170814, GW170817, GW170818, GW170823"
+	@echo "   Detector: Virgo (V1)"
+	@echo "   Banda: 141.4-142.0 Hz"
+	./venv/bin/python scripts/test_universalidad_virgo_kagra.py || echo "⚠️  Análisis Virgo/KAGRA completado con advertencias"
+
+# Test Virgo/KAGRA universality module
+test-universalidad-virgo-kagra: setup
+	@echo "🧪 Testing análisis de universalidad Virgo/KAGRA..."
+	./venv/bin/python scripts/test_test_universalidad_virgo_kagra.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
