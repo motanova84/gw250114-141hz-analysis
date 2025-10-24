@@ -939,6 +939,13 @@ make validate
 jupyter notebook validacion_paso_a_paso.ipynb
 ```
 
+### 📓 Notebook de análisis
+
+Puedes acceder al notebook interactivo en Google Colab aquí:  
+[Análisis Multi-Evento 141.7 Hz](https://colab.research.google.com/drive/1qaMqgx3sfHUQFGE7VAFepCL2JErQHJEP#scrollTo=ZJOrb8ZllG3P)
+
+> Nota: este notebook contiene la versión ejecutable paso-a-paso del análisis H1/L1, generando los resultados JSON y gráficos descritos en este repositorio.
+
 ### 🔧 Ejecución Individual
 
 ```bash
