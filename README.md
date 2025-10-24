@@ -1061,6 +1061,8 @@ gw250114-141hz-analysis/
 │   ├── validacion_numerica_5_7f.py # NEW: Validación numérica Sección 5.7(f)
 │   ├── validacion_compactificacion_quintica.py # NEW: Validación compactificación quíntica
 │   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
+│   ├── comparacion_h1_l1_snr.py   # NEW: Comparación H1 vs L1 SNR @ 141.7 Hz (11 eventos)
+│   ├── test_comparacion_h1_l1_snr.py # NEW: Tests para comparación H1 vs L1
 │   ├── verificador_gw250114.py    # NEW: Sistema verificación tiempo real
 │   ├── test_verificador_gw250114.py    # NEW: Tests verificador
 │   ├── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
@@ -1086,6 +1088,8 @@ gw250114-141hz-analysis/
 - **`validacion_numerica_5_7f.py`**: Validación numérica de la Sección 5.7(f) - jerarquía RΨ y volumen CY
 - **`validacion_compactificacion_quintica.py`**: Validación de compactificación sobre la quíntica en ℂP⁴ (Sección 5.7f)
 - **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
+- **`comparacion_h1_l1_snr.py`**: Comparación H1 vs L1 SNR @ 141.7 Hz para 11 eventos del catálogo GWTC
+- **`test_comparacion_h1_l1_snr.py`**: Tests unitarios para comparación H1 vs L1 (10 tests)
 - **`verificador_gw250114.py`**: Sistema de verificación en tiempo real para GW250114
 - **`test_verificador_gw250114.py`**: Tests unitarios del sistema de verificación
 - **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso del verificador
@@ -1157,6 +1161,38 @@ El script automáticamente:
 3. Identifica pico máximo en banda 140-143 Hz
 4. Calcula estadísticas (media, desviación estándar)
 5. Compara con frecuencia objetivo 141.7001 Hz
+
+### 📊 Comparación H1 vs L1 - SNR @ 141.7 Hz (NUEVO)
+
+> 📖 **Documentación completa**: Ver [scripts/README_COMPARACION_H1_L1.md](scripts/README_COMPARACION_H1_L1.md)
+
+Análisis comparativo de la relación señal-ruido (SNR) entre los detectores Hanford (H1) y Livingston (L1) para 11 eventos gravitacionales del catálogo GWTC, enfocándose en la frecuencia de 141.7 Hz:
+
+```bash
+# Ejecutar análisis comparativo H1 vs L1
+make comparacion-h1-l1
+
+# O directamente con Python
+python3 scripts/comparacion_h1_l1_snr.py
+
+# Ejecutar tests (10 tests unitarios)
+make test-comparacion-h1-l1
+```
+
+**Eventos analizados:**
+- GW150914, GW151012, GW151226 (2015)
+- GW170104, GW170608, GW170729, GW170809, GW170814, GW170817, GW170818, GW170823 (2017)
+
+**Características:**
+- Filtrado de banda estrecha: 140.7 - 142.7 Hz
+- Estimación de SNR: max(|señal|) / std(señal)
+- Comparación multi-detector H1 vs L1
+- Visualización: Gráfico de barras comparativo
+- Exportación: JSON con resultados numéricos
+
+**Salida generada:**
+- `results/figures/snr_h1_l1.png` - Gráfico comparativo
+- `results/snr_h1_l1_comparison.json` - Resultados numéricos
 
 
 ## 🔬 NUEVO: Formalización Matemática de la Simetría Discreta
