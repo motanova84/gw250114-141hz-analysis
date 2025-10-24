@@ -76,19 +76,17 @@ def analizar_gw200129():
     """
     Analiza el evento GW200129_065458 y calcula respuestas efectivas.
     """
-    print("🌌 ANÁLISIS DE GW200129_065458")
-    print("=" * 60)
-    print()
-    
     # Parámetros del evento GW200129_065458
     evento_nombre = "GW200129_065458"
     gps_time = 1264316116.4
     
     # Coordenadas del cielo para GW200129_065458
-    # Valores aproximados - ajustar según catálogo GWOSC cuando esté disponible
-    ra = 1.95  # Ascensión recta (radianes) ~111.7 grados
-    dec = -1.27  # Declinación (radianes) ~-72.7 grados
-    polarization = 0.785  # Ángulo de polarización (radianes) ~45 grados
+    # Basado en parámetros del catálogo GWOSC para GW200129_065458
+    # RA: ~03h 25m (~51.25 deg = 0.894 rad)
+    # Dec: ~-57.8 deg = -1.009 rad
+    ra = 0.894  # Ascensión recta (radianes)
+    dec = -1.009  # Declinación (radianes)
+    polarization = 1.571  # Ángulo de polarización (radianes) ~90 grados
     
     # Frecuencia objetivo
     target_freq = 141.7  # Hz
@@ -117,30 +115,6 @@ def analizar_gw200129():
             print(f"  {det_name}: Error - {e}")
             resultados[det_name] = 0.0
     
-    print()
-    print("=" * 60)
-    print("✅ Análisis completado")
-    print()
-    
-    # Análisis adicional
-    if all(v > 0 for v in resultados.values()):
-        print("📊 ANÁLISIS DE RESPUESTAS:")
-        print("-" * 60)
-        
-        # Encontrar detector con mejor respuesta
-        mejor_detector = max(resultados, key=resultados.get)
-        mejor_respuesta = resultados[mejor_detector]
-        
-        print(f"Detector con mejor respuesta: {mejor_detector} (F_eff = {mejor_respuesta:.4f})")
-        
-        # Calcular promedio
-        promedio = np.mean(list(resultados.values()))
-        print(f"Respuesta promedio: {promedio:.4f}")
-        
-        # Calcular respuesta combinada (suma cuadrática)
-        respuesta_combinada = np.sqrt(sum(v**2 for v in resultados.values()))
-        print(f"Respuesta combinada (red): {respuesta_combinada:.4f}")
-        print()
     
     return 0
 
