@@ -489,9 +489,10 @@ python scripts/descargar_datos.py
 # ⏳ Descarga ~100MB de datos de GW150914
 
 # 5. Ejecutar análisis completo
-python scripts/analizar_ringdown.py  # Análisis H1
-python scripts/analizar_l1.py        # Validación L1
-python scripts/analisis_noesico.py   # Búsqueda de armónicos
+python scripts/analizar_ringdown.py     # Análisis H1
+python scripts/analizar_l1.py           # Validación L1
+python scripts/analisis_noesico.py      # Búsqueda de armónicos
+python scripts/analizar_asd_141hz.py    # Análisis ASD en 141.7 Hz con controles
 
 # 6. Verificar resultados
 ls results/figures/  # Debe contener gráficos de análisis
@@ -891,6 +892,38 @@ python scripts/descargar_datos.py
 python scripts/analizar_ringdown.py
 python scripts/analisis_noesico.py
 ```
+
+## 📊 Análisis de ASD en 141.7 Hz
+
+> 📖 **Documentación completa**: Ver [docs/ASD_ANALYSIS_141HZ.md](docs/ASD_ANALYSIS_141HZ.md)
+
+Análisis riguroso de la Densidad Espectral de Amplitud (ASD) en la frecuencia objetivo de **141.7 Hz**:
+
+### Características Principales
+
+- ✅ **Descarga automática** de segmentos de 32-64s para H1 y L1
+- ✅ **Cálculo de ASD** con método de Welch (gwpy.timeseries.TimeSeries.asd())
+- ✅ **Extracción precisa** del valor de ASD en 141.7 Hz
+- ✅ **Comparación L1 vs H1** con análisis de ratios de ruido
+- ✅ **Análisis de control** en días sin eventos (mismo tiempo UTC)
+- ✅ **Visualizaciones** completas: ASDs completos, zoom en 141.7 Hz, comparación de ratios
+
+### Uso Rápido
+
+```bash
+# Análisis estándar con configuración por defecto
+python scripts/analizar_asd_141hz.py
+
+# Análisis personalizado
+python scripts/analizar_asd_141hz.py --duration 48 --control-days 1 7 30 --verbose
+```
+
+### Salida
+
+El script genera:
+- **Resultados numéricos**: `results/asd_analysis/asd_results.txt`
+- **Gráficas comparativas**: ASDs completos, zoom en 141.7 Hz, ratios L1/H1
+- **Análisis de control**: Comparación con días sin eventos
 
 ## 🧪 NUEVO: Protocolos Experimentales para Validación de f₀
 
