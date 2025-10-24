@@ -1,0 +1,85 @@
+name: Validate 141.7 Hz in GW150914
+
+on:
+  # Manual trigger
+  workflow_dispatch:
+  # Run weekly on Monday at 00:00 UTC
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  validate:
+    name: Run 141.7 Hz Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libigraph-dev \
+          build-essential \
+          gfortran
+
+    - name: Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run validation tests
+      run: |
+        python scripts/test_validate_141hz_gw150914.py
+
+    - name: Run 141.7 Hz validation
+      run: |
+        python scripts/validate_141hz_gw150914.py
+      continue-on-error: true
+      # Note: May fail if GWOSC data is unavailable
+
+    - name: Upload validation results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: validation-results-141hz-${{ github.run_number }}
+        path: |
+          results/validation/*.png
+          results/validation/*.json
+        retention-days: 30
+
+    - name: Generate validation summary
+      if: always()
+      run: |
+        echo "## 141.7 Hz Validation Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+
+        if [ -f results/validation/final_results.json ]; then
+          echo "✅ Validation completed successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Files Generated:" >> $GITHUB_STEP_SUMMARY
+          echo "- Test 2: ASD Analysis" >> $GITHUB_STEP_SUMMARY
+          echo "- Test 3: Off-Source Scan" >> $GITHUB_STEP_SUMMARY
+          echo "- Final Results JSON" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "⚠️ Validation did not complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "This may be due to GWOSC data unavailability or network issues." >> $GITHUB_STEP_SUMMARY
+        fi
+
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "See artifacts for detailed results." >> $GITHUB_STEP_SUMMARY

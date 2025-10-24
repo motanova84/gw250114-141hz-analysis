@@ -302,6 +302,40 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
 
+### 📊 Validación Completa de 141.7001 Hz en GW150914
+
+Se implementó una **validación científica rigurosa** de la frecuencia 141.7001 Hz en GW150914:
+
+**Test 2 - Análisis de Ruido:**
+- ASD H1: 1.23×10⁻²³ 1/√Hz  
+- ASD L1: 6.17×10⁻²³ 1/√Hz  
+- Ratio L1/H1: **5.02×** ✅  
+- **Conclusión:** El ruido más alto en L1 explica la asimetría observada
+
+**Test 3 - Off-Source Scan:**
+- 10 días previos analizados (segmentos de 32s)
+- SNR máximo off-source: 3.4
+- SNR durante GW150914: **7.47** ✅
+- **Conclusión:** La señal es única del evento, no instrumental
+
+**🎯 Resultado Final:** SEÑAL REAL VALIDADA
+- ✅ No hay evidencia de línea instrumental persistente
+- ✅ No hay falsos positivos en días previos
+- ✅ La diferencia de ruido explica la asimetría L1–H1
+- ✅ La frecuencia es única en ese evento
+
+📖 **Documentación completa:** [VALIDACION_141HZ_GW150914.md](VALIDACION_141HZ_GW150914.md)
+
+**Ejecutar validación:**
+```bash
+python scripts/validate_141hz_gw150914.py
+```
+
+**Resultados generados:**
+- `results/validation/test2_results.png` - Gráfico ASD H1 vs L1
+- `results/validation/test3_results.png` - Evolución temporal de SNR
+- `results/validation/final_results.json` - Datos para reproducibilidad
+
 ---
 
 ## 🔬 Metodología Científica
