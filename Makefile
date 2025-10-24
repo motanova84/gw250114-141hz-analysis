@@ -35,7 +35,7 @@ status:
   validate-connectivity validate-gw150914 validate-gw250114 \
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
-  multi-event-snr test-multi-event-snr \
+  multi-event-snr test-multi-event-snr demo-multi-event-snr \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
@@ -74,6 +74,7 @@ help:
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
 	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
 	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
+	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -219,6 +220,12 @@ multi-event-snr: setup
 test-multi-event-snr: setup
 	@echo "🧪 Testing análisis multi-evento de SNR..."
 	./venv/bin/python scripts/test_multi_event_snr_analysis.py
+
+# Demo multi-event SNR analysis with synthetic data
+demo-multi-event-snr: setup
+	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
+	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
+	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
