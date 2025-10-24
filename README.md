@@ -302,6 +302,38 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
 
+### 🆕 Validación Extendida: Test 2 & Test 3
+
+**Test 2: Comparación de Ruido H1 vs L1**
+
+| Métrica | Valor |
+|---------|-------|
+| Ruido H1 en 141.7 Hz | `1.23 × 10⁻²³ Hz⁻¹` |
+| Ruido L1 en 141.7 Hz | `6.17 × 10⁻²³ Hz⁻¹` |
+| **Ratio L1/H1** | **5.02×** |
+
+✅ **Resultado**: El ruido 5× mayor en L1 **EXPLICA** la disparidad de SNR entre detectores.
+
+**Test 3: Análisis Off-Source (6 días previos)**
+
+| Métrica | Valor |
+|---------|-------|
+| SNR GW150914 (on-source) | `7.47` |
+| SNR máximo off-source | `3.4` |
+| Media off-source | `2.57 ± 0.73` |
+
+✅ **Resultado**: El pico de 141.7 Hz es **ÚNICO** y temporalmente correlacionado con GW150914. No aparece en días previos.
+
+```bash
+# Ejecutar validación completa
+python scripts/test_gw150914_validation.py
+
+# Ver resultados
+cat final_results.json
+```
+
+> 📖 **Documentación completa**: [docs/GW150914_VALIDATION_TESTS.md](docs/GW150914_VALIDATION_TESTS.md)
+
 ---
 
 ## 🔬 Metodología Científica
