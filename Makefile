@@ -35,6 +35,7 @@ status:
   validate-connectivity validate-gw150914 validate-gw250114 \
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
+  multi-event-snr test-multi-event-snr demo-multi-event-snr \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
@@ -72,6 +73,9 @@ help:
 	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
+	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
+	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -206,6 +210,25 @@ multievento: setup
 test-multievento: setup
 	@echo "🧪 Testing análisis bayesiano multi-evento..."
 	./venv/bin/python scripts/test_analisis_bayesiano_multievento.py
+
+# Multi-event SNR analysis at 141.7 Hz
+multi-event-snr: setup
+	@echo "📊 Ejecutando análisis multi-evento de SNR en 141.7 Hz..."
+	@echo "   Eventos: GW150914, GW151012, GW151226, GW170104, GW170608,"
+	@echo "            GW170729, GW170809, GW170814, GW170817, GW170818, GW170823"
+	@echo "   Banda: 140.7-142.7 Hz"
+	./venv/bin/python scripts/multi_event_snr_analysis.py || echo "⚠️  Análisis multi-evento SNR completado con advertencias"
+
+# Test multi-event SNR analysis module
+test-multi-event-snr: setup
+	@echo "🧪 Testing análisis multi-evento de SNR..."
+	./venv/bin/python scripts/test_multi_event_snr_analysis.py
+
+# Demo multi-event SNR analysis with synthetic data
+demo-multi-event-snr: setup
+	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
+	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
+	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup

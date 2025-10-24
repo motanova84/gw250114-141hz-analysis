@@ -248,6 +248,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
 - ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
+- ✅ **Análisis Multi-evento SNR** - Análisis de SNR en 141.7 Hz para 11 eventos (H1 y L1)
 - ✅ **Sistema de Alertas Automáticas** - Notificaciones sobre disponibilidad de GW250114
 
 ### Uso Rápido
@@ -264,6 +265,10 @@ make validate
 # Análisis multi-evento automatizado (NUEVO)
 make multievento
 
+# Análisis multi-evento de SNR en 141.7 Hz (NUEVO)
+make multi-event-snr      # Análisis de 11 eventos con H1 y L1
+make test-multi-event-snr # Ejecutar tests sin conectividad
+
 # Sistema de alertas automáticas para GW250114 (NUEVO)
 make alert-gw250114  # Monitoreo continuo vía Make
 python3 scripts/verificador_gw250114.py  # Monitoreo continuo
@@ -276,6 +281,10 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 - `results/informe_validacion_gw250114.json` - Informe completo
 - `results/resumen_validacion.txt` - Resumen legible
 - `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
+- `multi_event_results.json` - Resultados de SNR multi-evento
+- `multi_event_analysis.png` - Visualización comparativa H1 vs L1
+
+> 📖 **Documentación detallada del análisis multi-evento SNR**: Ver [ANALISIS_MULTIEVENTO_SNR.md](ANALISIS_MULTIEVENTO_SNR.md)
 
 ---
 

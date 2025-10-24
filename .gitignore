@@ -109,9 +109,13 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+multi_event_analysis.png
+demo_multi_event_analysis.png
 
 # Generated data files
 Evac_Rpsi_data.csv
+multi_event_results.json
+demo_multi_event_results.json
 
 # Test results directories
 scripts/results/
