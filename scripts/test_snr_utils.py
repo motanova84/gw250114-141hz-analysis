@@ -11,9 +11,11 @@ import numpy as np
 import sys
 import os
 
-# Asegurar que podemos importar snr_utils
+# Ajustar path antes de importar (necesario para imports locales)
 sys.path.insert(0, os.path.dirname(__file__))
-from snr_utils import (
+
+# Asegurar que podemos importar snr_utils
+from snr_utils import (  # noqa: E402
     safe_format_snr,
     format_snr_string,
     calculate_snr_safe,

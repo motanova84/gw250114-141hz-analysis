@@ -17,9 +17,11 @@ import numpy as np
 import sys
 import os
 
-# Importar utilidades de SNR
+# Ajustar path antes de importar (necesario para imports locales)
 sys.path.insert(0, os.path.dirname(__file__))
-from snr_utils import safe_format_snr, print_snr_result, calculate_snr_safe
+
+# Importar utilidades de SNR
+from snr_utils import safe_format_snr, print_snr_result, calculate_snr_safe  # noqa: E402
 
 
 def ejemplo_problema_original():
@@ -94,7 +96,7 @@ def ejemplo_solucion_1():
     print("from snr_utils import safe_format_snr")
     print("snr = (F_eff * h_rss) / np.sqrt(Sn_f0)")
     print("snr_safe = safe_format_snr(snr)")
-    print(f"print(f'SNR esperada a 141.7 Hz en {{ifo}}: {{snr_safe:.2f}}')")
+    print("print(f'SNR esperada a 141.7 Hz en {ifo}: {snr_safe:.2f}')")
     print()
 
 
@@ -158,7 +160,7 @@ def ejemplo_solucion_3():
     print("from snr_utils import calculate_snr_safe, safe_format_snr")
     print("snr = calculate_snr_safe(F_eff, h_rss, Sn_f0)")
     print("snr_safe = safe_format_snr(snr)")
-    print(f"print(f'SNR esperada a 141.7 Hz en {{ifo}}: {{snr_safe:.2f}}')")
+    print("print(f'SNR esperada a 141.7 Hz en {ifo}: {snr_safe:.2f}')")
     print()
 
 
@@ -191,7 +193,7 @@ def ejemplo_multiples_detectores():
         snr = calculate_snr_safe(F_eff, np.array([h_rss]), Sn_f0)
         
         # Imprimir resultado usando print_snr_result
-        print(f"  ", end="")
+        print("  ", end="")
         print_snr_result(snr, ifo, 141.7)
     
     print()

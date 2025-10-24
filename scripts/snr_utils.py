@@ -212,12 +212,12 @@ if __name__ == "__main__":
     print(f"   Tipo de snr: {type(snr)}")
     print(f"   SNR: {safe_format_snr(snr):.2f}")
     print()
-    
+
     # Ejemplo 3: Usando print_snr_result
     print("📊 Ejemplo 3: Usando print_snr_result()")
     for ifo in ['H1', 'L1']:
         snr = np.array([7.5 + np.random.uniform(-1, 1)])
-        print(f"   ", end="")
+        print("   ", end="")
         print_snr_result(snr, ifo, 141.7)
     print()
     
@@ -236,7 +236,7 @@ if __name__ == "__main__":
     snr_array = np.array([5.2, 6.8, 7.3, 8.1])
     print(f"   Array completo: {snr_array}")
     print(f"   Primer valor: {safe_format_snr(snr_array):.2f}")
-    print(f"   Para imprimir todos los valores:")
+    print("   Para imprimir todos los valores:")
     for i, snr_val in enumerate(snr_array):
         print(f"      SNR[{i}] = {safe_format_snr(snr_val):.2f}")
     print()
