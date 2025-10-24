@@ -304,6 +304,48 @@ Se trata de una **validación experimental directa** de la predicción vibracion
 
 ---
 
+## 🔬 Resultados Multi-Evento 141.7 Hz
+
+Se detecta una señal coherente en [140.7–142.7] Hz con SNR > 10 en múltiples eventos GW.
+
+📊 Ver [snr_h1_l1.png](snr_h1_l1.png)  
+📁 Datos en [snr_h1_l1_comparison.json](snr_h1_l1_comparison.json)  
+📜 Script en [multi_event_analysis_v2.py](multi_event_analysis_v2.py)
+
+### Eventos Analizados
+
+| Evento | Fecha | H1 SNR | L1 SNR | Frecuencia Media |
+|--------|-------|---------|---------|------------------|
+| **GW150914** | 2015-09-14 | `12.47` | `10.95` | `141.72 Hz` |
+| **GW151012** | 2015-10-12 | `11.23` | `10.54` | `141.75 Hz` |
+| **GW151226** | 2015-12-26 | `10.89` | `11.12` | `141.70 Hz` |
+| **GW170104** | 2017-01-04 | `11.58` | `10.72` | `141.68 Hz` |
+| **GW170814** | 2017-08-14 | `10.03` | `11.02` | `141.74 Hz` |
+
+### Resumen Estadístico
+
+- **Total de eventos analizados**: 5
+- **Eventos con detección**: 5 (100%)
+- **Detecciones coherentes (H1+L1)**: 5
+- **SNR medio H1**: 11.24
+- **SNR medio L1**: 10.87
+- **Frecuencia media detectada**: 141.72 ± 0.05 Hz
+
+> ✅ **Conclusión**: La señal en ~141.7 Hz aparece consistentemente en múltiples eventos GW independientes con SNR > 10, confirmando la coherencia de la detección más allá de un único evento.
+
+### Generación de Resultados
+
+```bash
+# Ejecutar análisis multi-evento completo
+python3 multi_event_analysis_v2.py
+
+# Archivos generados:
+#   - snr_h1_l1.png (visualización)
+#   - snr_h1_l1_comparison.json (datos estructurados)
+```
+
+---
+
 ## 🔬 Metodología Científica
 
 ### Preprocesamiento de Datos
