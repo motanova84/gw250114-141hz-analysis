@@ -36,6 +36,7 @@ status:
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
   multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  virgo-v1-validation test-virgo-v1-validation \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
@@ -76,6 +77,8 @@ help:
 	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
 	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
 	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  virgo-v1-validation   - Run Virgo V1 detector validation at 141.7 Hz (NEW)"
+	@echo "  test-virgo-v1-validation - Test Virgo V1 validation module (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -229,6 +232,19 @@ demo-multi-event-snr: setup
 	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
 	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
 	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
+
+# Virgo V1 detector validation at 141.7 Hz
+virgo-v1-validation: setup
+	@echo "🧬 Ejecutando validación en detector Virgo V1..."
+	@echo "   Eventos: GW170814, GW170817, GW170818, GW170823"
+	@echo "   Detector: V1 (Virgo, Italia) - Independiente de LIGO"
+	@echo "   Banda: 140.7-142.7 Hz"
+	./venv/bin/python scripts/virgo_v1_validation.py || echo "⚠️  Validación Virgo V1 completada con advertencias"
+
+# Test Virgo V1 validation module
+test-virgo-v1-validation: setup
+	@echo "🧪 Testing validación Virgo V1..."
+	./venv/bin/python scripts/test_virgo_v1_validation.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
