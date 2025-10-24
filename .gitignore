@@ -111,11 +111,13 @@ config/*.env
 potential_plot.png
 multi_event_analysis.png
 demo_multi_event_analysis.png
+snr_gw200129_065458_141hz.png
 
 # Generated data files
 Evac_Rpsi_data.csv
 multi_event_results.json
 demo_multi_event_results.json
+snr_gw200129_065458_results.json
 
 # IMPORTANT: DO NOT IGNORE - Discovery confirmation files
 !multi_event_final.json
