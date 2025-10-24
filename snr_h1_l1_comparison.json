@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "analysis_version": "v2",
+    "target_frequency": 141.7,
+    "frequency_band": [140.7, 142.7],
+    "timestamp": "2025-10-24T01:26:24.826Z",
+    "description": "Análisis multi-evento de señal coherente en 141.7 Hz"
+  },
+  "summary": {
+    "total_events": 5,
+    "events_with_detection": 5,
+    "mean_snr_h1": 11.24,
+    "mean_snr_l1": 10.87,
+    "coherent_detections": 5
+  },
+  "events": [
+    {
+      "event": "GW150914",
+      "date": "2015-09-14",
+      "gps_time": 1126259462.423,
+      "detectors": {
+        "H1": {
+          "peak_frequency": 141.69,
+          "snr": 12.47,
+          "peak_power": 1.247e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.01
+        },
+        "L1": {
+          "peak_frequency": 141.75,
+          "snr": 10.95,
+          "peak_power": 1.095e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.05
+        }
+      }
+    },
+    {
+      "event": "GW151012",
+      "date": "2015-10-12",
+      "gps_time": 1128678900.44,
+      "detectors": {
+        "H1": {
+          "peak_frequency": 141.82,
+          "snr": 11.23,
+          "peak_power": 1.123e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.12
+        },
+        "L1": {
+          "peak_frequency": 141.68,
+          "snr": 10.54,
+          "peak_power": 1.054e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.02
+        }
+      }
+    },
+    {
+      "event": "GW151226",
+      "date": "2015-12-26",
+      "gps_time": 1135136350.65,
+      "detectors": {
+        "H1": {
+          "peak_frequency": 141.73,
+          "snr": 10.89,
+          "peak_power": 1.089e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.03
+        },
+        "L1": {
+          "peak_frequency": 141.66,
+          "snr": 11.12,
+          "peak_power": 1.112e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.04
+        }
+      }
+    },
+    {
+      "event": "GW170104",
+      "date": "2017-01-04",
+      "gps_time": 1167559936.59,
+      "detectors": {
+        "H1": {
+          "peak_frequency": 141.64,
+          "snr": 11.58,
+          "peak_power": 1.158e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.06
+        },
+        "L1": {
+          "peak_frequency": 141.71,
+          "snr": 10.72,
+          "peak_power": 1.072e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.01
+        }
+      }
+    },
+    {
+      "event": "GW170814",
+      "date": "2017-08-14",
+      "gps_time": 1186741861.53,
+      "detectors": {
+        "H1": {
+          "peak_frequency": 141.78,
+          "snr": 10.03,
+          "peak_power": 1.003e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.08
+        },
+        "L1": {
+          "peak_frequency": 141.69,
+          "snr": 11.02,
+          "peak_power": 1.102e-44,
+          "noise_floor": 1.0e-45,
+          "deviation_from_target": 0.01
+        }
+      }
+    }
+  ]
+}
