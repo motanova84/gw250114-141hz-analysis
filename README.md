@@ -371,6 +371,28 @@ Puedes acceder al notebook interactivo en Google Colab aquí:
 
 > 🔬 La señal aparece en ambos detectores. Coincidencia multisitio confirmada. Validación doble del armónico base.
 
+### 🌏 Análisis KAGRA (K1) - O4 Open Data
+
+**Verificación de universalidad con detector independiente:**
+
+| Detector | GPS Time | Fecha | Banda (Hz) | SNR | Interpretación |
+|----------|----------|-------|------------|-----|----------------|
+| **KAGRA (K1)** | `1370294440-1370294472` | `2023-06-16` | `141.4-142.0` | Ver resultados | Por determinar |
+
+```bash
+# Ejecutar análisis KAGRA
+python scripts/analizar_kagra_k1.py
+```
+
+**Interpretación de resultados:**
+- **SNR > 5.0**: ✅ Posible señal coherente también en KAGRA
+- **SNR 2-4.9**: ⚠️  Marginal – investigar más
+- **SNR < 2.0**: ❌ No aparece – no universal
+
+> 🔍 **Objetivo**: Verificar si la señal de 141.7 Hz es universal o específica de LIGO.  
+> **Datos**: Segmento de 32s de O4 Open Data (junio 2023).  
+> **Método**: Filtro de banda + cálculo de SNR, idéntico al usado con LIGO H1/L1.
+
 ---
 
 ## 🔬 Metodología Científica
@@ -606,6 +628,7 @@ python scripts/descargar_datos.py
 # 5. Ejecutar análisis completo
 python scripts/analizar_ringdown.py  # Análisis H1
 python scripts/analizar_l1.py        # Validación L1
+python scripts/analizar_kagra_k1.py  # Análisis KAGRA K1 (O4 data)
 python scripts/analisis_noesico.py   # Búsqueda de armónicos
 
 # 6. Verificar resultados
