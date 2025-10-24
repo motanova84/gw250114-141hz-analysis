@@ -38,6 +38,7 @@ status:
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  validar-criterios-descubrimiento test-criterios-descubrimiento \
   dashboard dashboard-status workflow status \
   clean docker help \
   experimentos test-experimentos diagrams-experimentos
@@ -79,6 +80,8 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  validar-criterios-descubrimiento - Validate 7 discovery criteria for 141.7001 Hz (NEW)"
+	@echo "  test-criterios-descubrimiento    - Test discovery criteria validation system (NEW)"
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
@@ -235,6 +238,24 @@ test-3-pilares: setup
 	@echo "   Testing validación completa..."
 	./venv/bin/python scripts/validacion_completa_3_pilares.py || exit 1
 	@echo "✅ Todos los tests de 3 pilares pasaron exitosamente"
+
+# Validate discovery criteria for 141.7001 Hz signal
+validar-criterios-descubrimiento: setup
+	@echo "🔬 Validando Criterios de Descubrimiento para f₀ = 141.7001 Hz..."
+	@echo "   1. No es artefacto instrumental"
+	@echo "   2. No es línea persistente"
+	@echo "   3. No es coincidencia estadística (p < 10⁻¹¹)"
+	@echo "   4. Universal en fusiones de agujeros negros"
+	@echo "   5. SNR consistente (~21, CV=0.30)"
+	@echo "   6. Todos significativos (>10σ)"
+	@echo "   7. Cumple estándares de descubrimiento (5σ, 3σ)"
+	@mkdir -p results
+	./venv/bin/python scripts/validacion_criterios_descubrimiento.py
+
+# Test discovery criteria validation system
+test-criterios-descubrimiento: setup
+	@echo "🧪 Testing sistema de validación de criterios de descubrimiento..."
+	./venv/bin/python scripts/test_validacion_criterios_descubrimiento.py
 
 # Run PyCBC-based GW150914 analysis
 pycbc-analysis: setup
