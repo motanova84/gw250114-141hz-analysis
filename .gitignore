@@ -66,6 +66,8 @@ results/*
 results/figures/*
 # Keep verification and vacuum energy figures (PNG files)
 !results/figures/*.png
+# Keep example JSON results
+!results/*.json
 
 # Generated validation files
 output/
