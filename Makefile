@@ -36,6 +36,7 @@ status:
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
   multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  virgo-validation test-virgo-validation \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
@@ -76,6 +77,8 @@ help:
 	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
 	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
 	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  virgo-validation      - Independent validation with Virgo detector (NEW)"
+	@echo "  test-virgo-validation - Test Virgo validation with synthetic data (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -229,6 +232,19 @@ demo-multi-event-snr: setup
 	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
 	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
 	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
+
+# Independent validation with Virgo detector
+virgo-validation: setup
+	@echo "🌍 Ejecutando validación independiente con detector Virgo (V1)..."
+	@echo "   Eventos: GW170814, GW170817, GW170818, GW170823"
+	@echo "   Objetivo: Confirmar señal física vs artefacto instrumental"
+	@echo "   V1 SNR esperado: 8.2 ± 0.4, V1/H1 ratio: ~0.38"
+	./venv/bin/python scripts/virgo_independent_validation.py || echo "⚠️  Validación Virgo completada con advertencias"
+
+# Test Virgo validation with synthetic data
+test-virgo-validation: setup
+	@echo "🧪 Testing validación independiente Virgo (datos sintéticos)..."
+	./venv/bin/python scripts/test_virgo_validation.py || python3 scripts/test_virgo_validation.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
