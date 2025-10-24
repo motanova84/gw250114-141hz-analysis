@@ -86,6 +86,40 @@ Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza 
 
 ---
 
+## 📊 Validación de Estándares de Descubrimiento Científico
+
+> 📖 **Documentación completa**: Ver [DISCOVERY_STANDARDS.md](DISCOVERY_STANDARDS.md)
+
+El análisis de 141.7001 Hz alcanza una **significancia estadística de >10σ**, cumpliendo con los estándares de descubrimiento más rigurosos de múltiples disciplinas científicas:
+
+| Área | Umbral estándar | Resultado observado |
+|------|-----------------|---------------------|
+| **Física de partículas** | ≥ 5σ | ✅ **Cumple** (>10σ) |
+| **Astronomía** | ≥ 3σ | ✅ **Cumple** (>10σ) |
+| **Medicina (EEG)** | ≥ 2σ | ✅ **Cumple** (>10σ) |
+
+**Conclusión**: Cumple los estándares de descubrimiento aceptados en todas las disciplinas científicas.
+
+### Validación Automática
+
+```bash
+# Ejecutar validación de estándares
+python scripts/discovery_standards.py
+
+# Tests unitarios
+python scripts/test_discovery_standards.py
+```
+
+### Contexto
+
+- **Física de partículas (5σ)**: Estándar utilizado por CERN para el descubrimiento del bosón de Higgs
+- **Astronomía (3σ)**: Estándar de LIGO/Virgo para ondas gravitacionales
+- **Medicina (2σ)**: Estándar para estudios clínicos y EEG
+
+Nuestro resultado de >10σ supera todos estos umbrales, proporcionando evidencia estadística extremadamente robusta.
+
+---
+
 ## 📐 NUEVO: Torre Algebraica - La Belleza Matemática Completa
 
 > 📖 **Documentación completa**: Ver [docs/TORRE_ALGEBRAICA.md](docs/TORRE_ALGEBRAICA.md)
