@@ -280,6 +280,62 @@ python dashboard_avanzado.py
 
 ---
 
+## 🔬 Real Noise Analysis - Validation Tests
+
+> 📖 **Documentación completa**: Ver [REAL_NOISE_ANALYSIS_README.md](REAL_NOISE_ANALYSIS_README.md)
+
+Two comprehensive validation scripts for analyzing real LIGO data around GW150914:
+
+### Test 2: Off-Source Noise Analysis
+Analyzes noise 1 hour before GW150914 to validate the 141.7 Hz component:
+- Downloads 32s H1 and L1 off-source data
+- Calculates ASD with 0.25 Hz resolution
+- Extracts exact values at 141.7 Hz
+- Calculates L1/H1 noise ratio
+- **Verdict**: ✅ if ratio > 1.5, ❌ otherwise
+
+### Test 3: Multi-Segment Off-Source Scan
+Scans 10 segments over 10 days to determine if 141.7 Hz is persistent or transient:
+- Downloads 10 segments of 32s each
+- Searches for peaks in 140-143 Hz band
+- Calculates SNR for each segment
+- Compares with GW150914 SNR (7.47)
+- **Verdict**: ✅ if max SNR < 7.47 and n_above_7 == 0, ❌ otherwise
+
+### Quick Start
+
+```bash
+# Install dependencies
+pip install gwpy numpy matplotlib
+
+# Run tests
+python test2_real_noise_analysis.py  # Test 2: Noise analysis
+python test3_real_offsource_scan.py  # Test 3: Multi-segment scan
+
+# View results
+cat results/test2_real_results.json
+cat results/test3_real_results.json
+```
+
+### Google Colab (Easier)
+
+```python
+!pip install gwpy
+!wget https://raw.githubusercontent.com/motanova84/141hz/main/test2_real_noise_analysis.py
+!wget https://raw.githubusercontent.com/motanova84/141hz/main/test3_real_offsource_scan.py
+!python test2_real_noise_analysis.py
+!python test3_real_offsource_scan.py
+```
+
+### Expected Outputs
+- `results/test2_real_results.json` - Noise analysis results
+- `results/test3_real_results.json` - Multi-segment scan results
+- `results/test2_real_asd_analysis.png` - ASD plots
+- `results/test3_real_snr_timeline.png` - SNR timeline
+- `results/test3_real_asd_comparison.png` - ASD comparison
+
+---
+
 ## 📡 Descripción
 
 Este repositorio explora la presencia de una **frecuencia resonante precisa en 141.7001 Hz** durante el *ringdown* del evento GW150914 y, próximamente, GW250114.  
