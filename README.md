@@ -113,6 +113,59 @@ Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza 
 3. Analysis       → Validación científica con datos GWOSC
 ```
 
+### 🤖 Colaboradores Automatizados (AI-Powered)
+
+Este proyecto incluye **8 bots inteligentes** que actúan como colaboradores automatizados:
+
+1. **🔒 Dependabot** - Actualiza dependencias automáticamente
+   - Agrupa actualizaciones por categoría (scientific-computing, gravitational-wave, testing)
+   - Ejecuta semanalmente y crea PRs automáticos
+   - Mantiene compatibilidad con Python 3.11 y 3.12
+
+2. **🏷️ Auto-Labeler** - Etiqueta PRs e Issues inteligentemente
+   - Detecta tipo de cambio (bug, feature, docs, etc.)
+   - Identifica categorías científicas (frequency-analysis, gravitational-waves)
+   - Da bienvenida a nuevos contribuidores
+
+3. **📋 Issue Management Bot** - Gestiona issues automáticamente
+   - Verifica información completa en nuevos issues
+   - Cierra issues resueltos automáticamente
+   - Marca issues obsoletos después de 60 días de inactividad
+
+4. **🧠 Workflow Intelligence** - Analiza rendimiento de workflows
+   - Genera reportes de rendimiento semanales
+   - Detecta workflows lentos y sugiere optimizaciones
+   - Crea issues para fallos consecutivos
+
+5. **📚 Documentation Updater** - Actualiza documentación automáticamente
+   - Genera inventarios de scripts y workflows
+   - Ejecuta semanalmente
+   - Crea PRs automáticos con cambios
+
+6. **👀 PR Review Automation** - Gestiona revisiones de PRs
+   - Asigna revisores inteligentemente según archivos modificados
+   - Envía recordatorios para PRs sin revisar (>2 días)
+   - Celebra merges exitosos con mensajes motivadores
+
+7. **🏥 Dependency Health Check** - Monitorea salud de dependencias
+   - Ejecuta pip-audit para detectar vulnerabilidades
+   - Verifica paquetes desactualizados
+   - Crea issues automáticos para problemas de seguridad
+   - Valida compatibilidad con Python 3.11 y 3.12
+
+8. **🔄 Coherence Visualization** - Actualiza visualizaciones científicas
+   - Regenera gráficos de coherencia automáticamente
+   - Ejecuta diariamente a las 00:00 UTC
+   - Commitea cambios solo si hay diferencias
+
+**Beneficios:**
+- 🚀 **Mayor velocidad**: Automatiza tareas repetitivas
+- 🔒 **Mayor seguridad**: Detecta vulnerabilidades proactivamente
+- 📊 **Mejor calidad**: Mantiene código y dependencias actualizadas
+- 🤝 **Mejor colaboración**: Facilita contribuciones y revisiones
+
+Ver configuración completa en [`.github/workflows/`](.github/workflows/) y [`.github/dependabot.yml`](.github/dependabot.yml)
+
 ### 💰 Funding Transparente
 [![Sponsor this project](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
