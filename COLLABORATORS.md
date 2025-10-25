@@ -190,7 +190,7 @@ Para discutir colaboraciones formales, publicaciones conjuntas o proyectos deriv
 ### Para Publicaciones Académicas / For Academic Publications
 ```bibtex
 @software{gw250114_analysis,
-  author = {Mota Burruezo, Jos\'{e} Manuel and {GW250114 Analysis Contributors}},
+  author = {Mota Burruezo, Jos{\'e} Manuel and {GW250114 Analysis Contributors}},
   title = {GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves},
   year = {2025},
   url = {https://github.com/motanova84/gw250114-141hz-analysis},
