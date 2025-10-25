@@ -15,7 +15,6 @@ authors:
     orcid: ""
   - name: "GitHub Copilot"
     alias: "AI Assistant"
-    type: "automated"
 contributors:
   - note: "See COLLABORATORS.md for a full list of contributors"
 repository-code: "https://github.com/motanova84/gw250114-141hz-analysis"

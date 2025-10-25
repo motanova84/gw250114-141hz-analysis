@@ -181,7 +181,7 @@ Para discutir colaboraciones formales, publicaciones conjuntas o proyectos deriv
 **Email:** institutoconsciencia@proton.me  
 **Subject:** Colaboración GW250114-141Hz / GW250114-141Hz Collaboration
 
-**GitHub Discussions:** [github.com/motanova84/141hz/discussions](https://github.com/motanova84/141hz/discussions)
+**GitHub Discussions:** [github.com/motanova84/gw250114-141hz-analysis/discussions](https://github.com/motanova84/gw250114-141hz-analysis/discussions)
 
 ---
 
@@ -190,7 +190,7 @@ Para discutir colaboraciones formales, publicaciones conjuntas o proyectos deriv
 ### Para Publicaciones Académicas / For Academic Publications
 ```bibtex
 @software{gw250114_analysis,
-  author = {Mota Burruezo, José Manuel and contributors},
+  author = {Mota Burruezo, Jos\'{e} Manuel and {GW250114 Analysis Contributors}},
   title = {GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves},
   year = {2025},
   url = {https://github.com/motanova84/gw250114-141hz-analysis},
