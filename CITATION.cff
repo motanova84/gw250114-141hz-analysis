@@ -13,6 +13,11 @@ authors:
     given-names: "José Manuel"
     alias: "JMMB Ψ✧"
     orcid: ""
+  - name: "GitHub Copilot"
+    alias: "AI Assistant"
+    type: "automated"
+contributors:
+  - note: "See COLLABORATORS.md for a full list of contributors"
 repository-code: "https://github.com/motanova84/gw250114-141hz-analysis"
 url: "https://github.com/motanova84/gw250114-141hz-analysis"
 license: MIT
@@ -52,5 +57,7 @@ preferred-citation:
   authors:
     - family-names: "Mota Burruezo"
       given-names: "José Manuel"
+    - name: "and contributors"
   year: 2025
   url: "https://github.com/motanova84/gw250114-141hz-analysis"
+  note: "Full contributor list available at: https://github.com/motanova84/gw250114-141hz-analysis/blob/main/COLLABORATORS.md"
