@@ -151,7 +151,7 @@ class BuscadorArmonicosSuperiores:
                 'tipo': info['tipo'],
                 'orden': info['orden'],
                 'detectable': True,
-                'significativo': snr > 3.0
+                'significativo': bool(snr > 3.0)
             }
             
             status = "✅" if snr > 5.0 else "⚠️ " if snr > 3.0 else "❌"
