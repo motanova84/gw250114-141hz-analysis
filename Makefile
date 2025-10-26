@@ -36,6 +36,7 @@ status:
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
   multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  snr-gw200129 test-snr-gw200129 \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
@@ -76,6 +77,8 @@ help:
 	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
 	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
 	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  snr-gw200129          - Analyze SNR for GW200129_065458 at 141.7 Hz (NEW)"
+	@echo "  test-snr-gw200129     - Test SNR analysis for GW200129_065458 (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -229,6 +232,18 @@ demo-multi-event-snr: setup
 	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
 	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
 	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
+
+# SNR analysis for GW200129_065458 event
+snr-gw200129: setup
+	@echo "📊 Ejecutando análisis de SNR para GW200129_065458 en 141.7 Hz..."
+	@echo "   Evento O3b: 2020-01-29 06:54:58 UTC"
+	@echo "   Detectores: H1, L1, V1 (K1 no disponible)"
+	./venv/bin/python scripts/snr_gw200129_analysis.py
+
+# Test SNR analysis for GW200129_065458
+test-snr-gw200129: setup
+	@echo "🧪 Testing análisis de SNR para GW200129_065458..."
+	./venv/bin/python scripts/test_snr_gw200129_analysis.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup

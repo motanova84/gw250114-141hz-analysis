@@ -360,6 +360,10 @@ make multievento
 make multi-event-snr      # Análisis de 11 eventos con H1 y L1
 make test-multi-event-snr # Ejecutar tests sin conectividad
 
+# Análisis de SNR para GW200129_065458 en 141.7 Hz (NUEVO)
+make snr-gw200129         # Análisis con H1, L1, V1 (K1 no disponible)
+make test-snr-gw200129    # Ejecutar tests
+
 # Sistema de alertas automáticas para GW250114 (NUEVO)
 make alert-gw250114  # Monitoreo continuo vía Make
 python3 scripts/verificador_gw250114.py  # Monitoreo continuo
@@ -374,8 +378,11 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 - `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
 - `multi_event_results.json` - Resultados de SNR multi-evento
 - `multi_event_analysis.png` - Visualización comparativa H1 vs L1
+- `snr_gw200129_065458_results.json` - Análisis SNR GW200129 (O3b)
+- `snr_gw200129_065458_141hz.png` - Visualización SNR por detector
 
-> 📖 **Documentación detallada del análisis multi-evento SNR**: Ver [ANALISIS_MULTIEVENTO_SNR.md](ANALISIS_MULTIEVENTO_SNR.md)
+> 📖 **Documentación detallada del análisis multi-evento SNR**: Ver [ANALISIS_MULTIEVENTO_SNR.md](ANALISIS_MULTIEVENTO_SNR.md)  
+> 📖 **Documentación del análisis GW200129**: Ver [docs/GW200129_SNR_ANALYSIS.md](docs/GW200129_SNR_ANALYSIS.md)
 
 ---
 
