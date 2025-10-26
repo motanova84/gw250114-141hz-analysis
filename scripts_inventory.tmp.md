@@ -4,6 +4,8 @@
 
 ## Scripts de Análisis
 
+- `analizar_asd_141hz.py`
+  - Análisis ASD (Amplitude Spectral Density) en 141.7 Hz para GW150914
 - `analizar_gw150914_ejemplo.py`
   - Ejemplo de análisis espectral de GW150914 en 141.7 Hz
 - `analizar_gw150914_pycbc.py`
@@ -23,8 +25,12 @@
 
 ## Scripts de Validación
 
+- `validate_badges.py`
+  - Badge Validation Script
 - `validation_support.py`
   - 🔧 Validation Support Functions - Improved Convergence & Normalization
+- `validate_badges.py`
+  - Badge Validation Script
 
 ## Scripts de Test
 
@@ -36,6 +42,8 @@
   - Test del análisis bayesiano multi-evento con datos sintéticos.
 - `test_analisis_estadistico_avanzado.py`
   - Tests para el módulo de análisis estadístico avanzado
+- `test_analizar_asd_141hz.py`
+  - Tests para el análisis ASD de 141.7 Hz en GW150914
 - `test_analizar_gw150914_pycbc.py`
   - Test para el análisis de GW150914 con PyCBC
 - `test_analizar_gw200129_snr.py`
@@ -84,10 +92,12 @@
   - Tests para el script de validación del radio cuántico RΨ
 - `test_validaciones_alternativas.py`
   - Test Suite para Validaciones Alternativas - 141.7001 Hz
+- `test_validate_badges.py`
+  - Test suite for badge validation script.
 - `test_vercel_config.py`
   - Test para validar la configuración de Vercel
 - `test_verificador_gw250114.py`
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:36:12 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 19:59:05 UTC*
