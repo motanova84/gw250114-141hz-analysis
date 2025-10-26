@@ -142,7 +142,7 @@ class TestValidacionRadioCuantico:
         
         result = subprocess.run(
             ['python3', 'scripts/validacion_radio_cuantico.py'],
-            cwd='/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis',
+            cwd='/home/runner/work/141hz/141hz',
             capture_output=True,
             text=True,
             timeout=60
@@ -174,7 +174,7 @@ class TestValidacionRadioCuantico:
             import subprocess
             subprocess.run(
                 ['python3', 'scripts/validacion_radio_cuantico.py'],
-                cwd='/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis',
+                cwd='/home/runner/work/141hz/141hz',
                 timeout=60
             )
         
@@ -205,7 +205,7 @@ def run_tests():
     print()
     
     # Cambiar al directorio correcto
-    os.chdir('/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis')
+    os.chdir('/home/runner/work/141hz/141hz')
     
     # Ejecutar pytest
     pytest.main([__file__, '-v', '--tb=short'])
