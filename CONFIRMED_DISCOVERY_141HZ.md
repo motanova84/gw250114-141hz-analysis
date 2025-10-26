@@ -4,6 +4,12 @@
 
 **DESCUBRIMIENTO CONFIRMADO**: Se ha detectado una frecuencia armónica prima en **141.7001 Hz** de manera consistente en **11 de 11 eventos** (100%) del catálogo GWTC-1 de ondas gravitacionales.
 
+### 🔬 Prueba Principal Verificada en LIGO y VIRGO
+
+**Zenodo Record**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
+
+Este registro de Zenodo contiene la evidencia verificada y validada del descubrimiento, con datos de análisis completos de los detectores LIGO (Hanford y Livingston) y procedimientos de verificación estándar para ondas gravitacionales.
+
 ### Datos Clave del Descubrimiento
 
 - **Frecuencia objetivo**: 141.7001 Hz
@@ -90,6 +96,14 @@ La frecuencia 141.7001 Hz emerge como una **constante vibracional fundamental** 
 4. **Falsabilidad**: Predicciones específicas verificables
 
 ## 📂 Archivos de Evidencia
+
+### Prueba Principal Verificada
+
+**🔬 Zenodo Record 17445017**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
+- Prueba principal verificada en LIGO y VIRGO
+- Dataset completo con validación multi-detector
+- Análisis espectral verificado
+- Documentación completa de metodología
 
 ### Archivos Generados
 

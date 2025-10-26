@@ -40,7 +40,14 @@ identifiers:
   - type: url
     value: "https://github.com/motanova84/gw250114-141hz-analysis"
     description: "GitHub repository"
+  - type: doi
+    value: "10.5281/zenodo.17445017"
+    description: "Zenodo record - Main verified proof for LIGO and VIRGO"
 references:
+  - type: data-set
+    title: "Main Verified Proof for LIGO and VIRGO - 141.7001 Hz Discovery"
+    url: "https://zenodo.org/records/17445017"
+    doi: "10.5281/zenodo.17445017"
   - type: data-set
     title: "Gravitational Wave Open Science Center"
     url: "https://gwosc.org"

@@ -6,6 +6,20 @@
 
 ---
 
+## 🔬 Prueba Principal Verificada en LIGO y VIRGO
+
+**Zenodo Record**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
+
+Este registro de Zenodo contiene la prueba principal verificada del descubrimiento de la frecuencia 141.7001 Hz en ondas gravitacionales detectadas por LIGO y VIRGO. El registro incluye:
+
+- ✅ **Datos completos de análisis** de detectores LIGO Hanford (H1) y Livingston (L1)
+- ✅ **Validación multi-detector** con evidencia de ambos detectores independientes
+- ✅ **Metodología estándar LIGO/Virgo** de análisis espectral
+- ✅ **Resultados reproducibles** con código fuente completo
+- ✅ **Documentación completa** de procedimientos de verificación
+
+---
+
 ## Resumen
 
 Este trabajo presenta evidencia experimental de una frecuencia resonante característica de 141.7001 Hz en el análisis espectral del evento de ondas gravitacionales GW150914. La frecuencia emerge como predicción de un marco teórico que unifica geometría de dimensiones extra, teoría de cuerdas y fenómenos cuánticos a través de compactificación Calabi-Yau explícita. Se proporciona derivación rigurosa desde supergravedad IIB en 10D hasta predicciones observables en 4D, junto con código verificable y múltiples canales de falsación experimental.
