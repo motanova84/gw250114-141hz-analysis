@@ -2,6 +2,21 @@
 
 ¡Gracias por tu interés en contribuir al análisis GW250114-141Hz! Este documento describe cómo contribuir efectivamente al proyecto.
 
+## 🤖 Colaboradores Automatizados
+
+Este proyecto cuenta con **8 bots inteligentes** que te ayudarán durante el proceso de contribución:
+
+- 🏷️ **Auto-Labeler**: Etiqueta tu PR automáticamente
+- 👀 **PR Review Bot**: Asigna revisores y envía recordatorios
+- 📋 **Issue Management**: Te guía para proporcionar información completa
+- 📚 **Documentation Bot**: Mantiene documentación actualizada
+- 🔒 **Dependabot**: Mantiene dependencias actualizadas
+- 🏥 **Dependency Health**: Monitorea seguridad
+- 🧠 **Workflow Intelligence**: Optimiza CI/CD
+- 🔄 **Coherence Viz**: Actualiza visualizaciones
+
+📖 **Ver detalles completos**: [AUTOMATED_COLLABORATORS.md](AUTOMATED_COLLABORATORS.md)
+
 ## 🚀 CI/CD y Calidad de Código
 
 Este proyecto utiliza **CI/CD automatizado real** para garantizar la calidad y reproducibilidad:
@@ -13,6 +28,8 @@ Cada push o pull request ejecuta automáticamente:
 1. **Unit Tests** - Suite completa de tests (9 archivos, >50 casos)
 2. **Code Quality** - Validación de sintaxis y estilo con flake8
 3. **Scientific Analysis** - Validación con datos GWOSC (cuando disponibles)
+4. **Auto-Labeling** - Etiquetado inteligente de PRs
+5. **Review Assignment** - Asignación automática de revisores
 
 Ver estado actual: [![CI/CD](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
 
@@ -24,6 +41,8 @@ Para que tu contribución sea aceptada, debe:
 - ✅ **Sin errores críticos de lint** - `flake8 scripts/ --select=E9,F63,F7,F82`
 - ✅ **Código documentado** - Docstrings en funciones públicas
 - ✅ **Tests para nuevo código** - Añade tests para nuevas funcionalidades
+
+💡 **Nota**: Los bots automatizados verificarán automáticamente muchos de estos requisitos.
 
 ## 📋 Proceso de Contribución
 
