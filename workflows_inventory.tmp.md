@@ -27,6 +27,13 @@
 - Trigger: schedule (`0 2 * * 0`)
 - Trigger: manual (workflow_dispatch)
 
+### Create Required Labels
+
+**Archivo:** `create-labels.yml`
+
+- Trigger: push
+- Trigger: manual (workflow_dispatch)
+
 ### Dependency Health Check
 
 **Archivo:** `dependency-health.yml`
@@ -71,4 +78,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:27:48 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:28:21 UTC*
