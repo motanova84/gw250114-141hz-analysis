@@ -24,7 +24,7 @@ def validate_python_syntax(filepath):
         print("   ✅ Sintaxis válida")
         return True
     except SyntaxError as e:
-        print(f"   ❌ Error de sintaxis: {e}")
+        print(f"   ❌ Error de sintaxis en {e.filename or filepath}, línea {e.lineno}, columna {e.offset}: {e.msg}")
         return False
 
 
