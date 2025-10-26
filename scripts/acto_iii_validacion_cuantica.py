@@ -20,6 +20,9 @@ Fecha: Octubre 2025
 import numpy as np
 from pathlib import Path
 
+# Constantes fundamentales (CODATA 2022)
+c = 2.99792458e8  # m/s (velocidad de la luz)
+
 # Get repository root dynamically
 REPO_ROOT = Path(__file__).parent.parent.resolve()
 from scipy.optimize import minimize_scalar

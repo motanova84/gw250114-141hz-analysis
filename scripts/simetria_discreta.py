@@ -16,11 +16,11 @@ from typing import TYPE_CHECKING, List, Tuple, Dict, Optional
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Get repository root dynamically
-REPO_ROOT = Path(__file__).parent.parent.resolve()
-
 if TYPE_CHECKING:
     import sympy
+
+# Get repository root dynamically
+REPO_ROOT = Path(__file__).parent.parent.resolve()
 
 from sympy import symbols, diff, sin, cos, log, pi, sqrt, exp, simplify, lambdify
 from sympy import Sum, oo, Derivative, solve, series

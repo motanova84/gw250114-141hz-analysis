@@ -15,13 +15,13 @@ import os
 import sys
 from pathlib import Path
 
-# Get repository root dynamically
-REPO_ROOT = Path(__file__).parent.parent.resolve()
-
 # Constantes fundamentales (CODATA 2022)
 c = 2.99792458e8    # m/s (velocidad de la luz)
 l_p = 1.616255e-35  # m (longitud de Planck)
 f0 = 141.7001       # Hz (frecuencia fundamental)
+
+# Get repository root dynamically
+REPO_ROOT = Path(__file__).parent.parent.resolve()
 
 
 class TestValidacionRadioCuantico:
