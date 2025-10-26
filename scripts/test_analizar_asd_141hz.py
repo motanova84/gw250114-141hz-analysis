@@ -19,15 +19,15 @@ from unittest.mock import Mock, patch, MagicMock
 
 try:
     import pytest
+    parametrize = pytest.mark.parametrize
     PYTEST_AVAILABLE = True
 except ImportError:
     PYTEST_AVAILABLE = False
-    # Mock pytest decorators for standalone execution
-    def pytest_decorator(*args, **kwargs):
+    # Define a no-op parametrize decorator for standalone execution
+    def parametrize(*args, **kwargs):
         def decorator(func):
             return func
         return decorator
-    pytest = type('MockPytest', (), {'mark': type('MockMark', (), {'parametrize': pytest_decorator})})()
 
 try:
     import numpy as np
