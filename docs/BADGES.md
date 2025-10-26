@@ -224,6 +224,7 @@ python3 scripts/validate_badges.py
 
 ---
 
+<!-- NOTE: Update the "Last Updated" date manually, or consider automating this field to prevent it from becoming stale. -->
 **Last Updated:** 2025-10-26  
 **Validated By:** scripts/validate_badges.py  
 **Status:** ✅ All badges working correctly
