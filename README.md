@@ -760,6 +760,7 @@ python scripts/analizar_ringdown.py  # Análisis H1
 python scripts/analizar_l1.py        # Validación L1
 python scripts/analizar_kagra_k1.py  # Análisis KAGRA K1 (O4 data)
 python scripts/analisis_noesico.py   # Búsqueda de armónicos
+python scripts/analizar_asd_141hz.py # Análisis ASD en 141.7 Hz con controles
 
 # 6. Verificar resultados
 ls results/figures/  # Debe contener gráficos de análisis
