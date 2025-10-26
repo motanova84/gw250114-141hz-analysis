@@ -82,10 +82,12 @@
   - Test suite for validacion_alpha_psi_corregida.py
 - `test_validacion_radio_cuantico.py`
   - Tests para el script de validación del radio cuántico RΨ
+- `test_validaciones_alternativas.py`
+  - Test Suite para Validaciones Alternativas - 141.7001 Hz
 - `test_vercel_config.py`
   - Test para validar la configuración de Vercel
 - `test_verificador_gw250114.py`
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:35:43 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:36:12 UTC*
