@@ -37,7 +37,7 @@ class TestBadgeValidation(unittest.TestCase):
 
     def test_check_file_exists_invalid(self):
         """Test that check_file_exists correctly identifies missing files."""
-        nonexistent = "/tmp/this_file_definitely_does_not_exist_12345.txt"
+        nonexistent = os.path.join(tempfile.gettempdir(), "this_file_definitely_does_not_exist_12345.txt")
         result = check_file_exists(nonexistent, "Nonexistent file")
         self.assertFalse(result, "Should return False for missing file")
 
