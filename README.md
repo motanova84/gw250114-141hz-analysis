@@ -200,10 +200,12 @@ Este proyecto incluye **8 bots inteligentes** que actúan como colaboradores aut
    - Celebra merges exitosos con mensajes motivadores
 
 7. **🏥 Dependency Health Check** - Monitorea salud de dependencias
-   - Ejecuta pip-audit para detectar vulnerabilidades
+   - Ejecuta pip-audit para detectar vulnerabilidades reales
    - Verifica paquetes desactualizados
-   - Crea issues automáticos para problemas de seguridad
+   - Crea issues automáticos solo para vulnerabilidades confirmadas
+   - Cierra automáticamente issues falsos positivos
    - Valida compatibilidad con Python 3.11 y 3.12
+   - Script manual disponible: `python3 scripts/check_security.py`
 
 8. **🔄 Coherence Visualization** - Actualiza visualizaciones científicas
    - Regenera gráficos de coherencia automáticamente
@@ -1535,6 +1537,19 @@ Este proyecto sigue un modelo abierto y simbiótico con **CI/CD automatizado rea
 ## 📜 Licencia
 
 Distribuido bajo licencia MIT.
+
+## 🔒 Seguridad
+
+Para reportar vulnerabilidades de seguridad, consulta [SECURITY.md](SECURITY.md).
+
+### Escaneo Automatizado de Dependencias
+
+El proyecto incluye verificación automática de seguridad:
+- **Workflow semanal**: Escaneo automático cada miércoles
+- **Script manual**: `python3 scripts/check_security.py`
+- **Protección**: Solo se crean issues para vulnerabilidades reales
+
+Más información en [SECURITY.md](SECURITY.md).
 
 ## 🧬 Contacto
 
