@@ -2,10 +2,12 @@
 
 <div align="center">
 
-![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)
-![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+[![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg?branch=main)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
+[![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg?branch=main)](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml)
+[![Tests](https://img.shields.io/badge/tests-pytest-blue.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
+[![codecov](https://codecov.io/gh/motanova84/141hz/branch/main/graph/badge.svg)](https://codecov.io/gh/motanova84/141hz)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 ![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
 [![GWPy](https://img.shields.io/badge/GWPy-3.0+-green)](https://gwpy.github.io/)
