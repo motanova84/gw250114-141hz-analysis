@@ -43,7 +43,7 @@ def run_pip_audit(requirements_file=None):
             cmd,
             capture_output=True,
             text=True,
-            check=False  # Don't raise on non-zero exit
+            check=False  # pip-audit returns non-zero when vulnerabilities are found (expected)
         )
         
         if result.stdout:
