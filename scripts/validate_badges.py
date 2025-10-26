@@ -111,7 +111,7 @@ def validate_readme_badges():
             if os.path.exists(wf_file):
                 with open(wf_file, 'r') as f:
                     wf_content = f.read()
-                    wf_versions = re.findall(r'python-version:\s*[\'"](\d+\.\d+)[\'"]', wf_content)
+                    wf_versions = re.findall(r'python-version:\s*[\'"](\d+\.\d+(?:\.\d+)?)[\'"]', wf_content)
                     if wf_versions:
                         wf_version = wf_versions[0]
                         status = "✅" if wf_version.startswith("3.11") else "⚠️"
