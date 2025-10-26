@@ -12,6 +12,8 @@
   - Análisis de SNR esperada para GW200129 a 141.7 Hz
 - `analizar_gw250114.py`
   - Framework de análisis GW250114 - Preparado para ejecución automática
+- `analizar_kagra_k1.py`
+  - Análisis de 141.7 Hz en KAGRA (K1) - O4 Open Data
 - `analizar_l1.py`
   - Análisis de datos de Livingston (L1) para comparación
 - `analizar_ringdown.py`
@@ -38,6 +40,8 @@
   - Test para el análisis de GW150914 con PyCBC
 - `test_analizar_gw200129_snr.py`
   - Test para el análisis de SNR de GW200129
+- `test_analizar_kagra_k1.py`
+  - Tests para el análisis de KAGRA K1 en 141.7 Hz
 - `test_campo_conciencia.py`
   - Tests para el módulo de campo de conciencia.
 - `test_coherencia_escalas.py`
@@ -84,4 +88,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:29:32 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:35:43 UTC*
