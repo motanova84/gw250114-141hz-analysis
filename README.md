@@ -13,8 +13,9 @@
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
 
 **Frecuencia Objetivo:** `141.7001 Hz`  
-**Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
-**Ecuación de Campo:** Ψ = mc² · A_eff²
+**Investigador Principal:** José Manuel Mota Burruezo (JMMB Ψ✧)  
+**Ecuación de Campo:** Ψ = mc² · A_eff²  
+**Colaboradores:** [Ver lista completa](COLLABORATORS.md)
 
 </div>
 
@@ -1402,6 +1403,35 @@ Distribuido bajo licencia MIT.
 **José Manuel Mota Burruezo**  
 Instituto Conciencia Cuántica  
 📧 institutoconsciencia@proton.me
+
+## 👥 Colaboradores
+
+Este proyecto se beneficia de las contribuciones de múltiples colaboradores:
+
+### Investigador Principal
+- **José Manuel Mota Burruezo (JMMB Ψ✧)** - Desarrollo teórico, análisis de datos LIGO, implementación
+
+### Contribuidores Técnicos
+- **GitHub Copilot & AI Assistants** - Tests automatizados, documentación, optimización de código
+
+### Cómo Colaborar
+
+¿Quieres ser parte de este proyecto? Lee nuestra [Guía de Contribución](CONTRIBUTING.md) y revisa la lista completa de [Colaboradores](COLLABORATORS.md).
+
+**Buscamos colaboradores en:**
+- 🔬 **Validación científica** - Replicación de análisis con datos independientes
+- 💻 **Desarrollo de software** - Mejoras de código, tests, optimización
+- 📊 **Análisis de datos** - Extensión a eventos GWTC-2, GWTC-3
+- 📖 **Documentación** - Tutoriales, traducciones, guías
+- 🎨 **Visualización** - Gráficos, diagramas, interfaces
+
+**Primera contribución:**
+1. Fork el repositorio
+2. Lee [CONTRIBUTING.md](CONTRIBUTING.md)
+3. Ejecuta los tests: `python scripts/run_all_tests.py`
+4. Abre un Pull Request
+
+**Reconocimiento:** Todos los colaboradores son reconocidos en [COLLABORATORS.md](COLLABORATORS.md) y pueden ser coautores en publicaciones derivadas.
 
 ---
 
