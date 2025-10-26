@@ -13,6 +13,10 @@ import pytest
 import numpy as np
 import os
 import sys
+from pathlib import Path
+
+# Get repository root dynamically
+REPO_ROOT = Path(__file__).parent.parent.resolve()
 
 # Constantes fundamentales (CODATA 2022)
 c = 2.99792458e8    # m/s (velocidad de la luz)
@@ -142,7 +146,7 @@ class TestValidacionRadioCuantico:
         
         result = subprocess.run(
             ['python3', 'scripts/validacion_radio_cuantico.py'],
-            cwd='/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis',
+            cwd=str(REPO_ROOT),
             capture_output=True,
             text=True,
             timeout=60
@@ -174,7 +178,7 @@ class TestValidacionRadioCuantico:
             import subprocess
             subprocess.run(
                 ['python3', 'scripts/validacion_radio_cuantico.py'],
-                cwd='/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis',
+                cwd=str(REPO_ROOT),
                 timeout=60
             )
         
@@ -204,8 +208,8 @@ def run_tests():
     print("=" * 80)
     print()
     
-    # Cambiar al directorio correcto
-    os.chdir('/home/runner/work/gw250114-141hz-analysis/gw250114-141hz-analysis')
+    # Cambiar al directorio correcto (repository root)
+    os.chdir(str(REPO_ROOT))
     
     # Ejecutar pytest
     pytest.main([__file__, '-v', '--tb=short'])
