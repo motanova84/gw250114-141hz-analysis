@@ -24,12 +24,34 @@ def get_repo_root():
     """
     Obtiene el directorio raíz del repositorio de forma dinámica.
     
+    Busca el directorio raíz navegando hacia arriba desde la ubicación del script
+    hasta encontrar el directorio padre de 'scripts' o un marcador como '.git'.
+    
     Returns:
         str: Ruta absoluta al directorio raíz del repositorio
+        
+    Raises:
+        RuntimeError: Si no se puede determinar el directorio raíz
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)
-    return repo_root
+    
+    # Verificar que estamos en el directorio 'scripts'
+    if os.path.basename(script_dir) == 'scripts':
+        repo_root = os.path.dirname(script_dir)
+        return repo_root
+    
+    # Si no estamos en scripts/, buscar hacia arriba por el directorio .git
+    current_dir = script_dir
+    for _ in range(5):  # Limitar búsqueda a 5 niveles
+        if os.path.exists(os.path.join(current_dir, '.git')):
+            return current_dir
+        parent = os.path.dirname(current_dir)
+        if parent == current_dir:  # Llegamos a la raíz del sistema
+            break
+        current_dir = parent
+    
+    # Fallback: asumir que estamos un nivel debajo de la raíz
+    return os.path.dirname(script_dir)
 
 
 class TestValidacionRadioCuantico:
@@ -156,7 +178,7 @@ class TestValidacionRadioCuantico:
         repo_root = get_repo_root()
         
         result = subprocess.run(
-            ['python3', 'scripts/validacion_radio_cuantico.py'],
+            [sys.executable, 'scripts/validacion_radio_cuantico.py'],
             cwd=repo_root,
             capture_output=True,
             text=True,
@@ -191,7 +213,7 @@ class TestValidacionRadioCuantico:
         if not os.path.exists(json_file):
             import subprocess
             subprocess.run(
-                ['python3', 'scripts/validacion_radio_cuantico.py'],
+                [sys.executable, 'scripts/validacion_radio_cuantico.py'],
                 cwd=repo_root,
                 timeout=60
             )
