@@ -95,11 +95,7 @@ El script genera los siguientes archivos en el directorio de salida (default: `r
 El ASD se calcula usando el método de Welch implementado en gwpy:
 
 ```python
-asd = data.asd(fftlength=4, overlap=2)
-```
-
-- **fftlength**: 4 segundos (resolución de frecuencia ~0.25 Hz)
-- **overlap**: 2 segundos (50% de solapamiento)
+asd = data.asd(fftlength=4)
 - **Resultado**: FrequencySeries con ASD en Hz^(-1/2)
 
 ### 3. Extracción en 141.7 Hz
