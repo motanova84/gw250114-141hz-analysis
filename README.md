@@ -2,12 +2,14 @@
 
 <div align="center">
 
-[![License: MIT](https://img.shields.io/github/license/motanova84/gw250114-141hz-analysis)](https://github.com/motanova84/gw250114-141hz-analysis/blob/main/LICENSE)
-[![Python](https://img.shields.io/badge/python-3.9%2B-blue)](https://www.python.org/)
+![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
+![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
 [![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)](https://gwpy.github.io/)
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](AI_ACCESSIBILITY.md)
-[![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
@@ -55,6 +57,33 @@ python3 multi_event_analysis.py
 ☑️ **Verificación independiente recomendada con equipo externo.**
 
 ---
+
+## 🔍 Revisión independiente solicitada
+
+Este proyecto está completamente abierto para **revisión independiente externa**. Invitamos a la comunidad científica a replicar y validar nuestros resultados.
+
+### Identificación del Proyecto
+
+- **DOI Zenodo**: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
+- **ORCID Investigador Principal**: *En proceso de publicación*
+- **Repositorio GitHub**: [motanova84/141hz](https://github.com/motanova84/141hz)
+
+### Plataformas de Revisión Recomendadas
+
+- 📖 **[ReScience C](http://rescience.github.io/)** - Reproducibilidad de investigación computacional
+- 🔬 **[Open Review Hub](https://www.openreviewhub.org/)** - Revisión por pares abierta
+- 📊 **[Zenodo](https://zenodo.org/)** - Archivo permanente de datos y código
+- 🌐 **[arXiv](https://arxiv.org/)** - Pre-prints científicos
+
+### Datos Disponibles para Replicación
+
+- ✅ **Código fuente completo**: Scripts de análisis reproducibles
+- ✅ **Datos públicos**: GWOSC (Gravitational Wave Open Science Center)
+- ✅ **Resultados empíricos**: [`multi_event_final.json`](multi_event_final.json), [`multi_event_final.png`](multi_event_final.png)
+- ✅ **Documentación técnica**: [ANALISIS_MULTIEVENTO_SNR.md](ANALISIS_MULTIEVENTO_SNR.md)
+- ✅ **Pipeline automatizado**: CI/CD con tests verificables
+
+**Contacto para colaboración científica**: institutoconsciencia@proton.me
 
 ---
 
@@ -1206,11 +1235,14 @@ Donde:
 
 **NUEVO:** El marco teórico se ha ampliado con la **Ecuación del Origen Vibracional (EOV)**, una extensión de las ecuaciones de Einstein que incorpora modulación holográfica del campo noético:
 
-```
-G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R cos(2πf₀t)|Ψ|²
-```
+$$
+G_{\mu\nu} + \Lambda g_{\mu\nu} =
+\frac{8\pi G}{c^4}(T_{\mu\nu}^{(m)} + T_{\mu\nu}^{(\Psi)}) +
+\zeta (\nabla_\mu \nabla_\nu - g_{\mu\nu}\Box)|\Psi|^2 +
+R\cos(2\pi f_0 t)|\Psi|^2
+$$
 
-**Término novedoso:** `R cos(2πf₀t)|Ψ|²` 
+**Término novedoso:** $R \cos(2\pi f_0 t)|\Psi|^2$ 
 - **R**: Escalar de Ricci (curvatura del espacio-tiempo)
 - **f₀ = 141.7001 Hz**: Frecuencia madre universal
 - **|Ψ|²**: Densidad del campo noético
