@@ -109,12 +109,14 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+gwtc3_results.png
 multi_event_analysis.png
 demo_multi_event_analysis.png
 snr_gw200129_065458_141hz.png
 
 # Generated data files
 Evac_Rpsi_data.csv
+gwtc3_analysis_results.json
 multi_event_results.json
 demo_multi_event_results.json
 snr_gw200129_065458_results.json
