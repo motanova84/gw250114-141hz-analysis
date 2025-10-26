@@ -53,7 +53,6 @@ jobs:
     - name: Generate validation files
       run: |
         python scripts/generar_validacion_pilares.py
-      continue-on-error: false
     
     - name: Run all unit tests
       run: |
@@ -131,11 +130,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        # Install dependencies with timeout protection
+        pip install --timeout 300 -r requirements.txt || \
+        pip install --timeout 300 --no-cache-dir -r requirements.txt
         pip install jupyter nbconvert
       env:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
+        PIP_DEFAULT_TIMEOUT: 300
     
     - name: Download test data
       run: python scripts/descargar_datos.py
