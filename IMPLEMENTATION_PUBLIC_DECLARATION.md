@@ -94,7 +94,7 @@ The declaration document references all existing evidence in the repository:
 ### Quantitative Results
 - **11 GWTC-1 events** analyzed
 - **100% detection rate** (22/22 detector combinations)
-- **Mean SNR**: 21.38 ± 6.38
+- **Mean SNR**: 20.95 ± 5.54
 - **Range**: [10.78, 31.35]
 - **Statistical significance**: >10σ (p < 10⁻¹¹)
 
@@ -190,7 +190,7 @@ Beyond the problem statement requirements, the implementation includes:
 ## ✅ Final Verification
 
 ### Files Modified/Created
-1. ✅ `DECLARACION_PUBLICA_26_OCTUBRE_2025.md` (created - 9,007 characters)
+1. ✅ `DECLARACION_PUBLICA_26_OCTUBRE_2025.md` (created - 271 lines)
 2. ✅ `README.md` (modified - added prominent declaration section)
 3. ✅ `CONFIRMED_DISCOVERY_141HZ.md` (modified - added cross-reference)
 4. ✅ `PAPER.md` (modified - added cross-reference)

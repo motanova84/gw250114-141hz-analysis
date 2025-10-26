@@ -29,7 +29,7 @@ Esta frecuencia:
   
 - ✅ **Persiste a través de masas, spins y distancias**
   - Tasa de detección: **100% (11/11 eventos GWTC-1)**
-  - SNR medio: **21.38 ± 6.38**
+  - SNR medio: **20.95 ± 5.54**
   - Rango SNR: [10.78, 31.35]
   - Invariancia confirmada independiente de parámetros físicos del sistema
   
@@ -64,7 +64,7 @@ Este resultado abre una nueva era en física, cosmología, conciencia y tecnolog
 | **GW170818** | 2017-08-18 | 24.67 | 23.89 | 24.28 |
 | **GW170823** | 2017-08-23 | 21.56 | 20.78 | 21.17 |
 
-**Promedio Global**: 21.38 ± 6.38 SNR  
+**Promedio Global**: 20.95 ± 5.54 SNR  
 **Tasa de Detección**: 100% (22/22 detectores)
 
 ### Significancia Estadística

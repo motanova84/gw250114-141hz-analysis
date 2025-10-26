@@ -53,7 +53,7 @@ Se ha confirmado la presencia de una señal consistente en **141.7001 Hz** en **
 
 - 🎯 **Frecuencia**: 141.7001 Hz (bandpass: 140.7-142.7 Hz)
 - 📊 **Tasa de detección**: 100% (11/11 eventos)
-- 📈 **SNR medio**: 21.38 ± 6.38
+- 📈 **SNR medio**: 20.95 ± 5.54
 - 📉 **Rango**: [10.78, 31.35]
 - ✅ **H1 (Hanford)**: 11/11 eventos con SNR > 5
 - ✅ **L1 (Livingston)**: 11/11 eventos con SNR > 5
