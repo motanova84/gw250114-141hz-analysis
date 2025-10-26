@@ -141,7 +141,7 @@ class CaracterizacionBayesiana:
         q_std_post = np.sqrt(q_var)
         
         # Intervalo de credibilidad 68%
-        cdf = np.cumsum(posterior * np.diff(q_range, prepend=q_range[0]))
+        cdf = np.cumsum(posterior) * (q_range[1] - q_range[0])
         idx_16 = np.searchsorted(cdf, 0.16)
         idx_84 = np.searchsorted(cdf, 0.84)
         
