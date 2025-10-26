@@ -68,6 +68,8 @@
   - Test unitario para validar las propiedades matemáticas del módulo de simetría discreta.
 - `test_snr_gw200129_analysis.py`
   - Tests para el módulo snr_gw200129_analysis
+- `test_snr_utils.py`
+  - Tests para el módulo snr_utils
 - `test_torre_algebraica.py`
   - Tests para la Torre Algebraica
 - `test_validacion_alpha_psi.py`
@@ -80,4 +82,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:27:20 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:27:48 UTC*
