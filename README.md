@@ -3,6 +3,7 @@
 <div align="center">
 
 ![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)
+![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
@@ -12,7 +13,7 @@
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](AI_ACCESSIBILITY.md)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/gw250114-141hz-analysis/blob/main/notebooks/141hz_validation.ipynb)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
 
 **Frecuencia Objetivo:** `141.7001 Hz`  
 **Investigador Principal:** José Manuel Mota Burruezo (JMMB Ψ✧)  
@@ -149,7 +150,7 @@ Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza 
 - **Suite de tests completa**: 9 archivos de test con >50 casos de prueba
 - **Ejecución automática**: Cada push/PR ejecuta todos los tests
 - **Validación científica**: Tests de energía cuántica, simetría discreta, análisis bayesiano
-- **Estado actual**: [![CI/CD Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
+- **Estado actual**: [![CI/CD Tests](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
 
 ### 📊 Quality Gates
 - **Linting automático**: Validación de código con flake8
@@ -755,8 +756,8 @@ python -c "import gwpy, numpy, scipy, matplotlib, pycbc; print('✅ Todas las de
 ### Replicación Básica (15 minutos)
 ```bash
 # 1. Clonar repositorio
-git clone https://github.com/motanova84/gw250114-141hz-analysis
-cd gw250114-141hz-analysis
+git clone https://github.com/motanova84/141hz
+cd 141hz
 
 # 2. Configurar entorno con versiones exactas
 python3 -m venv venv
@@ -1165,8 +1166,8 @@ make test-pycbc
 
 ```bash
 # 1. Clona el repositorio
-git clone https://github.com/motanova84/gw250114-141hz-analysis
-cd gw250114-141hz-analysis
+git clone https://github.com/motanova84/141hz
+cd 141hz
 
 # 2. Crea entorno virtual y activa
 python3 -m venv venv
@@ -1338,7 +1339,7 @@ python scripts/pipeline_eov.py --help
 ## 🗂️ Estructura del Proyecto
 
 ```
-gw250114-141hz-analysis/
+141hz/
 ├── scripts/
 │   ├── descargar_datos.py         # Descarga automática desde GWOSC
 │   ├── analizar_ringdown.py       # Análisis espectral de control  
@@ -1529,7 +1530,7 @@ Este proyecto sigue un modelo abierto y simbiótico con **CI/CD automatizado rea
 - ✅ Código documentado
 - ✅ Tests para nuevo código
 
-**Estado CI/CD**: [![Tests](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/gw250114-141hz-analysis/actions/workflows/analyze.yml)
+**Estado CI/CD**: [![Tests](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
 
 ## 📜 Licencia
 
