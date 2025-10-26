@@ -144,7 +144,7 @@ class TestASDAnalysis(unittest.TestCase):
 
         self.assertGreater(ringdown_samples, 0, "Debe haber muestras en ringdown")
         # Calcular valor esperado dinámicamente
-        expected_samples = int(0.05 * 4096)
+        expected_samples = int(self.ringdown_duration * self.sample_rate)
         self.assertEqual(ringdown_samples, expected_samples,
                          msg="Número de muestras correcto")
 
