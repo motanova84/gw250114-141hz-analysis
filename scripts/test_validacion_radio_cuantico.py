@@ -140,9 +140,13 @@ class TestValidacionRadioCuantico:
         # Ejecutar el script
         import subprocess
         
+        # Obtener el directorio raíz del repositorio (dos niveles arriba de este script)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        repo_root = os.path.dirname(script_dir)
+        
         result = subprocess.run(
             ['python3', 'scripts/validacion_radio_cuantico.py'],
-            cwd='/home/runner/work/141hz/141hz',
+            cwd=repo_root,
             capture_output=True,
             text=True,
             timeout=60
@@ -152,13 +156,13 @@ class TestValidacionRadioCuantico:
         assert result.returncode == 0, \
             f"El script debe ejecutarse sin errores. stderr: {result.stderr}"
         
-        # Verificar que se creó el archivo JSON
-        json_file = 'results/validacion_radio_cuantico.json'
+        # Verificar que se creó el archivo JSON (usando ruta absoluta desde repo_root)
+        json_file = os.path.join(repo_root, 'results/validacion_radio_cuantico.json')
         assert os.path.exists(json_file), \
             f"El archivo {json_file} debe existir después de ejecutar el script"
         
         # Verificar que se creó la figura
-        fig_file = 'results/figures/validacion_radio_cuantico.png'
+        fig_file = os.path.join(repo_root, 'results/figures/validacion_radio_cuantico.png')
         assert os.path.exists(fig_file), \
             f"El archivo {fig_file} debe existir después de ejecutar el script"
     
@@ -168,13 +172,17 @@ class TestValidacionRadioCuantico:
         """
         import json
         
+        # Obtener el directorio raíz del repositorio
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        repo_root = os.path.dirname(script_dir)
+        
         # Ejecutar el script primero si el archivo no existe
-        json_file = 'results/validacion_radio_cuantico.json'
+        json_file = os.path.join(repo_root, 'results/validacion_radio_cuantico.json')
         if not os.path.exists(json_file):
             import subprocess
             subprocess.run(
                 ['python3', 'scripts/validacion_radio_cuantico.py'],
-                cwd='/home/runner/work/141hz/141hz',
+                cwd=repo_root,
                 timeout=60
             )
         
@@ -204,8 +212,10 @@ def run_tests():
     print("=" * 80)
     print()
     
-    # Cambiar al directorio correcto
-    os.chdir('/home/runner/work/141hz/141hz')
+    # Cambiar al directorio raíz del repositorio
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(script_dir)
+    os.chdir(repo_root)
     
     # Ejecutar pytest
     pytest.main([__file__, '-v', '--tb=short'])
