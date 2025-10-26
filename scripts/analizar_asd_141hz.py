@@ -71,8 +71,10 @@ def analyze_asd_141hz():
 
         # Calcular SNR en banda estrecha
         freq_mask = (asd_ringdown.frequencies.value >= 130) & (asd_ringdown.frequencies.value <= 160)
-        noise_floor_ringdown = np.median(asd_ringdown.value[freq_mask])
-        noise_floor_control = np.median(asd_control.value[freq_mask])
+        # Excluir banda ±1 Hz alrededor de la frecuencia objetivo para estimar el ruido de fondo
+        noise_mask = freq_mask & ((asd_ringdown.frequencies.value < target_freq - 1) | (asd_ringdown.frequencies.value > target_freq + 1))
+        noise_floor_ringdown = np.median(asd_ringdown.value[noise_mask])
+        noise_floor_control = np.median(asd_control.value[noise_mask])
 
         snr_ringdown = asd_ringdown_value / noise_floor_ringdown
         snr_control = asd_control_value / noise_floor_control
