@@ -56,6 +56,8 @@
   - Test script to validate that numba, llvmlite, python-igraph, and numexpr
 - `test_potencial_evac.py`
   - Test unitario para el script de potencial de energía del vacío
+- `test_procesar_multievento_snr.py`
+  - Tests para procesar_multievento_snr.py
 - `test_protocolo_falsacion.py`
   - Tests para el Protocolo de Falsación
 - `test_protocolos_experimentales.py`
@@ -82,4 +84,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:28:21 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:29:32 UTC*

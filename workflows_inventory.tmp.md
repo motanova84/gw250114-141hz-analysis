@@ -78,4 +78,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:28:21 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:29:32 UTC*
