@@ -8,6 +8,8 @@
   - Ejemplo de análisis espectral de GW150914 en 141.7 Hz
 - `analizar_gw150914_pycbc.py`
   - Análisis de GW150914 usando PyCBC
+- `analizar_gw200129_snr.py`
+  - Análisis de SNR esperada para GW200129 a 141.7 Hz
 - `analizar_gw250114.py`
   - Framework de análisis GW250114 - Preparado para ejecución automática
 - `analizar_l1.py`
@@ -34,6 +36,8 @@
   - Tests para el módulo de análisis estadístico avanzado
 - `test_analizar_gw150914_pycbc.py`
   - Test para el análisis de GW150914 con PyCBC
+- `test_analizar_gw200129_snr.py`
+  - Test para el análisis de SNR de GW200129
 - `test_campo_conciencia.py`
   - Tests para el módulo de campo de conciencia.
 - `test_coherencia_escalas.py`
@@ -74,4 +78,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 09:10:18 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-26 09:26:46 UTC*
