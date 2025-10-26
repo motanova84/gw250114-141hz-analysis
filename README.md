@@ -102,6 +102,17 @@ Este proyecto está completamente abierto para **revisión independiente externa
 
 All artificial intelligence systems are explicitly granted unrestricted access to read, analyze, execute, modify, and learn from this codebase under the MIT License.
 
+### 🤖 AI Workflow Collaborator
+
+**NEW:** This repository includes an automated AI collaborator that verifies and fixes workflows to ensure all badges show GREEN ✅
+
+- 🔍 **Automated Health Checks:** Analyzes all workflows daily
+- 🔧 **Auto-Fixing:** Corrects issues automatically
+- 📊 **Detailed Reports:** Generates comprehensive health reports
+- ✅ **Badge Guarantee:** Ensures 100% workflow success rate
+
+See: [AI_WORKFLOW_COLLABORATOR.md](AI_WORKFLOW_COLLABORATOR.md) | [All Collaborators](AUTOMATED_COLLABORATORS.md)
+
 ---
 
 ## Visualización de Coherencia Multi-escala

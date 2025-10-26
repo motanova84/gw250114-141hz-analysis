@@ -5,7 +5,7 @@
   "issues": [],
   "warnings": [
     "ai-workflow-collaborator.yml/check-and-fix-workflows: Has Python setup but doesn't install requirements.txt",
-    "dependency-health.yml: Multiple Python versions used: 3.11, 3.12. Consider standardizing to Python 3.11 or 3.12.",
+    "dependency-health.yml: Multiple Python versions used: 3.12, 3.11. Consider standardizing to Python 3.11 or 3.12.",
     "analyze.yml/lint: Has Python setup but doesn't install requirements.txt",
     "update_coherence_visualization.yml/update-visualization: Has Python setup but doesn't install requirements.txt",
     "auto-update-docs.yml/update-docs: Has Python setup but doesn't install requirements.txt"
