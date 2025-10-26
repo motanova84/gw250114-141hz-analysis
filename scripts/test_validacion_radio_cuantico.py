@@ -27,11 +27,18 @@ def get_repo_root():
     Busca el directorio raíz navegando hacia arriba desde la ubicación del script
     hasta encontrar el directorio padre de 'scripts' o un marcador como '.git'.
     
+    Strategy:
+        1. Si el script está en un directorio llamado 'scripts', usa su padre como raíz
+        2. Si no, busca un directorio '.git' navegando hacia arriba (hasta 5 niveles)
+        3. Como fallback, asume que el script está un nivel debajo de la raíz
+    
     Returns:
         str: Ruta absoluta al directorio raíz del repositorio
-        
-    Raises:
-        RuntimeError: Si no se puede determinar el directorio raíz
+    
+    Note:
+        El método de fallback asume que el script está en el primer nivel de subdirectorios.
+        Esto es apropiado para la estructura actual del repositorio donde los tests
+        están en 'scripts/'.
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
@@ -51,6 +58,7 @@ def get_repo_root():
         current_dir = parent
     
     # Fallback: asumir que estamos un nivel debajo de la raíz
+    # Esto funciona para la estructura estándar del repositorio (scripts/)
     return os.path.dirname(script_dir)
 
 
