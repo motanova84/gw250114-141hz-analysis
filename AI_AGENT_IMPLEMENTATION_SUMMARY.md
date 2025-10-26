@@ -23,7 +23,7 @@ Successfully implemented an AI agent for automated project creation that creates
 
 ### Files Created
 
-1. **scripts/ai_agent_project_creator.py** (37KB, 1,000+ lines)
+1. **scripts/ai_agent_project_creator.py** (40KB, 1,240 lines)
    - Main AI agent implementation
    - Template system for project generation
    - EventAnalysisTemplate for GW events
@@ -332,9 +332,9 @@ Potential improvements:
 
 ## Documentation
 
-- **Quick Start**: [docs/AI_AGENT_README.md](AI_AGENT_README.md)
-- **Full Guide**: [docs/AI_AGENT_PROJECT_CREATOR.md](AI_AGENT_PROJECT_CREATOR.md)
-- **Main README**: [README.md](../README.md) - AI Agent section
+- **Quick Start**: [docs/AI_AGENT_README.md](docs/AI_AGENT_README.md)
+- **Full Guide**: [docs/AI_AGENT_PROJECT_CREATOR.md](docs/AI_AGENT_PROJECT_CREATOR.md)
+- **Main README**: [README.md](README.md) - AI Agent section
 
 ## Conclusion
 
