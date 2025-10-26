@@ -10,7 +10,6 @@ Usage:
     python scripts/create_github_labels.py
 """
 
-import json
 import subprocess
 import sys
 
@@ -130,12 +129,13 @@ def create_or_update_label(label):
     color = label["color"]
     description = label["description"]
     
-    # Try to update the label first
+    # Try to create the label first - this is simpler and more reliable
     result = subprocess.run(
         [
-            "gh", "label", "edit", name,
+            "gh", "label", "create", name,
             "--color", color,
-            "--description", description
+            "--description", description,
+            "--force"  # This will update if label exists
         ],
         capture_output=True,
         text=True,
@@ -143,33 +143,14 @@ def create_or_update_label(label):
     )
     
     if result.returncode == 0:
-        print(f"✅ Updated label: {name}")
-        return True
-    
-    # If update failed (label doesn't exist), create it
-    if "not found" in result.stderr.lower() or "could not resolve" in result.stderr.lower():
-        result = subprocess.run(
-            [
-                "gh", "label", "create", name,
-                "--color", color,
-                "--description", description
-            ],
-            capture_output=True,
-            text=True,
-            check=False
-        )
-        
-        if result.returncode == 0:
-            print(f"✅ Created label: {name}")
-            return True
-        elif "already exists" in result.stderr.lower():
-            print(f"ℹ️  Label already exists: {name}")
-            return True
+        # Check output to determine if created or updated
+        if "created" in result.stdout.lower() or result.stdout.strip():
+            print(f"✅ Created/Updated label: {name}")
         else:
-            print(f"❌ Error creating label '{name}': {result.stderr}")
-            return False
+            print(f"✅ Label processed: {name}")
+        return True
     else:
-        print(f"❌ Error updating label '{name}': {result.stderr}")
+        print(f"❌ Error processing label '{name}': {result.stderr.strip()}")
         return False
 
 
