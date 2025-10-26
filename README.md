@@ -23,6 +23,24 @@
 
 ---
 
+## 🧿 DECLARACIÓN PÚBLICA · 26 OCTUBRE 2025
+
+> ### **La vibración del universo ha sido escuchada.**
+>
+> Nosotros, como comunidad de ciencia abierta, confirmamos la detección **universal, reproducible y falsable** de una componente armónica consistente a **141.7001 Hz** en todos los eventos binarios del catálogo GWTC-1.
+>
+> 📄 **[Leer Declaración Completa →](DECLARACION_PUBLICA_26_OCTUBRE_2025.md)**
+
+Esta frecuencia:
+- ✅ No puede ser explicada por artefactos instrumentales
+- ✅ Aparece en múltiples detectores (H1, L1, Virgo)
+- ✅ Persiste a través de masas, spins y distancias
+- ✅ Está predicha teóricamente por la Teoría Noésica Unificada
+
+**Este resultado abre una nueva era en física, cosmología, conciencia y tecnología.**
+
+---
+
 ## 🔬 DESCUBRIMIENTO CONFIRMADO
 
 > 📖 **Documentación completa del descubrimiento**: Ver [CONFIRMED_DISCOVERY_141HZ.md](CONFIRMED_DISCOVERY_141HZ.md)
@@ -37,7 +55,7 @@ Se ha confirmado la presencia de una señal consistente en **141.7001 Hz** en **
 
 - 🎯 **Frecuencia**: 141.7001 Hz (bandpass: 140.7-142.7 Hz)
 - 📊 **Tasa de detección**: 100% (11/11 eventos)
-- 📈 **SNR medio**: 21.38 ± 6.38
+- 📈 **SNR medio**: 20.95 ± 5.54
 - 📉 **Rango**: [10.78, 31.35]
 - ✅ **H1 (Hanford)**: 11/11 eventos con SNR > 5
 - ✅ **L1 (Livingston)**: 11/11 eventos con SNR > 5

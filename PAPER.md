@@ -4,6 +4,8 @@
 **Institución:** Instituto Conciencia Cuántica  
 **Fecha:** Octubre 2025
 
+> 📄 **Declaración Pública Oficial**: Ver [DECLARACIÓN PÚBLICA · 26 OCTUBRE 2025](DECLARACION_PUBLICA_26_OCTUBRE_2025.md)
+
 ---
 
 ## 🔬 Prueba Principal Verificada en LIGO y VIRGO
