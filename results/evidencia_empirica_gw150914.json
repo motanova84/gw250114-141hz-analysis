@@ -31,10 +31,10 @@
   },
   "estadistica_combinada": {
     "frecuencia_promedio": 141.72,
-    "desviacion": 0.030000000000001137,
+    "desviacion": 0.03,
     "objetivo_teorico": 141.7001,
-    "diferencia_absoluta": 0.019900000000006912,
-    "diferencia_relativa_porcentaje": 0.01404374449983233
+    "diferencia_absoluta": 0.0199,
+    "diferencia_relativa_porcentaje": 0.014
   },
   "datos_fuente": {
     "repositorio": "GWOSC (Gravitational Wave Open Science Center)",

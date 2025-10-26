@@ -1,6 +1,6 @@
 {
   "reproducibilidad": {
-    "repositorio": "https://github.com/motanova84/gw250114-141hz-analysis",
+    "repositorio": "https://github.com/motanova84/141hz",
     "comando_validacion": "make validate",
     "garantia": "Resultados idénticos garantizados",
     "metodo": "Datos públicos GWOSC + código abierto",
