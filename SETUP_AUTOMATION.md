@@ -4,7 +4,29 @@ Esta guía explica cómo configurar y habilitar los **8 bots inteligentes** en e
 
 ## ⚡ Inicio Rápido
 
-### 1. Habilitar Dependabot (Automático)
+### 1. Crear Etiquetas Requeridas (Automático/Manual)
+
+✅ **Las etiquetas se crean automáticamente** mediante un workflow dedicado.
+
+El workflow `.github/workflows/create-labels.yml` crea todas las etiquetas necesarias para Dependabot y otros workflows.
+
+**Opción A - Automático (Recomendado):**
+1. Las etiquetas se crean automáticamente al mergear el PR
+2. El workflow se ejecuta también cuando se modifica `dependabot.yml`
+3. Se puede ejecutar manualmente desde `Actions` → `Create Required Labels` → `Run workflow`
+
+**Opción B - Manual con script Python:**
+```bash
+# Requiere gh CLI instalado y autenticado
+python scripts/create_github_labels.py
+```
+
+**Verificar:**
+1. Ir a `Issues` → `Labels`
+2. Verificar que existen las etiquetas: `automated`, `dependencies`, `github-actions`, `python`, etc.
+3. Total esperado: 16 etiquetas con colores y descripciones
+
+### 2. Habilitar Dependabot (Automático)
 
 ✅ **Dependabot ya está habilitado automáticamente** al mergear este PR.
 
@@ -15,7 +37,7 @@ El archivo `.github/dependabot.yml` será detectado por GitHub y comenzará a fu
 2. Verificar que "Dependabot alerts" y "Dependabot security updates" están habilitados
 3. Ver primera ejecución en `Insights` → `Dependency graph` → `Dependabot`
 
-### 2. Habilitar Workflows (Automático)
+### 3. Habilitar Workflows (Automático)
 
 ✅ **Todos los workflows se habilitan automáticamente** al mergear el PR.
 
@@ -26,7 +48,7 @@ Los archivos en `.github/workflows/` serán detectados automáticamente.
 2. Ver lista de workflows en sidebar izquierdo
 3. Todos los nuevos workflows aparecerán listados
 
-### 3. Configurar Permisos de Workflows
+### 4. Configurar Permisos de Workflows
 
 ⚙️ **Verificar permisos de GitHub Actions:**
 
@@ -36,7 +58,7 @@ Los archivos en `.github/workflows/` serán detectados automáticamente.
    - ✅ "Allow GitHub Actions to create and approve pull requests"
 3. Guardar cambios
 
-### 4. Configurar Secrets (Opcional)
+### 5. Configurar Secrets (Opcional)
 
 Algunos workflows requieren secrets para funcionalidades avanzadas:
 
@@ -78,6 +100,7 @@ Algunos workflows requieren secrets para funcionalidades avanzadas:
 
 ### Configuración Básica (Requerida)
 - [x] Mergear PR con archivos de workflows
+- [ ] Verificar que etiquetas se crearon correctamente (automated, dependencies, github-actions)
 - [ ] Verificar Dependabot habilitado en Settings
 - [ ] Verificar workflows aparecen en Actions tab
 - [ ] Configurar permisos "Read and write" para workflows
@@ -170,6 +193,24 @@ Para debug de workflows:
 ```
 
 ## 🐛 Troubleshooting
+
+### Error: "Label not found" en Dependabot
+
+**Síntoma:**
+Dependabot muestra error: "No se encontraron las siguientes etiquetas: automated, dependencies, github-actions"
+
+**Solución:**
+1. Ir a `Actions` → `Create Required Labels`
+2. Click "Run workflow"
+3. Click "Run workflow" (verde)
+4. Esperar que termine (debería tardar <1 minuto)
+5. Verificar en `Issues` → `Labels` que las etiquetas existen
+
+**Alternativa manual:**
+```bash
+# Usando el script Python
+python scripts/create_github_labels.py
+```
 
 ### Error: "Workflow requires permissions"
 
