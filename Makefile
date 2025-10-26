@@ -43,7 +43,8 @@ status:
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
   dashboard dashboard-status workflow status \
   clean docker help \
-  experimentos test-experimentos diagrams-experimentos
+  experimentos test-experimentos diagrams-experimentos \
+  ai-agent demo-ai-agent test-ai-agent
 
 # Default target - complete workflow
 all: setup validate
@@ -92,6 +93,9 @@ help:
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
+	@echo "  ai-agent              - AI Agent for automated project creation (NEW)"
+	@echo "  demo-ai-agent         - Run AI Agent demonstration (NEW)"
+	@echo "  test-ai-agent         - Test AI Agent functionality (NEW)"
 	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
 	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
@@ -376,3 +380,27 @@ diagrams-experimentos: setup
 	@echo "✅ Diagramas generados"
 	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
 	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
+
+# AI Agent for Automated Project Creation (NEW)
+ai-agent: setup
+	@echo "🤖 AI Agent for Automated Project Creation"
+	@echo "   Create new analysis projects automatically"
+	@echo ""
+	@echo "Usage examples:"
+	@echo "  make ai-agent ARGS='--type event --name GW250115 --description \"Analysis of GW250115\"'"
+	@echo "  make ai-agent ARGS='--type validation --name coherence_test --description \"Coherence validation\"'"
+	@echo "  make ai-agent ARGS='--list'"
+	@echo ""
+	./venv/bin/python scripts/ai_agent_project_creator.py $(ARGS)
+
+# Run AI Agent demo
+demo-ai-agent: setup
+	@echo "🤖 Running AI Agent demonstration..."
+	@echo "   This will showcase automatic project creation"
+	./venv/bin/python scripts/demo_ai_agent.py
+
+# Test AI Agent
+test-ai-agent: setup
+	@echo "🧪 Testing AI Agent Project Creator..."
+	./venv/bin/python scripts/test_ai_agent_project_creator.py
+	@echo "✅ AI Agent tests completed"
