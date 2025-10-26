@@ -32,7 +32,7 @@ def get_repo_root():
         2. Si no, busca un directorio '.git' navegando hacia arriba (hasta 5 niveles)
         3. Como fallback, asume que el script está un nivel debajo de la raíz
     
-    Returns:
+    Retorna:
         str: Ruta absoluta al directorio raíz del repositorio
     
     Note:
