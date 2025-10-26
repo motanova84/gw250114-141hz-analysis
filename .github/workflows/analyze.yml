@@ -15,10 +15,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python 3.9
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'
     
     - name: Install system dependencies
       run: |
@@ -68,6 +68,10 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
+    - name: Validate README badges
+      run: |
+        python scripts/validate_badges.py
+    
     - name: Upload test results
       uses: actions/upload-artifact@v4
       if: always()
@@ -85,10 +89,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python 3.9
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'
     
     - name: Install linting tools
       run: |
@@ -110,10 +114,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Set up Python 3.9
+    - name: Set up Python 3.11
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: '3.11'
     
     - name: Install system dependencies
       run: |

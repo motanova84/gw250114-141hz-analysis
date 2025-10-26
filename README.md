@@ -8,7 +8,7 @@
 ![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
 ![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
-[![GWPy](https://img.shields.io/badge/GWPy-3.0.13-green)](https://gwpy.github.io/)
+[![GWPy](https://img.shields.io/badge/GWPy-3.0+-green)](https://gwpy.github.io/)
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](AI_ACCESSIBILITY.md)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
