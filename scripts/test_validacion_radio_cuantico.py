@@ -35,7 +35,7 @@ def get_repo_root():
     Retorna:
         str: Ruta absoluta al directorio raíz del repositorio
     
-    Note:
+    Nota:
         El método de fallback asume que el script está en el primer nivel de subdirectorios.
         Esto es apropiado para la estructura actual del repositorio donde los tests
         están en 'scripts/'.
