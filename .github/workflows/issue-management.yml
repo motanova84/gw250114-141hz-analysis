@@ -106,7 +106,7 @@ jobs:
     
     steps:
       - name: Check for stale issues and PRs
-        uses: actions/stale@v9
+        uses: actions/stale@v10
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-issue-message: |
