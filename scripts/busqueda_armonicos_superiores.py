@@ -247,7 +247,8 @@ class BuscadorArmonicosSuperiores:
                 if info['frecuencia'] < 10 or info['frecuencia'] > 2000:
                     continue
                 # Amplitud decreciente con orden
-                amp = 1e-21 / (info['orden'] if info['orden'] > 0 else 1)
+                assert info['orden'] > 0, f"El armónico '{nombre}' tiene orden no positivo: {info['orden']}"
+                amp = 1e-21 / info['orden']
                 señal += amp * np.sin(2 * np.pi * info['frecuencia'] * t)
             
             # Agregar ruido
