@@ -20,6 +20,18 @@ l_p = 1.616255e-35  # m (longitud de Planck)
 f0 = 141.7001       # Hz (frecuencia fundamental)
 
 
+def get_repo_root():
+    """
+    Obtiene el directorio raíz del repositorio de forma dinámica.
+    
+    Returns:
+        str: Ruta absoluta al directorio raíz del repositorio
+    """
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.dirname(script_dir)
+    return repo_root
+
+
 class TestValidacionRadioCuantico:
     """Tests para la validación del radio cuántico"""
     
@@ -140,9 +152,8 @@ class TestValidacionRadioCuantico:
         # Ejecutar el script
         import subprocess
         
-        # Obtener el directorio raíz del repositorio (dos niveles arriba de este script)
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        repo_root = os.path.dirname(script_dir)
+        # Obtener el directorio raíz del repositorio
+        repo_root = get_repo_root()
         
         result = subprocess.run(
             ['python3', 'scripts/validacion_radio_cuantico.py'],
@@ -173,8 +184,7 @@ class TestValidacionRadioCuantico:
         import json
         
         # Obtener el directorio raíz del repositorio
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        repo_root = os.path.dirname(script_dir)
+        repo_root = get_repo_root()
         
         # Ejecutar el script primero si el archivo no existe
         json_file = os.path.join(repo_root, 'results/validacion_radio_cuantico.json')
@@ -213,8 +223,7 @@ def run_tests():
     print()
     
     # Cambiar al directorio raíz del repositorio
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)
+    repo_root = get_repo_root()
     os.chdir(repo_root)
     
     # Ejecutar pytest
