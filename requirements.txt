@@ -15,6 +15,7 @@ pytest>=7.0.0
 pytest-cov>=4.0.0
 flake8>=6.0.0
 pycbc>=2.0.0
+PyWavelets>=1.4.0
 # Performance and optimization packages
 numba>=0.56.0
 llvmlite>=0.39.0
