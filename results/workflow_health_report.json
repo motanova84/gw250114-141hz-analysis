@@ -1,0 +1,21 @@
+{
+  "total_workflows": 11,
+  "healthy_workflows": 11,
+  "workflows_with_issues": 0,
+  "issues": [],
+  "warnings": [
+    "ai-workflow-collaborator.yml/check-and-fix-workflows: Has Python setup but doesn't install requirements.txt",
+    "dependency-health.yml: Multiple Python versions used: 3.11, 3.12. Consider standardizing to Python 3.11 or 3.12.",
+    "analyze.yml/lint: Has Python setup but doesn't install requirements.txt",
+    "update_coherence_visualization.yml/update-visualization: Has Python setup but doesn't install requirements.txt",
+    "auto-update-docs.yml/update-docs: Has Python setup but doesn't install requirements.txt"
+  ],
+  "recommendations": [
+    "ai-workflow-collaborator.yml/check-and-fix-workflows: Consider adding pip caching for faster builds",
+    "dependency-health.yml/check-dependencies: Consider adding pip caching for faster builds",
+    "analyze.yml/lint: Consider adding pip caching for faster builds",
+    "analyze.yml: Consider upgrading to Python 3.11 or 3.12 (currently using 3.9)",
+    "update_coherence_visualization.yml: Consider upgrading to Python 3.11 or 3.12 (currently using 3.9)",
+    "auto-update-docs.yml/update-docs: Consider adding pip caching for faster builds"
+  ]
+}
