@@ -6,10 +6,11 @@ Validates that the health checker and fixer work correctly.
 
 import sys
 import os
+import yaml
 from pathlib import Path
 
-# Add parent directory to path
-sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+# Add scripts directory to path
+sys.path.insert(0, str(Path(__file__).parent))
 
 def test_health_checker_imports():
     """Test that health checker can be imported"""
@@ -68,8 +69,6 @@ def test_health_checker_execution():
 def test_workflow_file_exists():
     """Test that the AI workflow file exists and is valid"""
     try:
-        import yaml
-        
         workflow_file = Path(__file__).parent.parent / ".github" / "workflows" / "ai-workflow-collaborator.yml"
         
         if not workflow_file.exists():
@@ -80,8 +79,9 @@ def test_workflow_file_exists():
             workflow = yaml.safe_load(f)
         
         # Validate workflow structure
+        # Note: YAML parses 'on' as boolean True, so we check for both
         assert workflow is not None, "Workflow is empty"
-        assert True in workflow or 'on' in workflow, "Missing 'on' trigger"
+        assert True in workflow or 'on' in workflow, "Missing 'on' trigger configuration"
         assert 'jobs' in workflow, "Missing 'jobs' section"
         
         jobs = workflow['jobs']
