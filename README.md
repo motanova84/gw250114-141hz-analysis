@@ -2,15 +2,15 @@
 
 <div align="center">
 
-![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)
-![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![Python](https://img.shields.io/badge/python-3.11+-blue.svg)
-![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
+[![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
+[![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/motanova84/141hz/blob/main/LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
+[![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)](https://github.com/motanova84/141hz#-validaci%C3%B3n-de-est%C3%A1ndares-de-descubrimiento-cient%C3%ADfico)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
 [![GWPy](https://img.shields.io/badge/GWPy-3.0+-green)](https://gwpy.github.io/)
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
-[![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](AI_ACCESSIBILITY.md)
+[![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](https://github.com/motanova84/141hz/blob/main/AI_ACCESSIBILITY.md)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
