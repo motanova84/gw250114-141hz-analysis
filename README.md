@@ -385,7 +385,9 @@ make test-energia-cuantica
 Sistema proactivo de validación implementado para preparar el análisis de GW250114:
 
 ### Módulos Implementados
-- ✅ **Caracterización Bayesiana** - Estimación de Q-factor y análisis de armónicos
+- ✅ **Caracterización Bayesiana Mejorada** - Estimación de Q-factor con distribución posterior completa
+- ✅ **Búsqueda de Armónicos Superiores** - Análisis sistemático de submúltiplos, múltiplos y armónicos especiales
+- ✅ **Resonancia Cruzada Virgo/KAGRA** - Análisis multi-detector con coherencia cruzada
 - ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
@@ -411,11 +413,23 @@ make multievento
 make multi-event-snr      # Análisis de 11 eventos con H1 y L1
 make test-multi-event-snr # Ejecutar tests sin conectividad
 
-# Análisis de SNR para GW200129_065458 en 141.7 Hz (NUEVO)
+# Búsqueda de armónicos superiores (NUEVO)
+make busqueda-armonicos   # Buscar f₀/2, 2f₀, f₀×φ, f₀×π, etc.
+make test-armonicos       # Ejecutar tests de búsqueda
+
+# Análisis de resonancia cruzada Virgo/KAGRA (NUEVO)
+make resonancia-cruzada   # Análisis multi-detector con coherencia
+make test-resonancia      # Ejecutar tests de resonancia cruzada
+
+# Caracterización bayesiana mejorada (NUEVO)
+make caracterizacion-bayesiana  # Q-factor con posterior completa
+make test-caracterizacion       # Ejecutar tests de caracterización
+
+# Análisis de SNR para GW200129_065458 en 141.7 Hz
 make snr-gw200129         # Análisis con H1, L1, V1 (K1 no disponible)
 make test-snr-gw200129    # Ejecutar tests
 
-# Sistema de alertas automáticas para GW250114 (NUEVO)
+# Sistema de alertas automáticas para GW250114
 make alert-gw250114  # Monitoreo continuo vía Make
 python3 scripts/verificador_gw250114.py  # Monitoreo continuo
 python3 scripts/verificador_gw250114.py --once  # Verificación única
@@ -427,6 +441,9 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 - `results/informe_validacion_gw250114.json` - Informe completo
 - `results/resumen_validacion.txt` - Resumen legible
 - `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
+- `results/armonicos_superiores_*.json` - Resultados de búsqueda de armónicos
+- `results/resonancia_cruzada_*.json` - Análisis de coherencia multi-detector
+- `results/caracterizacion_bayesiana_*.json` - Q-factor con posterior bayesiana
 - `multi_event_results.json` - Resultados de SNR multi-evento
 - `multi_event_analysis.png` - Visualización comparativa H1 vs L1
 - `snr_gw200129_065458_results.json` - Análisis SNR GW200129 (O3b)
@@ -1498,15 +1515,15 @@ Estas frecuencias pueden **buscarse experimentalmente** en datos LIGO/Virgo como
 
 ---
 
-## 📈 Próximos pasos
+## 📊 Próximos pasos
 
 - [x] Validación múltiple de 141.7001 Hz en GW150914
 - [x] **NUEVO**: Formalización matemática rigurosa del término A(R_Ψ)
 - [x] **NUEVO**: Predicción de frecuencias armónicas verificables
-- [ ] Búsqueda experimental de armónicos superiores en LIGO
+- [x] **NUEVO**: Búsqueda experimental de armónicos superiores en LIGO
+- [x] **NUEVO**: Caracterización bayesiana mejorada de Q-factor
+- [x] **NUEVO**: Análisis de resonancia cruzada Virgo/KAGRA
 - [ ] Análisis completo de GW250114 cuando esté disponible
-- [ ] Caracterización bayesiana de Q-factor
-- [ ] Resonancia cruzada Virgo / KAGRA
 - [ ] Publicación científica formal
 
 ## 🤝 Contribuir
