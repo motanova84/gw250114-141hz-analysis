@@ -129,7 +129,7 @@ def validate_readme_badges():
     # Check 7: GWPy version
     print("7. GWPy Version Badge")
     print("-" * 80)
-    gwpy_badge_match = re.search(r'GWPy-(\d+\.\d+\.?\d*\+?)', content)
+    gwpy_badge_match = re.search(r'GWPy-(\d+\.\d+(?:\.\d+)?\+?)', content)
     if gwpy_badge_match:
         badge_gwpy = gwpy_badge_match.group(1)
         print(f"   Badge shows: GWPy {badge_gwpy}")
