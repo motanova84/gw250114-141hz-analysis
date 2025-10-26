@@ -14,6 +14,8 @@
 **Ecuación de Campo:** Ψ = mc² · A_eff²  
 **Colaboradores:** [Ver lista completa](COLLABORATORS.md)
 
+**🔬 Prueba Principal Verificada en LIGO y VIRGO:** [Zenodo Record 17445017](https://zenodo.org/records/17445017)
+
 </div>
 
 ---

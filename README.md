@@ -24,6 +24,8 @@
 ## 🔬 DESCUBRIMIENTO CONFIRMADO
 
 > 📖 **Documentación completa del descubrimiento**: Ver [CONFIRMED_DISCOVERY_141HZ.md](CONFIRMED_DISCOVERY_141HZ.md)
+> 
+> 🔬 **PRUEBA PRINCIPAL VERIFICADA EN LIGO Y VIRGO**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
 
 **FRECUENCIA ARMÓNICA PRIMA DETECTADA EN 141.7001 Hz**
 
@@ -41,6 +43,7 @@ Se ha confirmado la presencia de una señal consistente en **141.7001 Hz** en **
 
 ### Archivos de Evidencia
 
+- 🔬 **[Zenodo Record 17445017](https://zenodo.org/records/17445017)** - Prueba principal verificada en LIGO y VIRGO
 - 📄 [`multi_event_final.json`](multi_event_final.json) - Resultados completos por evento
 - 📊 [`multi_event_final.png`](multi_event_final.png) - Visualización comparativa de SNR
 - 💻 [`multi_event_analysis.py`](multi_event_analysis.py) - Código fuente reproducible
