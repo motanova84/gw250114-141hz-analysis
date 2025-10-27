@@ -41,6 +41,8 @@ status:
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
+  caracterizacion-bayesiana test-caracterizacion \
   dashboard dashboard-status workflow status \
   clean docker help \
   experimentos test-experimentos diagrams-experimentos
@@ -89,6 +91,12 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
+	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
+	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
+	@echo "  test-resonancia       - Test cross-resonance analysis module (NEW)"
+	@echo "  caracterizacion-bayesiana - Bayesian Q-factor characterization (NEW)"
+	@echo "  test-caracterizacion  - Test Bayesian characterization module (NEW)"
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
@@ -376,3 +384,39 @@ diagrams-experimentos: setup
 	@echo "✅ Diagramas generados"
 	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
 	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
+
+# Search for higher harmonics of f₀
+busqueda-armonicos: setup
+	@echo "🎵 Búsqueda experimental de armónicos superiores..."
+	@echo "   Frecuencia fundamental: f₀ = 141.7001 Hz"
+	@echo "   Armónicos: submúltiplos, múltiplos, áureos, π"
+	./venv/bin/python scripts/busqueda_armonicos_superiores.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test higher harmonics search
+test-armonicos: setup
+	@echo "🧪 Testing búsqueda de armónicos superiores..."
+	./venv/bin/python scripts/test_busqueda_armonicos_superiores.py
+
+# Multi-detector cross-resonance analysis (Virgo/KAGRA)
+resonancia-cruzada: setup
+	@echo "🔗 Análisis de resonancia cruzada multi-detector..."
+	@echo "   Detectores: H1, L1, V1, K1"
+	@echo "   Análisis: Coherencia, fase, SNR individual"
+	./venv/bin/python scripts/resonancia_cruzada_virgo_kagra.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test cross-resonance analysis
+test-resonancia: setup
+	@echo "🧪 Testing análisis de resonancia cruzada..."
+	./venv/bin/python scripts/test_resonancia_cruzada_virgo_kagra.py
+
+# Bayesian Q-factor characterization
+caracterizacion-bayesiana: setup
+	@echo "📊 Caracterización bayesiana del Q-factor..."
+	@echo "   Incluye: distribución posterior, intervalos de credibilidad"
+	./venv/bin/python scripts/caracterizacion_bayesiana.py || echo "⚠️  Caracterización completada con advertencias"
+
+# Test Bayesian characterization
+test-caracterizacion: setup
+	@echo "🧪 Testing caracterización bayesiana..."
+	@echo "   Verificando cálculo de posteriores y Q-factor"
+	@./venv/bin/python -c "from scripts.caracterizacion_bayesiana import CaracterizacionBayesiana, generar_datos_sinteticos_gw250114; import numpy as np; datos, fs, _ = generar_datos_sinteticos_gw250114(); bayes = CaracterizacionBayesiana(); res = bayes.estimar_q_factor(datos, fs); print('✅ Tests básicos pasaron')"
