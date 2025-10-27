@@ -18,6 +18,23 @@ import os
 import unittest
 from unittest.mock import Mock, patch
 import numpy as np
+import pandas as pd
+from pathlib import Path
+
+# === Ruta reproducible del dataset ===
+data_path = Path(__file__).resolve().parents[1] / "datos" / "asd_141hz.csv"
+if not data_path.exists():
+    raise FileNotFoundError(
+        f"[ERROR] Dataset requerido no encontrado en {data_path}. "
+        "Asegúrese de haber ejecutado `git lfs pull` o de tener el archivo real."
+    )
+
+df = pd.read_csv(data_path)
+print(f"[INFO] Dataset cargado correctamente: {data_path} ({len(df)} filas)")
+
+# ===========================================================
+# El resto del script se ejecuta como antes, usando `df` real
+# ===========================================================
 import tempfile
 
 # Añadir el directorio de scripts al path
