@@ -36,6 +36,11 @@ N_GQN = 0.3  # Parámetro noésico
 W0_GQN = -1.0
 WA_GQN = N_GQN / 1.5  # ≈ 0.2 (predicción simplificada)
 
+# Parámetros para datos mock (simulación)
+W0_MOCK = -0.95  # Modelo "verdadero" cercano a GQN
+WA_MOCK = 0.15
+MOCK_NOISE_LEVEL = 0.03  # 3% error observacional
+
 print("=" * 80)
 print("DESI w(z) ANALYSIS - DARK ENERGY EQUATION OF STATE")
 print("=" * 80)
@@ -144,16 +149,12 @@ def generate_desi_mock_data(n_points=50):
     """
     z_data = np.linspace(0.1, 2.0, n_points)
     
-    # Modelo "verdadero" con w0=-0.95, wa=0.15 (cercano a GQN)
-    w0_true = -0.95
-    wa_true = 0.15
+    # Usar parámetros mock definidos globalmente
+    E_true = hubble_parameter(z_data, W0_MOCK, WA_MOCK)
     
-    E_true = hubble_parameter(z_data, w0_true, wa_true)
-    
-    # Agregar ruido observacional (~ 2-5%)
-    noise_level = 0.03
-    E_obs = E_true * (1 + np.random.normal(0, noise_level, n_points))
-    E_err = noise_level * E_true
+    # Agregar ruido observacional
+    E_obs = E_true * (1 + np.random.normal(0, MOCK_NOISE_LEVEL, n_points))
+    E_err = MOCK_NOISE_LEVEL * E_true
     
     return z_data, E_obs, E_err
 
