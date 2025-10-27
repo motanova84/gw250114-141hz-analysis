@@ -13,6 +13,15 @@
 - Trigger: schedule (`0 10 * * 5`)
 - Trigger: manual (workflow_dispatch)
 
+### AI Workflow Collaborator
+
+**Archivo:** `ai-workflow-collaborator.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 6 * * *  # Daily at 6:00 UTC`)
+- Trigger: manual (workflow_dispatch)
+
 ### Alternative Validations
 
 **Archivo:** `alternative-validations.yml`
@@ -44,6 +53,13 @@
 - Trigger: pull_request
 - Trigger: schedule (`0 2 * * 0`)
 - Trigger: manual (workflow_dispatch)
+
+### CI básico para PRs
+
+**Archivo:** `ci-basic.yml`
+
+- Trigger: push
+- Trigger: pull_request
 
 ### Comprehensive Testing
 
@@ -171,4 +187,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 21:44:57 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-27 09:25:21 UTC*

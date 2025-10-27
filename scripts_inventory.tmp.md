@@ -38,6 +38,8 @@
   - Tests para los 3 Pilares del Método Científico
 - `test_acto_iii_validacion.py`
   - Test para Acto III: Validación Cuántica de la Frecuencia Fundamental
+- `test_ai_workflow_collaborator.py`
+  - Test suite for AI Workflow Collaborator
 - `test_analisis_bayesiano_multievento.py`
   - Test del análisis bayesiano multi-evento con datos sintéticos.
 - `test_analisis_estadistico_avanzado.py`
@@ -50,6 +52,8 @@
   - Test para el análisis de SNR de GW200129
 - `test_analizar_kagra_k1.py`
   - Tests para el análisis de KAGRA K1 en 141.7 Hz
+- `test_busqueda_armonicos_superiores.py`
+  - Tests para Búsqueda de Armónicos Superiores
 - `test_campo_conciencia.py`
   - Tests para el módulo de campo de conciencia.
 - `test_coherencia_escalas.py`
@@ -74,6 +78,8 @@
   - Tests para el Protocolo de Falsación
 - `test_protocolos_experimentales.py`
   - Tests para Protocolos Experimentales de Validación de f₀ = 141.7001 Hz
+- `test_resonancia_cruzada_virgo_kagra.py`
+  - Tests para Análisis de Resonancia Cruzada Virgo/KAGRA
 - `test_rpsi_symmetry.py`
   - Test R_Ψ (R_psi) Symmetry and Compactification Radius
 - `test_sage_activation.py`
@@ -100,4 +106,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-26 21:44:57 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-27 09:25:21 UTC*
