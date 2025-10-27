@@ -104,7 +104,9 @@ class TestBadgeValidation(unittest.TestCase):
             if full_path.exists():
                 with open(full_path, 'r') as f:
                     content = f.read()
-                    # Accept either explicit '3.11' or matrix usage that includes '3.11'
+                    # Accept either:
+                    # 1. Explicit python-version: '3.11' specification, or
+                    # 2. Matrix-based python-version with '3.11' in the matrix definition
                     uses_explicit = "python-version: '3.11'" in content
                     uses_matrix = ("python-version: ${{ matrix.python-version }}" in content and 
                                    "'3.11'" in content)
