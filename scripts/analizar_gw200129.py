@@ -115,7 +115,6 @@ def analizar_gw200129():
             print(f"  {det_name}: Error - {e}")
             resultados[det_name] = 0.0
     
-    
     return 0
 
 
