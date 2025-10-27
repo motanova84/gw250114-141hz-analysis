@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tests para el análisis cosmológico DESI.
+Tests for DESI cosmological analysis.
 """
 
 import unittest
@@ -8,7 +8,7 @@ import numpy as np
 import sys
 import os
 
-# Añadir desi al path
+# Add desi to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'desi'))
 
 from desi_wz_analysis import DESICosmologyAnalysis, W0_GQN, WA_GQN
@@ -18,7 +18,7 @@ class TestDESICosmologyAnalysis(unittest.TestCase):
     """Tests para DESICosmologyAnalysis."""
     
     def setUp(self):
-        """Configurar análisis para tests."""
+        """Configure analysis for tests."""
         self.analysis = DESICosmologyAnalysis()
     
     def test_w_cpla(self):

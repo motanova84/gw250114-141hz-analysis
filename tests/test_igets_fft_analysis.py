@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tests para el análisis gravimétrico IGETS.
+Tests for IGETS gravimetric analysis.
 """
 
 import unittest
@@ -8,7 +8,7 @@ import numpy as np
 import sys
 import os
 
-# Añadir igets al path
+# Add igets to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'igets'))
 
 from igets_fft_analysis import IGETSGravimetryAnalysis, F0, LAMBDA_BAR, IGETS_STATIONS
@@ -18,7 +18,7 @@ class TestIGETSGravimetryAnalysis(unittest.TestCase):
     """Tests para IGETSGravimetryAnalysis."""
     
     def setUp(self):
-        """Configurar análisis para tests."""
+        """Configure analysis for tests."""
         self.analysis = IGETSGravimetryAnalysis(sample_rate=1000.0)
     
     def test_yukawa_potential(self):
