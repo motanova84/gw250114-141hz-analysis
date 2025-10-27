@@ -19,8 +19,6 @@ import unittest
 from unittest.mock import Mock, patch
 import numpy as np
 import pandas as pd
-from scipy import signal
-
 from pathlib import Path
 
 # === Ruta reproducible del dataset ===
