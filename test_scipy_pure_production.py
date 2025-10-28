@@ -16,6 +16,8 @@ SCRIPT_PATH = Path(__file__).parent / 'scripts' / 'scipy_pure_production_analysi
 def load_script_module():
     """Load the script as a module"""
     spec = importlib.util.spec_from_file_location("scipy_pure_prod", SCRIPT_PATH)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Cannot load module from {SCRIPT_PATH}")
     module = importlib.util.module_from_spec(spec)
     sys.modules['scipy_pure_prod'] = module
     spec.loader.exec_module(module)
