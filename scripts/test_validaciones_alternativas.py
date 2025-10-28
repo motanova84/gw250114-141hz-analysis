@@ -13,14 +13,15 @@ Tests para las 4 validaciones principales:
 import sys
 from pathlib import Path
 
+# Core dependencies (numpy) assumed available as it's required by scipy
+import numpy as np
+
 try:
     import pytest
 except ImportError:
     print("⚠️ pytest not installed, skipping tests")
     print("Install with: pip install pytest")
     sys.exit(0)
-
-import numpy as np
 
 # Añadir scripts al path
 sys.path.insert(0, str(Path(__file__).parent))

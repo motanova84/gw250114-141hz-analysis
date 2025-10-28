@@ -12,14 +12,15 @@ Fecha: Octubre 2025
 import sys
 import os
 
+# Core dependency (numpy) assumed available
+import numpy as np
+
 try:
     import pytest
 except ImportError:
     print("⚠️ pytest not installed, skipping tests")
     print("Install with: pip install pytest")
     sys.exit(0)
-
-import numpy as np
 
 # Constantes fundamentales (CODATA 2022)
 c = 2.99792458e8    # m/s (velocidad de la luz)

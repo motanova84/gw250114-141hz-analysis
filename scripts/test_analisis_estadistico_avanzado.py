@@ -4,6 +4,9 @@ Tests para el módulo de análisis estadístico avanzado
 Valida las tres funciones requeridas por el problem statement
 """
 import sys
+
+# Core dependencies (numpy, scipy) are assumed to be available
+# as they are required by almost all scientific Python code
 import numpy as np
 from scipy import stats, signal
 

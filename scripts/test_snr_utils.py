@@ -9,14 +9,15 @@ arrays de numpy y evitan el TypeError.
 import sys
 import os
 
+# Core dependency (numpy) assumed available
+import numpy as np
+
 try:
     import pytest
 except ImportError:
     print("⚠️ pytest not installed, skipping tests")
     print("Install with: pip install pytest")
     sys.exit(0)
-
-import numpy as np
 
 # Ajustar path antes de importar (necesario para imports locales)
 sys.path.insert(0, os.path.dirname(__file__))
