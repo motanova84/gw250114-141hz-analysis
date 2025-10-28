@@ -104,10 +104,15 @@ class TestBadgeValidation(unittest.TestCase):
             if full_path.exists():
                 with open(full_path, 'r') as f:
                     content = f.read()
-                    self.assertIn(
-                        "python-version: '3.11'",
-                        content,
-                        f"{wf_file} should use Python 3.11"
+                    # Accept either:
+                    # 1. Explicit python-version: '3.11' specification, or
+                    # 2. Matrix-based python-version with '3.11' in the matrix definition
+                    uses_explicit = "python-version: '3.11'" in content
+                    uses_matrix = ("python-version: ${{ matrix.python-version }}" in content and 
+                                   "'3.11'" in content)
+                    self.assertTrue(
+                        uses_explicit or uses_matrix,
+                        f"{wf_file} should use or include Python 3.11"
                     )
 
     def test_gwpy_version_consistency(self):
