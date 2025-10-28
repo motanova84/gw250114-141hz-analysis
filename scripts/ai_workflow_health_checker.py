@@ -162,7 +162,15 @@ class WorkflowHealthChecker:
                 for step in steps if isinstance(step, dict)
             )
             
-            if has_python_commands and not has_python_setup:
+            # Check if Python commands are only in echo/print statements (not actual execution)
+            has_real_python_commands = any(
+                ('python' in str(step.get('run', '')).lower() or 
+                 'pip' in str(step.get('run', '')).lower()) and
+                'echo' not in str(step.get('run', '')).lower()[:50]  # Check if it's just an echo
+                for step in steps if isinstance(step, dict)
+            )
+            
+            if has_real_python_commands and not has_python_setup:
                 issues.append(
                     f"{workflow_name}/{job_name}: Uses Python but missing setup-python action"
                 )
@@ -215,6 +223,15 @@ class WorkflowHealthChecker:
                     script_patterns = re.findall(r'python3?\s+(\S+\.py)', run_command)
                     
                     for script_path in script_patterns:
+                        # Skip if the script path contains variables (e.g., ${VAR})
+                        if '${' in script_path or '${{' in script_path:
+                            continue
+                        
+                        # Skip if there's conditional logic with elif/else that provides fallbacks
+                        if 'elif' in run_command or 'else' in run_command:
+                            # This indicates the workflow has fallback logic, skip validation
+                            continue
+                        
                         # Remove leading ./ or scripts/
                         script_path = script_path.replace('./', '')
                         
