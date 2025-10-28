@@ -1318,10 +1318,7 @@ cat results/experimentos_f0.json
 **Tasa de éxito**: 3/3 (100%) en simulaciones
 
 ---
-
-## 🧠 Fundamento Teórico
-
-> **⚠️ CLARIFICACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz es identificada primero **empíricamente** en datos de LIGO (GW150914), y luego conectada con un marco teórico que hace predicciones falsables adicionales. Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
+Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
 
 La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
 
