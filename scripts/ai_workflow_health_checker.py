@@ -166,16 +166,14 @@ class WorkflowHealthChecker:
                     continue
                 
                 # Split into lines and check each line
+                import re
                 for line in str(run_command).split('\n'):
                     line = line.strip()
-                    # Skip comments and echo statements
-                    if line.startswith('#') or line.startswith('echo '):
+                    # Skip comments and echo statements (with any amount of leading whitespace)
+                    if re.match(r'^\s*#', line) or re.match(r'^\s*echo\s+', line):
                         continue
-                    # Check for actual python/pip commands
-                    if (line.startswith('python') or line.startswith('pip') or
-                        ' python ' in line or ' pip ' in line or
-                        '| python' in line or '| pip' in line or
-                        line.startswith('python3') or ' python3 ' in line):
+                    # Check for actual python/pip commands using word boundaries
+                    if re.search(r'\b(python3?|pip)\b', line):
                         has_python_commands = True
                         break
                 if has_python_commands:
