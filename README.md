@@ -154,6 +154,67 @@ python scripts/generar_coherencia_escalas.py
 
 ---
 
+## 🔭 LISA-DESI-IGETS: Tres Observatorios Independientes
+
+### Validación Multi-Escala de f₀ = 141.7001 Hz
+
+Este proyecto implementa **tres pruebas observacionales independientes** para validar o falsar la predicción de la frecuencia universal 141.7001 Hz:
+
+#### 1. 🛰️ LISA - Laser Interferometer Space Antenna
+
+**Objetivo:** Detectar armónicos gravitacionales en el espacio (0.1 mHz - 1 Hz)
+
+- **Predicción GQN:** f_n = f₀/(n·φ), donde φ = razón áurea
+- **Frecuencias objetivo:** 0.0876 Hz, 0.0438 Hz, 0.0292 Hz, etc.
+- **Método:** Time Delay Interferometry (TDI) con LISA Pathfinder
+- **Criterio:** SNR > 5σ en armónicos predichos
+
+```bash
+# Ejecutar análisis LISA
+jupyter notebook lisa/lisa_search_pipeline.ipynb
+```
+
+#### 2. 🌌 DESI - Dark Energy Spectroscopic Instrument
+
+**Objetivo:** Verificar predicción cosmológica de energía oscura
+
+- **Predicción GQN:** w(z) = -1 + n/3, con n ≈ 0.3 → (w₀, w_a) = (-1, 0.2)
+- **Método:** Ajuste MCMC de E(z) = H(z)/H₀ con datos BAO
+- **Criterio:** |Δw| < 0.05 en z ∈ [0.5, 1.5] confirma GQN
+
+```bash
+# Ejecutar análisis DESI
+python desi/desi_wz_analysis.py
+```
+
+#### 3. ⚖️ IGETS - International Geodynamics and Earth Tide Service
+
+**Objetivo:** Buscar modulación Yukawa en gravedad local
+
+- **Predicción GQN:** V(r,t) = V₀[1 + α_Y·e^(-r/λ̄)(1 + ε·cos(2πf₀t))]
+- **Alcance:** λ̄ ≈ 337 km (Yukawa)
+- **Método:** FFT en banda 100-300 Hz en gravímetros superconductores
+- **Criterio:** SNR > 6σ con coherencia global entre estaciones
+
+```bash
+# Ejecutar análisis IGETS
+jupyter notebook igets/igets_fft_analysis.ipynb
+```
+
+### Tabla de Integración
+
+| Observatorio | Magnitud | Banda | Predicción | Tipo de Falsación |
+|--------------|----------|-------|------------|-------------------|
+| **LISA** | Ondas gravitacionales | 10⁻³ - 1 Hz | Armónicos f₀/(n·φ) | Espectral |
+| **DESI** | Energía oscura w(z) | Cosmológica | w₀=-1, w_a=0.2 | Cosmológica |
+| **IGETS** | Gravedad local | 10² - 10³ Hz | Oscilación a f₀ | Gravimétrica |
+
+📖 **Documentación completa:** [LISA_DESI_IGETS_README.md](LISA_DESI_IGETS_README.md)
+
+**Estado:** ✓ Pipelines implementados - En espera de datos reales
+
+---
+
 ## 🔄 CI/CD Automatizado y Reproducibilidad
 
 Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza la calidad y reproducibilidad del análisis:
