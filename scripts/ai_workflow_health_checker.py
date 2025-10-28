@@ -163,12 +163,22 @@ class WorkflowHealthChecker:
             )
             
             # Check if Python commands are only in echo/print statements (not actual execution)
-            has_real_python_commands = any(
-                ('python' in str(step.get('run', '')).lower() or 
-                 'pip' in str(step.get('run', '')).lower()) and
-                'echo' not in str(step.get('run', '')).lower()[:50]  # Check if it's just an echo
-                for step in steps if isinstance(step, dict)
-            )
+            has_real_python_commands = False
+            for step in steps:
+                if not isinstance(step, dict):
+                    continue
+                run_cmd = str(step.get('run', '')).lower()
+                if 'python' not in run_cmd and 'pip' not in run_cmd:
+                    continue
+                # Check if Python/pip is in an echo statement by looking at the line structure
+                lines = run_cmd.split('\n')
+                for line in lines:
+                    line = line.strip()
+                    if ('python' in line or 'pip' in line) and not line.startswith('echo'):
+                        has_real_python_commands = True
+                        break
+                if has_real_python_commands:
+                    break
             
             if has_real_python_commands and not has_python_setup:
                 issues.append(
@@ -227,10 +237,22 @@ class WorkflowHealthChecker:
                         if '${' in script_path or '${{' in script_path:
                             continue
                         
-                        # Skip if there's conditional logic with elif/else that provides fallbacks
-                        if 'elif' in run_command or 'else' in run_command:
-                            # This indicates the workflow has fallback logic, skip validation
-                            continue
+                        # Skip if there's conditional logic specifically around this script
+                        # Check if the script appears in a conditional block with alternatives
+                        if script_path in run_command:
+                            # Look for if/elif/else patterns that suggest fallback logic
+                            script_basename = Path(script_path).name
+                            lines = run_command.split('\n')
+                            has_fallback = False
+                            for i, line in enumerate(lines):
+                                if script_basename in line:
+                                    # Check surrounding lines for elif/else/fi
+                                    for j in range(max(0, i-2), min(len(lines), i+5)):
+                                        if 'elif' in lines[j] or ('else' in lines[j] and 'fi' in run_command[run_command.find(line):]):
+                                            has_fallback = True
+                                            break
+                            if has_fallback:
+                                continue
                         
                         # Remove leading ./ or scripts/
                         script_path = script_path.replace('./', '')
