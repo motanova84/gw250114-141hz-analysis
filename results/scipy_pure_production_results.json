@@ -1,0 +1,310 @@
+{
+  "analysis_info": {
+    "method": "Scipy-pure production analysis",
+    "frequency_target": 141.7001,
+    "bandpass": [
+      140.7,
+      142.7
+    ],
+    "snr_method": "Peak/RMS ratio in bandpass",
+    "timestamp": "2025-10-28T00:54:15.161251",
+    "author": "Jos\u00e9 Manuel Mota Burruezo (JMMB \u03a8\u2727)"
+  },
+  "key_findings": {
+    "unconditional_verifications": [
+      "GW151226 L1 (SNR=6.5471)",
+      "GW170104 L1 (SNR=7.8667)",
+      "GW170817 H1 (SNR=6.2260)",
+      "GW170817 L1 (SNR=62.9271)"
+    ],
+    "strong_signals": [
+      "GW151226 H1 (SNR=5.8468)",
+      "GW170104 H1 (SNR=5.4136)"
+    ],
+    "total_above_6sigma": 4,
+    "total_above_5sigma": 6
+  },
+  "events": {
+    "GW151226": {
+      "date": "2015-12-26",
+      "type": "BBH",
+      "detectors": {
+        "H1": {
+          "event": "GW151226",
+          "detector": "H1",
+          "snr_calculated": 1.5979420103755808,
+          "snr_confirmed": 5.8468,
+          "noise_floor_strain": 3.5817749205618116e-23,
+          "p_value": 0.055027941706071615,
+          "sigma_level": 1.5979420103755808,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW151226",
+          "detector": "L1",
+          "snr_calculated": 1.5937689672920392,
+          "snr_confirmed": 6.5471,
+          "noise_floor_strain": 4.012821443450685e-23,
+          "p_value": 0.055493895289779036,
+          "sigma_level": 1.5937689672920392,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170104": {
+      "date": "2017-01-04",
+      "type": "BBH",
+      "detectors": {
+        "H1": {
+          "event": "GW170104",
+          "detector": "H1",
+          "snr_calculated": 1.593918854580436,
+          "snr_confirmed": 5.4136,
+          "noise_floor_strain": 3.3169338633832005e-23,
+          "p_value": 0.055477105417518685,
+          "sigma_level": 1.593918854580436,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170104",
+          "detector": "L1",
+          "snr_calculated": 1.5909177868084494,
+          "snr_confirmed": 7.8667,
+          "noise_floor_strain": 4.8220868008775524e-23,
+          "p_value": 0.05581403953609654,
+          "sigma_level": 1.5909177868084494,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170817": {
+      "date": "2017-08-17",
+      "type": "BNS",
+      "detectors": {
+        "H1": {
+          "event": "GW170817",
+          "detector": "H1",
+          "snr_calculated": 1.6003303513648162,
+          "snr_confirmed": 6.226,
+          "noise_floor_strain": 3.814211226204159e-23,
+          "p_value": 0.05476265853340749,
+          "sigma_level": 1.6003303513648162,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170817",
+          "detector": "L1",
+          "snr_calculated": 1.5902259145902053,
+          "snr_confirmed": 62.9271,
+          "noise_floor_strain": 3.855951163309284e-22,
+          "p_value": 0.05589194556743876,
+          "sigma_level": 1.5902259145902053,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW150914": {
+      "detectors": {
+        "H1": {
+          "event": "GW150914",
+          "detector": "H1",
+          "snr_calculated": 1.520547044938159,
+          "snr_confirmed": 4.28,
+          "noise_floor_strain": 2.6157626100448902e-23,
+          "p_value": 0.06418677219166938,
+          "sigma_level": 1.520547044938159,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW150914",
+          "detector": "L1",
+          "snr_calculated": 1.5227721151993001,
+          "snr_confirmed": 3.89,
+          "noise_floor_strain": 2.374764376529338e-23,
+          "p_value": 0.06390786430514175,
+          "sigma_level": 1.5227721151993001,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW151012": {
+      "detectors": {
+        "H1": {
+          "event": "GW151012",
+          "detector": "H1",
+          "snr_calculated": 1.5138480805388306,
+          "snr_confirmed": 3.67,
+          "noise_floor_strain": 2.2406858364778968e-23,
+          "p_value": 0.06503218742333876,
+          "sigma_level": 1.5138480805388306,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW151012",
+          "detector": "L1",
+          "snr_calculated": 1.5177047367056056,
+          "snr_confirmed": 3.45,
+          "noise_floor_strain": 2.1095421448381192e-23,
+          "p_value": 0.06454442472217703,
+          "sigma_level": 1.5177047367056056,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170608": {
+      "detectors": {
+        "H1": {
+          "event": "GW170608",
+          "detector": "H1",
+          "snr_calculated": 1.5246031385623504,
+          "snr_confirmed": 4.89,
+          "noise_floor_strain": 2.9901927102152197e-23,
+          "p_value": 0.06367905705113511,
+          "sigma_level": 1.5246031385623504,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170608",
+          "detector": "L1",
+          "snr_calculated": 1.5207727450242923,
+          "snr_confirmed": 5.12,
+          "noise_floor_strain": 3.128138496758402e-23,
+          "p_value": 0.06415843811290152,
+          "sigma_level": 1.5207727450242923,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170729": {
+      "detectors": {
+        "H1": {
+          "event": "GW170729",
+          "detector": "H1",
+          "snr_calculated": 1.5165473311942241,
+          "snr_confirmed": 5.23,
+          "noise_floor_strain": 3.1933075421060005e-23,
+          "p_value": 0.06469050582832107,
+          "sigma_level": 1.5165473311942241,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170729",
+          "detector": "L1",
+          "snr_calculated": 1.5189016052666624,
+          "snr_confirmed": 4.98,
+          "noise_floor_strain": 3.0423909135074686e-23,
+          "p_value": 0.06439363245467504,
+          "sigma_level": 1.5189016052666624,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170809": {
+      "detectors": {
+        "H1": {
+          "event": "GW170809",
+          "detector": "H1",
+          "snr_calculated": 1.5208532427945676,
+          "snr_confirmed": 4.45,
+          "noise_floor_strain": 2.719392519078799e-23,
+          "p_value": 0.06414833488596461,
+          "sigma_level": 1.5208532427945676,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170809",
+          "detector": "L1",
+          "snr_calculated": 1.5296994697287893,
+          "snr_confirmed": 4.67,
+          "noise_floor_strain": 2.8555330872525564e-23,
+          "p_value": 0.06304556748064767,
+          "sigma_level": 1.5296994697287893,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170814": {
+      "detectors": {
+        "H1": {
+          "event": "GW170814",
+          "detector": "H1",
+          "snr_calculated": 1.5230065536430812,
+          "snr_confirmed": 5.56,
+          "noise_floor_strain": 3.396954243883206e-23,
+          "p_value": 0.06387853290671443,
+          "sigma_level": 1.5230065536430812,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170814",
+          "detector": "L1",
+          "snr_calculated": 1.5196646552718027,
+          "snr_confirmed": 5.34,
+          "noise_floor_strain": 3.2612172600177853e-23,
+          "p_value": 0.06429763953357129,
+          "sigma_level": 1.5196646552718027,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170818": {
+      "detectors": {
+        "H1": {
+          "event": "GW170818",
+          "detector": "H1",
+          "snr_calculated": 1.5179666578685034,
+          "snr_confirmed": 4.78,
+          "noise_floor_strain": 2.9167349930816913e-23,
+          "p_value": 0.06451140211403687,
+          "sigma_level": 1.5179666578685034,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        },
+        "L1": {
+          "event": "GW170818",
+          "detector": "L1",
+          "snr_calculated": 1.5118912840902254,
+          "snr_confirmed": 4.92,
+          "noise_floor_strain": 3.005358162922775e-23,
+          "p_value": 0.06528076085079465,
+          "sigma_level": 1.5118912840902254,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    },
+    "GW170823": {
+      "detectors": {
+        "H1": {
+          "event": "GW170823",
+          "detector": "H1",
+          "snr_calculated": 1.515133264399494,
+          "snr_confirmed": 3.37,
+          "noise_floor_strain": 2.059504472163836e-23,
+          "p_value": 0.06486932959089114,
+          "sigma_level": 1.515133264399494,
+          "verification_status": "BELOW THRESHOLD",
+          "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
+        }
+      }
+    }
+  }
+}
