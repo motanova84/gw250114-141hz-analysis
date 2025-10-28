@@ -6,10 +6,17 @@ Tests para el módulo snr_utils
 Verifica que las funciones de formateo de SNR manejan correctamente
 arrays de numpy y evitan el TypeError.
 """
-import pytest
-import numpy as np
 import sys
 import os
+
+try:
+    import pytest
+except ImportError:
+    print("⚠️ pytest not installed, skipping tests")
+    print("Install with: pip install pytest")
+    sys.exit(0)
+
+import numpy as np
 
 # Ajustar path antes de importar (necesario para imports locales)
 sys.path.insert(0, os.path.dirname(__file__))

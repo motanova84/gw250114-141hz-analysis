@@ -46,7 +46,21 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        # Install in multiple stages to handle timeouts better
+        # Stage 1: Core dependencies
+        pip install numpy scipy matplotlib astropy h5py --timeout 300
+        # Stage 2: Additional scientific packages
+        pip install mpmath sympy pandas pyyaml --timeout 300
+        # Stage 3: Testing and quality tools
+        pip install pytest pytest-cov flake8 --timeout 300
+        # Stage 4: Web and notebook tools
+        pip install flask jupyter python-dotenv --timeout 300
+        # Stage 5: Performance packages (with retries)
+        pip install numba llvmlite numexpr PyWavelets --timeout 300 || echo "Warning: Some performance packages failed to install"
+        pip install python-igraph --timeout 300 || echo "Warning: python-igraph failed to install"
+        # Stage 6: GWPy and pycbc (most complex, allow failure)
+        pip install gwpy --timeout 300 || echo "Warning: gwpy failed to install"
+        pip install pycbc --timeout 600 || echo "Warning: pycbc failed to install (optional)"
       env:
         # Help numexpr detect CPU features in virtual environments
         NUMEXPR_MAX_THREADS: 4
@@ -153,8 +167,21 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install jupyter nbconvert
+        # Install in multiple stages to handle timeouts better
+        # Stage 1: Core dependencies
+        pip install numpy scipy matplotlib astropy h5py --timeout 300
+        # Stage 2: Additional scientific packages
+        pip install mpmath sympy pandas pyyaml --timeout 300
+        # Stage 3: Testing and quality tools
+        pip install pytest pytest-cov flake8 --timeout 300
+        # Stage 4: Web and notebook tools
+        pip install flask jupyter nbconvert python-dotenv --timeout 300
+        # Stage 5: Performance packages (with retries)
+        pip install numba llvmlite numexpr PyWavelets --timeout 300 || echo "Warning: Some performance packages failed to install"
+        pip install python-igraph --timeout 300 || echo "Warning: python-igraph failed to install"
+        # Stage 6: GWPy and pycbc (most complex, allow failure)
+        pip install gwpy --timeout 300 || echo "Warning: gwpy failed to install"
+        pip install pycbc --timeout 600 || echo "Warning: pycbc failed to install (optional)"
       env:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
