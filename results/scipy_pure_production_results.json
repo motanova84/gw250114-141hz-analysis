@@ -7,7 +7,7 @@
       142.7
     ],
     "snr_method": "Peak/RMS ratio in bandpass",
-    "timestamp": "2025-10-28T00:54:15.161251",
+    "timestamp": "2025-10-28T00:58:09.029869",
     "author": "Jos\u00e9 Manuel Mota Burruezo (JMMB \u03a8\u2727)"
   },
   "key_findings": {
@@ -32,22 +32,22 @@
         "H1": {
           "event": "GW151226",
           "detector": "H1",
-          "snr_calculated": 1.5979420103755808,
+          "snr_calculated": 1.5900159779148257,
           "snr_confirmed": 5.8468,
-          "noise_floor_strain": 3.5817749205618116e-23,
-          "p_value": 0.055027941706071615,
-          "sigma_level": 1.5979420103755808,
+          "noise_floor_strain": 3.584091315476549e-23,
+          "p_value": 0.055915601764130435,
+          "sigma_level": 1.5900159779148257,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW151226",
           "detector": "L1",
-          "snr_calculated": 1.5937689672920392,
+          "snr_calculated": 1.5948630642425081,
           "snr_confirmed": 6.5471,
-          "noise_floor_strain": 4.012821443450685e-23,
-          "p_value": 0.055493895289779036,
-          "sigma_level": 1.5937689672920392,
+          "noise_floor_strain": 4.0126220237189777e-23,
+          "p_value": 0.05537143040134645,
+          "sigma_level": 1.5948630642425081,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -60,22 +60,22 @@
         "H1": {
           "event": "GW170104",
           "detector": "H1",
-          "snr_calculated": 1.593918854580436,
+          "snr_calculated": 1.5915897841779636,
           "snr_confirmed": 5.4136,
-          "noise_floor_strain": 3.3169338633832005e-23,
-          "p_value": 0.055477105417518685,
-          "sigma_level": 1.593918854580436,
+          "noise_floor_strain": 3.3178424530572203e-23,
+          "p_value": 0.055738453495586184,
+          "sigma_level": 1.5915897841779636,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170104",
           "detector": "L1",
-          "snr_calculated": 1.5909177868084494,
+          "snr_calculated": 1.590788081165427,
           "snr_confirmed": 7.8667,
-          "noise_floor_strain": 4.8220868008775524e-23,
-          "p_value": 0.05581403953609654,
-          "sigma_level": 1.5909177868084494,
+          "noise_floor_strain": 4.819557904447767e-23,
+          "p_value": 0.05582863809089964,
+          "sigma_level": 1.590788081165427,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -88,22 +88,22 @@
         "H1": {
           "event": "GW170817",
           "detector": "H1",
-          "snr_calculated": 1.6003303513648162,
+          "snr_calculated": 1.5908430509503821,
           "snr_confirmed": 6.226,
-          "noise_floor_strain": 3.814211226204159e-23,
-          "p_value": 0.05476265853340749,
-          "sigma_level": 1.6003303513648162,
+          "noise_floor_strain": 3.8170155341739295e-23,
+          "p_value": 0.05582245079553973,
+          "sigma_level": 1.5908430509503821,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170817",
           "detector": "L1",
-          "snr_calculated": 1.5902259145902053,
+          "snr_calculated": 1.5928715376688114,
           "snr_confirmed": 62.9271,
-          "noise_floor_strain": 3.855951163309284e-22,
-          "p_value": 0.05589194556743876,
-          "sigma_level": 1.5902259145902053,
+          "noise_floor_strain": 3.8552350028632723e-22,
+          "p_value": 0.055594506280963435,
+          "sigma_level": 1.5928715376688114,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -114,22 +114,22 @@
         "H1": {
           "event": "GW150914",
           "detector": "H1",
-          "snr_calculated": 1.520547044938159,
+          "snr_calculated": 1.514372219771678,
           "snr_confirmed": 4.28,
-          "noise_floor_strain": 2.6157626100448902e-23,
-          "p_value": 0.06418677219166938,
-          "sigma_level": 1.520547044938159,
+          "noise_floor_strain": 2.6141801825801082e-23,
+          "p_value": 0.06496573049333243,
+          "sigma_level": 1.514372219771678,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW150914",
           "detector": "L1",
-          "snr_calculated": 1.5227721151993001,
+          "snr_calculated": 1.5270565618406484,
           "snr_confirmed": 3.89,
-          "noise_floor_strain": 2.374764376529338e-23,
-          "p_value": 0.06390786430514175,
-          "sigma_level": 1.5227721151993001,
+          "noise_floor_strain": 2.3769444988855928e-23,
+          "p_value": 0.06337347356486712,
+          "sigma_level": 1.5270565618406484,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -140,22 +140,22 @@
         "H1": {
           "event": "GW151012",
           "detector": "H1",
-          "snr_calculated": 1.5138480805388306,
+          "snr_calculated": 1.5181680958512431,
           "snr_confirmed": 3.67,
-          "noise_floor_strain": 2.2406858364778968e-23,
-          "p_value": 0.06503218742333876,
-          "sigma_level": 1.5138480805388306,
+          "noise_floor_strain": 2.242905574576942e-23,
+          "p_value": 0.06448601406013146,
+          "sigma_level": 1.5181680958512431,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW151012",
           "detector": "L1",
-          "snr_calculated": 1.5177047367056056,
+          "snr_calculated": 1.5244946295744382,
           "snr_confirmed": 3.45,
-          "noise_floor_strain": 2.1095421448381192e-23,
-          "p_value": 0.06454442472217703,
-          "sigma_level": 1.5177047367056056,
+          "noise_floor_strain": 2.106647243919833e-23,
+          "p_value": 0.06369259869712308,
+          "sigma_level": 1.5244946295744382,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -166,22 +166,22 @@
         "H1": {
           "event": "GW170608",
           "detector": "H1",
-          "snr_calculated": 1.5246031385623504,
+          "snr_calculated": 1.5132646202453035,
           "snr_confirmed": 4.89,
-          "noise_floor_strain": 2.9901927102152197e-23,
-          "p_value": 0.06367905705113511,
-          "sigma_level": 1.5246031385623504,
+          "noise_floor_strain": 2.9853600094377754e-23,
+          "p_value": 0.0651062278664775,
+          "sigma_level": 1.5132646202453035,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170608",
           "detector": "L1",
-          "snr_calculated": 1.5207727450242923,
+          "snr_calculated": 1.5234686613257862,
           "snr_confirmed": 5.12,
-          "noise_floor_strain": 3.128138496758402e-23,
-          "p_value": 0.06415843811290152,
-          "sigma_level": 1.5207727450242923,
+          "noise_floor_strain": 3.1251853758062955e-23,
+          "p_value": 0.06382074768764773,
+          "sigma_level": 1.5234686613257862,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -192,22 +192,22 @@
         "H1": {
           "event": "GW170729",
           "detector": "H1",
-          "snr_calculated": 1.5165473311942241,
+          "snr_calculated": 1.518848922119686,
           "snr_confirmed": 5.23,
-          "noise_floor_strain": 3.1933075421060005e-23,
-          "p_value": 0.06469050582832107,
-          "sigma_level": 1.5165473311942241,
+          "noise_floor_strain": 3.195673597905238e-23,
+          "p_value": 0.06440026418693645,
+          "sigma_level": 1.518848922119686,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170729",
           "detector": "L1",
-          "snr_calculated": 1.5189016052666624,
+          "snr_calculated": 1.5111744825008848,
           "snr_confirmed": 4.98,
-          "noise_floor_strain": 3.0423909135074686e-23,
-          "p_value": 0.06439363245467504,
-          "sigma_level": 1.5189016052666624,
+          "noise_floor_strain": 3.0451374460740537e-23,
+          "p_value": 0.06537200097371067,
+          "sigma_level": 1.5111744825008848,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -218,22 +218,22 @@
         "H1": {
           "event": "GW170809",
           "detector": "H1",
-          "snr_calculated": 1.5208532427945676,
+          "snr_calculated": 1.5237581460133738,
           "snr_confirmed": 4.45,
-          "noise_floor_strain": 2.719392519078799e-23,
-          "p_value": 0.06414833488596461,
-          "sigma_level": 1.5208532427945676,
+          "noise_floor_strain": 2.718933430956217e-23,
+          "p_value": 0.06378456918935718,
+          "sigma_level": 1.5237581460133738,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170809",
           "detector": "L1",
-          "snr_calculated": 1.5296994697287893,
+          "snr_calculated": 1.5237501655540873,
           "snr_confirmed": 4.67,
-          "noise_floor_strain": 2.8555330872525564e-23,
-          "p_value": 0.06304556748064767,
-          "sigma_level": 1.5296994697287893,
+          "noise_floor_strain": 2.852256105519888e-23,
+          "p_value": 0.06378556633749914,
+          "sigma_level": 1.5237501655540873,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -244,22 +244,22 @@
         "H1": {
           "event": "GW170814",
           "detector": "H1",
-          "snr_calculated": 1.5230065536430812,
+          "snr_calculated": 1.5215992271277057,
           "snr_confirmed": 5.56,
-          "noise_floor_strain": 3.396954243883206e-23,
-          "p_value": 0.06387853290671443,
-          "sigma_level": 1.5230065536430812,
+          "noise_floor_strain": 3.3986285358404674e-23,
+          "p_value": 0.06405476566747301,
+          "sigma_level": 1.5215992271277057,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170814",
           "detector": "L1",
-          "snr_calculated": 1.5196646552718027,
+          "snr_calculated": 1.5279704389298499,
           "snr_confirmed": 5.34,
-          "noise_floor_strain": 3.2612172600177853e-23,
-          "p_value": 0.06429763953357129,
-          "sigma_level": 1.5196646552718027,
+          "noise_floor_strain": 3.263113553252428e-23,
+          "p_value": 0.06325993882673124,
+          "sigma_level": 1.5279704389298499,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -270,22 +270,22 @@
         "H1": {
           "event": "GW170818",
           "detector": "H1",
-          "snr_calculated": 1.5179666578685034,
+          "snr_calculated": 1.5179223933740358,
           "snr_confirmed": 4.78,
-          "noise_floor_strain": 2.9167349930816913e-23,
-          "p_value": 0.06451140211403687,
-          "sigma_level": 1.5179666578685034,
+          "noise_floor_strain": 2.92104853077914e-23,
+          "p_value": 0.06451698199002547,
+          "sigma_level": 1.5179223933740358,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         },
         "L1": {
           "event": "GW170818",
           "detector": "L1",
-          "snr_calculated": 1.5118912840902254,
+          "snr_calculated": 1.5236395033600558,
           "snr_confirmed": 4.92,
-          "noise_floor_strain": 3.005358162922775e-23,
-          "p_value": 0.06528076085079465,
-          "sigma_level": 1.5118912840902254,
+          "noise_floor_strain": 3.002186525653807e-23,
+          "p_value": 0.06379939468645573,
+          "sigma_level": 1.5236395033600558,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
@@ -296,11 +296,11 @@
         "H1": {
           "event": "GW170823",
           "detector": "H1",
-          "snr_calculated": 1.515133264399494,
+          "snr_calculated": 1.5125725520220974,
           "snr_confirmed": 3.37,
-          "noise_floor_strain": 2.059504472163836e-23,
-          "p_value": 0.06486932959089114,
-          "sigma_level": 1.515133264399494,
+          "noise_floor_strain": 2.0578963226462138e-23,
+          "p_value": 0.06519413532975912,
+          "sigma_level": 1.5125725520220974,
           "verification_status": "BELOW THRESHOLD",
           "analysis_method": "Scipy-pure bandpass + Peak/RMS SNR"
         }
