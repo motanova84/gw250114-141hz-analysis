@@ -34,7 +34,7 @@ OMEGA_K = 0.0     # Curvatura (universo plano)
 # Predicción del modelo GQN
 N_GQN = 0.3  # Parámetro noésico
 W0_GQN = -1.0
-WA_GQN = N_GQN / 1.5  # ≈ 0.2 (predicción simplificada)
+WA_GQN = N_GQN / 1.5  # = 0.2 (predicción simplificada)
 
 # Parámetros para datos mock (simulación)
 W0_MOCK = -0.95  # Modelo "verdadero" cercano a GQN
