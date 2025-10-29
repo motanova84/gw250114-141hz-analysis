@@ -1008,32 +1008,6 @@ whitened = data.whiten(asd=asd)                  # Whitening
 - [ ] **Conferencias internacionales** - Presentación en meetings LIGO/Virgo
 - [ ] **Código público** - Contribución a bibliotecas oficiales (GWPy)
 
-### Hitos Técnicos Específicos
-```python
-# Cronograma detallado de implementación
-hitos = {
-    "2024-Q4": [
-        "✅ Análisis GW150914 H1/L1 completo",
-        "🔄 Optimización de pipeline de análisis",
-        "🔄 Documentación técnica extendida"
-    ],
-    "2025-Q1": [
-        "📋 GW250114 análisis (cuando esté disponible)",
-        "📋 Búsqueda en catálogo GWTC-1 completo",
-        "📋 Implementación de análisis bayesiano"
-    ],
-    "2025-Q2": [
-        "📋 Integración con Virgo y KAGRA",
-        "📋 Manuscript científico primera versión",
-        "📋 Validación por pares externos"
-    ],
-    "2025-Q3": [
-        "📋 Revisión por pares científicos",
-        "📋 Presentación en LIGO-Virgo meeting",
-        "📋 Publicación en arXiv"
-    ]
-}
-```
 
 ---
 
