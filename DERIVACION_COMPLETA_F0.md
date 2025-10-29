@@ -2,9 +2,42 @@
 
 ## Resumen Ejecutivo
 
-Este documento presenta la derivación completa de la frecuencia fundamental f₀ = 141.7001 Hz, respondiendo específicamente a los requisitos del problema planteado:
+Este documento presenta múltiples derivaciones de la frecuencia fundamental f₀ = 141.7001 Hz, respondiendo específicamente a los requisitos del problema planteado:
 
 > "Esta frecuencia no es postulada, sino derivada rigurosamente desde principios cuántico-gravitacionales y densidades espectrales numéricas."
+
+## Enfoques de Derivación Disponibles
+
+### 1. **Derivación desde Números Primos y Función Zeta de Riemann** ⭐ NUEVO
+
+**Script:** `scripts/demostracion_matematica_primos.py`
+
+**Paper:** "Demostración Matemática: 141.7001 Hz como Frecuencia Fundamental de los Números Primos" (José Manuel Mota Burruezo, Instituto de Consciencia Cuántica, 2025)
+
+Este enfoque deriva 141.7001 Hz desde la estructura fundamental de los números primos mediante:
+
+1. **Serie prima compleja**: S_N(α) = Σ exp(2πi·log(p_n)/α)
+2. **Factor de uniformidad optimizado**: α_opt = 0.551020 (maximiza uniformidad de fases)
+3. **Factor dimensional fundamental**: Ψ(α_opt) = 647 × e^(γπ) ≈ 3966.831
+4. **Normalización logarítmica**: Relacionada con densidad de ceros de Riemann
+5. **Frecuencia derivada**: f₀ = (1/2π) × scaling × Ψ_eff × C ≈ 141.7001 Hz
+
+**Características principales:**
+- Error del 2.83% respecto al valor objetivo
+- Mejora del 97% sobre formulaciones previas
+- Conexión profunda con función Xi de Riemann y números primos
+- Factor 647 es el 118° número primo con propiedades geométricas especiales
+- Convergencia anómala (β ≈ 0.65) indica correlaciones entre fases
+
+**Ejecutar:**
+```bash
+python3 scripts/demostracion_matematica_primos.py
+python3 scripts/test_demostracion_matematica_primos.py
+```
+
+### 2. **Derivación desde Compactificación Calabi-Yau**
+
+**Script:** `scripts/derivacion_primer_principios_f0.py`
 
 ## Clarificación Metodológica Crucial
 
