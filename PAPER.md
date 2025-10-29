@@ -121,7 +121,7 @@ donde:
 
 **Resultados clave**:
 - |∇Ξ(1)| ≈ 8.27√N (comportamiento asintótico demostrado, R² = 0.9618)
-- Fases cuasi-uniformes según teorema de Weyl [1]
+- Fases cuasi-uniformes según teorema de Weyl [8]
 - Frecuencia base f₀ = 1/(2π) ≈ 0.159155 Hz de función theta θ(it)
 - Escalado por constantes fundamentales (γ, φ, π, e) produce 141.7001 Hz
 
@@ -1760,6 +1760,10 @@ Agradezco a la colaboración LIGO/Virgo por los datos públicos de GWOSC, y a la
 [6] Kronig & Penney, "Quantum mechanics of electrons in crystal lattices", Proc. Roy. Soc. A 130, 499 (1931)
 
 [7] Jaynes, "Information theory and statistical mechanics", Phys. Rev. 106, 620 (1957)
+
+[8] H. Weyl, "Über die Gleichverteilung von Zahlen mod. Eins", Mathematische Annalen 77, 313-352 (1916)
+
+[9] H. Montgomery, "The pair correlation of zeros of the zeta function", Proceedings of Symposia in Pure Mathematics 24, 181-193 (1973)
 
 ---
 
