@@ -92,7 +92,7 @@ La documentación ahora describe correctamente el proceso como **predictivo/top-
 
 ### ¿Por qué es importante esta corrección?
 
-1. **Precisión histórica:** Refleja el verdadero orden de desarrollo científico
+1. **Precisión cronológica:** Refleja el orden cronológico real del desarrollo científico
 
 2. **Credibilidad científica:** Un enfoque predictivo es más robusto que uno retrodictivo
 
@@ -118,9 +118,9 @@ La documentación ahora describe correctamente el proceso como **predictivo/top-
 - Predicciones adicionales independientes generadas
 
 ❌ **Qué NO es:**
-- Derivación desde teoría M de 11D sin parámetros fenomenológicos
+- Derivación ab initio desde teoría M de 11D sin parámetros fenomenológicos
 - Cálculo ab initio puro desde primeros principios de cuerdas
-- Libre de todos los inputs fenomenológicos (E₀, ζ)
+- Derivación libre de todos los inputs fenomenológicos (E₀, ζ)
 
 **Analogías históricas:**
 - Similar al bosón de Higgs: mecanismo predicho, masa medida

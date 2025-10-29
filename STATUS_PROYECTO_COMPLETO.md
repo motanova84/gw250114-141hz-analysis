@@ -152,7 +152,7 @@ n = log(R_ratio) / log(pi)  # ≈ 81.1
 ### Análisis de Enfoque
 - `scripts/derivacion_primer_principios_f0.py` ⭐ NUEVO
   - Analiza diferentes aproximaciones de derivación
-  - Muestra que derivación numérica desde V_eff da f₀ correcto
+  - Muestra que derivación numérica desde V_eff produce el valor f₀ = 141.7001 Hz
   - Conclusión: Enfoque predictivo-numérico es el camino correcto
 
 ### Validación
