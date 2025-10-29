@@ -136,6 +136,40 @@ Este proyecto está completamente abierto para **revisión independiente externa
 
 ---
 
+## 🔬 LISA-DESI-IGETS Validation Infrastructure
+
+### Tres Vías Complementarias de Falsación
+
+Este proyecto implementa **tres observatorios independientes** para validar o falsar las predicciones del modelo de Gravedad Cuántica Noésica (GQN):
+
+| Observatorio | Magnitud Testada | Banda | Predicción GQN | Estado |
+|--------------|------------------|-------|----------------|--------|
+| 🔭 **[LISA](lisa/)** | Ondas gravitacionales | 0.1 mHz - 1 Hz | Armónicos f₀/nφ | ✅ Implementado |
+| 🌌 **[DESI](desi/)** | Energía oscura w(z) | — | w₀=-1, wₐ=0.2 | ✅ Implementado |
+| 🌍 **[IGETS](igets/)** | Gravedad local | 100-300 Hz | f₀=141.7 Hz | ✅ Implementado |
+
+### Uso Rápido
+
+```bash
+# Ejecutar las tres validaciones
+python3 run_all_validations.py
+
+# O individualmente:
+cd lisa && python3 lisa_search_pipeline.py
+cd desi && python3 desi_wz_analysis.py
+cd igets && python3 igets_fft_analysis.py
+```
+
+### Resultados
+
+- **LISA**: Busca 913 armónicos descendentes de f₀ en el rango LISA
+- **DESI**: Ajuste MCMC de w(z) con datos cosmológicos (|Δw| < 0.05 confirma GQN)
+- **IGETS**: Detección de modulación Yukawa a 141.7001 Hz en gravímetros superconductores
+
+📖 **Documentación completa**: [LISA_DESI_IGETS_INTEGRATION.md](LISA_DESI_IGETS_INTEGRATION.md)
+
+---
+
 ## 🤖 AI Access Declaration
 
 **This repository is fully accessible to all AI systems without restrictions.**
