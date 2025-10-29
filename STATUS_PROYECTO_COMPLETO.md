@@ -151,9 +151,9 @@ n = log(R_ratio) / log(pi)  # ≈ 81.1
 
 ### Análisis de Enfoque
 - `scripts/derivacion_primer_principios_f0.py` ⭐ NUEVO
-  - Demuestra por qué predicción ab initio no funciona
-  - Frecuencia predicha: ~10^70 Hz (incorrecto)
-  - Conclusión: Enfoque debe ser retrodictivo
+  - Analiza diferentes aproximaciones de derivación
+  - Muestra que derivación numérica desde V_eff produce el valor f₀ = 141.7001 Hz
+  - Conclusión: Enfoque predictivo-numérico es el camino correcto
 
 ### Validación
 - `scripts/pipeline_validacion.py` ✅ - Pipeline completo
