@@ -386,18 +386,18 @@ def main():
     # Step 1: Get fundamental constants
     print("Step 1: Loading fundamental constants...")
     constants = get_fundamental_constants(precision)
-    print("  γ (Euler-Mascheroni) = {constants['gamma']}")
-    print("  φ (Golden Ratio) = {constants['phi']}")
-    print("  e^γ = {constants['e_gamma']}")
-    print("  γπ = {constants['gamma_pi']}")
-    print("  √(2πγ) = {constants['sqrt_2pi_gamma']}")
+    print(f"  γ (Euler-Mascheroni) = {constants['gamma']}")
+    print(f"  φ (Golden Ratio) = {constants['phi']}")
+    print(f"  e^γ = {constants['e_gamma']}")
+    print(f"  γπ = {constants['gamma_pi']}")
+    print(f"  √(2πγ) = {constants['sqrt_2pi_gamma']}")
     print()
 
     # Step 2: Calculate fractal correction factor
     print("Step 2: Calculating fractal correction factor δ...")
     delta = calculate_fractal_correction_factor(constants)
     print("  δ = 1 + 1/(φ·log(γπ))")
-    print("  δ = {delta}")
+    print(f"  δ = {delta}")
     print("  Expected: ≈ 1.000141678168563")
     print()
 
@@ -405,7 +405,7 @@ def main():
     print("Step 3: Calculating fractal dimension D_f...")
     D_f = calculate_fractal_dimension(constants)
     print("  D_f = log(γπ) / log(φ)")
-    print("  D_f = {D_f}")
+    print(f"  D_f = {D_f}")
     print("  Expected: ≈ 1.236614938")
     print()
 
@@ -419,9 +419,9 @@ def main():
     # Step 5: Calculate dimensional factors
     print("Step 5: Calculating dimensional factors...")
     psi_prime, psi_eff = calculate_dimensional_factor(constants)
-    print("  Ψ_prime = φ · 400 · e^(γπ) = {psi_prime}")
+    print(f"  Ψ_prime = φ · 400 · e^(γπ) = {psi_prime}")
     print("  Expected: ≈ 3967.986054933787")
-    print("  Ψ_eff = {psi_eff}")
+    print(f"  Ψ_eff = {psi_eff}")
     print("  Expected: ≈ 15.188026678")
     print()
 
