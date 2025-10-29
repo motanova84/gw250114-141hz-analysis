@@ -644,8 +644,7 @@ class TorreAlgebraica:
             "niveles_detallados": {
                 "NIVEL_5_Ontologia": {
                     "campo_psi": self.niveles[5].definicion_campo_psi(),
-                    "propiedades": self.niveles[5].propiedades_algebraicas(),
-                    "conexion_riemann_hypothesis": self.niveles[5].conexion_riemann_hypothesis()
+                    "propiedades": self.niveles[5].propiedades_algebraicas()
                 },
                 "NIVEL_4_Geometria": {
                     "calabi_yau": self.niveles[4].estructura_calabi_yau(),
@@ -667,6 +666,16 @@ class TorreAlgebraica:
                 }
             }
         }
+        
+        # Agregar conexión RH si está disponible
+        try:
+            if hasattr(self.niveles[5], 'conexion_riemann_hypothesis'):
+                output["niveles_detallados"]["NIVEL_5_Ontologia"]["conexion_riemann_hypothesis"] = \
+                    self.niveles[5].conexion_riemann_hypothesis()
+        except Exception as e:
+            # Registrar error pero no fallar la exportación
+            output["warnings"] = output.get("warnings", [])
+            output["warnings"].append(f"No se pudo exportar conexion_riemann_hypothesis: {str(e)}")
 
         # Guardar JSON
         with open(output_path, 'w', encoding='utf-8') as f:

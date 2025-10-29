@@ -613,7 +613,7 @@ contiene información espectral fundamental sobre:
 El factor adélico que emerge del sistema 𝐀_ℚ:
 
 ```
-α_adelic = |ζ'(1/2)| / π ≈ 1.249
+α_adelic = |ζ'(1/2)| / π ≈ 1.248617
 ```
 
 modula la relación entre geometría (R_Ψ) y frecuencia observable (f₀):
