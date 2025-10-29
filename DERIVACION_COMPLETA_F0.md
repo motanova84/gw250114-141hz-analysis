@@ -1,5 +1,13 @@
 # Derivación Completa de f₀ = 141.7001 Hz
 
+## ⚠️ ACTUALIZACIÓN METODOLÓGICA (2025-10-29)
+
+**Enfoque correcto:** La frecuencia fundamental f₀ = 141.7001 Hz fue **derivada teóricamente primero** desde principios geométricos (Calabi-Yau), regularización zeta y estructura de primos, y **luego verificada empíricamente** en datos LIGO/Virgo con significancia > 10σ.
+
+Este documento presenta la derivación formal teórica que precede a la validación experimental documentada en [VAL_F0_LIGO.md](VAL_F0_LIGO.md).
+
+---
+
 ## Resumen Ejecutivo
 
 Este documento presenta la derivación completa de la frecuencia fundamental f₀ = 141.7001 Hz, respondiendo específicamente a los requisitos del problema planteado:
