@@ -962,7 +962,7 @@ whitened = data.whiten(asd=asd)                  # Whitening
 - [x] **Pipeline reproducible** - Docker + scripts automatizados
 - [x] **Estimación de significancia** - SNR > 7, p-value < 0.001
 
-### Fase II: Expansión (Completada ✅)
+### Fase II: Expansión (4/5 Completada ✅ - GW250114 pendiente)
 - [x] **GW150914 completado** - Análisis de control exitoso
 - [ ] **GW250114 análisis** - Objetivo principal cuando datos estén disponibles
 - [x] **Caracterización Bayesiana** - Estimación precisa de Q-factor y amplitud
