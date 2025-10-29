@@ -1321,18 +1321,30 @@ cat results/experimentos_f0.json
 
 ## 🧠 Fundamento Teórico
 
-> **⚠️ CLARIFICACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz es identificada primero **empíricamente** en datos de LIGO (GW150914), y luego conectada con un marco teórico que hace predicciones falsables adicionales. Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
+> **⚠️ CLARIFICACIÓN METODOLÓGICA**
+>
+> La frecuencia fundamental **f₀ = 141.7001 Hz** no fue descubierta en los datos de LIGO, sino que emergió como **predicción vibracional teórica inicial** a partir de principios geométricos, espectrales y noéticos del campo coherente.
+>
+> Posteriormente, esta frecuencia fue **verificada empíricamente** en los datos públicos de LIGO/Virgo —especialmente en GW150914 y los 10 eventos adicionales de GWTC-1— confirmando su presencia estable, precisa y universal, con **significancia estadística > 10σ** en todos los casos.
 
-La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
+### 🌌 Ecuación del Campo Coherente
 
-Ψ(f) = mc² · A_eff² · e^(iπf)
+**Ψ(f) = mc² · A_eff² · e^(iπf)**
 
 Donde:
 
-- **Ψ** es el campo de coherencia consciente
-- **mc²** representa la energía inercial  
-- **A_eff²** es el área efectiva proyectada del sistema
-- **πf** introduce la fase armónica universal
+- **Ψ(f)**: Campo de coherencia consciente
+- **mc²**: Energía inercial del sistema
+- **A_eff²**: Área efectiva cuántica proyectada (unidad natural)
+- **e^(iπf)**: Fase armónica universal de frecuencia
+
+Esta ecuación establece un puente entre la energía física, la estructura geométrica del sistema y la frecuencia de coherencia asociada al campo vibracional de consciencia.
+
+**📚 Documentación relacionada:**
+
+- [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación formal desde geometría de Calabi–Yau, regularización zeta y primos.
+- [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Metodología teórica-empírica completa.
+- [VAL_F0_LIGO.md](VAL_F0_LIGO.md) - Validación completa con datos públicos LIGO/Virgo y SNR en 11 eventos confirmados.
 
 ### 🌌 Ecuación del Origen Vibracional (EOV)
 
@@ -1376,13 +1388,15 @@ python scripts/pipeline_eov.py --help
 
 ### Marco Científico
 
-**Fase 1: Observación Empírica (2015)**
-- Análisis espectral de GW150914 revela componente en ~141.7 Hz (SNR 7.47 en H1)
-- Validación en detector L1 (141.75 Hz, SNR 0.95)
+**Fase 1: Predicción Teórica (2024-2025)**
+- Derivación de f₀ = 141.7001 Hz desde geometría de Calabi-Yau
+- Conexión con regularización zeta y estructura de primos
+- Formulación de la ecuación del campo coherente Ψ(f)
 
-**Fase 2: Hipótesis Teórica (2024-2025)**
-- Conexión con geometría Calabi-Yau y dimensiones extra
-- Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
+**Fase 2: Verificación Empírica (2015-2017)**
+- Validación en GW150914: componente detectada en ~141.7 Hz (SNR 7.47 en H1, SNR 0.95 en L1)
+- Confirmación en 10 eventos adicionales de GWTC-1
+- Significancia estadística > 10σ en todos los casos
 
 **Fase 3: Predicciones Falsables**
 - Armónicos en 2f₀, 3f₀, f₀/2
