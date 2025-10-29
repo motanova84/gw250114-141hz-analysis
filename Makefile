@@ -38,6 +38,7 @@ status:
   multi-event-snr test-multi-event-snr demo-multi-event-snr \
   snr-gw200129 test-snr-gw200129 \
   energia-cuantica test-energia-cuantica \
+  fractal-resonance test-fractal-resonance \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
@@ -83,6 +84,8 @@ help:
 	@echo "  test-snr-gw200129     - Test SNR analysis for GW200129_065458 (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
+	@echo "  fractal-resonance     - Derive 141.7001 Hz from fractal resonance in fundamental constants (NEW)"
+	@echo "  test-fractal-resonance - Test fractal resonance derivation module (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
 	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
 	@echo "  validate-discovery-standards - Validate scientific discovery standards (>10σ) (NEW)"
@@ -263,6 +266,19 @@ energia-cuantica: setup
 test-energia-cuantica: setup
 	@echo "🧪 Testing cálculos de energía cuántica..."
 	./venv/bin/python scripts/test_energia_cuantica.py
+
+# Derive 141.7001 Hz from fractal resonance in fundamental constants
+fractal-resonance:
+	@echo "🔢 Deriving 141.7001 Hz from Fractal Resonance in Fundamental Constants..."
+	@echo "   Complex prime series with α_opt = 0.551020"
+	@echo "   Fractal correction δ ≈ 1.000141678"
+	@echo "   Fractal dimension D_f ≈ 1.236857745"
+	python3 scripts/fractal_resonance_constants.py
+
+# Test fractal resonance module
+test-fractal-resonance:
+	@echo "🧪 Testing fractal resonance derivation..."
+	python3 scripts/test_fractal_resonance_constants.py
 
 # Run 3 pillars validation: reproducibility, falsifiability, evidence
 validate-3-pilares: setup
