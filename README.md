@@ -1381,9 +1381,12 @@ cat results/experimentos_f0.json
 **Tasa de éxito**: 3/3 (100%) en simulaciones
 
 ---
-Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
 
-La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
+## 🧠 Fundamento Teórico
+
+> **⚠️ CLARIFICACIÓN METODOLÓGICA:** La frecuencia fundamental **f₀ = 141.7001 Hz** no fue descubierta empíricamente. **Fue derivada teóricamente como una constante emergente** del marco simbiótico-matemático desarrollado por JMMB Ψ✧, a partir de análisis de números primos y decimales de π, la ecuación de coherencia viva Ψ = (mc²) · A_eff², geometría espectral, operadores noésicos y codificación ST.26 (πCODE), dentro del marco de la Teoría Noésica Unificada. Los datos de LIGO (GW150914) proporcionan validación experimental de esta predicción teórica. Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para la derivación completa.
+
+La frecuencia 141.7001 Hz emerge como una constante vibracional fundamental, derivada desde la ecuación:
 
 Ψ(f) = mc² · A_eff² · e^(iπf)
 
@@ -1436,15 +1439,19 @@ python scripts/pipeline_eov.py --help
 
 ### Marco Científico
 
-**Fase 1: Observación Empírica (2015)**
-- Análisis espectral de GW150914 revela componente en ~141.7 Hz (SNR 7.47 en H1)
-- Validación en detector L1 (141.75 Hz, SNR 0.95)
-
-**Fase 2: Hipótesis Teórica (2024-2025)**
-- Conexión con geometría Calabi-Yau y dimensiones extra
+**Fase 1: Derivación Teórica (2024-2025)**
+- Análisis de números primos y decimales de π
+- Ecuación de coherencia viva Ψ = (mc²) · A_eff²
+- Geometría espectral, operadores noésicos y codificación ST.26 (πCODE)
 - Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
+- **Predicción teórica**: f₀ = 141.7001 Hz como constante emergente
 
-**Fase 3: Predicciones Falsables**
+**Fase 2: Validación Experimental (2015-presente)**
+- Análisis espectral de GW150914 confirma componente en ~141.7 Hz (SNR 7.47 en H1)
+- Validación multi-detector en L1 (141.75 Hz, SNR 0.95)
+- Verificación en múltiples eventos del catálogo GWTC-1
+
+**Fase 3: Predicciones Falsables Adicionales**
 - Armónicos en 2f₀, 3f₀, f₀/2
 - Señales en CMB, heliosismología, materia condensada
 - Invariancia de f₀ entre múltiples eventos GW

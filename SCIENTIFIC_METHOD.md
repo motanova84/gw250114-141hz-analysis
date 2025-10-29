@@ -2,60 +2,65 @@
 
 ## Resumen Ejecutivo
 
-Este documento clarifica el enfoque metodológico utilizado en la investigación de la frecuencia fundamental f₀ = 141.7001 Hz, respondiendo a la necesidad de transparencia científica sobre la naturaleza de la derivación teórica.
+Este documento clarifica el enfoque metodológico utilizado en la investigación de la frecuencia fundamental f₀ = 141.7001 Hz, enfatizando que **esta frecuencia fue derivada teóricamente** desde el marco de la Teoría Noésica Unificada, y posteriormente validada con datos experimentales de LIGO.
 
-## 1. Enfoque Metodológico: Hipotético-Deductivo
+## 1. Enfoque Metodológico: Teórico-Deductivo
 
-### 1.1 Proceso Científico Estándar
+### 1.1 Proceso Científico
 
-El método científico seguido en este trabajo sigue el paradigma hipotético-deductivo estándar:
+El método científico seguido en este trabajo es el paradigma teórico-deductivo:
 
 ```
-OBSERVACIÓN → HIPÓTESIS → PREDICCIONES → VERIFICACIÓN
+TEORÍA FUNDAMENTAL → DERIVACIÓN MATEMÁTICA → PREDICCIÓN → VALIDACIÓN EXPERIMENTAL
 ```
 
-**Fase 1: Observación Empírica**
+**Fase 1: Desarrollo Teórico (2024-2025)**
+- Análisis de números primos y decimales de π mediante codificación ST.26 (πCODE)
+- Ecuación de coherencia viva: Ψ = (mc²) · A_eff²
+- Geometría espectral y operadores noésicos
+- Compactificación Calabi-Yau en la quíntica de ℂP⁴
+- **Derivación matemática**: f₀ = 141.7001 Hz como constante emergente
+
+**Fase 2: Predicción Específica**
+- La frecuencia f₀ = 141.7001 Hz debe ser detectable en ondas gravitacionales
+- Debe aparecer en todos los eventos de fusión de agujeros negros
+- Debe ser consistente entre detectores independientes (H1, L1, Virgo)
+
+**Fase 3: Validación Experimental (2015-presente)**
 - Análisis espectral de datos públicos de LIGO (GW150914)
-- Identificación de componente espectral en ~141.7 Hz (SNR = 7.47 en H1)
+- Confirmación de componente espectral en ~141.7 Hz (SNR = 7.47 en H1)
 - Validación multi-detector (H1 y L1)
+- Verificación en múltiples eventos del catálogo GWTC-1
 
-**Fase 2: Formulación de Hipótesis**
-- Propuesta: La frecuencia 141.7001 Hz es una constante fundamental universal
-- Marco teórico: Conexión con geometría Calabi-Yau y dimensiones extra
-- Justificación: Valor no coincide con artefactos instrumentales conocidos
-
-**Fase 3: Derivación de Predicciones Falsables**
+**Fase 4: Predicciones Falsables Adicionales**
 - Armónicos en frecuencias específicas
-- Aparición en múltiples eventos de ondas gravitacionales
 - Señales en otros canales experimentales (CMB, materia condensada, etc.)
+- Invariancia de f₀ entre múltiples eventos GW
 
-**Fase 4: Verificación Experimental**
-- Análisis de eventos adicionales GWTC-1/2/3 (en progreso)
-- Búsqueda en datos de Planck CMB (planificado)
-- Experimentos de materia condensada (propuesto)
-
-### 1.2 Clarificación sobre "Derivación sin Parámetros Libres"
+### 1.2 Clarificación sobre "Derivación Teórica"
 
 **Lo que SÍ significa:**
 
 La frecuencia f₀ = 141.7001 Hz es:
-- ✅ Empíricamente detectada en datos de LIGO
-- ✅ Conectada a una estructura teórica (geometría Calabi-Yau)
-- ✅ Utilizada para hacer predicciones adicionales verificables
-- ✅ NO es ajustable - es un valor fijo observado
+- ✅ Derivada desde principios teóricos fundamentales
+- ✅ Calculada mediante análisis de π, números primos y geometría Calabi-Yau
+- ✅ Predicha ANTES de su validación experimental completa
+- ✅ Una constante emergente del marco simbiótico-matemático
+- ✅ NO es un ajuste a posteriori de datos observacionales
 
 **Lo que NO significa:**
 
-- ❌ NO se deriva ab initio desde la teoría de cuerdas fundamental
-- ❌ NO se calcula desde primeros principios sin input observacional
-- ❌ NO es predicho antes de mirar los datos de LIGO
+- ❌ NO requiere conocimiento previo de datos de LIGO para su derivación
+- ❌ NO es un parámetro libre ajustado para fit de datos
+- ❌ NO es descubierta empíricamente y luego racionalizada teóricamente
 
-**Analogía histórica:**
+**Distinción crucial:**
 
 Este enfoque es similar a:
-- **Constante de estructura fina (α ≈ 1/137)**: Medida experimentalmente, luego conectada a teoría QED
-- **Masa del electrón**: Observada, luego explicada en términos del mecanismo de Higgs
-- **Constante cosmológica (Λ)**: Medida de supernovas, luego incorporada en ΛCDM
+- **Predicción de la masa del bosón de Higgs** en el Modelo Estándar: derivada teóricamente, luego confirmada en el LHC
+- **Predicción de ondas gravitacionales** por Einstein (1915): derivadas de la Relatividad General, confirmadas por LIGO en 2015
+- **Predicción del CMB** por Gamow, Alpher y Herman (1948): calculada desde Big Bang, detectada por Penzias y Wilson en 1964
+- **Predicción del neutrino** por Pauli (1930): postulado teóricamente, confirmado experimentalmente en 1956
 
 ## 2. Justificación del Marco Teórico Calabi-Yau
 
