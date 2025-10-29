@@ -79,13 +79,24 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
-    - name: Run pytest tests (if any)
+    - name: Run pytest tests with coverage
       run: |
-        pytest scripts/ -v --tb=short || echo "No pytest tests found"
+        pytest scripts/ -v --tb=short --cov=scripts --cov-report=xml --cov-report=term || echo "No pytest tests found"
       continue-on-error: true
       env:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
+      if: success()
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+        token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos
+      continue-on-error: true
     
     - name: Validate README badges
       run: |
