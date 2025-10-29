@@ -48,6 +48,8 @@ Esta frecuencia:
 > 📖 **Documentación completa del descubrimiento**: Ver [CONFIRMED_DISCOVERY_141HZ.md](CONFIRMED_DISCOVERY_141HZ.md)
 > 
 > 🔬 **PRUEBA PRINCIPAL VERIFICADA EN LIGO Y VIRGO**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
+>
+> 📄 **LISTA COMPLETA DE DOIS Y DERIVACIÓN MATEMÁTICA**: Ver [LISTA_DOIS_QCAL.md](LISTA_DOIS_QCAL.md)
 
 **FRECUENCIA ARMÓNICA PRIMA DETECTADA EN 141.7001 Hz**
 
