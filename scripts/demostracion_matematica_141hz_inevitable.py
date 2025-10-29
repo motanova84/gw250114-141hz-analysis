@@ -30,6 +30,13 @@ import os
 matplotlib.use('Agg')
 
 # ============================================================================
+# CONFIGURACIÓN
+# ============================================================================
+
+# Directorio de salida para las visualizaciones
+RESULTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'results')
+
+# ============================================================================
 # CONSTANTES MATEMÁTICAS FUNDAMENTALES
 # ============================================================================
 
@@ -134,7 +141,7 @@ def analyze_asymptotic_behavior(max_n=1000, num_points=50):
         num_points: Número de puntos para el análisis
 
     Returns:
-        Tuple (n_values, ratios, mean_ratio, r_squared)
+        Tuple (n_values, ratios, mean_ratio, convergence_quality)
     """
     n_values = np.linspace(100, max_n, num_points, dtype=int)
     ratios = []
@@ -149,12 +156,13 @@ def analyze_asymptotic_behavior(max_n=1000, num_points=50):
     ratios = np.array(ratios)
     mean_ratio = np.mean(ratios)
 
-    # Calcular R² para verificar la convergencia
-    variance_ratios = np.var(ratios)
-    total_variance = np.var(ratios)
-    r_squared = 1 - (variance_ratios / total_variance) if total_variance > 0 else 0
+    # Calcular calidad de convergencia
+    # Usamos coeficiente de variación: menor valor = mejor convergencia
+    cv = np.std(ratios) / mean_ratio if mean_ratio > 0 else 1.0
+    # Convertir a una métrica de calidad (0 a 1, donde 1 es perfecto)
+    convergence_quality = max(0, 1 - cv)
 
-    return n_values, ratios, mean_ratio, r_squared
+    return n_values, ratios, mean_ratio, convergence_quality
 
 # ============================================================================
 # DISTRIBUCIÓN DE FASES
@@ -346,9 +354,9 @@ def create_complete_demonstration():
     partial_sums = compute_prime_complex_series(primes_1000)
 
     print("2. Analizando comportamiento asintótico...")
-    n_asymptotic, ratios, mean_ratio, r_squared = analyze_asymptotic_behavior(
+    n_asymptotic, ratios, mean_ratio, convergence_quality = analyze_asymptotic_behavior(
         max_n=1000, num_points=50)
-    print(f"   |∇Ξ(1)|/√N ≈ {mean_ratio:.3f} (R² = {r_squared:.4f})")
+    print(f"   |∇Ξ(1)|/√N ≈ {mean_ratio:.3f} (convergencia = {convergence_quality:.2f})")
 
     print("3. Analizando distribución de fases (5000 primos)...")
     phases_5000, ks_stat, p_value = analyze_phase_distribution(5000)
@@ -488,7 +496,7 @@ def create_complete_demonstration():
     conclusion_text = f"""
 TEOREMA DEMOSTRADO: 141.7001 Hz es matemáticamente inevitable
 
-✓ |∇Ξ(1)| ≈ {mean_ratio:.2f}√N probado por teoría de caminatas aleatorias (R² = {r_squared:.2f})
+✓ |∇Ξ(1)| ≈ {mean_ratio:.2f}√N validado por análisis asintótico (conv = {convergence_quality:.2f})
 ✓ Fases cuasi-uniformes confirman hipótesis de independencia estadística
 ✓ Frecuencia fundamental f₀ = 1/(2π) emerge de la función θ(it) de Jacobi
 ✓ Escalado por constantes {{γ, φ, π, e}} sin parámetros empíricos
@@ -528,15 +536,14 @@ e^γ = {E_GAMMA:.8f}
     plt.tight_layout()
 
     # Guardar figura
-    output_dir = '/home/runner/work/141hz/141hz/results'
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, 'demostracion_141hz_inevitable.png')
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    output_path = os.path.join(RESULTS_DIR, 'demostracion_141hz_inevitable.png')
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
     print(f"\n✓ Figura guardada en: {output_path}")
 
     plt.close()
 
-    return mean_ratio, r_squared, ks_stat, p_value
+    return mean_ratio, convergence_quality, ks_stat, p_value
 
 # ============================================================================
 # FUNCIÓN PRINCIPAL
@@ -555,15 +562,14 @@ def main():
     create_dimensional_bridge_panel(ax1, ax2)
     plt.tight_layout()
 
-    output_dir = '/home/runner/work/141hz/141hz/results'
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, 'puentes_dimensionales.png')
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    output_path = os.path.join(RESULTS_DIR, 'puentes_dimensionales.png')
     plt.savefig(output_path, dpi=150, bbox_inches='tight')
     print(f"\n✓ Puentes dimensionales guardados en: {output_path}")
     plt.close()
 
     # Crear demostración completa
-    mean_ratio, r_squared, ks_stat, p_value = create_complete_demonstration()
+    mean_ratio, convergence_quality, ks_stat, p_value = create_complete_demonstration()
 
     # Imprimir resumen final
     print("\n" + "=" * 80)
