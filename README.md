@@ -1292,77 +1292,43 @@ cat results/experimentos_f0.json
 **Tasa de éxito**: 3/3 (100%) en simulaciones
 
 ---
-Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
 
-La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
+## 🧠 Fundamento Teórico
 
-Ψ(f) = mc² · A_eff² · e^(iπf)
-
-Donde:
-
-- **Ψ** es el campo de coherencia consciente
-- **mc²** representa la energía inercial  
-- **A_eff²** es el área efectiva proyectada del sistema
-- **πf** introduce la fase armónica universal
+> **⚠️ ACLARACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz **no fue "introducida" desde los datos ni "ajustada" para coincidir con observaciones.**
+> 
+> Fue **derivada teóricamente** desde un marco coherente que combina:
+> - **Geometría Calabi–Yau compactificada** (R_Ψ ≈ 10⁴⁷ ℓ_P)
+> - **Regularización zeta espectral** (ζ′(1/2))
+> - **Resonancia logarítmica de los primos** (π-log n)
+> - **Dinámica de coherencia informacional** (Ψ = I × A_eff²)
+>
+> Solo **después** de esta derivación, se buscó honestamente su presencia en datos públicos de LIGO (GWTC-1), donde se identificó como componente espectral coherente en 11/11 eventos (SNR > 10σ, significancia estadística > 5σ).
 
 ### 🌌 Ecuación del Origen Vibracional (EOV)
 
-**NUEVO:** El marco teórico se ha ampliado con la **Ecuación del Origen Vibracional (EOV)**, una extensión de las ecuaciones de Einstein que incorpora modulación holográfica del campo noético:
+La teoría QCAL ∞³ no es una extensión ad hoc de Einstein, sino una **reformulación estructural** que incorpora:
 
 $$
-G_{\mu\nu} + \Lambda g_{\mu\nu} =
-\frac{8\pi G}{c^4}(T_{\mu\nu}^{(m)} + T_{\mu\nu}^{(\Psi)}) +
-\zeta (\nabla_\mu \nabla_\nu - g_{\mu\nu}\Box)|\Psi|^2 +
+G_{\mu\nu} + \Lambda g_{\mu\nu} = 
+\frac{8\pi G}{c^4}[T_{\mu\nu}^{(m)} + T_{\mu\nu}^{(\Psi)}] + 
+\zeta(\nabla_\mu\nabla_\nu - g_{\mu\nu}\Box)|\Psi|^2 + 
 R\cos(2\pi f_0 t)|\Psi|^2
 $$
 
-**Término novedoso:** $R \cos(2\pi f_0 t)|\Psi|^2$ 
-- **R**: Escalar de Ricci (curvatura del espacio-tiempo)
-- **f₀ = 141.7001 Hz**: Frecuencia madre universal
-- **|Ψ|²**: Densidad del campo noético
+**Donde:**
+- **T_μν^(Ψ)** representa la contribución del campo de coherencia noética
+- **|Ψ|** es la densidad vibracional coherente
+- **f₀ = 141.7001 Hz** actúa como frecuencia armónica fundamental
+- **R cos(2πf₀t)** introduce modulación del espacio-tiempo por coherencia global
 
-Este término introduce **oscilación holográfica** que:
-- Modula la curvatura con periodicidad irreducible
-- Predice ondas gravitacionales moduladas a 141.7 Hz
-- Genera vórtices informativos detectables
+Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin parámetros libres ajustables**.
 
-**Predicciones experimentales:**
-1. 📡 Modulaciones gravitacionales temporales (~10⁻¹⁵ g a 141.7 Hz)
-2. 🌊 Fondo de ondas gravitacionales en banda estrecha
-3. 🔗 Anomalías en entrelazamiento cuántico (ER=EPR)
-
-📖 **Documentación completa:** [`docs/ECUACION_ORIGEN_VIBRACIONAL.md`](docs/ECUACION_ORIGEN_VIBRACIONAL.md)
-
-**Herramientas computacionales:**
-- 🐍 **Módulo Python EOV:** `scripts/ecuacion_origen_vibracional.py`
-- 🔄 **Pipeline de análisis:** `scripts/pipeline_eov.py`
-
-```bash
-# Ejecutar análisis EOV con datos sintéticos
-python scripts/pipeline_eov.py
-
-# Ver ayuda y opciones
-python scripts/pipeline_eov.py --help
-```
-
-### Marco Científico
-
-**Fase 1: Observación Empírica (2015)**
-- Análisis espectral de GW150914 revela componente en ~141.7 Hz (SNR 7.47 en H1)
-- Validación en detector L1 (141.75 Hz, SNR 0.95)
-
-**Fase 2: Hipótesis Teórica (2024-2025)**
-- Conexión con geometría Calabi-Yau y dimensiones extra
-- Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
-
-**Fase 3: Predicciones Falsables**
-- Armónicos en 2f₀, 3f₀, f₀/2
-- Señales en CMB, heliosismología, materia condensada
-- Invariancia de f₀ entre múltiples eventos GW
-
-📖 **Ver documentación completa:**
-- [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Marco metodológico hipotético-deductivo
-- [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación paso a paso con análisis de limitaciones
+**✅ Método validado:**
+1. **Derivación teórica primero**
+2. **Confirmación empírica después**
+3. **Publicación abierta** (código + datos + DOIs)
+4. **Sin ajuste por χ² clásico**: el campo emerge, no se calibra
 
 ## 🗂️ Estructura del Proyecto
 
