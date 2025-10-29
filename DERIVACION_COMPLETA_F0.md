@@ -27,7 +27,7 @@ Este enfoque deriva 141.7001 Hz desde la estructura fundamental de los números 
 - Mejora del 97% sobre formulaciones previas
 - Conexión profunda con función Xi de Riemann y números primos
 - Factor 647 es el 118° número primo con propiedades geométricas especiales
-- Convergencia anómala (β ≈ 0.65) indica correlaciones entre fases
+- Convergencia anómala (exponente β varía según N) indica correlaciones entre fases
 
 **Ejecutar:**
 ```bash
