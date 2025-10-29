@@ -103,13 +103,13 @@ def demo_completa():
     # Paso 1: Verificar constantes
     print("\n1. Verificando constantes fundamentales con alta precisión...")
     print("-" * 80)
-    resultado = verify_fundamental_constants()
+    verify_fundamental_constants()
     
     # Paso 2: Crear calculador con alta precisión
     print("\n2. Inicializando calculador con precisión de 50 dígitos...")
     print("-" * 80)
     calculator = QuantumFrequencyCalculator(precision=50)
-    print(f"✓ Calculador inicializado")
+    print("✓ Calculador inicializado")
     
     # Paso 3: Análisis de convergencia completo
     print("\n3. Realizando análisis de convergencia completo...")

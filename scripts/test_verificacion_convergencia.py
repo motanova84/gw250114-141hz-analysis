@@ -13,7 +13,6 @@ import os
 import unittest
 import numpy as np
 import pandas as pd
-import mpmath
 
 # Añadir directorio de scripts al path
 sys.path.insert(0, os.path.dirname(__file__))
@@ -81,8 +80,8 @@ class TestQuantumFrequencyCalculator(unittest.TestCase):
         self.assertEqual(len(df), 2)  # 500, 1000
         
         # Verificar columnas
-        expected_columns = ['n_primes', 'frequency', 'error_rel', 
-                          'magnitude', 'sqrt_n', 'ratio']
+        expected_columns = ['n_primes', 'frequency', 'error_rel',
+                           'magnitude', 'sqrt_n', 'ratio']
         for col in expected_columns:
             self.assertIn(col, df.columns)
     
@@ -128,8 +127,8 @@ class TestVerifyFundamentalConstants(unittest.TestCase):
     def test_verify_constants_structure(self):
         """Test estructura del resultado"""
         result = verify_fundamental_constants()
-        
-        expected_keys = ['phi_calculated', 'phi_expected', 
+
+        expected_keys = ['phi_calculated', 'phi_expected',
                         'gamma_calculated', 'gamma_expected',
                         'phi_property_1', 'phi_property_2',
                         'all_verified']

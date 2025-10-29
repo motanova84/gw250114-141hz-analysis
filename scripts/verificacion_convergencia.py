@@ -15,7 +15,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import mpmath
-from typing import Optional, Dict, Any
 
 
 class QuantumFrequencyCalculator:
@@ -223,7 +222,7 @@ def verify_fundamental_constants():
     phi_property_1 = phi_calculated**2 - phi_calculated - 1
     phi_property_2 = 1/phi_calculated - (phi_calculated - 1)
     
-    print(f"\n=== PROPIEDADES DE φ ===")
+    print("\n=== PROPIEDADES DE φ ===")
     print(f"φ² - φ - 1 = {phi_property_1} (debe ser ≈ 0)")
     print(f"1/φ - (φ - 1) = {phi_property_2} (debe ser ≈ 0)")
     
@@ -234,7 +233,7 @@ def verify_fundamental_constants():
     phi_match = abs(phi_calculated - phi_expected) < tolerance
     gamma_match = abs(gamma_calculated - gamma_expected) < tolerance
     
-    print(f"\n=== RESULTADO DE VERIFICACIÓN ===")
+    print("\n=== RESULTADO DE VERIFICACIÓN ===")
     print(f"✓ φ correcto: {phi_match}")
     print(f"✓ γ correcto: {gamma_match}")
     print(f"✓ Propiedad φ² - φ - 1 = 0: {phi_prop1_ok}")
