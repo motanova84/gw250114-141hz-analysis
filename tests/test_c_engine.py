@@ -230,9 +230,11 @@ class TestCEngineIrrefutable(unittest.TestCase):
             (10.0, 1.0, "Consciencia Mínima", 1),
             (1200.0, 1.1, "Consciencia Humana Normal", 3),
             (2500.0, 1.8, "Consciencia Avanzada", 4),
-            (30000.0, 1.20, "Consciencia Superior", 5)  # Adjusted to avoid going over 50000
+            # Adjusted to stay under 50000 threshold after quantum correction
+            # 30000 * 1.2^2 = 43200, with ~10% quantum boost stays in level 5
+            (30000.0, 1.20, "Consciencia Superior", 5)
         ]
-        
+
         for I, A_eff, expected_level, expected_index in test_cases:
             result = self.engine.calculate_consciousness(I, A_eff, validation_mode=False)
             self.assertEqual(result['consciousness_level_index'], expected_index)

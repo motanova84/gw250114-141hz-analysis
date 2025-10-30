@@ -64,8 +64,10 @@ class ConsciousnessMetrics:
         total_entropy = 0.7 * spectral_entropy + 0.3 * shannon_entropy
         bits_per_second = total_entropy * sampling_rate
         
-        # Visualización del espectro (opcional)
-        if False:  # Cambiar a True para ver gráficos en vivo
+        # Visualización del espectro (disabled by default)
+        # To enable, set environment variable CENGINE_ENABLE_PLOTS=1
+        enable_plots = os.environ.get('CENGINE_ENABLE_PLOTS', '0') == '1'
+        if enable_plots:
             plt.figure(figsize=(10, 6))
             plt.semilogy(freqs, psd)
             if len(freqs) > 0:
@@ -356,14 +358,17 @@ class CEngineIrrefutable:
     def _save_measurement_to_json(self, measurement: Dict):
         """Guarda la medición en un archivo JSON"""
         filename = f"{self.log_directory}/measurement_{measurement['measurement_id']}.json"
-        
+
         # Convertir tipos numpy a tipos nativos de Python para serialización JSON
-        def convert_to_json_serializable(obj):
+        def convert_to_json_serializable(obj, depth=0, max_depth=10):
             """Convierte objetos numpy a tipos nativos de Python"""
+            if depth > max_depth:
+                return str(obj)  # Prevenir recursión infinita
+
             if isinstance(obj, dict):
-                return {k: convert_to_json_serializable(v) for k, v in obj.items()}
+                return {k: convert_to_json_serializable(v, depth + 1, max_depth) for k, v in obj.items()}
             elif isinstance(obj, list):
-                return [convert_to_json_serializable(item) for item in obj]
+                return [convert_to_json_serializable(item, depth + 1, max_depth) for item in obj]
             elif isinstance(obj, (np.integer, np.floating)):
                 return float(obj)
             elif isinstance(obj, np.bool_):
@@ -372,7 +377,7 @@ class CEngineIrrefutable:
                 return obj.tolist()
             else:
                 return obj
-        
+
         measurement_serializable = convert_to_json_serializable(measurement)
         
         with open(filename, "w") as f:
