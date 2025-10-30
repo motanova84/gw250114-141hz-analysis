@@ -1,3 +1,34 @@
+# Changelog
+
+## [2025-10-30] Corrección del Orden Cronológico del Descubrimiento
+
+### Cambios Críticos en Documentación
+
+Este update corrige la presentación del orden cronológico del descubrimiento de la frecuencia 141.7001 Hz para reflejar la realidad histórica correcta:
+
+**Orden CORRECTO:**
+1. **PRIMERO (2024):** Derivación teórica de 141.7001 Hz
+2. **SEGUNDO (2024-2025):** Búsqueda dirigida en datos LIGO  
+3. **TERCERO (2025):** Validación en múltiples eventos
+
+**Archivos Modificados:**
+- ✅ `SCIENTIFIC_METHOD.md` - Reorganizado completamente con fases correctas
+- ✅ `README.md` - Añadida sección prominente sobre orden cronológico
+- ✅ `ORDEN_CRONOLOGICO_DESCUBRIMIENTO.md` - Nuevo documento oficial de aclaración
+
+**Impacto:**
+- Protege contra acusaciones de "curve fitting" (ajuste post-hoc)
+- Establece prioridad intelectual correcta
+- Demuestra método científico riguroso: predicción → validación
+- Refuerza credibilidad científica del descubrimiento
+
+**Commits:**
+- 151e846: Correct chronological order in SCIENTIFIC_METHOD.md and README.md
+- bb5ddc9: Add official chronological order clarification document  
+- 827c22c: Add prominent links to chronological order clarification
+
+---
+
 # Resumen de Cambios - Corrección de Código GW150914
 
 ## Descripción General
