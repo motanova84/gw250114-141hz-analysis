@@ -89,7 +89,7 @@ jobs:
           git config --local user.name "$name"
           git add .github/workflows/
           git add scripts/
-          date_str=$(date -u +%Y-%m-%d\ %H:%M:%S)
+          date_str=$(date -u '+%Y-%m-%d %H:%M:%S')
           commit_msg="🤖 AI Workflow Collaborator: "
           commit_msg="${commit_msg}Auto-fix workflow issues
 
@@ -196,14 +196,15 @@ jobs:
             const serverUrl = '${{ github.server_url }}';
             const repo = '${{ github.repository }}';
             const runId = '${{ github.run_id }}';
-            const workflowUrl = `${serverUrl}/${repo}/actions/runs/`;
+            const workflowUrl =
+              `${serverUrl}/${repo}/actions/runs/${runId}`;
             const body = `## 🚨 Critical Workflow Issues Detected
 
             The AI Workflow Collaborator has detected critical
             issues that could not be automatically fixed.
 
             **Date:** ${new Date().toISOString()}
-            **Workflow Run:** ${workflowUrl}${runId}
+            **Workflow Run:** ${workflowUrl}
 
             ### Action Required
 
