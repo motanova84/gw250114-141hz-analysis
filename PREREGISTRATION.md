@@ -1,84 +1,63 @@
-# Prerregistro (versión 1.0)
+# Prerregistro (v1.0)
 
-## Objetivo
-
-Protocolo de análisis ciego para detectar y validar la presencia de una componente espectral en 141.7001 Hz en eventos de ondas gravitacionales del catálogo GWTC.
-
-## Parámetros Predefinidos
+## Parámetros de Análisis
 
 ### Ventana Temporal
-- **Ventana**: [t0-0.25 s, t0+0.25 s] alrededor de coalescencia publicada
-- **Justificación**: Captura la fase de ringdown sin extenderse a regiones de ruido dominante
+- **Ventana**: [t0−0.25 s, t0+0.25 s]
+- Ventana de 0.5 segundos centrada en el tiempo de coalescencia
 
-### Método de Análisis SNR
-- **PSD**: Welch con Nfft=2^14 (16384 puntos), 50% overlap
-- **Ventana**: Hann
-- **Banda de análisis**: 20–1024 Hz
-- **Whitening**: Por detector (normalización independiente H1, L1, V1)
+### Procesamiento de Datos
+- **Banda de frecuencia**: 20–1024 Hz
+- **Whitening**: Por detector individual
+  - Método: Welch
+  - Nfft: 2^14 (16384)
+  - Overlap: 50%
+  - Ventana: Hann
 
 ### Frecuencia Objetivo
-- **f0**: 141.7001 Hz (±0.3 Hz) — *predefinida por predicción teórica*
-- **Banda de interés**: [141.4001, 142.0001] Hz
+- **f0**: 141.7001 Hz
+- **Tolerancia**: ±0.3 Hz
+- **Naturaleza**: Fijada a priori (no ajustada a los datos)
 
-### Estadística Final
-- **SNR coherente**: Productoria/mezcla Fisher entre detectores
-- **Bayes Factor**: Modelo jerárquico con parámetro π_global (fracción de eventos con tono coherente)
+### Estadística de Detección
+- **Estadística principal**: SNR coherente (mezcla Fisher)
+- **Inferencia estadística**: Bayes factor jerárquico
 
-## Controles de Validación
+### Corrección de Múltiples Comparaciones
+- **Método**: Modelo jerárquico π_global
+- Corrección automática para múltiples eventos
 
-### Corrección por Múltiples Eventos
-- **Método**: Modelo jerárquico bayesiano
-- **Parámetro**: π_global (probabilidad de que un evento arbitrario contenga la señal)
-- **Prior**: Beta(1,1) (uniforme en [0,1])
+### Exclusiones
+- **Archivo**: `controls/lines_exclusion.csv`
+- Exclusión de líneas instrumentales conocidas
 
-### Exclusiones de Líneas Instrumentales
-- **Fuente**: `controls/lines_exclusion.csv`
-- **Criterio**: Frecuencias con líneas instrumentales conocidas (armónicos de red eléctrica, resonancias mecánicas) son excluidas del análisis
+### Validaciones de Robustez
 
-### Off-Source Validation
-- **Número de ventanas**: 10^4 por evento
-- **Distribución**: Uniforme en tiempos fuera de ±10 s alrededor de coalescencia
-- **Objetivo**: Estimar distribución nula de SNR bajo ausencia de señal
+#### Off-source
+- **N ventanas**: 10^4 (10,000) ventanas por evento
+- **Región**: Fuera de ±10 s del tiempo de coalescencia
+- Evaluación de fondo de ruido
 
-### Time-Slides
-- **Número de desfasajes**: 200 por par de detectores
-- **Rango**: ±50 ms, excluyendo desfase cero
-- **Objetivo**: Destruir coherencia física entre detectores manteniendo ruido instrumental
+#### Time-slides
+- **N desplazamientos**: 200
+- **Rango**: ±50 ms
+- **Exclusión**: 0 ms (sin desplazamiento)
+- Validación de coherencia temporal
 
-### Leave-One-Out Validation
-- **Por evento**: Análisis excluyendo un evento a la vez
-- **Por detector**: Análisis usando solo un detector a la vez
-- **Objetivo**: Verificar robustez de la señal ante exclusión de datos individuales
+#### Leave-one-out
+- **Por evento**: Excluir cada evento uno a la vez
+- **Por detector**: Excluir cada detector uno a la vez
+- Validación de robustez y consistencia
 
-## Cierre del Plan
+### Cierre de Plan
+- **Hash del plan**: Registrar hash SHA-256 de este documento
+- **DOI Zenodo**: Asignar DOI antes de corridas masivas
+- **Timestamp**: Fecha de cierre del plan de análisis
 
-**Hash del plan**: Este documento será hasheado y depositado en Zenodo antes de cualquier corrida masiva de análisis.
+## Detectores
+- H1 (Hanford)
+- L1 (Livingston)
+- V1 (Virgo)
 
-**Timestamp de prerregistro**: 2025-10-30
-
-**Versión**: 1.0
-
----
-
-## Criterios de Éxito Predefinidos
-
-1. **Detección primaria**: SNR coherente > 5.0 en al menos 8/11 eventos de GWTC-1
-2. **Coherencia multi-detector**: Correlación de fase entre H1 y L1 > 0.7
-3. **Off-source null**: p-value < 0.01 comparando on-source vs off-source
-4. **Time-slide null**: BF_coherent / BF_timeslides > 10
-5. **Leave-one-out estabilidad**: Desviación estándar de SNR_global < 20% al excluir eventos individuales
-
-## Falsación
-
-El resultado se considerará **falsado** si:
-- SNR medio cae por debajo de 3.0 sigma
-- Off-source produce igual o mayor número de "detecciones"
-- Time-slides no reducen significancia (BF ratio < 3)
-- Patrón de antena no es consistente con fuente astronómica
-- Líneas instrumentales conocidas explican la señal
-
----
-
-**Investigador Principal**: José Manuel Mota Burruezo (JMMB Ψ✧)  
-**Fecha de prerregistro**: 30 de Octubre de 2025  
-**Licencia**: MIT  
+## Notas
+Este prerregistro define todos los parámetros de análisis antes de la ejecución, siguiendo las mejores prácticas de ciencia abierta y reproducibilidad.

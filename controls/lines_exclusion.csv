@@ -1,4 +1,7 @@
 freq_hz,width_hz,reason,source
+60,2,mains harmonic,site
+120,2,mains harmonic,site
+180,2,mains harmonic,site
 60,2,mains harmonic fundamental,power_grid
 120,2,mains harmonic 2nd,power_grid
 180,2,mains harmonic 3rd,power_grid
