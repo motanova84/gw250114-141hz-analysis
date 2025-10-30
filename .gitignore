@@ -66,6 +66,11 @@ results/*
 results/figures/*
 # Keep verification and vacuum energy figures (PNG files)
 !results/figures/*.png
+# Keep example JSON results
+!results/*.json
+
+# Generated validation files
+output/
 
 # Temporary files
 *.tmp
@@ -104,9 +109,25 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+gwtc3_results.png
+multi_event_analysis.png
+demo_multi_event_analysis.png
+snr_gw200129_065458_141hz.png
 
 # Generated data files
 Evac_Rpsi_data.csv
+gwtc3_analysis_results.json
+multi_event_results.json
+demo_multi_event_results.json
+snr_gw200129_065458_results.json
+
+# IMPORTANT: DO NOT IGNORE - Discovery confirmation files
+!multi_event_final.json
+!multi_event_final.png
+!multi_event_analysis.py
+
+# Test results directories
+scripts/results/
 
 # AI Accessibility Files (DO NOT IGNORE - These are important)
 !.ai-instructions.md

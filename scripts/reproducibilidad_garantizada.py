@@ -87,6 +87,14 @@ def garantizar_reproducibilidad():
     
     guardar_json('validacion_reproducibilidad.json', resultados_reproducibilidad, 'results')
 
+    # Guardar resultados (añadido para que los tests pasen)
+    output_dir = Path('results')
+    output_dir.mkdir(exist_ok=True)
+    
+    output_file = output_dir / 'validacion_reproducibilidad.json'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(resultados_reproducibilidad, f, indent=2, ensure_ascii=False)
+    
     return resultados_reproducibilidad
 
 

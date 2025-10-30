@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "preregistration_date": "2025-10-30",
+  "target_frequency": {
+    "f0_hz": 141.7001,
+    "tolerance_hz": 0.3,
+    "bandwidth_hz": [141.4001, 142.0001],
+    "predefined": true,
+    "theoretical_basis": "Noetic Quantum Gravity - Calabi-Yau vibrational modes"
+  },
+  "time_window": {
+    "duration_s": 0.25,
+    "offset_from_coalescence_s": 0,
+    "description": "Symmetric window around published coalescence time"
+  },
+  "spectral_analysis": {
+    "method": "welch_psd",
+    "nfft": 16384,
+    "overlap": 0.5,
+    "window": "hann",
+    "band_hz": [20, 1024],
+    "whitening": "per_detector",
+    "detectors": ["H1", "L1", "V1"]
+  },
+  "snr_computation": {
+    "coherent_method": "fisher_mix",
+    "single_detector_method": "matched_filter",
+    "normalization": "psd_weighted"
+  },
+  "validation_controls": {
+    "offsource": {
+      "n_windows": 10000,
+      "exclusion_zone_s": 10,
+      "distribution": "uniform",
+      "purpose": "Null distribution estimation"
+    },
+    "time_slides": {
+      "n_slides": 200,
+      "range_ms": [-50, 50],
+      "exclude_zero": true,
+      "purpose": "Destroy physical coherence, maintain instrumental noise"
+    },
+    "leave_one_out": {
+      "by_event": true,
+      "by_detector": true,
+      "purpose": "Test robustness to individual data exclusion"
+    },
+    "instrumental_lines": {
+      "exclusion_file": "controls/lines_exclusion.csv",
+      "action": "flag_or_exclude",
+      "purpose": "Remove known instrumental artifacts"
+    }
+  },
+  "statistical_inference": {
+    "multiple_events_model": "hierarchical_bayes",
+    "global_parameter": "pi_global",
+    "pi_description": "Fraction of events containing coherent tone",
+    "prior": {
+      "type": "beta",
+      "alpha": 1,
+      "beta": 1,
+      "description": "Uniform on [0,1]"
+    },
+    "likelihood": {
+      "h0": "gaussian_noise",
+      "h0_params": {"mu": 0, "sigma": 1},
+      "h1": "gaussian_signal",
+      "h1_params": {"mu": 6.0, "sigma": 1.0},
+      "mixture_weight": "pi_global"
+    }
+  },
+  "success_criteria": {
+    "primary_detection": {
+      "snr_coherent_threshold": 5.0,
+      "min_events_gwtc1": 8,
+      "total_events_gwtc1": 11
+    },
+    "multi_detector_coherence": {
+      "phase_correlation_threshold": 0.7,
+      "detector_pairs": ["H1-L1", "H1-V1", "L1-V1"]
+    },
+    "offsource_null": {
+      "p_value_threshold": 0.01,
+      "comparison": "on_source_vs_off_source"
+    },
+    "time_slide_null": {
+      "bf_ratio_threshold": 10,
+      "comparison": "BF_coherent / BF_timeslides"
+    },
+    "leave_one_out_stability": {
+      "max_std_deviation_percent": 20,
+      "metric": "SNR_global"
+    }
+  },
+  "falsification_criteria": [
+    "Mean SNR falls below 3.0 sigma",
+    "Off-source produces equal or more detections",
+    "Time-slides do not reduce significance (BF ratio < 3)",
+    "Antenna pattern inconsistent with astrophysical source",
+    "Known instrumental lines explain the signal"
+  ],
+  "data_products": {
+    "results": "results/offsource_null.json",
+    "hierarchical_model": "bayes/hierarchical_model.py",
+    "antenna_pattern": "notebooks/antenna_pattern.ipynb",
+    "exclusion_list": "controls/lines_exclusion.csv"
+  },
+  "reproducibility": {
+    "random_seed": 42,
+    "environment": "requirements.txt",
+    "code_repository": "https://github.com/motanova84/141hz",
+    "zenodo_hash": "TBD_before_unblinding"
+  }
+}

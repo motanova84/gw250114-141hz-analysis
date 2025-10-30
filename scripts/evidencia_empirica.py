@@ -137,6 +137,14 @@ def resultados_gw150914():
     
     guardar_json('evidencia_empirica_gw150914.json', resultado_completo, 'results')
 
+    # Guardar resultados (añadido para que los tests pasen)
+    output_dir = Path('results')
+    output_dir.mkdir(exist_ok=True)
+    
+    output_file = output_dir / 'evidencia_empirica_gw150914.json'
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(resultado_completo, f, indent=2, ensure_ascii=False)
+    
     return resultado_completo
 
 
