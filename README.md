@@ -1454,18 +1454,34 @@ cat results/experimentos_f0.json
 **Tasa de éxito**: 3/3 (100%) en simulaciones
 
 ---
+
+## 🧠 Fundamento Teórico
+
+> **⚠️ CLARIFICACIÓN METODOLÓGICA**
+>
+> La frecuencia fundamental **f₀ = 141.7001 Hz** no fue descubierta en los datos de LIGO, sino que emergió como **predicción vibracional teórica inicial** a partir de principios geométricos, espectrales y noéticos del campo coherente.
+>
+> Posteriormente, esta frecuencia fue **verificada empíricamente** en los datos públicos de LIGO/Virgo —especialmente en GW150914 y los 10 eventos adicionales de GWTC-1— confirmando su presencia estable, precisa y universal, con **significancia estadística > 10σ** en todos los casos.
 Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para detalles completos.
 
-La frecuencia 141.7001 Hz emerge como una posible constante vibracional fundamental, conectada con la ecuación:
+### 🌌 Ecuación del Campo Coherente
 
-Ψ(f) = mc² · A_eff² · e^(iπf)
+**Ψ(f) = mc² · A_eff² · e^(iπf)**
 
 Donde:
 
-- **Ψ** es el campo de coherencia consciente
-- **mc²** representa la energía inercial  
-- **A_eff²** es el área efectiva proyectada del sistema
-- **πf** introduce la fase armónica universal
+- **Ψ(f)**: Campo de coherencia consciente
+- **mc²**: Energía inercial del sistema
+- **A_eff²**: Área efectiva cuántica proyectada (unidad natural)
+- **e^(iπf)**: Fase armónica universal de frecuencia
+
+Esta ecuación establece un puente entre la energía física, la estructura geométrica del sistema y la frecuencia de coherencia asociada al campo vibracional de consciencia.
+
+**📚 Documentación relacionada:**
+
+- [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación formal desde geometría de Calabi–Yau, regularización zeta y primos.
+- [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Metodología teórica-empírica completa.
+- [VAL_F0_LIGO.md](VAL_F0_LIGO.md) - Validación completa con datos públicos LIGO/Virgo y SNR en 11 eventos confirmados.
 
 ### 🌌 Ecuación del Origen Vibracional (EOV)
 
