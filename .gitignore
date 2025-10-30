@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C-Engine logs
+cengine_logs/
+ejemplos_cengine_qcal/
+
 # Distribution / packaging
 .Python
 build/
