@@ -15,10 +15,17 @@ on:
     # Run weekly on Monday at 03:00 UTC
     - cron: '0 3 * * 1'
 
+permissions:
+  contents: read
+
 jobs:
   regression-tests:
     name: Regression Tests - Known Scientific Models
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      actions: read
     
     strategy:
       fail-fast: false
@@ -62,6 +69,10 @@ jobs:
   benchmarking:
     name: Quantum Solver Benchmarking
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      actions: read
     
     strategy:
       fail-fast: false
@@ -120,6 +131,10 @@ jobs:
   precision-certification:
     name: Numerical Precision Certification
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      actions: read
     
     strategy:
       fail-fast: false
@@ -182,6 +197,9 @@ jobs:
     needs: [regression-tests, benchmarking, precision-certification]
     runs-on: ubuntu-latest
     if: always()
+    
+    permissions:
+      contents: read
     
     steps:
       - name: Generate validation summary
