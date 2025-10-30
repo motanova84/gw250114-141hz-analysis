@@ -19,7 +19,6 @@ Fecha: Octubre 2025
 
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle
 import json
 from pathlib import Path
 from datetime import datetime
@@ -120,7 +119,7 @@ def get_detector_tensor(lat, lon, arm_azimuth):
         arm_azimuth: Azimuth del primer brazo en grados desde Norte
     
     Returns:
-        Tuple (d_plus, d_cross): Tensores detector para polarizaciones + y x
+        dict: Diccionario con componentes del tensor detector (xx, yy, zz, xy, xz, yz)
     """
     lat_rad = deg_to_rad(lat)
     lon_rad = deg_to_rad(lon)

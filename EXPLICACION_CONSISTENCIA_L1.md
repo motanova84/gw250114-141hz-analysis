@@ -126,7 +126,6 @@ python3 test_explicacion_consistencia_l1.py
 ```
 numpy>=1.21.0
 matplotlib>=3.5.0
-scipy>=1.7.0
 ```
 
 ## 📖 Cálculos de Patrón de Antena
