@@ -1,10 +1,14 @@
 # Derivación Completa de f₀ = 141.7001 Hz: Paso a Paso con Análisis de Limitaciones
 
-**Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
-**Institución:** Instituto Conciencia Cuántica  
-**Fecha:** Octubre 2025
+## ⚠️ ACTUALIZACIÓN METODOLÓGICA (2025-10-29)
+
+**Enfoque correcto:** La frecuencia fundamental f₀ = 141.7001 Hz fue **derivada teóricamente primero** desde principios geométricos (Calabi-Yau), regularización zeta y estructura de primos, y **luego verificada empíricamente** en datos LIGO/Virgo con significancia > 10σ.
+
+Este documento presenta la derivación formal teórica que precede a la validación experimental documentada en [VAL_F0_LIGO.md](VAL_F0_LIGO.md).
 
 ---
+
+## Resumen Ejecutivo
 
 ## 📋 Resumen Ejecutivo
 

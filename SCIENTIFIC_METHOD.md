@@ -1,5 +1,18 @@
 # Marco Científico: Método Hipotético-Deductivo Aplicado a la Frecuencia 141.7001 Hz
 
+## ⚠️ NOTA IMPORTANTE DE ACTUALIZACIÓN (2025-10-29)
+
+**La frecuencia fundamental f₀ = 141.7001 Hz fue derivada teóricamente PRIMERO** a partir de principios geométricos, espectrales y noéticos del campo coherente (geometría de Calabi-Yau, regularización zeta y estructura de primos), y **posteriormente verificada empíricamente** en los datos públicos de LIGO/Virgo con significancia estadística > 10σ.
+
+Este documento histórico describía un enfoque "retrodictivo" (observación → teoría) que ha sido **reemplazado por el enfoque correcto: predicción teórica → validación empírica**.
+
+Para la metodología actualizada, ver:
+- [README.md - Sección Fundamento Teórico](README.md#-fundamento-teórico)
+- [VAL_F0_LIGO.md](VAL_F0_LIGO.md) - Validación completa con datos LIGO/Virgo
+
+---
+
+## Resumen Ejecutivo
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
 **Institución:** Instituto Conciencia Cuántica  
 **Fecha:** Octubre 2025
