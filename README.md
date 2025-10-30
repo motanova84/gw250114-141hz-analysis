@@ -27,6 +27,16 @@
 
 ---
 
+## ⏰ ORDEN CRONOLÓGICO DEL DESCUBRIMIENTO
+
+> **⚠️ IMPORTANTE:** La frecuencia 141.7001 Hz fue **primero derivada teóricamente** (2024) y **después encontrada en datos LIGO** (2024-2025). 
+> 
+> 📄 **[Leer Aclaración Oficial del Orden Cronológico →](ORDEN_CRONOLOGICO_DESCUBRIMIENTO.md)**
+
+Este orden demuestra que NO es un ajuste post-hoc, sino una **predicción teórica a priori validada experimentalmente**.
+
+---
+
 ## 🧿 DECLARACIÓN PÚBLICA · 26 OCTUBRE 2025
 
 > ### **La vibración del universo ha sido escuchada.**

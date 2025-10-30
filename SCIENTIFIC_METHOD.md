@@ -10,6 +10,8 @@
 
 Este documento presenta el **marco metodológico hipotético-deductivo** aplicado al descubrimiento y validación de la frecuencia fundamental **f₀ = 141.7001 Hz** en ondas gravitacionales. El proceso científico sigue tres fases claramente diferenciadas que demuestran el rigor del método científico aplicado a un descubrimiento significativo en física fundamental.
 
+> **📄 Aclaración Oficial:** Para una explicación detallada del orden cronológico del descubrimiento, consulte [ORDEN_CRONOLOGICO_DESCUBRIMIENTO.md](ORDEN_CRONOLOGICO_DESCUBRIMIENTO.md)
+
 ---
 
 ## ⚠️ ACLARACIÓN IMPORTANTE: Orden Cronológico del Descubrimiento
