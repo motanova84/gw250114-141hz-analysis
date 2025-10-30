@@ -26,11 +26,11 @@ from typing import List, Dict, Tuple, Optional
 def loglik_event(snr: float, pi: float, mu: float = 6.0, sigma: float = 1.0) -> float:
     """
     Log-likelihood of observing SNR given mixing parameter pi.
-    
+
     Mixture model:
     - With probability (1-pi): SNR ~ N(0, 1)  [noise only]
     - With probability pi: SNR ~ N(mu, sigma) [signal present]
-    
+
     Parameters
     ----------
     snr : float
@@ -41,7 +41,7 @@ def loglik_event(snr: float, pi: float, mu: float = 6.0, sigma: float = 1.0) -> 
         Expected SNR when signal is present (default: 6.0)
     sigma : float, optional
         Standard deviation of signal distribution (default: 1.0)
-    
+
     Returns
     -------
     float
@@ -49,22 +49,22 @@ def loglik_event(snr: float, pi: float, mu: float = 6.0, sigma: float = 1.0) -> 
     """
     # Log-likelihood under H0 (noise only)
     ll0 = norm.logpdf(snr, loc=0, scale=1)
-    
+
     # Log-likelihood under H1 (signal present)
     ll1 = norm.logpdf(snr, loc=mu, scale=sigma)
-    
+
     # Mixture: log(p) = log(sum_i p_i * L_i)
     # Use logsumexp for numerical stability
     log_weights = [np.log1p(-pi), np.log(pi)] if pi > 0 else [0, -np.inf]
     return logsumexp([log_weights[0] + ll0, log_weights[1] + ll1])
 
 
-def logpost(snr_list: List[float], pi: float, 
+def logpost(snr_list: List[float], pi: float,
             mu: float = 6.0, sigma: float = 1.0,
             prior_alpha: float = 1.0, prior_beta: float = 1.0) -> float:
     """
     Log-posterior of pi given observed SNRs.
-    
+
     Parameters
     ----------
     snr_list : List[float]
@@ -79,7 +79,7 @@ def logpost(snr_list: List[float], pi: float,
         Beta prior parameter α (default: 1.0 for uniform)
     prior_beta : float, optional
         Beta prior parameter β (default: 1.0 for uniform)
-    
+
     Returns
     -------
     float
@@ -87,25 +87,25 @@ def logpost(snr_list: List[float], pi: float,
     """
     if pi <= 0 or pi >= 1:
         return -np.inf
-    
+
     # Log-likelihood: sum over events (assuming independence)
     log_lik = sum(loglik_event(snr, pi, mu, sigma) for snr in snr_list)
-    
+
     # Log-prior: Beta(α, β)
     log_prior = beta.logpdf(pi, prior_alpha, prior_beta)
-    
+
     return log_lik + log_prior
 
 
-def bayes_factor(snr_list: List[float], 
+def bayes_factor(snr_list: List[float],
                  mu: float = 6.0, sigma: float = 1.0,
                  n_grid: int = 1001) -> Tuple[float, Dict]:
     """
     Compute Bayes Factor comparing H1 (signal in some events) vs H0 (noise only).
-    
+
     BF = P(data | H1) / P(data | H0)
        = ∫ P(data | π, H1) P(π | H1) dπ / P(data | π=0, H0)
-    
+
     Parameters
     ----------
     snr_list : List[float]
@@ -116,7 +116,7 @@ def bayes_factor(snr_list: List[float],
         Standard deviation of signal distribution
     n_grid : int, optional
         Number of grid points for numerical integration
-    
+
     Returns
     -------
     bf : float
@@ -126,28 +126,28 @@ def bayes_factor(snr_list: List[float],
     """
     # Grid over π ∈ (0, 1)
     pi_grid = np.linspace(1e-6, 1 - 1e-6, n_grid)
-    
+
     # Compute log-posterior at each grid point
     log_posts = np.array([logpost(snr_list, pi, mu, sigma) for pi in pi_grid])
-    
+
     # Marginal likelihood under H1 (numerical integration via trapezoidal rule)
     # logZ1 = log ∫ P(data | π) P(π) dπ
     logZ1 = logsumexp(log_posts) - np.log(n_grid)
-    
+
     # Marginal likelihood under H0 (π = 0, all noise)
     # P(data | H0) = ∏_i N(snr_i | 0, 1)
     logZ0 = sum(norm.logpdf(snr, loc=0, scale=1) for snr in snr_list)
-    
+
     # Bayes Factor
     log_bf = logZ1 - logZ0
     bf = np.exp(log_bf)
-    
+
     # Posterior mean of π (for interpretation)
     weights = np.exp(log_posts - np.max(log_posts))
     weights /= weights.sum()
     pi_mean = np.sum(pi_grid * weights)
     pi_std = np.sqrt(np.sum((pi_grid - pi_mean)**2 * weights))
-    
+
     diagnostics = {
         'log_bf': float(log_bf),
         'logZ1': float(logZ1),
@@ -158,16 +158,16 @@ def bayes_factor(snr_list: List[float],
         'mean_snr': float(np.mean(snr_list)),
         'std_snr': float(np.std(snr_list))
     }
-    
+
     return bf, diagnostics
 
 
-def posterior_pi(snr_list: List[float], 
+def posterior_pi(snr_list: List[float],
                  mu: float = 6.0, sigma: float = 1.0,
                  n_grid: int = 1001) -> Tuple[np.ndarray, np.ndarray]:
     """
     Compute normalized posterior distribution P(π | data).
-    
+
     Parameters
     ----------
     snr_list : List[float]
@@ -178,7 +178,7 @@ def posterior_pi(snr_list: List[float],
         Standard deviation of signal distribution
     n_grid : int, optional
         Number of grid points
-    
+
     Returns
     -------
     pi_grid : np.ndarray
@@ -188,20 +188,20 @@ def posterior_pi(snr_list: List[float],
     """
     pi_grid = np.linspace(1e-6, 1 - 1e-6, n_grid)
     log_posts = np.array([logpost(snr_list, pi, mu, sigma) for pi in pi_grid])
-    
+
     # Normalize
     posterior = np.exp(log_posts - logsumexp(log_posts))
-    
+
     return pi_grid, posterior
 
 
-def analyze_multi_event(snr_dict: Dict[str, float], 
+def analyze_multi_event(snr_dict: Dict[str, float],
                        output_file: Optional[str] = None,
                        mu: float = 6.0,
                        sigma: float = 1.0) -> Dict:
     """
     Full hierarchical analysis of multi-event data.
-    
+
     Parameters
     ----------
     snr_dict : Dict[str, float]
@@ -212,7 +212,7 @@ def analyze_multi_event(snr_dict: Dict[str, float],
         Expected SNR when signal is present
     sigma : float, optional
         Standard deviation of signal distribution
-    
+
     Returns
     -------
     Dict
@@ -220,21 +220,21 @@ def analyze_multi_event(snr_dict: Dict[str, float],
     """
     event_names = list(snr_dict.keys())
     snr_list = [snr_dict[name] for name in event_names]
-    
+
     # Compute Bayes Factor
     bf, diagnostics = bayes_factor(snr_list, mu, sigma)
-    
+
     # Compute posterior
     pi_grid, posterior = posterior_pi(snr_list, mu, sigma)
-    
+
     # Credible intervals
     cumulative = np.cumsum(posterior)
     cumulative /= cumulative[-1]
-    
+
     idx_025 = np.argmin(np.abs(cumulative - 0.025))
     idx_975 = np.argmin(np.abs(cumulative - 0.975))
     idx_median = np.argmin(np.abs(cumulative - 0.5))
-    
+
     results = {
         'bayes_factor': float(bf),
         'log_bayes_factor': diagnostics['log_bf'],
@@ -248,30 +248,30 @@ def analyze_multi_event(snr_dict: Dict[str, float],
         'events': {name: snr for name, snr in snr_dict.items()},
         'interpretation': interpret_bayes_factor(bf)
     }
-    
+
     if output_file:
         with open(output_file, 'w') as f:
             json.dump(results, f, indent=2)
-    
+
     return results
 
 
 def interpret_bayes_factor(bf: float) -> str:
     """
     Interpret Bayes Factor according to Kass & Raftery (1995) scale.
-    
+
     Parameters
     ----------
     bf : float
         Bayes Factor
-    
+
     Returns
     -------
     str
         Interpretation string
     """
     log_bf = np.log10(bf)
-    
+
     if log_bf < 0:
         return "Negative evidence (favors H0)"
     elif log_bf < 0.5:
@@ -300,16 +300,16 @@ if __name__ == "__main__":
         'GW170818': 5.9,
         'GW170823': 4.3
     }
-    
+
     results = analyze_multi_event(example_snrs, output_file='bayes/example_results.json')
-    
+
     print("=" * 60)
     print("HIERARCHICAL BAYESIAN ANALYSIS - 141.7001 Hz")
     print("=" * 60)
     print(f"Bayes Factor: {results['bayes_factor']:.2e}")
     print(f"log₁₀(BF): {np.log10(results['bayes_factor']):.2f}")
     print(f"Interpretation: {results['interpretation']}")
-    print(f"\nPosterior π (fraction with signal):")
+    print("\nPosterior π (fraction with signal):")
     print(f"  Mean: {results['posterior_pi']['mean']:.3f}")
     print(f"  Median: {results['posterior_pi']['median']:.3f}")
     print(f"  95% CI: [{results['posterior_pi']['ci_95'][0]:.3f}, {results['posterior_pi']['ci_95'][1]:.3f}]")
