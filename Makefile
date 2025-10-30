@@ -420,3 +420,35 @@ test-caracterizacion: setup
 	@echo "🧪 Testing caracterización bayesiana..."
 	@echo "   Verificando cálculo de posteriores y Q-factor"
 	@./venv/bin/python -c "from scripts.caracterizacion_bayesiana import CaracterizacionBayesiana, generar_datos_sinteticos_gw250114; import numpy as np; datos, fs, _ = generar_datos_sinteticos_gw250114(); bayes = CaracterizacionBayesiana(); res = bayes.estimar_q_factor(datos, fs); print('✅ Tests básicos pasaron')"
+
+# Additional reproducibility targets
+
+# Build LaTeX documentation (if available)
+pdf-docs:
+	@echo "📄 Building LaTeX documentation..."
+	@if command -v latexmk >/dev/null 2>&1; then \
+		if [ -f "docs/main.tex" ]; then \
+			cd docs && latexmk -pdf -shell-escape main.tex; \
+		else \
+			echo "No LaTeX source found, skipping"; \
+		fi \
+	else \
+		echo "latexmk not installed, skipping PDF build"; \
+	fi
+
+# Generate environment lock file
+lock-env:
+	@echo "🔒 Generating environment lock file..."
+	./venv/bin/pip freeze > ENV.lock
+	@echo "✅ Environment locked to ENV.lock"
+
+# Run hierarchical Bayesian analysis for 141.7 Hz
+bayes-analysis:
+	@echo "📊 Running hierarchical Bayesian analysis..."
+	./venv/bin/python bayes/hierarchical_model.py
+
+# Verify antenna patterns
+antenna-check:
+	@echo "📡 Checking antenna pattern consistency..."
+	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
+	@echo "✅ Antenna pattern analysis complete"
