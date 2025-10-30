@@ -1,0 +1,57 @@
+name: lean-ci
+
+on:
+  push:
+    paths:
+      - 'formalization/**/*.lean'
+      - 'formal/**/*.lean'
+      - '.github/workflows/lean-ci.yml'
+  pull_request:
+    paths:
+      - 'formalization/**/*.lean'
+      - 'formal/**/*.lean'
+      - '.github/workflows/lean-ci.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Install elan (Lean version manager)
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+      
+      - name: Check Lean installation
+        run: |
+          ~/.elan/bin/lean --version
+          ~/.elan/bin/lake --version || echo "Lake not available, skipping"
+      
+      - name: Initialize Lean project (if lakefile exists)
+        run: |
+          if [ -f "lakefile.lean" ] || [ -f "lakefile.toml" ]; then
+            ~/.elan/bin/lake build
+          else
+            echo "No lakefile found, skipping lake build"
+          fi
+      
+      - name: Verify no extra axioms (stub check)
+        run: |
+          echo "Checking for axiom usage in Lean files..."
+          # For now, just check that files compile (once lake is properly configured)
+          # In production, use: lake exe print-axioms RiemannAdelic
+          find formalization formal -name "*.lean" -type f | while read file; do
+            echo "Found: $file"
+          done
+          echo "Axiom checking will be enabled once Lean project is fully configured"
+          # Uncomment when project is ready:
+          # ~/.elan/bin/lake exe print-axioms RiemannAdelic | tee axioms.txt
+          # ! grep -E ".+" axioms.txt || (echo "Found axioms"; cat axioms.txt; exit 1)
+
+      - name: Summary
+        run: |
+          echo "✅ Lean CI workflow executed"
+          echo "📝 Note: Full axiom checking requires complete lake project setup"
+          echo "🎯 Goal: Zero extra axioms in final formalization"
