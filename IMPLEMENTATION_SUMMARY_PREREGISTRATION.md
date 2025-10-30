@@ -41,6 +41,11 @@ Structured JSON configuration matching the preregistration:
 }
 ```
 
+**Allowed Values:**
+- `snr_stat`: "coherent_fisher_mix" (SNR coherent statistic with Fisher information mixing)
+- `multiple_events`: "hierarchical_bayes" (hierarchical Bayesian correction for multiple events)
+- `detectors`: Array of detector codes: "H1" (Hanford), "L1" (Livingston), "V1" (Virgo)
+
 ### 3. controls/lines_exclusion.csv
 **Location:** `/controls/lines_exclusion.csv`
 
@@ -61,11 +66,11 @@ Jupyter notebook for antenna pattern calculations:
 - Example usage with placeholder event parameters
 
 **Key Functions:**
-- `rot_z(a)`: Rotation matrix around z-axis
-- `sky_to_enu(ra, dec, gmst, lat, lon)`: Sky to local coordinates
-- `det_tensor(gamma)`: Interferometer detector tensor
-- `pol_tensors(nhat, psi)`: Polarization tensors
-- `Fplus_Fcross(ra, dec, psi, gmst, site)`: Antenna pattern factors
+- `rot_z(a)`: Rotation matrix around z-axis (a in radians)
+- `sky_to_enu(ra, dec, gmst, lat, lon)`: Sky to local coordinates (all angles in radians)
+- `det_tensor(gamma)`: Interferometer detector tensor (gamma in radians)
+- `pol_tensors(nhat, psi)`: Polarization tensors (psi in radians)
+- `Fplus_Fcross(ra, dec, psi, gmst, site)`: Antenna pattern factors (all angles in radians)
 
 ### 5. bayes/hierarchical_model.py
 **Location:** `/bayes/hierarchical_model.py`
@@ -188,15 +193,11 @@ with open('controls/lines_exclusion.csv') as f:
 
 ## Note on 3D-Navier-Stokes Repository
 
-Section 3 of the problem statement refers to a separate `3D-Navier-Stokes` repository. That implementation would include:
-- `Computational-Verification/Data-Analysis/misalignment_calculation.py`
-- Functions to compute δ* (misalignment angle between ω and Sω)
-- Export to `Results/Data/delta_star.json`
-- Addition to `Results/validation_report.md` documenting BKM proxy
+**Important:** Section 3 of the original problem statement refers to a separate `3D-Navier-Stokes` repository which is **not part of this implementation**. The files mentioned there (`Computational-Verification/Data-Analysis/misalignment_calculation.py` and updates to `Results/validation_report.md`) would need to be implemented in that separate repository.
 
-This is outside the scope of the 141hz repository and would need to be implemented separately.
+This PR only implements the requirements for the **141hz repository** (Section 2 of the problem statement).
 
-## Conclusion
+## Implementation Scope
 
 All requirements for the 141hz repository have been successfully implemented:
 - ✓ Preregistration documentation (PREREGISTRATION.md)
