@@ -1,0 +1,4 @@
+freq_hz,width_hz,reason,source
+60,2,mains harmonic,site
+120,2,mains harmonic,site
+180,2,mains harmonic,site
