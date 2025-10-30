@@ -12,6 +12,9 @@ on:
       - 'formal/**/*.lean'
       - '.github/workflows/lean-ci.yml'
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
