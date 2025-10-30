@@ -107,6 +107,13 @@
 
 - Trigger: schedule (`0 0 * * *`)
 
+### lean-ci
+
+**Archivo:** `lean-ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+
 ### Master Workflow Orchestration
 
 **Archivo:** `master-orchestration.yml`
@@ -153,6 +160,15 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 6 * * *`)
+- Trigger: manual (workflow_dispatch)
+
+### Riccati Coefficient Mathematical Proofs
+
+**Archivo:** `riccati-mathematical-proofs.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 12 * * 1  # Run weekly on Monday at noon UTC`)
 - Trigger: manual (workflow_dispatch)
 
 ### Scientific Validation - 3 Pillars
@@ -205,4 +221,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-30 10:48:47 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-30 17:25:21 UTC*
