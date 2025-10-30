@@ -39,12 +39,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest mpmath numpy scipy
       
-      - name: Run regression tests
+      - name: Run regression tests (direct)
         run: |
           python3 tests/test_regression_scientific.py
         timeout-minutes: 10
       
-      - name: Run with pytest
+      - name: Run regression tests (pytest)
         run: |
           pytest tests/test_regression_scientific.py -v --tb=short
         continue-on-error: true
@@ -81,8 +81,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install numpy scipy matplotlib
-          # Optional: Install QuTiP for comparison (may fail, that's ok)
-          pip install qutip || echo "QuTiP installation skipped"
+      
+      - name: Install QuTiP (optional)
+        run: |
+          pip install qutip
+        continue-on-error: true
       
       - name: Create results directory
         run: mkdir -p results
@@ -132,12 +135,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       
-      - name: Install dependencies
+      - name: Install core dependencies
         run: |
           python -m pip install --upgrade pip
           pip install mpmath numpy scipy
-          # Optional: Install CuPy for GPU testing (will skip if no GPU)
-          pip install cupy-cuda11x || echo "CuPy installation skipped (no GPU)"
+      
+      - name: Install CuPy for GPU testing (optional)
+        run: |
+          # Try to detect CUDA version and install appropriate CuPy
+          # If no GPU or CUDA not available, this step will fail gracefully
+          pip install cupy-cuda11x || pip install cupy-cuda12x
+        continue-on-error: true
       
       - name: Create results directory
         run: mkdir -p results
