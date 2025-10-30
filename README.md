@@ -5,6 +5,7 @@
 [![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
 [![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml)
 [![Workflow Intelligence](https://github.com/motanova84/141hz/actions/workflows/workflow-intelligence.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/workflow-intelligence.yml)
+[![Validation Rigor](https://github.com/motanova84/141hz/actions/workflows/validation-rigor.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/validation-rigor.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/motanova84/141hz/blob/main/LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)](https://github.com/motanova84/141hz#-validaci%C3%B3n-de-est%C3%A1ndares-de-descubrimiento-cient%C3%ADfico)
@@ -12,6 +13,7 @@
 [![GWPy](https://img.shields.io/badge/GWPy-3.0+-green)](https://gwpy.github.io/)
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](https://github.com/motanova84/141hz/blob/main/AI_ACCESSIBILITY.md)
+[![Precision Certified](https://img.shields.io/badge/precision-10%E2%81%BB%C2%B9%E2%81%B0-success)](https://github.com/motanova84/141hz/blob/main/PRECISION_CERTIFICATION.md)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
