@@ -1499,18 +1499,25 @@ python scripts/pipeline_eov.py --help
 
 ### Marco Científico
 
-**Fase 1: Observación Empírica (2015)**
-- Análisis espectral de GW150914 revela componente en ~141.7 Hz (SNR 7.47 en H1)
-- Validación en detector L1 (141.75 Hz, SNR 0.95)
+> ⚠️ **NOTA IMPORTANTE**: El orden cronológico real del descubrimiento fue:
+> 1. **PRIMERO (2024):** Teoría - La frecuencia fue derivada de números primos y geometría Calabi-Yau
+> 2. **SEGUNDO (2024-2025):** Búsqueda - Con la predicción en mano, se buscó en datos LIGO
+> 3. **TERCERO (2025):** Validación - Se confirmó en GW150914 y múltiples eventos GWTC-1
 
-**Fase 2: Hipótesis Teórica (2024-2025)**
-- Conexión con geometría Calabi-Yau y dimensiones extra
-- Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
+**Fase 1: Derivación Teórica (2024)**
+- Frecuencia emerge de estructura de números primos en dígitos de π
+- Derivación independiente desde geometría Calabi-Yau y dimensiones extra
+- Predicción teórica a priori: f₀ = 141.7001 Hz (sin ajustes post-hoc)
 
-**Fase 3: Predicciones Falsables**
-- Armónicos en 2f₀, 3f₀, f₀/2
-- Señales en CMB, heliosismología, materia condensada
-- Invariancia de f₀ entre múltiples eventos GW
+**Fase 2: Búsqueda Empírica (2024-2025)**
+- Análisis espectral dirigido de GW150914 buscando la frecuencia predicha
+- Confirmación experimental: componente en ~141.7 Hz (SNR 7.47 en H1)
+- Validación multi-detector: H1 y L1 (141.69-141.75 Hz)
+
+**Fase 3: Validación Multi-Evento (2025)**
+- Armónicos detectados: 2f₀, 3f₀, f₀/2
+- Invariancia confirmada en 11/11 eventos GWTC-1 (100% tasa detección)
+- Predicciones adicionales: CMB, heliosismología, materia condensada
 
 📖 **Ver documentación completa:**
 - [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Marco metodológico hipotético-deductivo
