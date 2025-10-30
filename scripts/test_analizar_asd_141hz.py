@@ -191,17 +191,14 @@ class TestASDAnalysis(unittest.TestCase):
     @unittest.skipIf(not MATPLOTLIB_AVAILABLE, "matplotlib not installed")
     def test_visualization_creation_mock(self):
         """Test: Verificar que se pueden crear visualizaciones (sin importar módulo bajo test)"""
-        # Import matplotlib.pyplot within the test
-        import matplotlib.pyplot as plt_module
-        
-        # Use patch as a context manager instead of decorator
-        with patch.object(plt_module, 'subplots') as mock_subplots:
+        # Use patch as a context manager with the module-level plt import
+        with patch.object(plt, 'subplots') as mock_subplots:
             # Simular subplots
             mock_fig = Mock()
             mock_axes = np.array([[Mock(), Mock()], [Mock(), Mock()]])
             mock_subplots.return_value = (mock_fig, mock_axes)
 
-            fig, axes = plt_module.subplots(2, 2, figsize=(15, 10))
+            fig, axes = plt.subplots(2, 2, figsize=(15, 10))
 
             # Verificar que subplots fue llamado
             mock_subplots.assert_called_once()
