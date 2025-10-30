@@ -114,6 +114,15 @@
 - Trigger: schedule (`0 0 * * 0`)
 - Trigger: manual (workflow_dispatch)
 
+### Mathematical Demonstration - Prime Numbers to 141.7001 Hz
+
+**Archivo:** `mathematical-demonstration.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 0 * * 0  # Run weekly on Sunday at midnight UTC`)
+- Trigger: manual (workflow_dispatch)
+
 ### Multi-Event Analysis
 
 **Archivo:** `multi-event-analysis.yml`
@@ -172,6 +181,15 @@
 - Trigger: schedule (`0 0 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Validation Rigor and Benchmarking
+
+**Archivo:** `validation-rigor.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 3 * * 1`)
+- Trigger: manual (workflow_dispatch)
+
 ### Workflow Health Check
 
 **Archivo:** `workflow-health-check.yml`
@@ -187,4 +205,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-28 22:37:27 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-30 10:48:47 UTC*

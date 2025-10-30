@@ -62,6 +62,8 @@
   - Test de correcciones técnicas: RΨ y αΨ
 - `test_corrections.py`
   - Test unitario para verificar la lógica corregida de búsqueda de frecuencias
+- `test_demostracion_matematica.py`
+  - Tests para la demostración matemática de 141.7001 Hz
 - `test_discovery_standards.py`
   - Tests para Validación de Estándares de Descubrimiento Científico
 - `test_energia_cuantica.py`
@@ -106,4 +108,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-28 22:37:26 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-30 10:48:46 UTC*
