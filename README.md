@@ -639,6 +639,9 @@ make test-energia-cuantica
 Sistema proactivo de validación implementado para preparar el análisis de GW250114:
 
 ### Módulos Implementados
+- ✅ **Caracterización Bayesiana** - Estimación de Q-factor y análisis de armónicos
+- ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo (2015-2017)
+- ✅ **Análisis Completo GWTC-3** - Búsqueda de 141.7 Hz en 30 eventos representativos (2019-2020) con instalación automática de dependencias
 - ✅ **Caracterización Bayesiana Mejorada** - Estimación de Q-factor con distribución posterior completa
 - ✅ **Búsqueda de Armónicos Superiores** - Análisis sistemático de submúltiplos, múltiplos y armónicos especiales
 - ✅ **Resonancia Cruzada Virgo/KAGRA** - Análisis multi-detector con coherencia cruzada
@@ -659,6 +662,12 @@ python3 scripts/sistema_validacion_completo.py
 
 # O usando Make
 make validate
+
+# Análisis completo GWTC-3 (NUEVO)
+make gwtc3-analysis  # 30 eventos de 2019-2020, instalación automática
+
+# Búsqueda sistemática GWTC-1 (NUEVO)
+make busqueda-gwtc1  # 10 eventos de 2015-2017
 
 # Análisis multi-evento automatizado (NUEVO)
 make multievento
@@ -695,6 +704,8 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 - `results/informe_validacion_gw250114.json` - Informe completo
 - `results/resumen_validacion.txt` - Resumen legible
 - `results/resultados_busqueda_gwtc1.json` - Búsqueda GWTC-1
+- `gwtc3_analysis_results.json` - Análisis completo GWTC-3 con comparación GWTC-1
+- `gwtc3_results.png` - Visualización de detección rates y SNR
 - `results/armonicos_superiores_*.json` - Resultados de búsqueda de armónicos
 - `results/resonancia_cruzada_*.json` - Análisis de coherencia multi-detector
 - `results/caracterizacion_bayesiana_*.json` - Q-factor con posterior bayesiana
