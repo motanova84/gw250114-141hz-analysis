@@ -650,6 +650,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
 - ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
 - ✅ **Análisis Multi-evento SNR** - Análisis de SNR en 141.7 Hz para 11 eventos (H1 y L1)
+- ✅ **Validación Scipy Pura** - Procesamiento 100% scipy/numpy con filtros Butterworth y notch
 - ✅ **Sistema de Alertas Automáticas** - Notificaciones sobre disponibilidad de GW250114
 
 ### Uso Rápido
@@ -692,6 +693,10 @@ make test-caracterizacion       # Ejecutar tests de caracterización
 make snr-gw200129         # Análisis con H1, L1, V1 (K1 no disponible)
 make test-snr-gw200129    # Ejecutar tests
 
+# Validación Scipy Pura - SNR en 141.7 Hz (NUEVO)
+python3 scripts/validate_scipy_snr_141hz.py  # Análisis con procesamiento scipy/numpy puro
+python3 scripts/test_validate_scipy_snr.py   # Ejecutar tests de funciones de filtrado
+
 # Sistema de alertas automáticas para GW250114
 make alert-gw250114  # Monitoreo continuo vía Make
 python3 scripts/verificador_gw250114.py  # Monitoreo continuo
@@ -709,6 +714,7 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 - `results/armonicos_superiores_*.json` - Resultados de búsqueda de armónicos
 - `results/resonancia_cruzada_*.json` - Análisis de coherencia multi-detector
 - `results/caracterizacion_bayesiana_*.json` - Q-factor con posterior bayesiana
+- `results/*_scipy_validation.png` - Visualizaciones de validación scipy (ASD con banda de análisis)
 - `multi_event_results.json` - Resultados de SNR multi-evento
 - `multi_event_analysis.png` - Visualización comparativa H1 vs L1
 - `snr_gw200129_065458_results.json` - Análisis SNR GW200129 (O3b)
