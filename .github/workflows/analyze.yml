@@ -79,6 +79,13 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
+    - name: Run Riemann zeros tests
+      run: |
+        python -m unittest test_riemann_zeros -v
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
     - name: Run pytest tests (if any)
       run: |
         pytest scripts/ -v --tb=short || echo "No pytest tests found"
