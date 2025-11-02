@@ -107,11 +107,27 @@
 
 - Trigger: schedule (`0 0 * * *`)
 
+### lean-ci
+
+**Archivo:** `lean-ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+
 ### Master Workflow Orchestration
 
 **Archivo:** `master-orchestration.yml`
 
 - Trigger: schedule (`0 0 * * 0`)
+- Trigger: manual (workflow_dispatch)
+
+### Mathematical Demonstration - Prime Numbers to 141.7001 Hz
+
+**Archivo:** `mathematical-demonstration.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 0 * * 0  # Run weekly on Sunday at midnight UTC`)
 - Trigger: manual (workflow_dispatch)
 
 ### Multi-Event Analysis
@@ -146,6 +162,15 @@
 - Trigger: schedule (`0 6 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Riccati Coefficient Mathematical Proofs
+
+**Archivo:** `riccati-mathematical-proofs.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 12 * * 1  # Run weekly on Monday at noon UTC`)
+- Trigger: manual (workflow_dispatch)
+
 ### Scientific Validation - 3 Pillars
 
 **Archivo:** `scientific-validation.yml`
@@ -172,6 +197,15 @@
 - Trigger: schedule (`0 0 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Validation Rigor and Benchmarking
+
+**Archivo:** `validation-rigor.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 3 * * 1`)
+- Trigger: manual (workflow_dispatch)
+
 ### Workflow Health Check
 
 **Archivo:** `workflow-health-check.yml`
@@ -187,4 +221,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-28 22:37:27 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-30 21:24:30 UTC*
