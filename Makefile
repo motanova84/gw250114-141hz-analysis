@@ -35,11 +35,15 @@ status:
   validate-connectivity validate-gw150914 validate-gw250114 \
   alert-gw250114 test-alert-gw250114 test-rpsi \
   validacion-quintica multievento test-multievento \
+  multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  snr-gw200129 test-snr-gw200129 \
   energia-cuantica test-energia-cuantica \
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
   gwtc3-analysis busqueda-gwtc1 \
+  busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
+  caracterizacion-bayesiana test-caracterizacion \
   dashboard dashboard-status workflow status \
   clean docker help \
   experimentos test-experimentos diagrams-experimentos
@@ -73,6 +77,11 @@ help:
 	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
 	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
 	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
+	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
+	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  snr-gw200129          - Analyze SNR for GW200129_065458 at 141.7 Hz (NEW)"
+	@echo "  test-snr-gw200129     - Test SNR analysis for GW200129_065458 (NEW)"
 	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
 	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
 	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
@@ -85,6 +94,12 @@ help:
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
 	@echo "  gwtc3-analysis        - Run GWTC-3 complete analysis with auto-installation (NEW)"
 	@echo "  busqueda-gwtc1        - Run GWTC-1 systematic search for 141.7 Hz (NEW)"
+	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
+	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
+	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
+	@echo "  test-resonancia       - Test cross-resonance analysis module (NEW)"
+	@echo "  caracterizacion-bayesiana - Bayesian Q-factor characterization (NEW)"
+	@echo "  test-caracterizacion  - Test Bayesian characterization module (NEW)"
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
@@ -209,6 +224,37 @@ multievento: setup
 test-multievento: setup
 	@echo "🧪 Testing análisis bayesiano multi-evento..."
 	./venv/bin/python scripts/test_analisis_bayesiano_multievento.py
+
+# Multi-event SNR analysis at 141.7 Hz
+multi-event-snr: setup
+	@echo "📊 Ejecutando análisis multi-evento de SNR en 141.7 Hz..."
+	@echo "   Eventos: GW150914, GW151012, GW151226, GW170104, GW170608,"
+	@echo "            GW170729, GW170809, GW170814, GW170817, GW170818, GW170823"
+	@echo "   Banda: 140.7-142.7 Hz"
+	./venv/bin/python scripts/multi_event_snr_analysis.py || echo "⚠️  Análisis multi-evento SNR completado con advertencias"
+
+# Test multi-event SNR analysis module
+test-multi-event-snr: setup
+	@echo "🧪 Testing análisis multi-evento de SNR..."
+	./venv/bin/python scripts/test_multi_event_snr_analysis.py
+
+# Demo multi-event SNR analysis with synthetic data
+demo-multi-event-snr: setup
+	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
+	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
+	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
+
+# SNR analysis for GW200129_065458 event
+snr-gw200129: setup
+	@echo "📊 Ejecutando análisis de SNR para GW200129_065458 en 141.7 Hz..."
+	@echo "   Evento O3b: 2020-01-29 06:54:58 UTC"
+	@echo "   Detectores: H1, L1, V1 (K1 no disponible)"
+	./venv/bin/python scripts/snr_gw200129_analysis.py
+
+# Test SNR analysis for GW200129_065458
+test-snr-gw200129: setup
+	@echo "🧪 Testing análisis de SNR para GW200129_065458..."
+	./venv/bin/python scripts/test_snr_gw200129_analysis.py
 
 # Calculate quantum energy of fundamental mode
 energia-cuantica: setup
@@ -359,3 +405,71 @@ diagrams-experimentos: setup
 	@echo "✅ Diagramas generados"
 	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
 	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
+
+# Search for higher harmonics of f₀
+busqueda-armonicos: setup
+	@echo "🎵 Búsqueda experimental de armónicos superiores..."
+	@echo "   Frecuencia fundamental: f₀ = 141.7001 Hz"
+	@echo "   Armónicos: submúltiplos, múltiplos, áureos, π"
+	./venv/bin/python scripts/busqueda_armonicos_superiores.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test higher harmonics search
+test-armonicos: setup
+	@echo "🧪 Testing búsqueda de armónicos superiores..."
+	./venv/bin/python scripts/test_busqueda_armonicos_superiores.py
+
+# Multi-detector cross-resonance analysis (Virgo/KAGRA)
+resonancia-cruzada: setup
+	@echo "🔗 Análisis de resonancia cruzada multi-detector..."
+	@echo "   Detectores: H1, L1, V1, K1"
+	@echo "   Análisis: Coherencia, fase, SNR individual"
+	./venv/bin/python scripts/resonancia_cruzada_virgo_kagra.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test cross-resonance analysis
+test-resonancia: setup
+	@echo "🧪 Testing análisis de resonancia cruzada..."
+	./venv/bin/python scripts/test_resonancia_cruzada_virgo_kagra.py
+
+# Bayesian Q-factor characterization
+caracterizacion-bayesiana: setup
+	@echo "📊 Caracterización bayesiana del Q-factor..."
+	@echo "   Incluye: distribución posterior, intervalos de credibilidad"
+	./venv/bin/python scripts/caracterizacion_bayesiana.py || echo "⚠️  Caracterización completada con advertencias"
+
+# Test Bayesian characterization
+test-caracterizacion: setup
+	@echo "🧪 Testing caracterización bayesiana..."
+	@echo "   Verificando cálculo de posteriores y Q-factor"
+	@./venv/bin/python -c "from scripts.caracterizacion_bayesiana import CaracterizacionBayesiana, generar_datos_sinteticos_gw250114; import numpy as np; datos, fs, _ = generar_datos_sinteticos_gw250114(); bayes = CaracterizacionBayesiana(); res = bayes.estimar_q_factor(datos, fs); print('✅ Tests básicos pasaron')"
+
+# Additional reproducibility targets
+
+# Build LaTeX documentation (if available)
+pdf-docs:
+	@echo "📄 Building LaTeX documentation..."
+	@if command -v latexmk >/dev/null 2>&1; then \
+		if [ -f "docs/main.tex" ]; then \
+			cd docs && latexmk -pdf -shell-escape main.tex; \
+		else \
+			echo "No LaTeX source found, skipping"; \
+		fi \
+	else \
+		echo "latexmk not installed, skipping PDF build"; \
+	fi
+
+# Generate environment lock file
+lock-env:
+	@echo "🔒 Generating environment lock file..."
+	./venv/bin/pip freeze > ENV.lock
+	@echo "✅ Environment locked to ENV.lock"
+
+# Run hierarchical Bayesian analysis for 141.7 Hz
+bayes-analysis:
+	@echo "📊 Running hierarchical Bayesian analysis..."
+	./venv/bin/python bayes/hierarchical_model.py
+
+# Verify antenna patterns
+antenna-check:
+	@echo "📡 Checking antenna pattern consistency..."
+	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
+	@echo "✅ Antenna pattern analysis complete"

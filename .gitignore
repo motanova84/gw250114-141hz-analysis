@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C-Engine logs
+cengine_logs/
+ejemplos_cengine_qcal/
+
 # Distribution / packaging
 .Python
 build/
@@ -110,6 +114,9 @@ config/*.env
 # Generated plots
 potential_plot.png
 gwtc3_results.png
+multi_event_analysis.png
+demo_multi_event_analysis.png
+snr_gw200129_065458_141hz.png
 
 # Generated data files
 Evac_Rpsi_data.csv

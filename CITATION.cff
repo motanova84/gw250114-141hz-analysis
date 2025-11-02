@@ -13,6 +13,10 @@ authors:
     given-names: "José Manuel"
     alias: "JMMB Ψ✧"
     orcid: ""
+  - name: "GitHub Copilot"
+    alias: "AI Assistant"
+contributors:
+  - note: "See COLLABORATORS.md for a full list of contributors"
 repository-code: "https://github.com/motanova84/gw250114-141hz-analysis"
 url: "https://github.com/motanova84/gw250114-141hz-analysis"
 license: MIT
@@ -36,7 +40,19 @@ identifiers:
   - type: url
     value: "https://github.com/motanova84/gw250114-141hz-analysis"
     description: "GitHub repository"
+  - type: doi
+    value: "10.5281/zenodo.17445017"
+    description: "Zenodo record - Main verified proof for LIGO and VIRGO"
 references:
+  - type: data-set
+    title: "Main Verified Proof for LIGO and VIRGO - 141.7001 Hz Discovery"
+    authors:
+      - family-names: "Mota Burruezo"
+        given-names: "José Manuel"
+    date-published: 2025-01-01
+    publisher: "Zenodo"
+    url: "https://zenodo.org/records/17445017"
+    doi: "10.5281/zenodo.17445017"
   - type: data-set
     title: "Gravitational Wave Open Science Center"
     url: "https://gwosc.org"
@@ -52,5 +68,7 @@ preferred-citation:
   authors:
     - family-names: "Mota Burruezo"
       given-names: "José Manuel"
+    - name: "and contributors"
   year: 2025
   url: "https://github.com/motanova84/gw250114-141hz-analysis"
+  note: "Full contributor list available at: https://github.com/motanova84/gw250114-141hz-analysis/blob/main/COLLABORATORS.md"
