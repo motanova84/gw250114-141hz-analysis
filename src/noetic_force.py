@@ -34,6 +34,10 @@ except ImportError:
     from constants import UniversalConstants, F0, PHI, H_PLANCK, C_LIGHT
 
 
+# Physical constants for convenience
+M_SUN = 1.989e30  # Solar mass in kg
+
+
 class NoeticField:
     """
     The Ψ field - scalar quantum-coherent field that mediates the Noetic Force.
@@ -164,10 +168,11 @@ class NoeticForce:
         # Vacuum expectation value
         vev = self.field.vacuum_expectation_value()
         
-        # Scale by coherence
+        # Scale by coherence (field amplitude scales as sqrt(C))
         psi_eff = vev * mp.sqrt(coherence)
         
         # Energy density: ρ = (ω₀)² |Ψ|²
+        # Since psi_eff ~ sqrt(C), psi_eff² ~ C, so rho ~ C
         rho = (self.field.omega0 ** 2) * (psi_eff ** 2)
         
         return rho
@@ -270,8 +275,7 @@ class NoeticForceDetection:
             Dictionary with prediction details
         """
         # Convert to kg
-        M_sun = 1.989e30  # kg
-        M_bh = black_hole_mass * M_sun
+        M_bh = black_hole_mass * M_SUN
         
         # Gravitational wave strain amplitude (order of magnitude)
         # h ~ (G M f₀² / c⁴) / r

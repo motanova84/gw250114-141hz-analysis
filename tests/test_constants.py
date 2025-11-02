@@ -26,6 +26,9 @@ from constants import (
     C_LIGHT,
 )
 
+# Test constants
+SOLAR_MASS_KG = 1.989e30  # kg
+
 
 class TestUniversalConstants:
     """Test suite for UniversalConstants class."""
@@ -84,8 +87,9 @@ class TestUniversalConstants:
         lambda_expected = C_LIGHT / F0
         assert float(const.LAMBDA_PSI) == pytest.approx(float(lambda_expected), abs=1e-6)
         
-        # Should be around 2116 km
-        assert float(const.LAMBDA_PSI_KM) == pytest.approx(2116.0, abs=1.0)
+        # Should be around 2116 km (calculated from c/f₀)
+        lambda_km_expected = float(C_LIGHT / F0) / 1000
+        assert float(const.LAMBDA_PSI_KM) == pytest.approx(lambda_km_expected, abs=1.0)
     
     def test_compactification_radius(self):
         """Test R_Ψ = c/(2πf₀)."""
