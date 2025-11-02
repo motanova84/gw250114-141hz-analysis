@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C-Engine logs
+cengine_logs/
+ejemplos_cengine_qcal/
+
 # Distribution / packaging
 .Python
 build/
@@ -113,18 +117,11 @@ gwtc3_results.png
 multi_event_analysis.png
 demo_multi_event_analysis.png
 snr_gw200129_065458_141hz.png
+desi_correlation_function.png
 
 # Generated data files
 Evac_Rpsi_data.csv
 gwtc3_analysis_results.json
-multi_event_results.json
-demo_multi_event_results.json
-snr_gw200129_065458_results.json
-
-# IMPORTANT: DO NOT IGNORE - Discovery confirmation files
-!multi_event_final.json
-!multi_event_final.png
-!multi_event_analysis.py
 
 # Test results directories
 scripts/results/

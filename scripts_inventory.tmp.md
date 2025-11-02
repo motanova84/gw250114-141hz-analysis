@@ -14,6 +14,8 @@
   - Análisis de SNR esperada para GW200129 a 141.7 Hz
 - `analizar_gw250114.py`
   - Framework de análisis GW250114 - Preparado para ejecución automática
+- `analizar_igets_gravimetro.py`
+  - Análisis de datos IGETS para detección de 141.7 Hz
 - `analizar_kagra_k1.py`
   - Análisis de 141.7 Hz en KAGRA (K1) - O4 Open Data
 - `analizar_l1.py`
@@ -50,6 +52,8 @@
   - Test para el análisis de GW150914 con PyCBC
 - `test_analizar_gw200129_snr.py`
   - Test para el análisis de SNR de GW200129
+- `test_analizar_igets_gravimetro.py`
+  - Test script para analizar_igets_gravimetro.py
 - `test_analizar_kagra_k1.py`
   - Tests para el análisis de KAGRA K1 en 141.7 Hz
 - `test_busqueda_armonicos_superiores.py`
@@ -62,6 +66,8 @@
   - Test de correcciones técnicas: RΨ y αΨ
 - `test_corrections.py`
   - Test unitario para verificar la lógica corregida de búsqueda de frecuencias
+- `test_demostracion_matematica.py`
+  - Tests para la demostración matemática de 141.7001 Hz
 - `test_discovery_standards.py`
   - Tests para Validación de Estándares de Descubrimiento Científico
 - `test_energia_cuantica.py`
@@ -106,4 +112,4 @@
   - Tests para el sistema de verificación GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-28 22:37:26 UTC*
+*Generado automáticamente por el bot de documentación - 2025-10-30 21:24:29 UTC*

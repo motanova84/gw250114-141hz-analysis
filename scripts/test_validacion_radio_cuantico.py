@@ -9,15 +9,16 @@ Autor: José Manuel Mota Burruezo (JMMB Ψ✧)
 Fecha: Octubre 2025
 """
 
-import pytest
-import numpy as np
-import os
 import sys
+from pathlib import Path
 
 # Constantes fundamentales (CODATA 2022)
 c = 2.99792458e8    # m/s (velocidad de la luz)
 l_p = 1.616255e-35  # m (longitud de Planck)
 f0 = 141.7001       # Hz (frecuencia fundamental)
+
+# Get repository root dynamically
+REPO_ROOT = Path(__file__).parent.parent.resolve()
 
 
 def get_repo_root():
@@ -186,8 +187,8 @@ class TestValidacionRadioCuantico:
         repo_root = get_repo_root()
         
         result = subprocess.run(
-            [sys.executable, 'scripts/validacion_radio_cuantico.py'],
-            cwd=repo_root,
+            ['python3', 'scripts/validacion_radio_cuantico.py'],
+            cwd=str(REPO_ROOT),
             capture_output=True,
             text=True,
             timeout=60
@@ -221,8 +222,8 @@ class TestValidacionRadioCuantico:
         if not os.path.exists(json_file):
             import subprocess
             subprocess.run(
-                [sys.executable, 'scripts/validacion_radio_cuantico.py'],
-                cwd=repo_root,
+                ['python3', 'scripts/validacion_radio_cuantico.py'],
+                cwd=str(REPO_ROOT),
                 timeout=60
             )
         
@@ -252,9 +253,8 @@ def run_tests():
     print("=" * 80)
     print()
     
-    # Cambiar al directorio raíz del repositorio
-    repo_root = get_repo_root()
-    os.chdir(repo_root)
+    # Cambiar al directorio correcto (repository root)
+    os.chdir(str(REPO_ROOT))
     
     # Ejecutar pytest
     pytest.main([__file__, '-v', '--tb=short'])
