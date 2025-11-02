@@ -16,6 +16,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import experimental_detection_protocol as edp
 
 
+# Test constants
+MAX_EXPECTED_LAMBDA_F0_MPC = 1e-10  # Maximum expected wavelength in Mpc for f₀
+MAX_EXPECTED_MODULATION = 0.002  # Maximum expected 0.2% modulation in correlation function
+FLOAT_COMPARISON_PLACES = 15  # Decimal places for float comparison (reasonable for numerical precision)
+
+
 class TestQuantumResonator(unittest.TestCase):
     """Test cases for QuantumResonator class."""
 
@@ -26,11 +32,11 @@ class TestQuantumResonator(unittest.TestCase):
             Q_factor=1e9,
             temperature=0.015
         )
-        
+
         self.assertEqual(resonator.f_resonance, 141.7001)
         self.assertEqual(resonator.Q_factor, 1e9)
         self.assertEqual(resonator.temperature, 0.015)
-        self.assertEqual(resonator.f0_target, 141.7001)
+        self.assertEqual(resonator.f0_target, edp.F0_TARGET)
         self.assertAlmostEqual(resonator.bandwidth, 141.7001 / 1e9, places=12)
 
     def test_coupling_strength(self):
@@ -173,25 +179,25 @@ class TestDESIDataAnalysis(unittest.TestCase):
     def test_initialization(self):
         """Test that DESIDataAnalysis initializes correctly."""
         desi = edp.DESIDataAnalysis()
-        
-        self.assertEqual(desi.f0, 141.7001)
+
+        self.assertEqual(desi.f0, edp.F0_TARGET)
         self.assertEqual(desi.c, 299792458.0)
         self.assertEqual(desi.H0, 67.4)
 
     def test_frequency_to_scale(self):
         """Test frequency to cosmological scale conversion."""
         desi = edp.DESIDataAnalysis()
-        
+
         lambda_f0 = desi.frequency_to_scale(141.7001)
-        
+
         # Scale should be very small compared to BAO scale
         self.assertGreater(lambda_f0, 0)
-        self.assertLess(lambda_f0, 1e-10)  # Much smaller than Mpc
-        
+        self.assertLess(lambda_f0, MAX_EXPECTED_LAMBDA_F0_MPC)
+
         # Check dimensional consistency
         expected_meters = desi.c / 141.7001
         expected_Mpc = expected_meters / 3.086e22
-        self.assertAlmostEqual(lambda_f0, expected_Mpc, places=25)
+        self.assertAlmostEqual(lambda_f0, expected_Mpc, places=FLOAT_COMPARISON_PLACES)
 
     def test_predicted_bao_scale(self):
         """Test BAO scale prediction."""
@@ -237,7 +243,7 @@ class TestDESIDataAnalysis(unittest.TestCase):
         
         # Check that modulation is small
         relative_diff = np.abs((xi_psi - xi_std) / xi_std)
-        self.assertLess(relative_diff.max(), 0.002)  # Max 0.2% modulation
+        self.assertLess(relative_diff.max(), MAX_EXPECTED_MODULATION)
 
     def test_correlation_function_artifact(self):
         """Test that correlation function creates artifact."""

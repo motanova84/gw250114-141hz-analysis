@@ -12,10 +12,19 @@
 ═══════════════════════════════════════════════════════════════
 """
 
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from dataclasses import dataclass
 from typing import Tuple
+
+
+# ═══════════════════════════════════════════════════════════════
+# CONSTANTES FÍSICAS Y OBJETIVOS
+# ═══════════════════════════════════════════════════════════════
+
+F0_TARGET = 141.7001  # Hz - Frecuencia objetivo de detección
+OPTOMECHANICAL_EFFECTIVE_MASS_KG = 1e-12  # kg, typical for nanogram-scale optomechanical resonators
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -39,7 +48,7 @@ class QuantumResonator:
     temperature: float  # K - Temperatura de operación
 
     def __post_init__(self):
-        self.f0_target = 141.7001  # Hz - Frecuencia objetivo
+        self.f0_target = F0_TARGET
         self.bandwidth = self.f_resonance / self.Q_factor
 
     def coupling_strength(self) -> float:
@@ -51,8 +60,8 @@ class QuantumResonator:
         hbar = 1.054571817e-34  # J·s
         omega0 = 2 * np.pi * self.f0_target
 
-        # Masa efectiva del resonador (ejemplo: ~1 ng para optomecánico)
-        m_eff = 1e-12  # kg
+        # Masa efectiva del resonador
+        m_eff = OPTOMECHANICAL_EFFECTIVE_MASS_KG
 
         g = np.sqrt(hbar * omega0 / (2 * m_eff))
 
@@ -212,7 +221,7 @@ class DESIDataAnalysis:
     """
 
     def __init__(self):
-        self.f0 = 141.7001  # Hz
+        self.f0 = F0_TARGET
         self.c = 299792458.0  # m/s
         self.H0 = 67.4  # km/s/Mpc (Planck 2018)
 
@@ -288,8 +297,6 @@ class DESIDataAnalysis:
 
         Si f₀ es real, debe modular ξ(r) con período λ_f₀.
         """
-        import os
-
         r_BAO_std, lambda_f0, epsilon = self.predicted_bao_scale()
 
         print(f"\n📈 ANÁLISIS DE FUNCIÓN DE CORRELACIÓN")
