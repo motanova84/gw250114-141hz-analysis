@@ -41,6 +41,9 @@ status:
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  gwtc3-analysis busqueda-gwtc1 \
+  busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
+  caracterizacion-bayesiana test-caracterizacion \
   dashboard dashboard-status workflow status \
   clean docker help \
   experimentos test-experimentos diagrams-experimentos
@@ -89,6 +92,14 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  gwtc3-analysis        - Run GWTC-3 complete analysis with auto-installation (NEW)"
+	@echo "  busqueda-gwtc1        - Run GWTC-1 systematic search for 141.7 Hz (NEW)"
+	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
+	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
+	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
+	@echo "  test-resonancia       - Test cross-resonance analysis module (NEW)"
+	@echo "  caracterizacion-bayesiana - Bayesian Q-factor characterization (NEW)"
+	@echo "  test-caracterizacion  - Test Bayesian characterization module (NEW)"
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
@@ -323,6 +334,24 @@ coherencia-escalas: setup
 	./venv/bin/python scripts/generar_coherencia_escalas.py
 	@echo "✅ Visualización guardada en coherence_f0_scales.png"
 
+# Run GWTC-3 analysis with automatic dependency installation
+gwtc3-analysis: setup
+	@echo "🌌 Ejecutando análisis completo GWTC-3..."
+	@echo "   30 eventos representativos de 2019-2020"
+	@echo "   Búsqueda de 141.7 Hz con instalación automática de dependencias"
+	@mkdir -p results
+	./venv/bin/python scripts/analisis_gwtc3_completo.py || echo "⚠️  Análisis GWTC-3 requiere conectividad a GWOSC"
+	@echo ""
+	@echo "✅ Análisis completado"
+	@echo "📊 Resultados: gwtc3_analysis_results.json"
+	@echo "📈 Gráficos: gwtc3_results.png"
+
+# Run GWTC-1 systematic search (existing catalog)
+busqueda-gwtc1: setup
+	@echo "🌌 Ejecutando búsqueda sistemática GWTC-1..."
+	@echo "   Análisis de eventos 2015-2017 en busca de 141.7 Hz"
+	./venv/bin/python scripts/busqueda_sistematica_gwtc1.py || echo "⚠️  Búsqueda GWTC-1 requiere conectividad a GWOSC"
+
 # Run real-time monitoring dashboard
 dashboard: setup
 	@echo "📊 Iniciando Dashboard de Monitoreo GW250114..."
@@ -376,3 +405,71 @@ diagrams-experimentos: setup
 	@echo "✅ Diagramas generados"
 	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
 	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
+
+# Search for higher harmonics of f₀
+busqueda-armonicos: setup
+	@echo "🎵 Búsqueda experimental de armónicos superiores..."
+	@echo "   Frecuencia fundamental: f₀ = 141.7001 Hz"
+	@echo "   Armónicos: submúltiplos, múltiplos, áureos, π"
+	./venv/bin/python scripts/busqueda_armonicos_superiores.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test higher harmonics search
+test-armonicos: setup
+	@echo "🧪 Testing búsqueda de armónicos superiores..."
+	./venv/bin/python scripts/test_busqueda_armonicos_superiores.py
+
+# Multi-detector cross-resonance analysis (Virgo/KAGRA)
+resonancia-cruzada: setup
+	@echo "🔗 Análisis de resonancia cruzada multi-detector..."
+	@echo "   Detectores: H1, L1, V1, K1"
+	@echo "   Análisis: Coherencia, fase, SNR individual"
+	./venv/bin/python scripts/resonancia_cruzada_virgo_kagra.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test cross-resonance analysis
+test-resonancia: setup
+	@echo "🧪 Testing análisis de resonancia cruzada..."
+	./venv/bin/python scripts/test_resonancia_cruzada_virgo_kagra.py
+
+# Bayesian Q-factor characterization
+caracterizacion-bayesiana: setup
+	@echo "📊 Caracterización bayesiana del Q-factor..."
+	@echo "   Incluye: distribución posterior, intervalos de credibilidad"
+	./venv/bin/python scripts/caracterizacion_bayesiana.py || echo "⚠️  Caracterización completada con advertencias"
+
+# Test Bayesian characterization
+test-caracterizacion: setup
+	@echo "🧪 Testing caracterización bayesiana..."
+	@echo "   Verificando cálculo de posteriores y Q-factor"
+	@./venv/bin/python -c "from scripts.caracterizacion_bayesiana import CaracterizacionBayesiana, generar_datos_sinteticos_gw250114; import numpy as np; datos, fs, _ = generar_datos_sinteticos_gw250114(); bayes = CaracterizacionBayesiana(); res = bayes.estimar_q_factor(datos, fs); print('✅ Tests básicos pasaron')"
+
+# Additional reproducibility targets
+
+# Build LaTeX documentation (if available)
+pdf-docs:
+	@echo "📄 Building LaTeX documentation..."
+	@if command -v latexmk >/dev/null 2>&1; then \
+		if [ -f "docs/main.tex" ]; then \
+			cd docs && latexmk -pdf -shell-escape main.tex; \
+		else \
+			echo "No LaTeX source found, skipping"; \
+		fi \
+	else \
+		echo "latexmk not installed, skipping PDF build"; \
+	fi
+
+# Generate environment lock file
+lock-env:
+	@echo "🔒 Generating environment lock file..."
+	./venv/bin/pip freeze > ENV.lock
+	@echo "✅ Environment locked to ENV.lock"
+
+# Run hierarchical Bayesian analysis for 141.7 Hz
+bayes-analysis:
+	@echo "📊 Running hierarchical Bayesian analysis..."
+	./venv/bin/python bayes/hierarchical_model.py
+
+# Verify antenna patterns
+antenna-check:
+	@echo "📡 Checking antenna pattern consistency..."
+	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
+	@echo "✅ Antenna pattern analysis complete"

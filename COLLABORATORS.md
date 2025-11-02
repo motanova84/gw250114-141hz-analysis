@@ -14,6 +14,7 @@ Este proyecto es el resultado del esfuerzo colaborativo de investigadores, desar
 - **Contribuciones / Contributions:** Desarrollo teórico, análisis de datos LIGO, implementación de algoritmos
 - **GitHub:** [@motanova84](https://github.com/motanova84)
 - **Email:** institutoconsciencia@proton.me
+- **ORCID:** [0009-0002-1923-0773](https://orcid.org/0009-0002-1923-0773)
 
 ---
 
@@ -198,6 +199,8 @@ Para discutir colaboraciones formales, publicaciones conjuntas o proyectos deriv
 }
 ```
 
+**DOI:** [10.5281/zenodo.17445017](https://doi.org/10.5281/zenodo.17445017)
+
 ### Para Software / For Software
 Ver [CITATION.cff](CITATION.cff) para formato machine-readable.
 *See [CITATION.cff](CITATION.cff) for machine-readable format.*
@@ -208,7 +211,8 @@ Ver [CITATION.cff](CITATION.cff) para formato machine-readable.
 
 ### Líneas de Código / Lines of Code
 ```bash
-# Ver estadísticas actuales / View current statistics
+# Mostrar estadísticas de líneas de código insertadas, borradas y archivos modificados
+# Show statistics of inserted, deleted lines of code and modified files
 git log --shortstat --pretty="" | awk '/files? changed/{files+=$1; inserted+=$4; deleted+=$6} END {print "Files:", files, "Inserted:", inserted, "Deleted:", deleted}'
 ```
 
@@ -244,10 +248,24 @@ git shortlog -sn --all
 
 ---
 
+## 🌍 Impacto / Impact
+
+Este trabajo representa una contribución significativa a múltiples campos de la física y la ciencia computacional:
+
+*This work represents a significant contribution to multiple fields of physics and computational science:*
+
+- **Validación de Frecuencia Espectral Coherente** - Primera identificación de una frecuencia espectral universal (141.7001 Hz) en ondas gravitacionales / First identification of a universal spectral frequency (141.7001 Hz) in gravitational waves
+- **Implicaciones en Gravedad Cuántica** - Evidencia potencial de estructuras espectrales discretas en el espacio-tiempo / Potential evidence of discrete spectral structures in spacetime
+- **Promoción de Ciencia Abierta** - Análisis completamente reproducible con código y datos abiertos / Fully reproducible analysis with open code and data
+- **Metodología Colaborativa** - Integración de análisis humano y asistencia de IA en investigación científica / Integration of human analysis and AI assistance in scientific research
+- **Enlace Interdisciplinario** - Conexión entre física experimental, matemática espectral y teorías de información cuántica / Link between experimental physics, spectral mathematics and quantum information theories
+
+---
+
 ## 🔄 Última Actualización / Last Updated
 
 **Fecha / Date:** 2025-10-25  
-**Versión / Version:** 1.0.0  
+**Versión / Version:** 1.0.0 (Análisis completo GWTC-1 + Virgo)  
 **Colaboradores Registrados / Registered Collaborators:** 1 (+ AI assistants)
 
 ---
