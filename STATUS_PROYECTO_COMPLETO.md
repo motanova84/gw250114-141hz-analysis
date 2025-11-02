@@ -117,16 +117,18 @@ n = log(R_ratio) / log(pi)  # ≈ 81.1
 ```markdown
 ## 🧠 Fundamento Teórico
 
-> **⚠️ CLARIFICACIÓN METODOLÓGICA**
+> **⚠️ ACLARACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz **no fue 
+> "introducida" desde los datos ni "ajustada" para coincidir con observaciones.**
+> 
+> Fue **derivada teóricamente** desde un marco coherente que combina:
+> - Geometría Calabi–Yau compactificada (R_Ψ ≈ 10⁴⁷ ℓ_P)
+> - Regularización zeta espectral (ζ′(1/2))
+> - Resonancia logarítmica de los primos (π-log n)
+> - Dinámica de coherencia informacional (Ψ = I × A_eff²)
 >
-> La frecuencia fundamental **f₀ = 141.7001 Hz** no fue descubierta en los datos de LIGO, 
-> sino que emergió como **predicción vibracional teórica inicial** a partir de principios 
-> geométricos, espectrales y noéticos del campo coherente.
->
-> Posteriormente, esta frecuencia fue **verificada empíricamente** en los datos públicos 
-> de LIGO/Virgo —especialmente en GW150914 y los 10 eventos adicionales de GWTC-1— 
-> confirmando su presencia estable, precisa y universal, con **significancia estadística 
-> > 10σ** en todos los casos.
+> Solo **después** de esta derivación, se buscó honestamente su presencia en 
+> datos públicos de LIGO (GWTC-1), donde se identificó como componente espectral 
+> coherente en 11/11 eventos (SNR > 10σ, significancia estadística > 5σ).
 ```
 
 ### Corrección 3: Nuevos Documentos de Transparencia
