@@ -1,3 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 # Virtual environment
 venv/
 .venv/
@@ -7,6 +14,10 @@ test_env/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C-Engine logs
+cengine_logs/
+ejemplos_cengine_qcal/
 
 # Distribution / packaging
 .Python
@@ -22,6 +33,17 @@ parts/
 sdist/
 var/
 wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+
+# Results and data directories
+results/
+data/
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -63,7 +85,16 @@ ipython_config.py
 
 # Data files
 data/
-results/
+results/*
+!results/figures/
+results/figures/*
+# Keep verification and vacuum energy figures (PNG files)
+!results/figures/*.png
+# Keep example JSON results
+!results/*.json
+
+# Generated validation files
+output/
 
 # Temporary files
 *.tmp
@@ -77,6 +108,18 @@ tmp/
 *.swp
 *.swo
 
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache
+
+# mypy
+.mypy_cache
 # OS generated files
 .DS_Store
 .DS_Store?
@@ -95,3 +138,21 @@ Thumbs.db
 
 # Environment variables
 .env
+.env.*
+!.env.template
+config/alertas.env
+config/*.env
+
+# Generated plots
+potential_plot.png
+gwtc3_results.png
+multi_event_analysis.png
+demo_multi_event_analysis.png
+snr_gw200129_065458_141hz.png
+desi_correlation_function.png
+
+# Generated data files
+Evac_Rpsi_data.csv
+
+# Test results directories
+scripts/results/
