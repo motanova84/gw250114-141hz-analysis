@@ -14,10 +14,16 @@ on:
     # Run weekly on Sunday at 06:00 UTC
     - cron: '0 6 * * 0'
 
+permissions:
+  contents: read
+
 jobs:
   universal-validation:
     name: Universal f₀ Search - Python ${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
     
     strategy:
       fail-fast: false
@@ -114,6 +120,9 @@ jobs:
     needs: universal-validation
     runs-on: ubuntu-latest
     if: always()
+    
+    permissions:
+      contents: read
     
     steps:
       - name: Checkout repository
