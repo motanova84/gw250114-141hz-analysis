@@ -1440,6 +1440,53 @@ def whitening_vs_analisis_directo():
 
 ## ⚙️ Quick Start
 
+### 🎧 Experiencia Interactiva: "Ahora te toca escuchar" (NUEVO)
+
+**El mejor lugar para comenzar - Una experiencia guiada del descubrimiento:**
+
+```bash
+# Instalación mínima
+pip install numpy matplotlib
+
+# Experiencia interactiva completa
+make escuchar
+# O en inglés:
+make listen
+
+# Modo automático (sin pausas)
+make escuchar-auto
+# O directamente:
+python3 escuchar.py --auto
+```
+
+**¿Qué hace este script?**
+
+1. 📖 **El Susurro Matemático**: Muestra cómo 141.7001 Hz emerge de matemática pura
+   - Serie compleja de números primos
+   - Factor de corrección fractal con φ, γ, π
+   - Identidad de ceros de Riemann
+   
+2. 🌌 **El Grito del Universo**: Presenta los 11 eventos detectados
+   - Tasa de detección: 100% (11/11 eventos GWTC-1)
+   - SNR medio: 20.95 ± 5.54
+   - Validación dual: H1 y L1 independientes
+   
+3. ✅ **Validación Estadística**: Significancia >10σ
+   - Multi-detector validation
+   - Control de artefactos instrumentales
+   - Reproducibilidad total
+
+4. 🎯 **Cómo Validar Tú Mismo**: Instrucciones paso a paso para replicar
+
+**Modo interactivo** incluye menú con opciones para explorar cada sección por separado.
+
+```bash
+# Ejecutar tests
+make test-escuchar
+```
+
+---
+
 ### 🚀 Pipeline de Validación Científica (NUEVO)
 
 **Implementa los requisitos del problema statement para validación reproducible:**

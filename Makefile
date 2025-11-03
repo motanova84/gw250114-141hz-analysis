@@ -45,6 +45,7 @@ status:
   busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
   caracterizacion-bayesiana test-caracterizacion \
   dashboard dashboard-status workflow status \
+  escuchar test-escuchar listen \
   clean docker help \
   experimentos test-experimentos diagrams-experimentos
 
@@ -103,6 +104,9 @@ help:
 	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
 	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
 	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
+	@echo "  escuchar              - Interactive discovery experience: 'Ahora te toca escuchar' (NEW)"
+	@echo "  test-escuchar         - Test escuchar.py interactive script (NEW)"
+	@echo "  listen                - Alias for escuchar (English) (NEW)"
 	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
 	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
@@ -473,3 +477,32 @@ antenna-check:
 	@echo "📡 Checking antenna pattern consistency..."
 	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
 	@echo "✅ Antenna pattern analysis complete"
+
+# Interactive discovery experience: "Ahora te toca escuchar"
+escuchar:
+	@echo "🎧 Iniciando experiencia interactiva del descubrimiento..."
+	@if [ ! -f "multi_event_final.json" ]; then \
+		echo "⚠️  Generando resultados multi-evento primero..."; \
+		python3 multi_event_analysis.py; \
+	fi
+	python3 escuchar.py
+
+# Run escuchar in automatic mode (no interaction)
+escuchar-auto:
+	@echo "🎧 Ejecutando modo automático..."
+	@if [ ! -f "multi_event_final.json" ]; then \
+		echo "⚠️  Generando resultados multi-evento primero..."; \
+		python3 multi_event_analysis.py; \
+	fi
+	python3 escuchar.py --auto
+
+# Test escuchar.py script
+test-escuchar:
+	@echo "🧪 Testing escuchar.py interactive script..."
+	python3 test_escuchar.py
+
+# Alias for escuchar (English)
+listen: escuchar
+
+# Alias for automatic mode (English)
+listen-auto: escuchar-auto
