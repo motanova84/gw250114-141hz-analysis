@@ -28,25 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: \
-  all venv setup install \
-  data download test-data check-data \
-  analyze validate validate-offline pipeline \
-  validate-connectivity validate-gw150914 validate-gw250114 \
-  alert-gw250114 test-alert-gw250114 test-rpsi \
-  validacion-quintica multievento test-multievento \
-  multi-event-snr test-multi-event-snr demo-multi-event-snr \
-  snr-gw200129 test-snr-gw200129 \
-  energia-cuantica test-energia-cuantica \
-  validate-3-pilares test-3-pilares \
-  validate-discovery-standards test-discovery-standards \
-  pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
-  gwtc3-analysis busqueda-gwtc1 \
-  busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
-  caracterizacion-bayesiana test-caracterizacion \
-  dashboard dashboard-status workflow status \
-  clean docker help \
-  experimentos test-experimentos diagrams-experimentos
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -72,6 +54,7 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  test-rpsi             - Test A_Rpsi symmetry calculation (PASO 4)"
 	@echo "  alert-gw250114        - Monitor GW250114 availability continuously (NEW)"
 	@echo "  test-alert-gw250114   - Test GW250114 alert system (NEW)"
 	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
@@ -190,180 +173,10 @@ validate-gw250114: setup
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
 
-# Alert system for GW250114 availability
-alert-gw250114: setup
-	@echo "🚨 Sistema de alertas automáticas para GW250114"
-	@echo "   Iniciando monitoreo continuo..."
-	@echo "   Presiona Ctrl+C para detener"
-	./venv/bin/python scripts/verificador_gw250114.py
-
-# Test alert system for GW250114
-test-alert-gw250114: setup
-	@echo "🧪 Testing alert system for GW250114..."
-	./venv/bin/python scripts/test_verificador_gw250114.py
-
-# Test R_Ψ symmetry and compactification radius
+# Test A_Rpsi symmetry calculation (PASO 4)
 test-rpsi: setup
-	@echo "🔬 Testing R_Ψ symmetry and compactification radius..."
-	@echo "   Validating R_Ψ = 1.687e-35 m and f₀ = 141.7001 Hz relationship"
+	@echo "🧪 Testando cálculo de simetría A_Rpsi (PASO 4)..."
 	./venv/bin/python scripts/test_rpsi_symmetry.py
-
-# Validate Calabi-Yau compactification (Section 5.7f)
-validacion-quintica: setup
-	@echo "🔬 Validación numérica de compactificación sobre la quíntica en ℂP⁴..."
-	@echo "   Sección 5.7(f): Jerarquía RΨ ≈ 10⁴⁷ y frecuencia f₀ = 141.7001 Hz"
-	./venv/bin/python scripts/validacion_compactificacion_quintica.py
-
-# Multi-event Bayesian analysis
-multievento: setup
-	@echo "🌌 Ejecutando análisis bayesiano multi-evento..."
-	@echo "   Eventos: GW150914, GW151012, GW170104, GW190521, GW200115"
-	./venv/bin/python scripts/analisis_bayesiano_multievento.py || echo "⚠️  Análisis multi-evento completado con advertencias"
-
-# Test multi-event module with synthetic data
-test-multievento: setup
-	@echo "🧪 Testing análisis bayesiano multi-evento..."
-	./venv/bin/python scripts/test_analisis_bayesiano_multievento.py
-
-# Multi-event SNR analysis at 141.7 Hz
-multi-event-snr: setup
-	@echo "📊 Ejecutando análisis multi-evento de SNR en 141.7 Hz..."
-	@echo "   Eventos: GW150914, GW151012, GW151226, GW170104, GW170608,"
-	@echo "            GW170729, GW170809, GW170814, GW170817, GW170818, GW170823"
-	@echo "   Banda: 140.7-142.7 Hz"
-	./venv/bin/python scripts/multi_event_snr_analysis.py || echo "⚠️  Análisis multi-evento SNR completado con advertencias"
-
-# Test multi-event SNR analysis module
-test-multi-event-snr: setup
-	@echo "🧪 Testing análisis multi-evento de SNR..."
-	./venv/bin/python scripts/test_multi_event_snr_analysis.py
-
-# Demo multi-event SNR analysis with synthetic data
-demo-multi-event-snr: setup
-	@echo "🎬 Ejecutando demostración de análisis multi-evento SNR..."
-	@echo "   Usando datos sintéticos (sin conectividad a GWOSC)"
-	./venv/bin/python scripts/demo_multi_event_snr.py || python3 scripts/demo_multi_event_snr.py
-
-# SNR analysis for GW200129_065458 event
-snr-gw200129: setup
-	@echo "📊 Ejecutando análisis de SNR para GW200129_065458 en 141.7 Hz..."
-	@echo "   Evento O3b: 2020-01-29 06:54:58 UTC"
-	@echo "   Detectores: H1, L1, V1 (K1 no disponible)"
-	./venv/bin/python scripts/snr_gw200129_analysis.py
-
-# Test SNR analysis for GW200129_065458
-test-snr-gw200129: setup
-	@echo "🧪 Testing análisis de SNR para GW200129_065458..."
-	./venv/bin/python scripts/test_snr_gw200129_analysis.py
-
-# Calculate quantum energy of fundamental mode
-energia-cuantica: setup
-	@echo "⚛️  Calculando energía cuántica del modo fundamental..."
-	@echo "   E_Ψ = hf₀ con f₀ = 141.7001 Hz"
-	./venv/bin/python scripts/energia_cuantica_fundamental.py
-
-# Test quantum energy calculations
-test-energia-cuantica: setup
-	@echo "🧪 Testing cálculos de energía cuántica..."
-	./venv/bin/python scripts/test_energia_cuantica.py
-
-# Run 3 pillars validation: reproducibility, falsifiability, evidence
-validate-3-pilares: setup
-	@echo "🌟 Ejecutando Validación de 3 Pilares del Método Científico..."
-	@echo "   1. REPRODUCIBILIDAD GARANTIZADA"
-	@echo "   2. FALSABILIDAD EXPLÍCITA"
-	@echo "   3. EVIDENCIA EMPÍRICA CONCRETA"
-	./venv/bin/python scripts/validacion_completa_3_pilares.py
-
-# Test 3 pillars validation scripts
-test-3-pilares: setup
-	@echo "🧪 Testing scripts de validación de 3 pilares..."
-	@echo "   Testing reproducibilidad..."
-	./venv/bin/python scripts/reproducibilidad_garantizada.py || exit 1
-	@echo "   Testing falsabilidad..."
-	./venv/bin/python scripts/falsabilidad_explicita.py || exit 1
-	@echo "   Testing evidencia empírica..."
-	./venv/bin/python scripts/evidencia_empirica.py || exit 1
-	@echo "   Testing validación completa..."
-	./venv/bin/python scripts/validacion_completa_3_pilares.py || exit 1
-	@echo "✅ Todos los tests de 3 pilares pasaron exitosamente"
-
-# Validate scientific discovery standards (Particle Physics, Astronomy, Medicine)
-validate-discovery-standards: setup
-	@echo "📊 Validando Estándares de Descubrimiento Científico..."
-	@echo "   • Física de partículas: ≥ 5σ"
-	@echo "   • Astronomía: ≥ 3σ"
-	@echo "   • Medicina (EEG): ≥ 2σ"
-	./venv/bin/python scripts/discovery_standards.py
-	@echo "✅ Validación de estándares completada"
-
-# Test discovery standards validation
-test-discovery-standards: setup
-	@echo "🧪 Testing validación de estándares de descubrimiento..."
-	./venv/bin/python scripts/test_discovery_standards.py
-	@echo "✅ Tests de estándares de descubrimiento pasaron exitosamente"
-
-# Run PyCBC-based GW150914 analysis
-pycbc-analysis: setup
-	@echo "🌌 Ejecutando análisis GW150914 con PyCBC..."
-	@echo "   Filtrado, blanqueado y graficado de señal"
-	@mkdir -p results/figures
-	./venv/bin/python scripts/analizar_gw150914_pycbc.py || echo "⚠️  Análisis PyCBC requiere conectividad a GWOSC"
-
-# Test PyCBC analysis script
-test-pycbc: setup
-	@echo "🧪 Testing script de análisis PyCBC..."
-	./venv/bin/python scripts/test_analizar_gw150914_pycbc.py
-
-# Run PyCBC demo with simulated data
-demo-pycbc: setup
-	@echo "🎬 Ejecutando demostración de análisis PyCBC con datos simulados..."
-	@mkdir -p results/figures
-	@if ./venv/bin/python -c "import matplotlib" 2>/dev/null; then \
-		./venv/bin/python scripts/demo_pycbc_analysis.py; \
-	else \
-		echo "⚠️  venv sin matplotlib, usando Python del sistema"; \
-		python3 scripts/demo_pycbc_analysis.py; \
-	fi
-
-# Generate coherence multi-scale visualization
-coherencia-escalas: setup
-	@echo "🌈 Generando visualización de coherencia multi-escala..."
-	@echo "   f₀ = 141.7001 Hz a través de escalas Planck, LIGO y CMB"
-	@mkdir -p results/figures
-	./venv/bin/python scripts/generar_coherencia_escalas.py
-	@echo "✅ Visualización guardada en coherence_f0_scales.png"
-
-# Run GWTC-3 analysis with automatic dependency installation
-gwtc3-analysis: setup
-	@echo "🌌 Ejecutando análisis completo GWTC-3..."
-	@echo "   30 eventos representativos de 2019-2020"
-	@echo "   Búsqueda de 141.7 Hz con instalación automática de dependencias"
-	@mkdir -p results
-	./venv/bin/python scripts/analisis_gwtc3_completo.py || echo "⚠️  Análisis GWTC-3 requiere conectividad a GWOSC"
-	@echo ""
-	@echo "✅ Análisis completado"
-	@echo "📊 Resultados: gwtc3_analysis_results.json"
-	@echo "📈 Gráficos: gwtc3_results.png"
-
-# Run GWTC-1 systematic search (existing catalog)
-busqueda-gwtc1: setup
-	@echo "🌌 Ejecutando búsqueda sistemática GWTC-1..."
-	@echo "   Análisis de eventos 2015-2017 en busca de 141.7 Hz"
-	./venv/bin/python scripts/busqueda_sistematica_gwtc1.py || echo "⚠️  Búsqueda GWTC-1 requiere conectividad a GWOSC"
-
-# Run real-time monitoring dashboard
-dashboard: setup
-	@echo "📊 Iniciando Dashboard de Monitoreo GW250114..."
-	@echo "🌐 Dashboard disponible en http://localhost:5000"
-	@cd dashboard && ../venv/bin/python dashboard_avanzado.py
-
-# Run GW250114 status dashboard
-dashboard-status: setup
-	@echo "📊 Iniciando Dashboard de Estado GW250114..."
-	@echo "🌐 Monitor disponible en http://localhost:5000/monitor-gw"
-	@echo "📊 API JSON en http://localhost:5000/estado-gw250114"
-	./venv/bin/python scripts/run_dashboard.py
 
 # Docker support
 docker:
