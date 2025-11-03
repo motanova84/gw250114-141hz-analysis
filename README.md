@@ -1682,6 +1682,30 @@ Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin par
 ```
 141hz/
 ├── scripts/
+│   ├── descargar_datos.py         # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py       # Análisis espectral de control  
+│   ├── analisis_noesico.py        # Búsqueda de 141.7001 Hz + armónicos
+│   ├── analizar_l1.py             # Validación cruzada en L1
+│   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
+│   ├── validar_gw150914.py        # NEW: Validación control GW150914
+│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
+│   ├── pipeline_validacion.py     # NEW: Pipeline completo validación
+│   ├── verificador_gw250114.py    # NEW: Sistema verificación tiempo real
+│   ├── test_verificador_gw250114.py    # NEW: Tests verificador
+│   └── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
+├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
+├── notebooks/
+│   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
+├── data/
+│   └── raw/                       # Datos descargados de GWOSC
+├── resultados/                    # Resultados de análisis JSON
+├── results/
+│   └── figures/                   # Gráficos generados
+├── requirements.txt               # Dependencias científicas
+├── Makefile                       # Flujo automatizado (con validate)
+├── Dockerfile                     # Contenedor reproducible
+├── VERIFICADOR_GW250114_DOC.md    # NEW: Documentación verificador
+└── README.md                      # Documentación principal
 │   ├── analisis_gw250114.py     # 🆕 Análisis completo GW250114 (6 pasos)
 │   ├── descargar_datos.py       # Descarga automática desde GWOSC
 │   ├── analizar_ringdown.py     # Análisis espectral de control
@@ -1708,6 +1732,33 @@ El análisis predice **armónicos superiores** en frecuencias específicas:
 | 3 | 0.1474         | ❌ No           |
 
 Estas frecuencias pueden **buscarse experimentalmente** en datos LIGO/Virgo como validación independiente.
+
+### 🌐 Sistema de Verificación en Tiempo Real (NUEVO)
+
+> 📖 **Documentación completa**: Ver [VERIFICADOR_GW250114_DOC.md](VERIFICADOR_GW250114_DOC.md)
+
+Sistema automatizado para detectar y analizar GW250114 cuando esté disponible en GWOSC:
+
+- **`verificador_gw250114.py`**: Sistema principal de verificación y análisis
+  - ✅ Monitoreo automático de catálogo GWOSC
+  - ✅ Descarga automática de datos cuando evento esté disponible
+  - ✅ Análisis espectral de 141.7001 Hz
+  - ✅ Generación de informes JSON estructurados
+  
+- **`test_verificador_gw250114.py`**: Suite de tests unitarios
+- **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso e integración
+
+**Uso básico:**
+```bash
+# Verificación única
+python scripts/verificador_gw250114.py
+
+# Ejecutar tests
+python scripts/test_verificador_gw250114.py
+
+# Ver ejemplos
+python scripts/ejemplo_verificador_gw250114.py
+```
 
 ---
 

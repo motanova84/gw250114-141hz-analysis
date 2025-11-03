@@ -1,77 +1,143 @@
 #!/usr/bin/env python3
 """
-Test script para verificar la funcionalidad de VerificadorGW250114
-Ejecuta el código del problema statement para validar la implementación.
+Script de prueba para el verificador GW250114
 """
 import sys
 import os
-from datetime import datetime
+from pathlib import Path
 
-# Asegurar que podemos importar desde scripts
-sys.path.insert(0, os.path.dirname(__file__))
+# Agregar directorio de scripts al path
+sys.path.insert(0, str(Path(__file__).parent))
 
-from analizar_gw250114 import VerificadorGW250114
+from verificador_gw250114 import VerificadorGW250114
 
-def test_online_mode():
-    """Prueba en modo online (intenta conectarse a GWOSC)"""
-    print("=" * 70)
-    print("🎯 RESULTADO DE LA VERIFICACIÓN ACTUAL")
-    print("=" * 70)
-    print("Ejecutando verificación inmediata...\n")
-    
-    # EJECUTAR ESTO PARA VER EL ESTADO ACTUAL
-    verificador = VerificadorGW250114()
-    estado_actual = verificador.verificar_disponibilidad_evento()
-    
-    print(f"\n📅 FECHA ACTUAL: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"🎯 ESTADO GW250114: {verificador.estado_actual}")
-    
-    if verificador.estado_actual == "NO_DISPONIBLE":
-        print("\n🔍 BUSCANDO EVENTOS SIMILARES DISPONIBLES...")
-        verificador.verificar_eventos_similares()
-    
-    print("\n" + "=" * 70)
-    print("✅ Verificación completada")
-    print("=" * 70)
-    
-    return verificador
-
-def test_offline_mode():
-    """Prueba en modo offline (sin conectarse a GWOSC)"""
-    print("\n\n")
-    print("=" * 70)
-    print("🎯 MODO OFFLINE - DEMOSTRACIÓN")
-    print("=" * 70)
-    print("Ejecutando verificación sin conectividad a GWOSC...\n")
+def test_basic_initialization():
+    """Test básico de inicialización"""
+    print("🧪 TEST 1: Inicialización básica")
     
     verificador = VerificadorGW250114()
-    estado_actual = verificador.verificar_disponibilidad_evento(offline_mode=True)
     
-    print(f"\n📅 FECHA ACTUAL: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"🎯 ESTADO GW250114: {verificador.estado_actual}")
+    assert verificador.evento_objetivo == "GW250114"
+    assert verificador.estado_actual == "DESCONOCIDO"
+    assert verificador.data_dir.exists()
+    assert verificador.resultados_dir.exists()
     
-    if verificador.estado_actual == "NO_DISPONIBLE":
-        print("\n🔍 BUSCANDO EVENTOS SIMILARES DISPONIBLES...")
-        eventos = verificador.verificar_eventos_similares(offline_mode=True)
+    print("   ✅ Inicialización correcta")
+    print(f"   ✅ Directorio datos: {verificador.data_dir}")
+    print(f"   ✅ Directorio resultados: {verificador.resultados_dir}")
     
-    print("\n" + "=" * 70)
-    print("✅ Verificación offline completada")
-    print("=" * 70)
+    return True
+
+def test_generar_resumen():
+    """Test de generación de resumen"""
+    print("\n🧪 TEST 2: Generación de resumen")
     
-    return verificador
+    verificador = VerificadorGW250114()
+    
+    # Crear resultados de prueba
+    resultados_test = {
+        'H1': {
+            'frecuencia_detectada': 141.7001,
+            'snr': 7.5,
+            'diferencia': 0.0001,
+            'significativo': True
+        },
+        'L1': {
+            'frecuencia_detectada': 141.75,
+            'snr': 3.2,
+            'diferencia': 0.0499,
+            'significativo': False
+        }
+    }
+    
+    resumen = verificador.generar_resumen(resultados_test)
+    
+    assert resumen['total_detectores'] == 2
+    assert resumen['exitosos'] == 1
+    assert resumen['tasa_exito'] == 0.5
+    assert 'H1' in resumen['detectores_significativos']
+    assert 'L1' not in resumen['detectores_significativos']
+    
+    print("   ✅ Resumen generado correctamente")
+    print(f"   ✅ Detectores significativos: {resumen['detectores_significativos']}")
+    print(f"   ✅ Tasa de éxito: {resumen['tasa_exito']}")
+    
+    return True
+
+def test_guardar_resultados():
+    """Test de guardado de resultados"""
+    print("\n🧪 TEST 3: Guardado de resultados")
+    
+    verificador = VerificadorGW250114()
+    
+    # Crear resultados de prueba
+    resultados_test = {
+        'H1': {
+            'frecuencia_detectada': 141.7001,
+            'snr': 7.5,
+            'significativo': True
+        }
+    }
+    
+    # Guardar resultados
+    verificador.guardar_resultados("TEST_EVENT", resultados_test)
+    
+    # Verificar que el archivo existe
+    archivo_esperado = verificador.resultados_dir / "analisis_TEST_EVENT.json"
+    assert archivo_esperado.exists()
+    
+    # Leer y verificar contenido
+    import json
+    with open(archivo_esperado, 'r') as f:
+        datos = json.load(f)
+    
+    assert datos['evento'] == "TEST_EVENT"
+    assert 'timestamp_analisis' in datos
+    assert datos['resultados'] == resultados_test
+    assert 'resumen' in datos
+    
+    print("   ✅ Resultados guardados correctamente")
+    print(f"   ✅ Archivo: {archivo_esperado}")
+    
+    # Limpiar archivo de test
+    archivo_esperado.unlink()
+    
+    return True
 
 def main():
-    """Ejecutar verificación según problema statement"""
-    # Primero intentar modo online
-    print("🌐 Intentando verificación ONLINE...")
-    verificador_online = test_online_mode()
+    """Ejecutar todos los tests"""
+    print("🌌 TEST SUITE - VERIFICADOR GW250114")
+    print("=" * 50)
     
-    # Si falla la conectividad, mostrar también modo offline
-    if verificador_online.estado_actual == "NO_DISPONIBLE":
-        print("\n💡 También ejecutando demostración en MODO OFFLINE...")
-        verificador_offline = test_offline_mode()
+    tests = [
+        test_basic_initialization,
+        test_generar_resumen,
+        test_guardar_resultados
+    ]
     
-    return 0
+    passed = 0
+    failed = 0
+    
+    for test in tests:
+        try:
+            if test():
+                passed += 1
+            else:
+                failed += 1
+                print(f"   ❌ Test falló: {test.__name__}")
+        except Exception as e:
+            failed += 1
+            print(f"   ❌ Error en test {test.__name__}: {e}")
+    
+    print("\n" + "=" * 50)
+    print(f"📊 RESULTADOS: {passed} pasados, {failed} fallados")
+    
+    if failed == 0:
+        print("✅ TODOS LOS TESTS PASARON")
+        return 0
+    else:
+        print("❌ ALGUNOS TESTS FALLARON")
+        return 1
 
 if __name__ == "__main__":
     sys.exit(main())
