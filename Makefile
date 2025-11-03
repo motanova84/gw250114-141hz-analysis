@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 dashboard workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica latido-universal test-latido-universal workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,7 +54,13 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
-	@echo "  dashboard             - Start real-time monitoring dashboard (NEW)"
+	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
+	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
+	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
+	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
+	@echo "  latido-universal      - Solve Universal Heartbeat Equation (NEW)"
+	@echo "  test-latido-universal - Test Universal Heartbeat Equation solver (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -145,6 +151,18 @@ dashboard: setup
 	@echo "📊 Iniciando Dashboard GW250114..."
 	@echo "🌐 Accede a http://localhost:5000/monitor-gw"
 	./venv/bin/python scripts/run_dashboard.py
+
+# Solve Universal Heartbeat Equation
+latido-universal: setup
+	@echo "💓 Resolviendo Ecuación del Latido Universal..."
+	@echo "   ∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)"
+	@echo "   donde ω₀ = 2π(141.7001 Hz) = 890.328 rad/s"
+	./venv/bin/python scripts/ecuacion_latido_universal.py
+
+# Test Universal Heartbeat Equation solver
+test-latido-universal: setup
+	@echo "🧪 Testing Ecuación del Latido Universal..."
+	./venv/bin/python scripts/test_ecuacion_latido_universal.py
 
 # Docker support
 docker:

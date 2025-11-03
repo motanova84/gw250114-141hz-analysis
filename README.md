@@ -810,6 +810,56 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 
 ---
 
+## 💓 NUEVO: Ecuación del Latido Universal
+
+> 📖 **Documentación completa**: Ver Anexo V en [PAPER.md](PAPER.md)
+
+Implementación de la ecuación diferencial que describe la dinámica temporal del campo noético Ψ:
+
+```
+∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)
+
+donde ω₀ = 2π(141.7001 Hz) = 890.328 rad/s
+```
+
+Esta ecuación representa el **latido fundamental del universo** a escala de coherencia noética, 
+conectando la frecuencia observable f₀ = 141.7001 Hz con la geometría del espacio de moduli 
+a través del término de forzamiento derivado de la función zeta de Riemann.
+
+### Características Implementadas
+
+- ✅ **Solución Numérica** - Integración con Runge-Kutta (RK45) de alta precisión
+- ✅ **Análisis Energético** - Evolución de energía cinética, potencial y total
+- ✅ **Espectro de Frecuencias** - Análisis FFT confirmando f₀ = 141.7001 Hz
+- ✅ **Espacio de Fases** - Visualización de trayectorias en espacio (Ψ, ∂Ψ/∂t)
+- ✅ **Tests Completos** - 16 tests de validación (16/16 pasando)
+
+### Uso Rápido
+
+```bash
+# Resolver la ecuación y generar visualizaciones
+make latido-universal
+
+# Ejecutar tests de validación
+make test-latido-universal
+```
+
+### Resultados Generados
+
+- `results/figures/latido_universal_solucion.png` - Evolución temporal de Ψ(t) y derivadas
+- `results/figures/latido_universal_energia.png` - Análisis energético y espacio de fases
+- `results/figures/latido_universal_espectro.png` - Espectro de frecuencias (FFT)
+- `results/latido_universal_resultados.json` - Parámetros y análisis numérico
+
+### Propiedades Físicas
+
+- **Período de oscilación**: T = 2π/ω₀ ≈ 7.057 ms
+- **Frecuencia fundamental**: f₀ = 141.7001 Hz
+- **Término de forzamiento**: F = I·A²eff·ζ'(1/2) ≈ -3.923
+- **Solución particular**: Ψ_p = F/ω₀² ≈ -4.949 × 10⁻⁶
+
+---
+
 ## 📊 Dashboard Avanzado en Tiempo Real
 
 > 🌐 **Nuevo**: Sistema de monitoreo web interactivo para GW250114
