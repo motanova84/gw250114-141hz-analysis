@@ -24,8 +24,6 @@ def estado_gw250114():
     # Verificar si hay resultados de análisis
     # Intentar diferentes rutas relativas
     possible_paths = [
-        'resultados/analisis_GW250114.json',
-        '../resultados/analisis_GW250114.json',
         os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resultados', 'analisis_GW250114.json')
     ]
     
