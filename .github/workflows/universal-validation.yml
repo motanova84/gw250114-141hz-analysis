@@ -36,9 +36,9 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get update
+          # Install igraph - try version-specific package first, fallback to generic
+          sudo apt-get install -y libigraph-dev || sudo apt-get install -y libigraph3t64
           sudo apt-get install -y \
-            libigraph-dev \
-            libigraph3t64 \
             llvm-dev \
             build-essential \
             gfortran

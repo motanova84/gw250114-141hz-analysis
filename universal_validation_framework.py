@@ -31,6 +31,7 @@ from scipy.stats import chi2
 from typing import Dict, List, Tuple
 from dataclasses import dataclass
 from pathlib import Path
+from scipy.signal import iirnotch
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -41,9 +42,12 @@ warnings.filterwarnings('ignore')
 @dataclass
 class UniversalFrequency:
     """
-    Frecuencia universal f₀ y sus armónicos.
+    Universal frequency f₀ and its harmonics.
+    
+    The fundamental frequency f₀ = 141.7001 Hz (precise value)
+    is often rounded to 141.7 Hz in documentation for readability.
     """
-    f0: float = 141.7001  # Hz - Fundamental
+    f0: float = 141.7001  # Hz - Fundamental (precise value)
     
     def harmonics(self, n_max: int = 5) -> np.ndarray:
         """Armónicos: n × f₀"""
@@ -364,7 +368,6 @@ class EEGValidator:
         fs = 1.0 / (t[1] - t[0])
         
         # Filtro notch para 60 Hz (línea eléctrica)
-        from scipy.signal import iirnotch
         b_notch, a_notch = iirnotch(60, 30, fs)
         eeg_notched = filtfilt(b_notch, a_notch, eeg)
         
@@ -638,8 +641,9 @@ class UniversalValidator:
                 freqs = np.linspace(f_det - 10, f_det + 10, 200)
                 
                 # Gaussiano centrado en f_det
+                GAUSSIAN_WIDTH = 0.5  # Hz - width of the Gaussian peak
                 snr = r['snr']
-                spectrum = snr * np.exp(-0.5 * ((freqs - f_det) / 0.5)**2) + 1
+                spectrum = snr * np.exp(-0.5 * ((freqs - f_det) / GAUSSIAN_WIDTH)**2) + 1
                 
                 ax.plot(freqs, spectrum, 'c-', linewidth=2)
                 ax.axvline(self.f0.f0, color='yellow', linestyle='--', 

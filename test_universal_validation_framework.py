@@ -22,18 +22,18 @@ from universal_validation_framework import (
 
 
 class TestUniversalFrequency(unittest.TestCase):
-    """Tests para UniversalFrequency."""
+    """Tests for UniversalFrequency."""
     
     def setUp(self):
         """Configure frequency for tests."""
         self.f0 = UniversalFrequency()
     
     def test_f0_value(self):
-        """Test que f0 tiene el valor correcto."""
+        """Test that f0 has the correct value."""
         self.assertAlmostEqual(self.f0.f0, 141.7001, places=4)
     
     def test_harmonics(self):
-        """Test cálculo de armónicos."""
+        """Test calculation of harmonics."""
         harmonics = self.f0.harmonics(n_max=3)
         
         # Verificar dimensiones
@@ -45,7 +45,7 @@ class TestUniversalFrequency(unittest.TestCase):
         self.assertAlmostEqual(harmonics[2], 425.1003, places=4)
     
     def test_subharmonics(self):
-        """Test cálculo de subarmónicos."""
+        """Test calculation of subharmonics."""
         subharmonics = self.f0.subharmonics(n_max=2)
         
         # Verificar dimensiones
@@ -56,7 +56,7 @@ class TestUniversalFrequency(unittest.TestCase):
         self.assertAlmostEqual(subharmonics[1], 141.7001 / 3, places=4)
     
     def test_tolerance_band(self):
-        """Test cálculo de banda de tolerancia."""
+        """Test calculation of tolerance band."""
         f_min, f_max = self.f0.tolerance_band(tolerance_pct=0.5)
         
         # Verificar que están alrededor de f0
@@ -70,19 +70,19 @@ class TestUniversalFrequency(unittest.TestCase):
 
 
 class TestDESIValidator(unittest.TestCase):
-    """Tests para DESIValidator."""
+    """Tests for DESIValidator."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = DESIValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
         self.assertEqual(self.validator.name, "DESI (Estructura Cósmica)")
     
     def test_search_signal(self):
-        """Test búsqueda de señal."""
+        """Test signal search."""
         result = self.validator.search_signal({})
         
         # Verificar estructura del resultado
@@ -100,19 +100,19 @@ class TestDESIValidator(unittest.TestCase):
 
 
 class TestIGETSValidator(unittest.TestCase):
-    """Tests para IGETSValidator."""
+    """Tests for IGETSValidator."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = IGETSValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
         self.assertEqual(self.validator.name, "IGETS (Mareas Terrestres)")
     
     def test_generate_synthetic_data(self):
-        """Test generación de datos sintéticos."""
+        """Test generation of synthetic data."""
         t, g = self.validator.generate_synthetic_data(duration_hours=1)
         
         # Verificar dimensiones
@@ -123,7 +123,7 @@ class TestIGETSValidator(unittest.TestCase):
         self.assertGreater(np.std(g), 0)
     
     def test_search_signal(self):
-        """Test búsqueda de señal."""
+        """Test signal search."""
         t, g = self.validator.generate_synthetic_data(duration_hours=1)
         result = self.validator.search_signal(t, g)
         
@@ -141,19 +141,19 @@ class TestIGETSValidator(unittest.TestCase):
 
 
 class TestLISAValidator(unittest.TestCase):
-    """Tests para LISAValidator."""
+    """Tests for LISAValidator."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = LISAValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
         self.assertEqual(self.validator.name, "LISA (Ondas Gravitacionales)")
     
     def test_search_signal(self):
-        """Test búsqueda de señal."""
+        """Test signal search."""
         result = self.validator.search_signal()
         
         # Verificar estructura del resultado
@@ -169,19 +169,19 @@ class TestLISAValidator(unittest.TestCase):
 
 
 class TestEEGValidator(unittest.TestCase):
-    """Tests para EEGValidator."""
+    """Tests for EEGValidator."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = EEGValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
         self.assertEqual(self.validator.name, "EEG (Actividad Cerebral)")
     
     def test_generate_synthetic_eeg(self):
-        """Test generación de datos sintéticos EEG."""
+        """Test generation of synthetic EEG data."""
         t, eeg = self.validator.generate_synthetic_eeg(duration_s=10)
         
         # Verificar dimensiones
@@ -192,7 +192,7 @@ class TestEEGValidator(unittest.TestCase):
         self.assertGreater(np.std(eeg), 0)
     
     def test_search_signal(self):
-        """Test búsqueda de señal."""
+        """Test signal search."""
         t, eeg = self.validator.generate_synthetic_eeg(duration_s=10)
         result = self.validator.search_signal(t, eeg)
         
@@ -209,19 +209,19 @@ class TestEEGValidator(unittest.TestCase):
 
 
 class TestHelioseismologyValidator(unittest.TestCase):
-    """Tests para HelioseismologyValidator."""
+    """Tests for HelioseismologyValidator."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = HelioseismologyValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
         self.assertEqual(self.validator.name, "Heliosismología (Sol)")
     
     def test_search_signal(self):
-        """Test búsqueda de señal."""
+        """Test signal search."""
         result = self.validator.search_signal()
         
         # Verificar estructura del resultado
@@ -237,18 +237,18 @@ class TestHelioseismologyValidator(unittest.TestCase):
 
 
 class TestUniversalValidator(unittest.TestCase):
-    """Tests para UniversalValidator (orquestador)."""
+    """Tests for UniversalValidator (orchestrator)."""
     
     def setUp(self):
         """Configure validator for tests."""
         self.validator = UniversalValidator()
     
     def test_initialization(self):
-        """Test inicialización correcta."""
+        """Test correct initialization."""
         self.assertIsNotNone(self.validator.f0)
     
     def test_run_all_validations(self):
-        """Test ejecución de todas las validaciones."""
+        """Test execution of all validations."""
         results = self.validator.run_all_validations()
         
         # Verificar que hay 5 resultados (5 sistemas)
@@ -262,7 +262,7 @@ class TestUniversalValidator(unittest.TestCase):
             self.assertIn('detection_confidence', result)
     
     def test_generate_report(self):
-        """Test generación de reporte."""
+        """Test generation of report."""
         results = self.validator.run_all_validations()
         report = self.validator.generate_report(results)
         
