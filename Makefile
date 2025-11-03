@@ -41,6 +41,7 @@ status:
   validate-3-pilares test-3-pilares \
   validate-discovery-standards test-discovery-standards \
   pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  gwtc3-analysis busqueda-gwtc1 \
   busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
   caracterizacion-bayesiana test-caracterizacion \
   dashboard dashboard-status workflow status \
@@ -91,6 +92,8 @@ help:
 	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
 	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
 	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  gwtc3-analysis        - Run GWTC-3 complete analysis with auto-installation (NEW)"
+	@echo "  busqueda-gwtc1        - Run GWTC-1 systematic search for 141.7 Hz (NEW)"
 	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
 	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
 	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
@@ -330,6 +333,24 @@ coherencia-escalas: setup
 	@mkdir -p results/figures
 	./venv/bin/python scripts/generar_coherencia_escalas.py
 	@echo "✅ Visualización guardada en coherence_f0_scales.png"
+
+# Run GWTC-3 analysis with automatic dependency installation
+gwtc3-analysis: setup
+	@echo "🌌 Ejecutando análisis completo GWTC-3..."
+	@echo "   30 eventos representativos de 2019-2020"
+	@echo "   Búsqueda de 141.7 Hz con instalación automática de dependencias"
+	@mkdir -p results
+	./venv/bin/python scripts/analisis_gwtc3_completo.py || echo "⚠️  Análisis GWTC-3 requiere conectividad a GWOSC"
+	@echo ""
+	@echo "✅ Análisis completado"
+	@echo "📊 Resultados: gwtc3_analysis_results.json"
+	@echo "📈 Gráficos: gwtc3_results.png"
+
+# Run GWTC-1 systematic search (existing catalog)
+busqueda-gwtc1: setup
+	@echo "🌌 Ejecutando búsqueda sistemática GWTC-1..."
+	@echo "   Análisis de eventos 2015-2017 en busca de 141.7 Hz"
+	./venv/bin/python scripts/busqueda_sistematica_gwtc1.py || echo "⚠️  Búsqueda GWTC-1 requiere conectividad a GWOSC"
 
 # Run real-time monitoring dashboard
 dashboard: setup
