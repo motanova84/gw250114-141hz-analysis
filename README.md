@@ -733,6 +733,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
+- ✅ **Sistema de Alertas Automáticas** - Notificaciones cuando GW250114 esté disponible
 - ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
 - ✅ **Análisis Multi-evento SNR** - Análisis de SNR en 141.7 Hz para 11 eventos (H1 y L1)
 - ✅ **Validación Scipy Pura** - Procesamiento 100% scipy/numpy con filtros Butterworth y notch
@@ -892,6 +893,35 @@ python dashboard_avanzado.py
 - `GET /api/estado-completo` - Estado completo del sistema (JSON)
 
 📖 **Documentación completa**: Ver [dashboard/README.md](dashboard/README.md)
+
+---
+
+## 📡 Sistema de Alertas Automáticas
+
+> 📖 **Documentación completa**: Ver [SISTEMA_ALERTAS.md](SISTEMA_ALERTAS.md)
+
+Sistema automático de notificaciones que envía alertas cuando:
+1. **GW250114 está disponible** en GWOSC
+2. **Análisis completado** con resultados
+
+### Características
+- 📧 **Email**: Soporte para ProtonMail (SMTP)
+- 🔔 **Webhooks**: Integración Slack/Discord
+- 📊 **Reportes**: Resúmenes automáticos de resultados
+
+### Prueba Rápida
+```bash
+# Test del sistema de alertas
+python scripts/test_sistema_alertas.py
+
+# Demostración completa
+python scripts/sistema_alertas_gw250114.py
+```
+
+### Integración Automática
+El sistema de alertas está integrado en:
+- ✅ `analizar_gw250114.py` - Análisis de evento objetivo
+- ✅ `busqueda_sistematica_gwtc1.py` - Búsqueda sistemática
 
 ---
 

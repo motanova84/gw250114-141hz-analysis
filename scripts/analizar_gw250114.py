@@ -14,6 +14,13 @@ from scipy.optimize import curve_fit
 import warnings
 from datetime import datetime
 
+# Importar sistema de alertas
+try:
+    from sistema_alertas_gw250114 import SistemaAlertasGW250114
+except ImportError:
+    print("⚠️  Sistema de alertas no disponible")
+    SistemaAlertasGW250114 = None
+
 # Importar funciones de validación del script GW150914
 try:
     from validar_gw150914 import (
@@ -360,6 +367,9 @@ def main():
     print("🌌 FRAMEWORK DE ANÁLISIS GW250114")
     print("=" * 60)
     
+    # Inicializar sistema de alertas
+    sistema_alertas = SistemaAlertasGW250114() if SistemaAlertasGW250114 else None
+    
     # Verificar disponibilidad
     available, message = check_gw250114_availability()
     
@@ -391,6 +401,10 @@ def main():
     else:
         print("🚀 GW250114 disponible - iniciando análisis real...")
         
+        # Enviar alerta de disponibilidad
+        if sistema_alertas:
+            sistema_alertas.enviar_alerta_disponible("GW250114")
+        
         # Análisis real (cuando esté disponible)
         real_results = analyze_gw250114_real()
         
@@ -398,8 +412,18 @@ def main():
             print("❌ Error en análisis real")
             return 1
         
-        # Evaluación de resultados reales
-        # (Se implementará cuando tengamos datos reales)
+        # Enviar alerta con resultados del análisis
+        if sistema_alertas and real_results:
+            # Preparar resultados para la alerta
+            resultados_formateados = {
+                'resumen': {
+                    'total_detectores': len(real_results),
+                    'exitosos': sum(1 for r in real_results.values() if r.get('bayes_factor', 0) > 10),
+                    'tasa_exito': sum(1 for r in real_results.values() if r.get('bayes_factor', 0) > 10) / len(real_results)
+                },
+                'resultados': real_results
+            }
+            sistema_alertas.enviar_alerta_analisis("GW250114", resultados_formateados)
         
         return 0
 
