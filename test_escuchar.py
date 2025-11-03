@@ -83,6 +83,32 @@ class TestEscuchar(unittest.TestCase):
             if temp_name and temp_name.exists():
                 temp_name.rename(self.results_file)
 
+    def test_print_universe_response_corrupted_json(self):
+        """Test que print_universe_response maneja JSON corrupto."""
+        # Crear un archivo JSON corrupto temporalmente
+        backup_file = None
+        if self.results_file.exists():
+            backup_file = Path("multi_event_final.json.backup")
+            self.results_file.rename(backup_file)
+
+        try:
+            # Escribir JSON inválido
+            with open(self.results_file, 'w') as f:
+                f.write("{ invalid json }")
+
+            with patch('sys.stdout', new=StringIO()) as fake_out:
+                result = escuchar.print_universe_response()
+                output = fake_out.getvalue()
+                self.assertFalse(result)
+                self.assertIn("corrupto", output.lower())
+        finally:
+            # Limpiar y restaurar
+            if self.results_file.exists():
+                self.results_file.unlink()
+            if backup_file and backup_file.exists():
+                backup_file.rename(self.results_file)
+
+
     def test_print_statistical_validation_runs(self):
         """Test que print_statistical_validation se ejecuta."""
         with patch('escuchar.input', return_value=''):

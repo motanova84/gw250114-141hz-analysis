@@ -100,8 +100,17 @@ def print_universe_response():
         print("   Ejecuta: python3 multi_event_analysis.py")
         return False
 
-    with open(results_file) as f:
-        data = json.load(f)
+    try:
+        with open(results_file) as f:
+            data = json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"{Colors.FAIL}❌ Error: Archivo JSON corrupto o inválido{Colors.ENDC}")
+        print(f"   Detalle: {e}")
+        print("   Regenera el archivo con: python3 multi_event_analysis.py")
+        return False
+    except Exception as e:
+        print(f"{Colors.FAIL}❌ Error inesperado al leer el archivo: {e}{Colors.ENDC}")
+        return False
 
     events = data["events"]
     stats = data["statistics"]
