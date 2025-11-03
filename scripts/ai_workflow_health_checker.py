@@ -159,6 +159,10 @@ class WorkflowHealthChecker:
             # Check for actual Python/pip commands (not just the word "python" in text)
             import re
             has_python_commands = False
+            python_cmd_pattern = re.compile(r'^(python3?|pip)\s', re.IGNORECASE)
+            python_after_op_pattern = re.compile(r'[|;&]\s*(python3?|pip)\s', re.IGNORECASE)
+            echo_pattern = re.compile(r'^\s*echo\s+', re.IGNORECASE)
+            
             for step in steps:
                 if not isinstance(step, dict):
                     continue
@@ -173,14 +177,10 @@ class WorkflowHealthChecker:
                 for line in lines:
                     line = line.strip()
                     # Skip comments and echo statements
-                    if line.startswith('#') or 'echo' in line.lower():
+                    if line.startswith('#') or echo_pattern.match(line):
                         continue
                     # Match python/pip as actual commands
-                    if re.match(r'^(python3?|pip)\s', line, re.IGNORECASE):
-                        has_python_commands = True
-                        break
-                    # Also check after pipes, &&, ||, ;, etc.
-                    if re.search(r'[|;&]\s*(python3?|pip)\s', line, re.IGNORECASE):
+                    if python_cmd_pattern.match(line) or python_after_op_pattern.search(line):
                         has_python_commands = True
                         break
                 if has_python_commands:
