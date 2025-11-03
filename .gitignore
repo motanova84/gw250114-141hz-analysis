@@ -1,136 +1,19 @@
 # Virtual environment
 venv/
-
-# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
-
-# C-Engine logs
-cengine_logs/
-ejemplos_cengine_qcal/
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
+*.pyc
 
 # Data files
 data/
-results/*
-!results/figures/
-results/figures/*
-# Keep verification and vacuum energy figures (PNG files)
-!results/figures/*.png
-# Keep example JSON results
-!results/*.json
-
-# Generated validation files
-output/
-
-# Temporary files
-*.tmp
-*.temp
-temp/
-tmp/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-
-# HDF5 files (large data files)
 *.hdf5
-*.h5
 
-# Log files
-*.log
+# Results
+results/
 
-# Environment variables
-.env
-.env.*
-!.env.template
-config/alertas.env
-config/*.env
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
 
-# Generated plots
-potential_plot.png
-gwtc3_results.png
-multi_event_analysis.png
-demo_multi_event_analysis.png
-snr_gw200129_065458_141hz.png
-desi_correlation_function.png
-
-# Generated data files
-Evac_Rpsi_data.csv
-gwtc3_analysis_results.json
-
-# Test results directories
-scripts/results/
-
-# AI Accessibility Files (DO NOT IGNORE - These are important)
-!.ai-instructions.md
-!.repo-map.json
-!.repo-metadata.yml
-!AI_ACCESSIBILITY.md
-!robots.txt
-!CITATION.cff
-!.well-known/
+# OS files
+.DS_Store
+*.swp
+*.tmp

@@ -135,9 +135,7 @@ def resultados_gw150914():
     print(f"Estado Final: {resultado_completo['estado_validacion']}")
     print()
     
-    guardar_json('evidencia_empirica_gw150914.json', resultado_completo, 'results')
-
-    # Guardar resultados (añadido para que los tests pasen)
+    # Guardar resultados automáticamente
     output_dir = Path('results')
     output_dir.mkdir(exist_ok=True)
     

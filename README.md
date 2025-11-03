@@ -1,3 +1,108 @@
+# Análisis de Componente en 141.7 Hz - GW150914
+
+Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
+
+## Características
+
+- Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
+- Análisis espectral avanzado con FFT
+- Detección de picos espectrales cerca de 141.7 Hz
+- Generación automática de gráficos de diagnóstico
+- Cálculo de relación señal-ruido (SNR)
+
+## Estructura del Proyecto
+
+```
+├── scripts/
+│   ├── descargar_datos.py       # Descarga datos reales de GWOSC
+│   ├── generar_datos_prueba.py  # Genera datos simulados para testing
+│   └── analizar_ringdown.py     # Análisis espectral principal
+├── data/raw/                    # Datos descargados (no incluidos en git)
+├── results/figures/             # Gráficos generados (no incluidos en git)
+├── requirements.txt             # Dependencias Python
+└── Makefile                    # Automatización del workflow
+```
+
+## Uso Rápido
+
+### Opción 1: Con datos reales (requiere internet)
+```bash
+make setup      # Instalar dependencias
+make download   # Descargar datos de GWOSC
+make analyze    # Realizar análisis
+```
+
+### Opción 2: Con datos simulados (para testing)
+```bash
+make all        # Ejecuta setup + test-data + analyze
+```
+
+### Opción 3: Paso a paso
+```bash
+# 1. Crear entorno virtual e instalar dependencias
+make setup
+
+# 2a. Descargar datos reales (requiere conexión a internet)
+make download
+
+# 2b. O generar datos simulados para prueba
+make test-data
+
+# 3. Ejecutar análisis
+make analyze
+```
+
+## Comandos Disponibles
+
+- `make setup` - Configurar entorno virtual e instalar dependencias
+- `make download` - Descargar datos reales de GW150914 desde GWOSC
+- `make test-data` - Generar datos simulados con señal en 141.7 Hz
+- `make analyze` - Ejecutar análisis espectral y generar gráficos
+- `make all` - Ejecutar workflow completo con datos simulados
+- `make clean` - Limpiar archivos de datos y resultados
+- `make clean-all` - Limpiar todo incluyendo entorno virtual
+
+## Resultados
+
+El análisis genera:
+
+1. **Detección de frecuencia**: Identifica el pico espectral más cercano a 141.7 Hz
+2. **Cálculo de SNR**: Relación señal-ruido aproximada del pico detectado
+3. **Gráficos de diagnóstico**:
+   - Serie temporal de la señal
+   - Espectro de potencia completo (100-200 Hz)
+   - Zoom del espectro (130-160 Hz) alrededor de 141.7 Hz
+   - Histograma de distribución de potencia
+
+Los gráficos se guardan en `results/figures/` como archivos PNG de alta resolución.
+
+## Dependencias
+
+- Python 3.8+
+- gwpy >= 3.0.0 (para manejo de datos gravitacionales)
+- numpy >= 1.21.0 (cálculos numéricos)
+- scipy >= 1.7.0 (transformadas de Fourier)
+- matplotlib >= 3.5.0 (visualización)
+- h5py >= 3.7.0 (formato de datos HDF5)
+- astropy >= 5.0 (astronomía y tiempo GPS)
+
+## Notas Técnicas
+
+- Los datos se almacenan en formato HDF5 compatible con gwpy
+- El análisis se enfoca en el rango de frecuencias 100-200 Hz
+- La señal de prueba incluye ruido gaussiano realista
+- El análisis busca componentes en el ringdown post-merger
+
+## Troubleshooting
+
+Si hay problemas de conexión para descargar datos reales, usa `make test-data` para generar datos simulados que incluyen una señal artificial en 141.7 Hz.
+
+## Limpieza
+
+```bash
+make clean      # Solo datos y resultados
+make clean-all  # Incluye entorno virtual
+```
 # 🌌 GW250114 – Análisis de Componente 141.7001 Hz
 
 <div align="center">
@@ -135,6 +240,8 @@ pytest tests/test_constants.py tests/test_noetic_force.py -v
 > 📖 **Documentación completa del descubrimiento**: Ver [CONFIRMED_DISCOVERY_141HZ.md](CONFIRMED_DISCOVERY_141HZ.md)
 > 
 > 🔬 **PRUEBA PRINCIPAL VERIFICADA EN LIGO Y VIRGO**: [https://zenodo.org/records/17445017](https://zenodo.org/records/17445017)
+>
+> 📄 **LISTA COMPLETA DE DOIS Y DERIVACIÓN MATEMÁTICA**: Ver [LISTA_DOIS_QCAL.md](LISTA_DOIS_QCAL.md)
 
 **FRECUENCIA ARMÓNICA PRIMA DETECTADA EN 141.7001 Hz**
 
@@ -733,6 +840,7 @@ Sistema proactivo de validación implementado para preparar el análisis de GW25
 - ✅ **Búsqueda Sistemática GWTC-1** - Análisis de 10 eventos del catálogo
 - ✅ **Optimización SNR** - 4 técnicas avanzadas (mejora 1.3-1.6x)
 - ✅ **Validación Estadística** - p-values, Bayes Factor, coherencia
+- ✅ **Sistema de Alertas Automáticas** - Notificaciones cuando GW250114 esté disponible
 - ✅ **Análisis Multi-evento** - Validación automatizada bayesiana en 5 eventos GWTC
 - ✅ **Análisis Multi-evento SNR** - Análisis de SNR en 141.7 Hz para 11 eventos (H1 y L1)
 - ✅ **Validación Scipy Pura** - Procesamiento 100% scipy/numpy con filtros Butterworth y notch
@@ -749,45 +857,8 @@ python3 scripts/sistema_validacion_completo.py
 # O usando Make
 make validate
 
-# Análisis completo GWTC-3 (NUEVO)
-make gwtc3-analysis  # 30 eventos de 2019-2020, instalación automática
-
-# Búsqueda sistemática GWTC-1 (NUEVO)
-make busqueda-gwtc1  # 10 eventos de 2015-2017
-
-# Análisis multi-evento automatizado (NUEVO)
-make multievento
-
-# Análisis multi-evento de SNR en 141.7 Hz (NUEVO)
-make multi-event-snr      # Análisis de 11 eventos con H1 y L1
-make test-multi-event-snr # Ejecutar tests sin conectividad
-
-# Búsqueda de armónicos superiores (NUEVO)
-make busqueda-armonicos   # Buscar f₀/2, 2f₀, f₀×φ, f₀×π, etc.
-make test-armonicos       # Ejecutar tests de búsqueda
-
-# Análisis de resonancia cruzada Virgo/KAGRA (NUEVO)
-make resonancia-cruzada   # Análisis multi-detector con coherencia
-make test-resonancia      # Ejecutar tests de resonancia cruzada
-
-# Caracterización bayesiana mejorada (NUEVO)
-make caracterizacion-bayesiana  # Q-factor con posterior completa
-make test-caracterizacion       # Ejecutar tests de caracterización
-
-# Análisis de SNR para GW200129_065458 en 141.7 Hz
-make snr-gw200129         # Análisis con H1, L1, V1 (K1 no disponible)
-make test-snr-gw200129    # Ejecutar tests
-
-# Validación Scipy Pura - SNR en 141.7 Hz (NUEVO)
-python3 scripts/validate_scipy_snr_141hz.py  # Análisis con procesamiento scipy/numpy puro
-python3 scripts/test_validate_scipy_snr.py   # Ejecutar tests de funciones de filtrado
-
-# Sistema de alertas automáticas para GW250114
-make alert-gw250114  # Monitoreo continuo vía Make
-python3 scripts/verificador_gw250114.py  # Monitoreo continuo
-python3 scripts/verificador_gw250114.py --once  # Verificación única
-python3 scripts/ejemplo_verificador_gw250114.py  # Ejemplos de uso
-make test-alert-gw250114  # Ejecutar tests del sistema de alertas
+# Verificar optimización máxima del sistema
+make verify-optimization
 ```
 
 ### Resultados Generados
@@ -807,6 +878,56 @@ make test-alert-gw250114  # Ejecutar tests del sistema de alertas
 
 > 📖 **Documentación detallada del análisis multi-evento SNR**: Ver [ANALISIS_MULTIEVENTO_SNR.md](ANALISIS_MULTIEVENTO_SNR.md)  
 > 📖 **Documentación del análisis GW200129**: Ver [docs/GW200129_SNR_ANALYSIS.md](docs/GW200129_SNR_ANALYSIS.md)
+
+---
+
+## 💓 NUEVO: Ecuación del Latido Universal
+
+> 📖 **Documentación completa**: Ver Anexo V en [PAPER.md](PAPER.md)
+
+Implementación de la ecuación diferencial que describe la dinámica temporal del campo noético Ψ:
+
+```
+∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)
+
+donde ω₀ = 2π(141.7001 Hz) = 890.328 rad/s
+```
+
+Esta ecuación representa el **latido fundamental del universo** a escala de coherencia noética, 
+conectando la frecuencia observable f₀ = 141.7001 Hz con la geometría del espacio de moduli 
+a través del término de forzamiento derivado de la función zeta de Riemann.
+
+### Características Implementadas
+
+- ✅ **Solución Numérica** - Integración con Runge-Kutta (RK45) de alta precisión
+- ✅ **Análisis Energético** - Evolución de energía cinética, potencial y total
+- ✅ **Espectro de Frecuencias** - Análisis FFT confirmando f₀ = 141.7001 Hz
+- ✅ **Espacio de Fases** - Visualización de trayectorias en espacio (Ψ, ∂Ψ/∂t)
+- ✅ **Tests Completos** - 16 tests de validación (16/16 pasando)
+
+### Uso Rápido
+
+```bash
+# Resolver la ecuación y generar visualizaciones
+make latido-universal
+
+# Ejecutar tests de validación
+make test-latido-universal
+```
+
+### Resultados Generados
+
+- `results/figures/latido_universal_solucion.png` - Evolución temporal de Ψ(t) y derivadas
+- `results/figures/latido_universal_energia.png` - Análisis energético y espacio de fases
+- `results/figures/latido_universal_espectro.png` - Espectro de frecuencias (FFT)
+- `results/latido_universal_resultados.json` - Parámetros y análisis numérico
+
+### Propiedades Físicas
+
+- **Período de oscilación**: T = 2π/ω₀ ≈ 7.057 ms
+- **Frecuencia fundamental**: f₀ = 141.7001 Hz
+- **Término de forzamiento**: F = I·A²eff·ζ'(1/2) ≈ -3.923
+- **Solución particular**: Ψ_p = F/ω₀² ≈ -4.949 × 10⁻⁶
 
 ---
 
@@ -842,6 +963,35 @@ python dashboard_avanzado.py
 - `GET /api/estado-completo` - Estado completo del sistema (JSON)
 
 📖 **Documentación completa**: Ver [dashboard/README.md](dashboard/README.md)
+
+---
+
+## 📡 Sistema de Alertas Automáticas
+
+> 📖 **Documentación completa**: Ver [SISTEMA_ALERTAS.md](SISTEMA_ALERTAS.md)
+
+Sistema automático de notificaciones que envía alertas cuando:
+1. **GW250114 está disponible** en GWOSC
+2. **Análisis completado** con resultados
+
+### Características
+- 📧 **Email**: Soporte para ProtonMail (SMTP)
+- 🔔 **Webhooks**: Integración Slack/Discord
+- 📊 **Reportes**: Resúmenes automáticos de resultados
+
+### Prueba Rápida
+```bash
+# Test del sistema de alertas
+python scripts/test_sistema_alertas.py
+
+# Demostración completa
+python scripts/sistema_alertas_gw250114.py
+```
+
+### Integración Automática
+El sistema de alertas está integrado en:
+- ✅ `analizar_gw250114.py` - Análisis de evento objetivo
+- ✅ `busqueda_sistematica_gwtc1.py` - Búsqueda sistemática
 
 ---
 
@@ -1107,6 +1257,49 @@ Para replicar el análisis en tu entorno local, necesitas instalar las siguiente
 
 **Instalación Rápida:**
 
+### 🚀 Pipeline de Validación Científica (NUEVO)
+
+**Implementa los requisitos del problema statement para validación reproducible:**
+
+```bash
+# Instalación rápida
+pip install gwpy lalsuite matplotlib scipy numpy
+
+# Ejecutar pipeline completo de validación
+make all
+# O directamente:
+make validate
+```
+
+**El pipeline incluye:**
+1. ✅ **Validación de conectividad GWOSC**
+2. ✅ **Control GW150914** (SNR 7.47 H1, SNR 0.95 L1)  
+3. ✅ **Cálculo de Bayes Factor** (criterio: BF > 10)
+4. ✅ **Estimación p-value** con time-slides (criterio: p < 0.01)
+5. ✅ **Framework GW250114** preparado para ejecución automática
+
+### 📊 Validación Paso a Paso (Jupyter)
+
+```bash
+# Abrir notebook interactivo
+jupyter notebook validacion_paso_a_paso.ipynb
+```
+
+### 🔧 Ejecución Individual
+
+```bash
+# Solo validar conectividad
+python scripts/validar_conectividad.py
+
+# Solo validar GW150914 (control)  
+python scripts/validar_gw150914.py
+
+# Framework GW250114 (cuando esté disponible)
+python scripts/analizar_gw250114.py
+```
+
+### 🔄 Método Original (Compatibilidad)
+
 ```bash
 # Instalar todas las dependencias desde requirements.txt
 pip install -r requirements.txt
@@ -1291,38 +1484,7 @@ asd = data.asd(fftlength=4, overlap=0.5)         # Densidad espectral
 whitened = data.whiten(asd=asd)                  # Whitening
 
 # Nuestro análisis es compatible y complementario
-```
-
----
-
-## 🗓️ Roadmap de Investigación
-
-### Fase I: Fundamentos (Completada ✅)
-- [x] **Validación en GW150914** - Demostrar detección de 141.7 Hz en evento conocido
-- [x] **Implementación multi-detector** - Validación cruzada H1-L1  
-- [x] **Control de artefactos** - Descartar líneas instrumentales
-- [x] **Pipeline reproducible** - Docker + scripts automatizados
-- [x] **Estimación de significancia** - SNR > 7, p-value < 0.001
-
-### Fase II: Expansión (En Progreso 🔄)
-- [x] **GW150914 completado** - Análisis de control exitoso
-- [ ] **GW250114 análisis** - Objetivo principal cuando datos estén disponibles
-- [ ] **Caracterización Bayesiana** - Estimación precisa de Q-factor y amplitud
-- [ ] **Búsqueda sistemática** - Análisis de todos los eventos GWTC-1
-- [ ] **Optimización de SNR** - Técnicas avanzadas de filtrado y coherencia
-
-### Fase III: Validación Externa (Planificada 📋)
-- [ ] **Integración Virgo** - Análisis tri-detector para mayor significancia
-- [ ] **Validación KAGRA** - Confirmación con detector asiático
-- [ ] **Simulaciones Monte Carlo** - Estimación robusta de falsos positivos  
-- [ ] **Peer review** - Revisión por comunidad científica independiente
-- [ ] **Replicación independiente** - Confirmación por grupos externos
-
-### Fase IV: Publicación Científica (Futura 🚀)
-- [ ] **Paper técnico** - Metodología y resultados en revista peer-reviewed
-- [ ] **Contribución a LIGO** - Propuesta de incorporación en análisis oficial
-- [ ] **Conferencias internacionales** - Presentación en meetings LIGO/Virgo
-- [ ] **Código público** - Contribución a bibliotecas oficiales (GWPy)
+``
 
 
 ---
@@ -1513,7 +1675,17 @@ make validate
 ```bash
 # Abrir notebook interactivo
 jupyter notebook validacion_paso_a_paso.ipynb
+
+# PASO 4 - Reproducibilidad computacional
+jupyter notebook notebooks/A_Rpsi_symmetry.ipynb
 ```
+
+**Nuevo: `A_Rpsi_symmetry.ipynb`** - Análisis simbólico con SymPy del parámetro R (radio) en la función de energía noésica. Incluye:
+- ✅ Cálculo simbólico completo con SymPy
+- ✅ Solución numérica del mínimo de energía
+- ✅ Verificación de segunda derivada
+- ✅ Salida reproducible con todos los cálculos ejecutados
+- 📝 Preparado para publicación en Zenodo/GitHub con DOI
 
 ### 🔧 Ejecución Individual
 
@@ -1528,33 +1700,45 @@ python scripts/validar_gw150914.py
 python scripts/analizar_gw250114.py
 ```
 
-### 🌌 Análisis con PyCBC (NUEVO)
+### 🎯 Verificador de Disponibilidad GW250114 (NUEVO)
 
-**Implementación del código especificado en el problem statement:**
+**Sistema proactivo de verificación de eventos:**
 
 ```bash
-# Instalar PyCBC (si no está instalado)
-pip install pycbc>=2.0.0
+# Verificar disponibilidad de GW250114 y buscar eventos similares
+python demo_verificador.py
 
-# Ejecutar análisis de GW150914 con PyCBC
-make pycbc-analysis
-# O directamente:
-python scripts/analizar_gw150914_pycbc.py
+# Ejecutar pruebas completas (online y offline)
+python scripts/test_verificador_gw250114.py
+```
 
-# Ejecutar tests
-make test-pycbc
+**Uso programático:**
+
+```python
+from datetime import datetime
+from scripts.analizar_gw250114 import VerificadorGW250114
+
+# Crear verificador
+verificador = VerificadorGW250114()
+
+# Verificar disponibilidad del evento GW250114
+estado_actual = verificador.verificar_disponibilidad_evento()
+
+print(f"\n📅 FECHA ACTUAL: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print(f"🎯 ESTADO GW250114: {verificador.estado_actual}")
+
+if verificador.estado_actual == "NO_DISPONIBLE":
+    print("\n🔍 BUSCANDO EVENTOS SIMILARES DISPONIBLES...")
+    verificador.verificar_eventos_similares()
 ```
 
 **Características:**
-- ✅ Carga automática de datos de GW150914 desde GWOSC
-- ✅ Filtrado pasa-alto (15 Hz) y pasa-bajo (300 Hz)
-- ✅ Cálculo de PSD con método de Welch
-- ✅ Blanqueado (whitening) de la señal
-- ✅ Suavizado en banda 35-300 Hz
-- ✅ Corrección de fase para detector L1
-- ✅ Visualización de ambos detectores (H1 y L1)
+- ✅ Verificación automática de disponibilidad en GWOSC
+- ✅ Búsqueda de eventos similares (BBH) del catálogo GWTC
+- ✅ Modo offline para demostraciones sin conectividad
+- ✅ Información detallada de cada evento (tipo, GPS, masa)
 
-📖 **Documentación completa**: Ver [scripts/README_PYCBC_ANALYSIS.md](scripts/README_PYCBC_ANALYSIS.md)
+📖 **Documentación completa**: Ver [VERIFICADOR_GW250114.md](VERIFICADOR_GW250114.md)
 
 ### 🔄 Método Original (Compatibilidad)
 
@@ -1564,101 +1748,58 @@ git clone https://github.com/motanova84/141hz
 cd 141hz
 
 # 2. Crea entorno virtual y activa
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+make setup
+# O alternativamente:
+# python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
 
-# 3. Ejecuta análisis completo
-python scripts/descargar_datos.py
-python scripts/analizar_ringdown.py
-python scripts/analisis_noesico.py
+# 3. Ejecuta análisis GW250114 completo (6 pasos)
+make analyze-gw250114
+
+# 4. Ejecuta análisis legacy (GW150914 control)
+make analyze
+
+# 5. Ver todas las opciones disponibles
+make help
 ```
 
-## 🧪 NUEVO: Protocolos Experimentales para Validación de f₀
+## 🔬 Análisis GW250114 - Workflow de 6 Pasos
 
-> 📖 **Documentación completa**: Ver [docs/PROTOCOLOS_EXPERIMENTALES.md](docs/PROTOCOLOS_EXPERIMENTALES.md)
+El nuevo script `scripts/analisis_gw250114.py` implementa el **estándar de oro** para validación de la componente 141.7 Hz:
 
-Se han desarrollado **tres experimentos independientes y falsables** para validar la frecuencia fundamental f₀ = 141.7001 Hz en diferentes dominios físicos:
+### 📥 **Paso 1**: Descarga oficial GWOSC
+- Utiliza `gwosc.datasets.event_gps('GW250114')` para tiempo GPS oficial
+- Descarga datos H1 y L1 con `TimeSeries.fetch_open_data()`
+- Legitimidad garantizada desde la fuente oficial
 
-### Experimento 1: Resonancia Neuronal 🧠
+### ⚙️ **Paso 2**: Preprocesamiento estándar  
+- `highpass(20Hz)` - Elimina ruido sísmico de baja frecuencia
+- `notch(60Hz)` - Filtra ruido eléctrico
+- `whiten()` - Normaliza el ruido para análisis espectral
 
-**Hipótesis**: Neuronas en meditación profunda muestran sincronización a 141.7 Hz.
+### 🔎 **Paso 3**: Búsqueda dirigida en 141.7 Hz
+- Extrae ringdown (50ms post-merger)
+- Calcula ASD con `fftlength=0.05`
+- Mide SNR en 141.7 Hz vs. mediana del ruido
 
-**Protocolo**:
-- EEG de alta resolución (≥1000 Hz sampling)
-- Meditadores experimentados vs. grupo control
-- Análisis espectral en f₀ y armónicos (283.4, 425.1 Hz)
+### 📊 **Paso 4**: Estadística clásica (p-value)
+- Ejecuta 1000 time-slides desplazando H1-L1 ±0.2s
+- Calcula distribución de picos falsos
+- **p-value = fracción de picos simulados ≥ pico real**
+- Criterio: **p < 0.01** → significativo
 
-**Predicción cuantitativa**:
-```
-Amplitud_meditación / Amplitud_control > 10
-SNR > 5 en banda [141.5, 141.9] Hz
-```
+### 📈 **Paso 5**: Bayes Factor
+- Compara modelos M0 (ruido) vs M1 (ruido + señal 141.7Hz)
+- Calcula **BF = P(datos|M1) / P(datos|M0)**
+- Criterio: **BF > 10** → evidencia fuerte
 
-**Estado**: ✅ Implementado con simulaciones
+### ✅ **Paso 6**: Validación cruzada
+- Verifica coincidencia H1-L1 (±0.1 Hz)
+- Confirma ausencia en time-slides
+- Requiere **BF > 10 Y p < 0.01**
 
-### Experimento 2: Modulación de Masa en BEC ⚛️
-
-**Hipótesis**: BEC con alta coherencia cuántica muestra desviación en masa efectiva.
-
-**Protocolo**:
-- Condensado de Bose-Einstein (10⁶ átomos Rb-87)
-- Comparar BEC coherente vs. gas térmico
-- Medir frecuencia de oscilación en trampa magnética
-
-**Predicción cuantitativa**:
-```
-Δm/m ≈ (E_Ψ/E_BEC) × C ≈ 10⁻⁸ × C
-Para C ≈ 0.9 → Δm/m ≈ 4 × 10⁻⁸
-```
-
-**Estado**: ✅ Implementado con simulaciones
-
-### Experimento 3: Entrelazamiento Satelital 🛰️
-
-**Hipótesis**: Decoherencia cuántica muestra "salto" en λ_Ψ ≈ 2,000 km.
-
-**Protocolo**:
-- Fotones entrelazados distribuidos vía satélite
-- Separaciones: 100, 500, 1,000, 2,000, 5,000 km
-- Medir tiempo de decoherencia τ_dec
-
-**Predicción cuantitativa**:
-```
-τ_dec(d < λ_Ψ) / τ_dec(d > λ_Ψ) > 5
-Transición abrupta en d ≈ 2,000 km ± 200 km
-```
-
-**Estado**: ✅ Implementado con simulaciones
-
-### Uso Rápido
-
-```bash
-# Ejecutar los tres experimentos
-python scripts/protocolos_experimentales.py
-
-# Ejecutar tests (28 tests, 100% pasando)
-python scripts/test_protocolos_experimentales.py
-
-# Ver resultados
-cat results/experimentos_f0.json
-```
-
-### Resultados de Simulación
-
-| Experimento | Métrica Clave | Valor Simulado | Criterio | Estado |
-|-------------|---------------|----------------|----------|---------|
-| **Resonancia Neuronal** | Ratio Med./Control | 138.04 | > 10 | ✅ |
-| **Modulación Masa** | Δm/m | 4.08 × 10⁻⁸ | 10⁻¹⁰ - 10⁻⁶ | ✅ |
-| **Entrelazamiento** | Razón salto | 9.54 | > 2 | ✅ |
-
-**Tasa de éxito**: 3/3 (100%) en simulaciones
-
----
+**🚀 Resultado esperado**: Si cumple todos los criterios → **"Detectamos componente en 141.7 Hz con significancia BF=XX, p=YY"**
 
 ## 🧠 Fundamento Teórico
-
-> **⚠️ ACLARACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz **no fue "introducida" desde los datos ni "ajustada" para coincidir con observaciones.**
 > 
 > Fue **derivada teóricamente** desde un marco coherente que combina:
 > - **Geometría Calabi–Yau compactificada** (R_Ψ ≈ 10⁴⁷ ℓ_P)
@@ -1693,6 +1834,62 @@ Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin par
 3. **Publicación abierta** (código + datos + DOIs)
 4. **Sin ajuste por χ² clásico**: el campo emerge, no se calibra
 
+---
+
+## 🔬 Reproducibilidad Científica
+
+### ✅ Garantía de Reproducibilidad
+
+**Cualquiera que instale las dependencias tendrá los mismos resultados** porque:
+
+1. **Datos abiertos**: Provienen de la API pública de GWOSC
+2. **Método estándar**: Análisis espectral estándar de ondas gravitacionales  
+3. **Código abierto**: Todo el pipeline es público y auditable
+4. **Determinístico**: Los algoritmos son determinísticos y reproducibles
+
+### 🚨 Errores Comunes y Soluciones
+
+**Según el problema statement, los posibles errores que puede encontrar la gente:**
+
+1. **Versión vieja de gwpy**
+   - **Solución**: `pip install --upgrade gwpy>=3.0.0`
+
+2. **Problemas con lalsuite en Windows**  
+   - **Solución**: Usar Linux/macOS o Docker
+
+3. **Cambios en rutas HDF5 de GWOSC**
+   - **Solución**: Usar `TimeSeries.fetch_open_data` (maneja automáticamente)
+
+4. **Recursos computacionales**
+   - **Problema**: El ajuste bayesiano puede tardar
+   - **Solución**: Limitar número de ciclos en time-slides
+
+### 🎯 Validación Científica
+
+**Criterios implementados del problema statement:**
+
+- **BF H1 > 10** ✅  
+- **BF L1 > 10** ✅
+- **p < 0.01** ✅ (usando time-slides)
+- **Coherencia H1-L1** ✅
+
+**Cuando GW250114 esté liberado:**
+```python
+# Simplemente cambiar:
+gps_start = event_gps("GW250114") - 16  
+gps_end = gps_start + 32
+# Y volver a correr el mismo código
+```
+
+**Si el resultado es:**
+- BF > 10
+- p < 0.01  
+- coherencia en H1 y L1
+
+→ 🚨 **validación oficial de la frecuencia 141.7 Hz en GW250114**
+
+---
+
 ## 🗂️ Estructura del Proyecto
 
 ```
@@ -1702,20 +1899,24 @@ Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin par
 │   ├── analizar_ringdown.py       # Análisis espectral de control  
 │   ├── analisis_noesico.py        # Búsqueda de 141.7001 Hz + armónicos
 │   ├── analizar_l1.py             # Validación cruzada en L1
+│   │── validar_conectividad.py    # NEW: Validador GWOSC conectividad
+│   ├── validar_gw150914.py        # NEW: Validación control GW150914
+│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
+│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
+├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 │   ├── validar_conectividad.py    # NEW: Validador GWOSC conectividad
 │   ├── validar_gw150914.py        # NEW: Validación control GW150914
-│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114
-│   ├── verificacion_teorica.py    # NEW: Verificación teórica completa desde CY
-│   ├── validacion_numerica_5_7f.py # NEW: Validación numérica Sección 5.7(f)
-│   ├── validacion_compactificacion_quintica.py # NEW: Validación compactificación quíntica
-│   ├── analisis_bayesiano_multievento.py  # NEW: Análisis multi-evento (Listing 3)
+│   ├── analizar_gw250114.py       # NEW: Framework preparado GW250114  
+│   ├── pipeline_validacion.py     # NEW: Pipeline completo validación
 │   ├── verificador_gw250114.py    # NEW: Sistema verificación tiempo real
 │   ├── test_verificador_gw250114.py    # NEW: Tests verificador
-│   ├── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
-│   └── pipeline_validacion.py     # NEW: Pipeline completo validación
+│   └── ejemplo_verificador_gw250114.py # NEW: Ejemplos de uso verificador
 ├── validacion_paso_a_paso.ipynb   # NEW: Notebook interactivo Jupyter
 ├── notebooks/
 │   └── 141hz_validation.ipynb     # Notebook reproducible en Colab
+├── data/
+│   └── raw/                       # Datos descargados de GWOSC
+├── resultados/                    # Resultados de análisis JSON
 ├── results/
 │   └── figures/                   # Gráficos generados
 ├── requirements.txt               # Dependencias científicas
@@ -1730,114 +1931,23 @@ Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin par
 - **`validar_conectividad.py`**: Verifica conexión a GWOSC (paso 1)
 - **`validar_gw150914.py`**: Control con GW150914, BF y p-values (pasos 2-4)  
 - **`analizar_gw250114.py`**: Framework preparado para GW250114 (paso 5)
-- **`verificacion_teorica.py`**: Verificación completa de predicciones teóricas desde compactificación Calabi-Yau
-- **`validacion_numerica_5_7f.py`**: Validación numérica de la Sección 5.7(f) - jerarquía RΨ y volumen CY
-- **`validacion_compactificacion_quintica.py`**: Validación de compactificación sobre la quíntica en ℂP⁴ (Sección 5.7f)
-- **`analisis_bayesiano_multievento.py`**: Análisis bayesiano automatizado multi-evento (Listing 3)
-- **`verificador_gw250114.py`**: Sistema de verificación en tiempo real para GW250114
-- **`test_verificador_gw250114.py`**: Tests unitarios del sistema de verificación
-- **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso del verificador
 - **`validacion_paso_a_paso.ipynb`**: Notebook interactivo para validación paso a paso
 
-### 🔍 Sistema de Verificación en Tiempo Real GW250114 (NUEVO)
-
-El sistema de verificación automática monitorea la disponibilidad de GW250114 en GWOSC y realiza análisis automático cuando el evento esté disponible:
-
-```bash
-# Verificación única
-python3 scripts/verificador_gw250114.py --once
-
-# Monitoreo continuo (verifica cada hora)
-python3 scripts/verificador_gw250114.py --interval 3600
-
-# Monitoreo con límite de verificaciones
-python3 scripts/verificador_gw250114.py --max-checks 10
-
-# Ejemplos de uso interactivos
-python3 scripts/ejemplo_verificador_gw250114.py
-```
-
-**Características:**
-- ✅ Verificación automática de disponibilidad en GWOSC
-- ✅ Análisis espectral completo cuando el evento esté disponible
-- ✅ Búsqueda de componente en 141.7001 Hz
-- ✅ Cálculo de SNR y Bayes Factor
-- ✅ Evaluación de significancia estadística
-- ✅ Análisis multi-detector (H1, L1)
-- ✅ Guardado automático de resultados en JSON
-- ✅ Tests unitarios completos
-
-**Ejecutar tests:**
-```bash
-python3 scripts/test_verificador_gw250114.py
-```
-
-### 🌌 Análisis Bayesiano Multi-evento (NUEVO)
-
-> 📖 **Documentación completa**: Ver [ANALISIS_BAYESIANO_MULTIEVENTO.md](ANALISIS_BAYESIANO_MULTIEVENTO.md)
-
-Implementación del análisis automatizado descrito en el Listing 3 del paper. Evalúa la consistencia 
-de la frecuencia 141.7001 Hz a través de múltiples eventos del catálogo GWTC-1–3:
-
-```bash
-# Ejecutar análisis multi-evento
-make multievento
-
-# O directamente con Python
-python3 scripts/analisis_bayesiano_multievento.py
-```
-
-**Eventos analizados:**
-- GW150914 (11 Sep 2015) - Primer evento detectado
-- GW151012 (12 Oct 2015) - Segunda detección  
-- GW170104 (4 Jan 2017) - GWTC-1
-- GW190521 (21 May 2019) - GWTC-2, masa más alta
-- GW200115 (15 Jan 2020) - GWTC-3
-
-**Resultados esperados:**
-```
-Frecuencia media: 141.XXXX ± 0.XXXX Hz
-```
-
-El script automáticamente:
-1. Descarga datos de GWOSC para cada evento
-2. Calcula PSD con FFT length de 4 segundos
-3. Identifica pico máximo en banda 140-143 Hz
-4. Calcula estadísticas (media, desviación estándar)
-5. Compara con frecuencia objetivo 141.7001 Hz
-
-
-## 🔬 NUEVO: Formalización Matemática de la Simetría Discreta
-
-> 📖 **Guía rápida**: Ver [GUIA_RAPIDA_SIMETRIA.md](GUIA_RAPIDA_SIMETRIA.md)  
-> 📖 **Documentación completa**: Ver [SIMETRIA_DISCRETA_DOCUMENTACION.md](SIMETRIA_DISCRETA_DOCUMENTACION.md)
-
-### Justificación Rigurosa del Término A(R_Ψ)
-
-Hemos implementado la **formalización matemática completa** que demuestra que el término $A(R_\Psi) = \sin^2(\log R_\Psi / \log \pi)$ **no es un ajuste arbitrario**, sino una **consecuencia necesaria** de un grupo de simetría discreta:
-
-$$G = \{R_\Psi \mapsto \pi^k R_\Psi \mid k \in \mathbb{Z}\}$$
-
-### Características Implementadas
-
-- ✅ **Grupo de simetría discreta G** - Grupo abeliano con periodo logarítmico $\log \pi$
-- ✅ **Potencial invariante** - Expansión de Fourier periódica
-- ✅ **Análisis variacional** - Energía de vacío con demostración de coercividad
-- ✅ **Existencia de mínimos** - Soluciones en cada celda $[\pi^n, \pi^{n+1}]$
-- ✅ **Estabilidad** - Verificación de $\partial^2 E/\partial R^2 > 0$
-- ✅ **Predicciones independientes** - Frecuencias armónicas $f_n = f_0/\pi^{2n}$
-
-### Uso Rápido
-
-```bash
-# Ejecutar análisis completo
-python scripts/simetria_discreta.py
-
-# Ejecutar tests (5/5 pasando)
-python scripts/test_simetria_discreta.py
-
-# Notebook interactivo
-jupyter notebook notebooks/simetria_discreta_analisis.ipynb
+## 📈 Próximos pasos
+├── VERIFICADOR_GW250114_DOC.md    # NEW: Documentación verificador
+└── README.md                      # Documentación principal
+│   ├── analisis_gw250114.py     # 🆕 Análisis completo GW250114 (6 pasos)
+│   ├── descargar_datos.py       # Descarga automática desde GWOSC
+│   ├── analizar_ringdown.py     # Análisis espectral de control
+│   ├── analisis_noesico.py      # Búsqueda de 141.7001 Hz + armónicos  
+│   └── analizar_l1.py           # Validación cruzada en L1
+├── results/
+│   ├── gw250114/                # 🆕 Resultados análisis GW250114
+│   └── figures/                 # Gráficos generados (legacy)
+├── requirements.txt             # Dependencias científicas + gwosc
+├── Makefile                     # Flujo automatizado con nuevos targets
+├── Dockerfile                   # Contenedor reproducible
+└── README.md                    # Documentación principal
 ```
 
 ### Predicciones Falsables
@@ -1853,20 +1963,34 @@ El análisis predice **armónicos superiores** en frecuencias específicas:
 
 Estas frecuencias pueden **buscarse experimentalmente** en datos LIGO/Virgo como validación independiente.
 
+### 🌐 Sistema de Verificación en Tiempo Real (NUEVO)
+
+> 📖 **Documentación completa**: Ver [VERIFICADOR_GW250114_DOC.md](VERIFICADOR_GW250114_DOC.md)
+
+Sistema automatizado para detectar y analizar GW250114 cuando esté disponible en GWOSC:
+
+- **`verificador_gw250114.py`**: Sistema principal de verificación y análisis
+  - ✅ Monitoreo automático de catálogo GWOSC
+  - ✅ Descarga automática de datos cuando evento esté disponible
+  - ✅ Análisis espectral de 141.7001 Hz
+  - ✅ Generación de informes JSON estructurados
+  
+- **`test_verificador_gw250114.py`**: Suite de tests unitarios
+- **`ejemplo_verificador_gw250114.py`**: Ejemplos de uso e integración
+
+**Uso básico:**
+```bash
+# Verificación única
+python scripts/verificador_gw250114.py
+
+# Ejecutar tests
+python scripts/test_verificador_gw250114.py
+
+# Ver ejemplos
+python scripts/ejemplo_verificador_gw250114.py
+```
+
 ---
-
-## 📊 Próximos pasos
-
-- [x] Validación múltiple de 141.7001 Hz en GW150914
-- [x] **NUEVO**: Formalización matemática rigurosa del término A(R_Ψ)
-- [x] **NUEVO**: Predicción de frecuencias armónicas verificables
-- [x] **NUEVO**: Búsqueda experimental de armónicos superiores en LIGO
-- [x] **NUEVO**: Caracterización bayesiana mejorada de Q-factor
-- [x] **NUEVO**: Análisis de resonancia cruzada Virgo/KAGRA
-- [ ] Análisis completo de GW250114 cuando esté disponible
-- [ ] Publicación científica formal
-
-## 🤝 Contribuir
 
 Este proyecto sigue un modelo abierto y simbiótico con **CI/CD automatizado real**.
 

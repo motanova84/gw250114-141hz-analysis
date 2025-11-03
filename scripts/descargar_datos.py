@@ -6,6 +6,12 @@ from gwpy.timeseries import TimeSeries
 import os
 
 def main():
+    # Obtener la ruta base del proyecto (directorio padre del script)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    data_dir = os.path.join(project_dir, 'data', 'raw')
+    
+    # Crear directorio de datos si no existe
     # Crear directorio de datos si no existe (ruta absoluta desde el script)
     script_dir = os.path.dirname(os.path.abspath(__file__))
     data_dir = os.path.join(script_dir, '..', 'data', 'raw')
