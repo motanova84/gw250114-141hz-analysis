@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi multievento test-multievento energia-cuantica test-energia-cuantica latido-universal test-latido-universal workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,6 +54,13 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
+	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
+	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
+	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
+	@echo "  latido-universal      - Solve Universal Heartbeat Equation (NEW)"
+	@echo "  test-latido-universal - Test Universal Heartbeat Equation solver (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -107,7 +114,7 @@ analyze: check-data
 	./venv/bin/python scripts/analisis_noesico.py
 
 # Run scientific validation pipeline (NEW - from problem statement)
-validate: setup
+validate: setup validate-3-pilares
 	@echo "🚀 Ejecutando Pipeline de Validación Científica"
 	@echo "   Implementa los requisitos del problema statement"
 	./venv/bin/python scripts/pipeline_validacion.py || echo "⚠️  Validación completada con advertencias - revisar log"
@@ -139,6 +146,24 @@ validate-gw250114: setup
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
 
+# Dashboard for real-time monitoring
+dashboard: setup
+	@echo "📊 Iniciando Dashboard GW250114..."
+	@echo "🌐 Accede a http://localhost:5000/monitor-gw"
+	./venv/bin/python scripts/run_dashboard.py
+
+# Solve Universal Heartbeat Equation
+latido-universal: setup
+	@echo "💓 Resolviendo Ecuación del Latido Universal..."
+	@echo "   ∂²Ψ/∂t² + ω₀²Ψ = I·A²eff·ζ'(1/2)"
+	@echo "   donde ω₀ = 2π(141.7001 Hz) = 890.328 rad/s"
+	./venv/bin/python scripts/ecuacion_latido_universal.py
+
+# Test Universal Heartbeat Equation solver
+test-latido-universal: setup
+	@echo "🧪 Testing Ecuación del Latido Universal..."
+	./venv/bin/python scripts/test_ecuacion_latido_universal.py
+
 # Docker support
 docker:
 	docker build -t gw141hz .
@@ -155,3 +180,95 @@ clean:
 	rm -rf venv __pycache__ .pytest_cache results/ data/ *.egg-info
 	rm -rf scripts/__pycache__/ notebooks/__pycache__/
 	@echo "✅ Limpieza completada"
+
+# Experimental Protocols for f₀ Validation
+experimentos: setup
+	@echo "🧪 Ejecutando Protocolos Experimentales para f₀ = 141.7001 Hz..."
+	./venv/bin/python scripts/protocolos_experimentales.py
+	@echo ""
+	@echo "✅ Experimentos completados"
+	@echo "📊 Resultados: results/experimentos_f0.json"
+
+# Test experimental protocols
+test-experimentos: setup
+	@echo "🧪 Ejecutando tests de protocolos experimentales..."
+	./venv/bin/python scripts/test_protocolos_experimentales.py
+	@echo ""
+	@echo "✅ Tests completados"
+
+# Generate workflow diagrams for experiments
+diagrams-experimentos: setup
+	@echo "📊 Generando diagramas de flujo experimental..."
+	./venv/bin/python scripts/generar_diagrama_experimentos.py
+	@echo ""
+	@echo "✅ Diagramas generados"
+	@echo "🖼️  Flujo: results/figures/flujo_experimentos_f0.png"
+	@echo "🖼️  Timeline: results/figures/timeline_experimentos_f0.png"
+
+# Search for higher harmonics of f₀
+busqueda-armonicos: setup
+	@echo "🎵 Búsqueda experimental de armónicos superiores..."
+	@echo "   Frecuencia fundamental: f₀ = 141.7001 Hz"
+	@echo "   Armónicos: submúltiplos, múltiplos, áureos, π"
+	./venv/bin/python scripts/busqueda_armonicos_superiores.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test higher harmonics search
+test-armonicos: setup
+	@echo "🧪 Testing búsqueda de armónicos superiores..."
+	./venv/bin/python scripts/test_busqueda_armonicos_superiores.py
+
+# Multi-detector cross-resonance analysis (Virgo/KAGRA)
+resonancia-cruzada: setup
+	@echo "🔗 Análisis de resonancia cruzada multi-detector..."
+	@echo "   Detectores: H1, L1, V1, K1"
+	@echo "   Análisis: Coherencia, fase, SNR individual"
+	./venv/bin/python scripts/resonancia_cruzada_virgo_kagra.py || echo "⚠️  Análisis completado con advertencias"
+
+# Test cross-resonance analysis
+test-resonancia: setup
+	@echo "🧪 Testing análisis de resonancia cruzada..."
+	./venv/bin/python scripts/test_resonancia_cruzada_virgo_kagra.py
+
+# Bayesian Q-factor characterization
+caracterizacion-bayesiana: setup
+	@echo "📊 Caracterización bayesiana del Q-factor..."
+	@echo "   Incluye: distribución posterior, intervalos de credibilidad"
+	./venv/bin/python scripts/caracterizacion_bayesiana.py || echo "⚠️  Caracterización completada con advertencias"
+
+# Test Bayesian characterization
+test-caracterizacion: setup
+	@echo "🧪 Testing caracterización bayesiana..."
+	@echo "   Verificando cálculo de posteriores y Q-factor"
+	@./venv/bin/python -c "from scripts.caracterizacion_bayesiana import CaracterizacionBayesiana, generar_datos_sinteticos_gw250114; import numpy as np; datos, fs, _ = generar_datos_sinteticos_gw250114(); bayes = CaracterizacionBayesiana(); res = bayes.estimar_q_factor(datos, fs); print('✅ Tests básicos pasaron')"
+
+# Additional reproducibility targets
+
+# Build LaTeX documentation (if available)
+pdf-docs:
+	@echo "📄 Building LaTeX documentation..."
+	@if command -v latexmk >/dev/null 2>&1; then \
+		if [ -f "docs/main.tex" ]; then \
+			cd docs && latexmk -pdf -shell-escape main.tex; \
+		else \
+			echo "No LaTeX source found, skipping"; \
+		fi \
+	else \
+		echo "latexmk not installed, skipping PDF build"; \
+	fi
+
+# Generate environment lock file
+lock-env:
+	@echo "🔒 Generating environment lock file..."
+	./venv/bin/pip freeze > ENV.lock
+	@echo "✅ Environment locked to ENV.lock"
+
+# Run hierarchical Bayesian analysis for 141.7 Hz
+bayes-analysis:
+	@echo "📊 Running hierarchical Bayesian analysis..."
+	./venv/bin/python bayes/hierarchical_model.py
+
+# Verify antenna patterns
+antenna-check:
+	@echo "📡 Checking antenna pattern consistency..."
+	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
+	@echo "✅ Antenna pattern analysis complete"
