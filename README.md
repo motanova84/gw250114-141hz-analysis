@@ -750,45 +750,8 @@ python3 scripts/sistema_validacion_completo.py
 # O usando Make
 make validate
 
-# Análisis completo GWTC-3 (NUEVO)
-make gwtc3-analysis  # 30 eventos de 2019-2020, instalación automática
-
-# Búsqueda sistemática GWTC-1 (NUEVO)
-make busqueda-gwtc1  # 10 eventos de 2015-2017
-
-# Análisis multi-evento automatizado (NUEVO)
-make multievento
-
-# Análisis multi-evento de SNR en 141.7 Hz (NUEVO)
-make multi-event-snr      # Análisis de 11 eventos con H1 y L1
-make test-multi-event-snr # Ejecutar tests sin conectividad
-
-# Búsqueda de armónicos superiores (NUEVO)
-make busqueda-armonicos   # Buscar f₀/2, 2f₀, f₀×φ, f₀×π, etc.
-make test-armonicos       # Ejecutar tests de búsqueda
-
-# Análisis de resonancia cruzada Virgo/KAGRA (NUEVO)
-make resonancia-cruzada   # Análisis multi-detector con coherencia
-make test-resonancia      # Ejecutar tests de resonancia cruzada
-
-# Caracterización bayesiana mejorada (NUEVO)
-make caracterizacion-bayesiana  # Q-factor con posterior completa
-make test-caracterizacion       # Ejecutar tests de caracterización
-
-# Análisis de SNR para GW200129_065458 en 141.7 Hz
-make snr-gw200129         # Análisis con H1, L1, V1 (K1 no disponible)
-make test-snr-gw200129    # Ejecutar tests
-
-# Validación Scipy Pura - SNR en 141.7 Hz (NUEVO)
-python3 scripts/validate_scipy_snr_141hz.py  # Análisis con procesamiento scipy/numpy puro
-python3 scripts/test_validate_scipy_snr.py   # Ejecutar tests de funciones de filtrado
-
-# Sistema de alertas automáticas para GW250114
-make alert-gw250114  # Monitoreo continuo vía Make
-python3 scripts/verificador_gw250114.py  # Monitoreo continuo
-python3 scripts/verificador_gw250114.py --once  # Verificación única
-python3 scripts/ejemplo_verificador_gw250114.py  # Ejemplos de uso
-make test-alert-gw250114  # Ejecutar tests del sistema de alertas
+# Verificar optimización máxima del sistema
+make verify-optimization
 ```
 
 ### Resultados Generados
