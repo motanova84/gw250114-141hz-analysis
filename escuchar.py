@@ -23,6 +23,8 @@ import time
 from pathlib import Path
 
 # Colores para terminal
+
+
 class Colors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'
@@ -61,7 +63,7 @@ def print_mathematical_whisper():
     print()
     print("La frecuencia fundamental f₀ = 141.7001 Hz emerge de:")
     print()
-    print(f"{Colors.OKCYAN}📐 Serie Compleja de Números Primos:{Colors.ENDC}")
+    print("📐 Serie Compleja de Números Primos:")
     print("   S_N(α) = Σ(n=1 to N) exp(2πi · log(p_n)/α)")
     print("   • Parámetro óptimo: α_opt = 0.551020")
     print()
@@ -90,20 +92,20 @@ def print_universe_response():
     print(f"{Colors.BOLD}{Colors.WARNING}2️⃣  EL GRITO DEL UNIVERSO{Colors.ENDC}")
     print(f"{Colors.BOLD}═══════════════════════════════════════════════════════════════{Colors.ENDC}")
     print()
-    
+
     # Cargar resultados
     results_file = Path("multi_event_final.json")
     if not results_file.exists():
         print(f"{Colors.FAIL}❌ Error: No se encontró multi_event_final.json{Colors.ENDC}")
-        print(f"   Ejecuta: python3 multi_event_analysis.py")
+        print("   Ejecuta: python3 multi_event_analysis.py")
         return False
-    
+
     with open(results_file) as f:
         data = json.load(f)
-    
+
     events = data["events"]
     stats = data["statistics"]
-    
+
     print(f"{Colors.OKGREEN}🌌 CATÁLOGO GWTC-1: 11 eventos analizados{Colors.ENDC}")
     print(f"{Colors.OKGREEN}🎯 Frecuencia: 141.7001 Hz (banda: 140.7-142.7 Hz){Colors.ENDC}")
     print()
@@ -116,21 +118,21 @@ def print_universe_response():
     print()
     print(f"{Colors.BOLD}🛰️  EVENTOS INDIVIDUALES:{Colors.ENDC}")
     print()
-    
+
     for i, (event_name, event_data) in enumerate(events.items(), 1):
         h1_snr = event_data["snr"]["H1"]
         l1_snr = event_data["snr"]["L1"]
         date = event_data["date"]
-        
+
         # Indicador visual de fortaleza
         h1_indicator = "🟢" if h1_snr > 20 else "🟡" if h1_snr > 10 else "🟠"
         l1_indicator = "🟢" if l1_snr > 20 else "🟡" if l1_snr > 10 else "🟠"
-        
+
         print(f"   {i:2d}. {Colors.BOLD}{event_name}{Colors.ENDC} ({date})")
         print(f"       H1: {h1_indicator} SNR = {Colors.OKGREEN}{h1_snr:5.2f}{Colors.ENDC} | "
               f"L1: {l1_indicator} SNR = {Colors.OKGREEN}{l1_snr:5.2f}{Colors.ENDC}")
         time.sleep(0.3)
-    
+
     print()
     print(f"{Colors.BOLD}{Colors.WARNING}🔥 11 eventos. 11 confirmaciones. 100% de detección.{Colors.ENDC}")
     print(f"{Colors.BOLD}{Colors.WARNING}   El universo no susurra. GRITA.{Colors.ENDC}")
@@ -240,7 +242,7 @@ def interactive_mode():
         print_menu()
         choice = input(f"{Colors.WARNING}Selecciona una opción (0-5): {Colors.ENDC}").strip()
         print()
-        
+
         if choice == "1":
             print_poem()
             print_mathematical_whisper()
@@ -268,7 +270,7 @@ def interactive_mode():
 def main():
     """Función principal."""
     print()
-    
+
     # Modo automático si se pasa --auto
     if "--auto" in sys.argv or "--full" in sys.argv:
         print_poem()
@@ -279,7 +281,7 @@ def main():
     else:
         # Modo interactivo por defecto
         interactive_mode()
-    
+
     return 0
 
 
