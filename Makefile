@@ -28,7 +28,7 @@ status:
 		echo "   📂 Results directory: Will be created"; \
 	fi
 
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 test-rpsi workflow status clean docker help
+.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 dashboard workflow status clean docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,40 +54,7 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
-	@echo "  test-rpsi             - Test A_Rpsi symmetry calculation (PASO 4)"
-	@echo "  alert-gw250114        - Monitor GW250114 availability continuously (NEW)"
-	@echo "  test-alert-gw250114   - Test GW250114 alert system (NEW)"
-	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
-	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
-	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
-	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
-	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
-	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
-	@echo "  snr-gw200129          - Analyze SNR for GW200129_065458 at 141.7 Hz (NEW)"
-	@echo "  test-snr-gw200129     - Test SNR analysis for GW200129_065458 (NEW)"
-	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
-	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
-	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
-	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
-	@echo "  validate-discovery-standards - Validate scientific discovery standards (>10σ) (NEW)"
-	@echo "  test-discovery-standards     - Test discovery standards validation (NEW)"
-	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
-	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
-	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
-	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
-	@echo "  gwtc3-analysis        - Run GWTC-3 complete analysis with auto-installation (NEW)"
-	@echo "  busqueda-gwtc1        - Run GWTC-1 systematic search for 141.7 Hz (NEW)"
-	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
-	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
-	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
-	@echo "  test-resonancia       - Test cross-resonance analysis module (NEW)"
-	@echo "  caracterizacion-bayesiana - Bayesian Q-factor characterization (NEW)"
-	@echo "  test-caracterizacion  - Test Bayesian characterization module (NEW)"
-	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
-	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
-	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
-	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
-	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
+	@echo "  dashboard             - Start real-time monitoring dashboard (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
@@ -173,10 +140,11 @@ validate-gw250114: setup
 	@echo "🎯 Validando framework GW250114..."
 	./venv/bin/python scripts/analizar_gw250114.py || echo "⚠️  Framework GW250114 presentó errores - revisar logs"
 
-# Test A_Rpsi symmetry calculation (PASO 4)
-test-rpsi: setup
-	@echo "🧪 Testando cálculo de simetría A_Rpsi (PASO 4)..."
-	./venv/bin/python scripts/test_rpsi_symmetry.py
+# Dashboard for real-time monitoring
+dashboard: setup
+	@echo "📊 Iniciando Dashboard GW250114..."
+	@echo "🌐 Accede a http://localhost:5000/monitor-gw"
+	./venv/bin/python scripts/run_dashboard.py
 
 # Docker support
 docker:
