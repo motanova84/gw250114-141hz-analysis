@@ -93,4 +93,5 @@ def monitor_gw():
     '''
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # WARNING: Do not use debug=True in production. This configuration is for development only.
+    app.run(debug=False, host='0.0.0.0', port=5000)
