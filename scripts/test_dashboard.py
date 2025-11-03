@@ -50,7 +50,7 @@ def test_estado_endpoint_con_resultados():
         assert response.status_code == 200, "Status code debe ser 200"
         
         data = response.get_json()
-        assert data['disponible'] == True, "disponible debe ser True"
+        assert data['disponible'], "disponible debe ser True"
         assert data['estado'] == 'ANALIZADO', "estado debe ser ANALIZADO"
         assert 'resultados' in data, "Debe incluir resultados"
         
