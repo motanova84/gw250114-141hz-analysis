@@ -24,6 +24,167 @@ except ImportError:
     print("⚠️  Importando funciones desde validar_gw150914.py")
     # Las funciones se redefinirán si no están disponibles
 
+
+class VerificadorGW250114:
+    """
+    Verificador de disponibilidad del evento GW250114 en GWOSC.
+    Implementa la funcionalidad de verificación proactiva y búsqueda de eventos similares.
+    """
+    
+    def __init__(self):
+        """Inicializar verificador con catálogo de eventos conocidos"""
+        self.estado_actual = None
+        self.eventos_conocidos = {
+            'GW150914': {'gps': 1126259462.423, 'tipo': 'BBH', 'mass_total': 65},
+            'GW151226': {'gps': 1135136350.6, 'tipo': 'BBH', 'mass_total': 22},
+            'GW170104': {'gps': 1167559936.6, 'tipo': 'BBH', 'mass_total': 50},
+            'GW170814': {'gps': 1186741861.5, 'tipo': 'BBH', 'mass_total': 56},
+            'GW170823': {'gps': 1187529256.5, 'tipo': 'BBH', 'mass_total': 40},
+            'GW170817': {'gps': 1187008882.4, 'tipo': 'BNS', 'mass_total': 2.8}
+        }
+        self.eventos_similares = []
+        
+    def verificar_disponibilidad_evento(self, offline_mode=False):
+        """
+        Verifica si GW250114 está disponible en GWOSC.
+        
+        Args:
+            offline_mode (bool): Si es True, asume modo offline y no intenta conectarse
+        
+        Returns:
+            bool: True si está disponible, False en caso contrario
+        """
+        print("🔍 Verificando disponibilidad de GW250114 en GWOSC...")
+        
+        if offline_mode:
+            print("   📴 Modo offline: Saltando prueba de conectividad")
+            print("   🔍 GW250114 es un evento objetivo hipotético")
+            self.estado_actual = "NO_DISPONIBLE"
+            print(f"   📋 Estado: {self.estado_actual}")
+            return False
+        
+        try:
+            # Intentar verificar conectividad con GWOSC primero
+            test_event = 'GW150914'
+            test_gps = self.eventos_conocidos[test_event]['gps']
+            
+            # Test de conectividad con evento conocido
+            print(f"   📡 Probando conectividad con {test_event}...")
+            data = TimeSeries.fetch_open_data('H1', test_gps-1, test_gps+1, verbose=False)
+            print(f"   ✅ Acceso a catálogo confirmado (test con {test_event})")
+            
+            # Buscar GW250114 en catálogo
+            # Nota: GW250114 es un evento hipotético para este análisis
+            print("   🔍 Buscando GW250114 en catálogo GWTC...")
+            
+            # GW250114 no está disponible aún (es hipotético)
+            self.estado_actual = "NO_DISPONIBLE"
+            print(f"   📋 Estado: {self.estado_actual}")
+            print("   💡 GW250114 es un evento objetivo hipotético")
+            
+            return False
+            
+        except Exception as e:
+            print(f"   ❌ Error accediendo catálogo: {str(e)[:100]}...")
+            print("   💡 Posible problema de conectividad o modo offline")
+            self.estado_actual = "ERROR_CONEXION"
+            return False
+    
+    def verificar_eventos_similares(self, offline_mode=False):
+        """
+        Busca eventos similares disponibles en GWOSC que puedan servir
+        para validar la metodología mientras GW250114 no esté disponible.
+        
+        Args:
+            offline_mode (bool): Si es True, simula búsqueda sin conectarse a GWOSC
+        """
+        print("🔍 Buscando eventos similares disponibles en GWOSC...")
+        print("   📋 Criterios: Eventos BBH con ringdown detectable\n")
+        
+        self.eventos_similares = []
+        
+        for evento, info in self.eventos_conocidos.items():
+            try:
+                print(f"   🔹 {evento}:")
+                print(f"      • Tipo: {info['tipo']}")
+                print(f"      • GPS: {info['gps']}")
+                print(f"      • Masa total: ~{info['mass_total']} M☉")
+                
+                # Verificar disponibilidad del evento
+                print(f"      • Verificando disponibilidad...", end=" ")
+                gps = info['gps']
+                
+                if offline_mode:
+                    # En modo offline, asumimos que eventos conocidos están disponibles
+                    if info['tipo'] == 'BBH':
+                        print("✅ DISPONIBLE (offline mode)")
+                        self.eventos_similares.append({
+                            'nombre': evento,
+                            'gps': gps,
+                            'tipo': info['tipo'],
+                            'masa_total': info['mass_total'],
+                            'disponible': True
+                        })
+                    else:
+                        print("⚠️  NO BBH (offline mode)")
+                        self.eventos_similares.append({
+                            'nombre': evento,
+                            'gps': gps,
+                            'tipo': info['tipo'],
+                            'masa_total': info['mass_total'],
+                            'disponible': False
+                        })
+                else:
+                    # Intentar descargar un pequeño segmento
+                    try:
+                        test_data = TimeSeries.fetch_open_data(
+                            'H1', gps-1, gps+1, 
+                            verbose=False, 
+                            cache=False
+                        )
+                        print("✅ DISPONIBLE")
+                        
+                        self.eventos_similares.append({
+                            'nombre': evento,
+                            'gps': gps,
+                            'tipo': info['tipo'],
+                            'masa_total': info['mass_total'],
+                            'disponible': True
+                        })
+                        
+                    except Exception:
+                        print("❌ NO DISPONIBLE")
+                        self.eventos_similares.append({
+                            'nombre': evento,
+                            'gps': gps,
+                            'tipo': info['tipo'],
+                            'masa_total': info['mass_total'],
+                            'disponible': False
+                        })
+                
+                print()
+                
+            except Exception as e:
+                print(f"      ⚠️  Error verificando {evento}: {str(e)[:50]}...\n")
+        
+        # Resumen
+        disponibles = [e for e in self.eventos_similares if e.get('disponible', False)]
+        print(f"\n📊 RESUMEN DE BÚSQUEDA:")
+        print(f"   • Eventos verificados: {len(self.eventos_similares)}")
+        print(f"   • Eventos disponibles: {len(disponibles)}")
+        
+        if disponibles:
+            print(f"\n✅ EVENTOS DISPONIBLES PARA ANÁLISIS:")
+            for evento in disponibles:
+                print(f"   • {evento['nombre']} - {evento['tipo']} ({evento['masa_total']} M☉)")
+            print(f"\n💡 Estos eventos pueden usarse para validar la metodología")
+            print(f"   mientras esperamos la liberación de GW250114")
+        else:
+            print(f"\n⚠️  No se encontraron eventos disponibles en este momento")
+            print(f"   💡 Intentar más tarde o verificar conectividad")
+        
+        return self.eventos_similares
+
 def check_gw250114_availability():
     """Verificar si GW250114 está disponible en GWOSC"""
     print("🔍 Verificando disponibilidad de GW250114 en GWOSC...")

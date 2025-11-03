@@ -42,7 +42,7 @@ def analizar_espectro(tiempo, datos, sample_rate, frecuencia_objetivo=141.7):
     
     return freqs, potencia, freq_pico, potencia_pico, snr
 
-def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, output_dir):
+def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, sample_rate, output_dir):
     """Crear gráficos de diagnóstico"""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
     
@@ -128,7 +128,7 @@ def main():
         print(f"  - ¿Coincide con 141.7 Hz? {'SÍ' if abs(freq_pico-141.7)<1 else 'NO'}")
         
         # Crear gráficos
-        crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', output_dir)
+        crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', sample_rate, output_dir)
         print(f"Gráficos guardados en {output_dir}/")
     
     else:
