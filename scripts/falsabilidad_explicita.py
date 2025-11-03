@@ -9,8 +9,13 @@ como frecuencia fundamental del campo noésico.
 """
 
 import sys
-import json
 from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from src.validador_pilares import guardar_json
 
 
 def criterios_falsacion():
@@ -104,16 +109,8 @@ def criterios_falsacion():
 if __name__ == '__main__':
     try:
         resultados = criterios_falsacion()
-        
-        # Guardar resultados
-        output_dir = Path('results')
-        output_dir.mkdir(exist_ok=True)
-        
-        output_file = output_dir / 'criterios_falsacion.json'
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, indent=2, ensure_ascii=False)
-        
-        print(f"📊 Resultados guardados en: {output_file}")
+
+        print("📊 Resultados guardados en: results/criterios_falsacion.json")
         print()
         sys.exit(0)
         
