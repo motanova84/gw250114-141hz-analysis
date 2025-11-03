@@ -1,3 +1,6 @@
+.PHONY: all download analyze clean venv setup test-data
+
+all: setup test-data analyze
 .PHONY: all venv setup install data download test-data analyze validate pipeline clean docker help
 
 # Default target - complete workflow
@@ -65,6 +68,15 @@ help:
 venv:
 	python3 -m venv venv
 
+setup: venv
+	./venv/bin/pip install -r requirements.txt
+
+download:
+	./venv/bin/python scripts/descargar_datos.py
+
+test-data:
+	./venv/bin/python scripts/generar_datos_prueba.py
+
 # Setup environment with dependencies (alias for install)
 setup: venv
 	@echo "📦 Installing dependencies..."
@@ -90,6 +102,7 @@ test-data: data
 
 # Run complete analysis (legacy scripts)
 analyze:
+	./venv/bin/python scripts/analizar_ringdown.py
 # Check if data exists
 check-data:
 	@echo "🔍 Verificando disponibilidad de datos..."
