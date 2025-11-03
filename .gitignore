@@ -6,6 +6,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# C-Engine logs
+cengine_logs/
+ejemplos_cengine_qcal/
+
 # Distribution / packaging
 .Python
 build/
@@ -66,6 +70,11 @@ results/*
 results/figures/*
 # Keep verification and vacuum energy figures (PNG files)
 !results/figures/*.png
+# Keep example JSON results
+!results/*.json
+
+# Generated validation files
+output/
 
 # Temporary files
 *.tmp
@@ -104,3 +113,14 @@ config/*.env
 
 # Generated plots
 potential_plot.png
+gwtc3_results.png
+multi_event_analysis.png
+demo_multi_event_analysis.png
+snr_gw200129_065458_141hz.png
+desi_correlation_function.png
+
+# Generated data files
+Evac_Rpsi_data.csv
+
+# Test results directories
+scripts/results/
