@@ -11,8 +11,13 @@ Este script demuestra que los resultados son reproducibles y verificables.
 """
 
 import sys
-import json
 from pathlib import Path
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+
+from src.validador_pilares import guardar_json
 
 
 def garantizar_reproducibilidad():
@@ -80,7 +85,7 @@ def garantizar_reproducibilidad():
     print(f"Estado: {resultados_reproducibilidad['estado']}")
     print()
     
-    # Guardar resultados (añadido para que los tests pasen)
+    # Guardar resultados automáticamente
     output_dir = Path('results')
     output_dir.mkdir(exist_ok=True)
     
@@ -94,16 +99,8 @@ def garantizar_reproducibilidad():
 if __name__ == '__main__':
     try:
         resultados = garantizar_reproducibilidad()
-        
-        # Guardar resultados
-        output_dir = Path('results')
-        output_dir.mkdir(exist_ok=True)
-        
-        output_file = output_dir / 'validacion_reproducibilidad.json'
-        with open(output_file, 'w', encoding='utf-8') as f:
-            json.dump(resultados, f, indent=2, ensure_ascii=False)
-        
-        print(f"📊 Resultados guardados en: {output_file}")
+
+        print("📊 Resultados guardados en: results/validacion_reproducibilidad.json")
         print()
         sys.exit(0)
         
