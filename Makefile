@@ -1,3 +1,7 @@
+.PHONY: all venv setup install data download test-data analyze validate pipeline clean docker help
+
+# Default target - complete workflow
+all: setup validate
 .PHONY: all install venv setup data analyze clean docker
 
 all: setup data analyze
@@ -22,6 +26,19 @@ all: setup validate
 help:
 	@echo "🌌 GW250114 - 141.7001 Hz Analysis - Available targets:"
 	@echo ""
+	@echo "  all         - Complete workflow: setup + validate"
+	@echo "  setup       - Create virtual environment and install dependencies"
+	@echo "  install     - Alias for setup (compatibility)"
+	@echo "  venv        - Create virtual environment only"
+	@echo "  data        - Download real GWOSC data"
+	@echo "  download    - Alias for data (compatibility)"
+	@echo "  test-data   - Generate test data (falls back to real data)"
+	@echo "  analyze     - Run complete analysis pipeline"
+	@echo "  validate    - Run scientific validation pipeline (NEW)"
+	@echo "  pipeline    - Alias for validate (compatibility)"
+	@echo "  docker      - Build and run Docker container"
+	@echo "  clean       - Remove generated files and virtual environment"
+	@echo "  help        - Show this help message"
 	@echo "  all                   - Complete workflow: setup + validate"
 	@echo "  setup                 - Create virtual environment and install dependencies"
 	@echo "  install               - Alias for setup (compatibility)"
@@ -71,6 +88,8 @@ test-data: data
 	@echo "⚠️  Test data generation script not implemented yet"
 	@echo "   Using real GWOSC data instead via 'make data'"
 
+# Run complete analysis (legacy scripts)
+analyze:
 # Check if data exists
 check-data:
 	@echo "🔍 Verificando disponibilidad de datos..."
@@ -90,6 +109,14 @@ analyze: check-data
 	./venv/bin/python scripts/analizar_l1.py
 	./venv/bin/python scripts/analisis_noesico.py
 
+# Run scientific validation pipeline (NEW - from problem statement)
+validate:
+	@echo "🚀 Ejecutando Pipeline de Validación Científica"
+	@echo "   Implementa los requisitos del problema statement"
+	./venv/bin/python scripts/pipeline_validacion.py
+
+# Alias for validate
+pipeline: validate
 # Run comprehensive GW250114 analysis (6-step workflow)
 analyze-gw250114:
 	./venv/bin/python scripts/analisis_gw250114.py
