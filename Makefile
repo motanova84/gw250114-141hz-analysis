@@ -16,6 +16,26 @@ setup: venv
 	./venv/bin/pip install --upgrade pip
 	./venv/bin/pip install -r requirements.txt
 
+.PHONY: \
+  all venv setup install \
+  data download test-data check-data \
+  analyze validate validate-offline pipeline \
+  validate-connectivity validate-gw150914 validate-gw250114 \
+  alert-gw250114 test-alert-gw250114 test-rpsi \
+  validacion-quintica multievento test-multievento \
+  multi-event-snr test-multi-event-snr demo-multi-event-snr \
+  snr-gw200129 test-snr-gw200129 \
+  energia-cuantica test-energia-cuantica \
+  validate-3-pilares test-3-pilares \
+  validate-discovery-standards test-discovery-standards \
+  pycbc-analysis test-pycbc demo-pycbc coherencia-escalas \
+  gwtc3-analysis busqueda-gwtc1 \
+  busqueda-armonicos test-armonicos resonancia-cruzada test-resonancia \
+  caracterizacion-bayesiana test-caracterizacion \
+  dashboard dashboard-status workflow status \
+  escuchar test-escuchar listen \
+  clean docker help \
+  experimentos test-experimentos diagrams-experimentos
 install: setup
 
 .PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 verify-optimization workflow status clean docker help
@@ -57,6 +77,42 @@ help:
 	@echo "  validate-connectivity - Test GWOSC connectivity only (NEW)"
 	@echo "  validate-gw150914     - Validate GW150914 control (NEW)"
 	@echo "  validate-gw250114     - Test GW250114 framework (NEW)"
+	@echo "  alert-gw250114        - Monitor GW250114 availability continuously (NEW)"
+	@echo "  test-alert-gw250114   - Test GW250114 alert system (NEW)"
+	@echo "  test-rpsi             - Test R_Ψ symmetry and compactification radius (NEW)"
+	@echo "  multievento           - Run multi-event Bayesian analysis (NEW)"
+	@echo "  test-multievento      - Test multi-event module with synthetic data (NEW)"
+	@echo "  multi-event-snr       - Run multi-event SNR analysis at 141.7 Hz (NEW)"
+	@echo "  test-multi-event-snr  - Test multi-event SNR analysis module (NEW)"
+	@echo "  demo-multi-event-snr  - Demo multi-event SNR with synthetic data (NEW)"
+	@echo "  snr-gw200129          - Analyze SNR for GW200129_065458 at 141.7 Hz (NEW)"
+	@echo "  test-snr-gw200129     - Test SNR analysis for GW200129_065458 (NEW)"
+	@echo "  energia-cuantica      - Calculate quantum energy E_Ψ = hf₀ (NEW)"
+	@echo "  test-energia-cuantica - Test quantum energy calculations (NEW)"
+	@echo "  validate-3-pilares    - Run 3 pillars validation: reproducibility, falsifiability, evidence (NEW)"
+	@echo "  test-3-pilares        - Test 3 pillars validation scripts (NEW)"
+	@echo "  validate-discovery-standards - Validate scientific discovery standards (>10σ) (NEW)"
+	@echo "  test-discovery-standards     - Test discovery standards validation (NEW)"
+	@echo "  pycbc-analysis        - Run PyCBC-based GW150914 analysis (NEW)"
+	@echo "  test-pycbc            - Test PyCBC analysis script (NEW)"
+	@echo "  demo-pycbc            - Run PyCBC analysis demo with simulated data (NEW)"
+	@echo "  coherencia-escalas    - Generate coherence multi-scale visualization (NEW)"
+	@echo "  gwtc3-analysis        - Run GWTC-3 complete analysis with auto-installation (NEW)"
+	@echo "  busqueda-gwtc1        - Run GWTC-1 systematic search for 141.7 Hz (NEW)"
+	@echo "  busqueda-armonicos    - Search for higher harmonics of f₀ in LIGO data (NEW)"
+	@echo "  test-armonicos        - Test higher harmonics search module (NEW)"
+	@echo "  resonancia-cruzada    - Multi-detector cross-resonance analysis (Virgo/KAGRA) (NEW)"
+	@echo "  test-resonancia       - Test cross-resonance analysis module (NEW)"
+	@echo "  caracterizacion-bayesiana - Bayesian Q-factor characterization (NEW)"
+	@echo "  test-caracterizacion  - Test Bayesian characterization module (NEW)"
+	@echo "  experimentos          - Run experimental protocols for f₀ validation (NEW)"
+	@echo "  test-experimentos     - Test experimental protocols (28 tests) (NEW)"
+	@echo "  diagrams-experimentos - Generate workflow diagrams for experiments (NEW)"
+	@echo "  escuchar              - Interactive discovery experience: 'Ahora te toca escuchar' (NEW)"
+	@echo "  test-escuchar         - Test escuchar.py interactive script (NEW)"
+	@echo "  listen                - Alias for escuchar (English) (NEW)"
+	@echo "  dashboard             - Run real-time monitoring dashboard (NEW)"
+	@echo "  dashboard-status      - Run GW250114 status dashboard (NEW)"
 	@echo "  verify-optimization   - Verify maximum system optimization (NEW)"
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
@@ -250,3 +306,32 @@ antenna-check:
 	@echo "📡 Checking antenna pattern consistency..."
 	@jupyter nbconvert --to notebook --execute notebooks/antenna_pattern.ipynb --output antenna_pattern_executed.ipynb
 	@echo "✅ Antenna pattern analysis complete"
+
+# Interactive discovery experience: "Ahora te toca escuchar"
+escuchar:
+	@echo "🎧 Iniciando experiencia interactiva del descubrimiento..."
+	@if [ ! -f "multi_event_final.json" ]; then \
+		echo "⚠️  Generando resultados multi-evento primero..."; \
+		python3 multi_event_analysis.py; \
+	fi
+	python3 escuchar.py
+
+# Run escuchar in automatic mode (no interaction)
+escuchar-auto:
+	@echo "🎧 Ejecutando modo automático..."
+	@if [ ! -f "multi_event_final.json" ]; then \
+		echo "⚠️  Generando resultados multi-evento primero..."; \
+		python3 multi_event_analysis.py; \
+	fi
+	python3 escuchar.py --auto
+
+# Test escuchar.py script
+test-escuchar:
+	@echo "🧪 Testing escuchar.py interactive script..."
+	python3 test_escuchar.py
+
+# Alias for escuchar (English)
+listen: escuchar
+
+# Alias for automatic mode (English)
+listen-auto: escuchar-auto
