@@ -1484,38 +1484,7 @@ asd = data.asd(fftlength=4, overlap=0.5)         # Densidad espectral
 whitened = data.whiten(asd=asd)                  # Whitening
 
 # Nuestro análisis es compatible y complementario
-```
-
----
-
-## 🗓️ Roadmap de Investigación
-
-### Fase I: Fundamentos (Completada ✅)
-- [x] **Validación en GW150914** - Demostrar detección de 141.7 Hz en evento conocido
-- [x] **Implementación multi-detector** - Validación cruzada H1-L1  
-- [x] **Control de artefactos** - Descartar líneas instrumentales
-- [x] **Pipeline reproducible** - Docker + scripts automatizados
-- [x] **Estimación de significancia** - SNR > 7, p-value < 0.001
-
-### Fase II: Expansión (En Progreso 🔄)
-- [x] **GW150914 completado** - Análisis de control exitoso
-- [ ] **GW250114 análisis** - Objetivo principal cuando datos estén disponibles
-- [ ] **Caracterización Bayesiana** - Estimación precisa de Q-factor y amplitud
-- [ ] **Búsqueda sistemática** - Análisis de todos los eventos GWTC-1
-- [ ] **Optimización de SNR** - Técnicas avanzadas de filtrado y coherencia
-
-### Fase III: Validación Externa (Planificada 📋)
-- [ ] **Integración Virgo** - Análisis tri-detector para mayor significancia
-- [ ] **Validación KAGRA** - Confirmación con detector asiático
-- [ ] **Simulaciones Monte Carlo** - Estimación robusta de falsos positivos  
-- [ ] **Peer review** - Revisión por comunidad científica independiente
-- [ ] **Replicación independiente** - Confirmación por grupos externos
-
-### Fase IV: Publicación Científica (Futura 🚀)
-- [ ] **Paper técnico** - Metodología y resultados en revista peer-reviewed
-- [ ] **Contribución a LIGO** - Propuesta de incorporación en análisis oficial
-- [ ] **Conferencias internacionales** - Presentación en meetings LIGO/Virgo
-- [ ] **Código público** - Contribución a bibliotecas oficiales (GWPy)
+``
 
 
 ---
@@ -1784,8 +1753,6 @@ El nuevo script `scripts/analisis_gw250114.py` implementa el **estándar de oro*
 **🚀 Resultado esperado**: Si cumple todos los criterios → **"Detectamos componente en 141.7 Hz con significancia BF=XX, p=YY"**
 
 ## 🧠 Fundamento Teórico
-
-> **⚠️ ACLARACIÓN METODOLÓGICA:** La frecuencia f₀ = 141.7001 Hz **no fue "introducida" desde los datos ni "ajustada" para coincidir con observaciones.**
 > 
 > Fue **derivada teóricamente** desde un marco coherente que combina:
 > - **Geometría Calabi–Yau compactificada** (R_Ψ ≈ 10⁴⁷ ℓ_P)
@@ -1977,20 +1944,6 @@ python scripts/ejemplo_verificador_gw250114.py
 ```
 
 ---
-
-## 📊 Próximos pasos
-
-- [x] Validación múltiple de 141.7001 Hz en GW150914
-- [x] **Workflow completo de 6 pasos para GW250114** 🆕
-- [x] **Integración con GWOSC oficial** 🆕
-- [x] **Estadística clásica con time-slides** 🆕  
-- [x] **Cálculo de Bayes Factor** 🆕
-- [ ] Análisis completo de GW250114 cuando esté disponible en GWOSC
-- [ ] Caracterización bayesiana avanzada con bilby/pycbc
-- [ ] Resonancia cruzada Virgo / KAGRA
-- [ ] Publicación científica formal
-
-## 🤝 Contribuir
 
 Este proyecto sigue un modelo abierto y simbiótico con **CI/CD automatizado real**.
 
