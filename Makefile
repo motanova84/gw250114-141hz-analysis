@@ -1,3 +1,23 @@
+.PHONY: all install venv setup data analyze clean docker
+
+all: setup data analyze
+
+venv:
+	python3 -m venv venv
+
+setup: venv
+	./venv/bin/pip install --upgrade pip
+	./venv/bin/pip install -r requirements.txt
+
+install: setup
+
+data:
+	./venv/bin/python scripts/descargar_datos.py
+
+analyze:
+	./venv/bin/python scripts/analizar_ringdown.py
+	./venv/bin/python scripts/analizar_l1.py
+	./venv/bin/python scripts/analisis_noesico.py
 .PHONY: all venv setup install data download test-data analyze analyze-gw250114 analyze-all clean docker help
 
 # Default target - complete workflow

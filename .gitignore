@@ -1,3 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
 # Virtual environment
 venv/
 
@@ -24,6 +31,17 @@ parts/
 sdist/
 var/
 wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+
+# Results and data directories
+results/
+data/
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -88,6 +106,18 @@ tmp/
 *.swp
 *.swo
 
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache
+
+# mypy
+.mypy_cache
 # OS generated files
 .DS_Store
 .DS_Store?
