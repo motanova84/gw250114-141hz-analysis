@@ -121,16 +121,6 @@ desi_correlation_function.png
 
 # Generated data files
 Evac_Rpsi_data.csv
-gwtc3_analysis_results.json
 
 # Test results directories
 scripts/results/
-
-# AI Accessibility Files (DO NOT IGNORE - These are important)
-!.ai-instructions.md
-!.repo-map.json
-!.repo-metadata.yml
-!AI_ACCESSIBILITY.md
-!robots.txt
-!CITATION.cff
-!.well-known/

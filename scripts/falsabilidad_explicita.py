@@ -95,9 +95,7 @@ def criterios_falsacion():
     print(f"   Verificación: {resultado_falsabilidad['verificacion']}")
     print()
     
-    guardar_json('criterios_falsacion.json', resultado_falsabilidad, 'results')
-
-    # Guardar resultados (añadido para que los tests pasen)
+    # Guardar resultados automáticamente
     output_dir = Path('results')
     output_dir.mkdir(exist_ok=True)
     
