@@ -12,6 +12,9 @@ def main():
     data_dir = os.path.join(project_dir, 'data', 'raw')
     
     # Crear directorio de datos si no existe
+    # Crear directorio de datos si no existe (ruta absoluta desde el script)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    data_dir = os.path.join(script_dir, '..', 'data', 'raw')
     os.makedirs(data_dir, exist_ok=True)
     
     # Para GW150914 (control - datos reales disponibles)
