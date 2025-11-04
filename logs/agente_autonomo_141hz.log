@@ -1,0 +1,582 @@
+2025-11-04 02:52:26,986 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:26,986 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: validacion_fallida
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: archivo_faltante
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:26,987 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: archivo_faltante
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: results
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: archivo_faltante
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: results
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: logs
+2025-11-04 02:52:26,988 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: data
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: tmp
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:26,989 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_exitoso.py
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,007 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_fallido.py
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,024 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_simple.py
+2025-11-04 02:52:27,041 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: test_reporte.json
+2025-11-04 02:52:27,042 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,042 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:27,042 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:27,042 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:27,042 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,043 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_con_recuperacion.py
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: desconocido
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - WARNING - ⚠️  Corrección no aplicable: No se encontró método de corrección para: desconocido
+2025-11-04 02:52:27,068 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de resonancia cuántica: 0.706s
+2025-11-04 02:52:27,774 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,774 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,774 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 2/3
+2025-11-04 02:52:27,774 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,775 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_con_recuperacion.py
+2025-11-04 02:52:27,800 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,800 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 2
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:27,801 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,802 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,802 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,802 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:52:27,802 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:27,802 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_exitosa.py
+2025-11-04 02:52:27,818 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:27,818 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:27,818 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:52:27,818 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:27,818 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: validacion_fallida
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: archivo_faltante
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,242 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: archivo_faltante
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: results
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: archivo_faltante
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: results
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: logs
+2025-11-04 02:52:49,243 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: data
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO - ✓ Directorio creado: tmp
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,244 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_exitoso.py
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,263 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_fallido.py
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,280 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:52:49,281 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,281 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 test_simple.py
+2025-11-04 02:52:49,297 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:49,297 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:49,297 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:52:49,297 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:49,297 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: test_reporte.json
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:49,298 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:49,299 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_con_recuperacion.py
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: desconocido
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - WARNING - ⚠️  Corrección no aplicable: No se encontró método de corrección para: desconocido
+2025-11-04 02:52:49,325 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de resonancia cuántica: 0.706s
+2025-11-04 02:52:50,031 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:50,031 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,031 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 2/3
+2025-11-04 02:52:50,031 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,031 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_con_recuperacion.py
+2025-11-04 02:52:50,056 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:50,056 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 2
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,057 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:50,058 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,058 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:52:50,058 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:52:50,058 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validacion_exitosa.py
+2025-11-04 02:52:50,074 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:52:50,074 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:50,074 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:52:50,074 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:52:50,074 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:31,096 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - 🎼 ORQUESTADOR DE VALIDACIÓN RESILIENTE
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia coherente: 141.7001 Hz
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - 🎯 Ejecutando validación única: validate_v5_coronacion.py
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 3
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/3
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:31,097 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validate_v5_coronacion.py
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:31,153 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validate_v5_coronacion_report.json
+2025-11-04 02:53:39,599 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,599 - [AGENTE-141Hz] - INFO - 🎼 ORQUESTADOR DE VALIDACIÓN RESILIENTE
+2025-11-04 02:53:39,599 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia coherente: 141.7001 Hz
+2025-11-04 02:53:39,599 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,599 - [AGENTE-141Hz] - INFO - 🔍 Descubriendo scripts de validación...
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ✓ Encontrados 76 scripts de validación
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 🔍 Filtrado por tipo: validacion_cientifica (20 scripts)
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 
+📋 Ejecutando 20 validaciones...
+
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 1/20: validate_v5_coronacion.py
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:53:39,604 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:39,605 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validate_v5_coronacion.py --precision 30
+2025-11-04 02:53:39,661 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:39,661 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:39,661 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:53:39,661 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:39,661 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:39,662 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validate_v5_coronacion_report.json
+2025-11-04 02:53:39,662 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 2/20: validate_fractal_resonance.py
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,368 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:53:40,369 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:40,369 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 validate_fractal_resonance.py --precision 30
+2025-11-04 02:53:59,114 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,114 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:59,114 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:53:59,115 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:59,115 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,115 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validate_fractal_resonance_report.json
+2025-11-04 02:53:59,115 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 3/20: validate_badges.py
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,821 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,822 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,822 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:53:59,822 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:53:59,822 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validate_badges.py --precision 30
+2025-11-04 02:53:59,850 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,850 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:59,850 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:53:59,850 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:53:59,850 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:53:59,851 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validate_badges_report.json
+2025-11-04 02:53:59,851 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 4/20: validate_scipy_snr_141hz.py
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:00,557 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validate_scipy_snr_141hz.py --precision 30
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: dependencia_faltante
+2025-11-04 02:54:00,732 - [AGENTE-141Hz] - INFO - 📦 Instalando módulo: matplotlib
+2025-11-04 02:54:06,944 - [AGENTE-141Hz] - INFO - ✓ Módulo matplotlib instalado exitosamente
+2025-11-04 02:54:06,944 - [AGENTE-141Hz] - INFO - ✓ Corrección aplicada: Módulo matplotlib instalado
+2025-11-04 02:54:06,944 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de resonancia cuántica: 0.706s
+2025-11-04 02:54:07,650 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:07,650 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:07,651 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 2/2
+2025-11-04 02:54:07,651 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:07,651 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validate_scipy_snr_141hz.py --precision 30
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 2
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - ERROR - ❌ VALIDACIÓN FALLÓ después de 2 intentos
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:09,343 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:09,344 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validate_scipy_snr_141hz_report.json
+2025-11-04 02:54:09,344 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 5/20: validacion_alternativa_wavelet.py
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:10,050 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alternativa_wavelet.py
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: dependencia_faltante
+2025-11-04 02:54:10,689 - [AGENTE-141Hz] - INFO - 📦 Instalando módulo: pywt
+2025-11-04 02:54:11,418 - [AGENTE-141Hz] - ERROR - ✗ Error instalando pywt: Command '['/usr/bin/python3', '-m', 'pip', 'install', 'pywt', '-q']' returned non-zero exit status 1.
+2025-11-04 02:54:11,418 - [AGENTE-141Hz] - WARNING - ⚠️  Corrección no aplicable: Error instalando pywt
+2025-11-04 02:54:11,418 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de resonancia cuántica: 0.706s
+2025-11-04 02:54:12,124 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:12,124 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:12,124 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 2/2
+2025-11-04 02:54:12,124 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:12,124 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alternativa_wavelet.py
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 2
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - ERROR - ❌ VALIDACIÓN FALLÓ después de 2 intentos
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_alternativa_wavelet_report.json
+2025-11-04 02:54:12,751 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:13,457 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:13,457 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,457 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 6/20: validacion_alpha_psi_corregida.py
+2025-11-04 02:54:13,457 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:13,458 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alpha_psi_corregida.py
+2025-11-04 02:54:13,707 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:13,707 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:13,707 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:13,707 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:13,707 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:13,708 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_alpha_psi_corregida_report.json
+2025-11-04 02:54:13,708 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 7/20: validacion_radio_cuantico.py
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:14,414 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:14,415 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_radio_cuantico.py
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_radio_cuantico_report.json
+2025-11-04 02:54:16,121 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:16,827 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:16,827 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,827 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 8/20: validacion_completa_3_pilares.py
+2025-11-04 02:54:16,827 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:16,828 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_completa_3_pilares.py
+2025-11-04 02:54:16,960 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:54:16,960 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:16,961 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:54:16,961 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: desconocido
+2025-11-04 02:54:16,961 - [AGENTE-141Hz] - WARNING - ⚠️  Corrección no aplicable: No se encontró método de corrección para: desconocido
+2025-11-04 02:54:16,961 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de resonancia cuántica: 0.706s
+2025-11-04 02:54:17,667 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:17,667 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:17,667 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 2/2
+2025-11-04 02:54:17,667 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:17,667 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_completa_3_pilares.py
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 2
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - ERROR - ❌ VALIDACIÓN FALLÓ después de 2 intentos
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - ERROR - ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌
+2025-11-04 02:54:17,790 - [AGENTE-141Hz] - ERROR - 
+2025-11-04 02:54:17,791 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_completa_3_pilares_report.json
+2025-11-04 02:54:17,791 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 9/20: validacion_alternativa_interferometrica.py
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:18,497 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alternativa_interferometrica.py
+2025-11-04 02:54:18,709 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:18,709 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:18,709 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:18,709 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:18,709 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:18,710 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_alternativa_interferometrica_report.json
+2025-11-04 02:54:18,710 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:19,415 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 10/20: validacion_alternativa_autoencoder.py
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:19,416 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alternativa_autoencoder.py
+2025-11-04 02:54:28,338 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:28,338 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:28,338 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:28,338 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:28,339 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:28,339 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_alternativa_autoencoder_report.json
+2025-11-04 02:54:28,339 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 11/20: validacion_alternativa_coherencia.py
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:29,045 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_alternativa_coherencia.py
+2025-11-04 02:54:29,661 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:29,661 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:29,661 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:29,661 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:29,661 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:29,662 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_alternativa_coherencia_report.json
+2025-11-04 02:54:29,662 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 12/20: validacion_estadistica.py
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:30,368 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_estadistica.py
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_estadistica_report.json
+2025-11-04 02:54:31,022 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:31,728 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:31,728 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,728 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 13/20: validacion_compactificacion_quintica.py
+2025-11-04 02:54:31,728 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,728 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:31,729 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_compactificacion_quintica.py
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:32,003 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_compactificacion_quintica_report.json
+2025-11-04 02:54:32,004 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:32,709 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 14/20: validacion_numerica_5_7f.py
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:32,710 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/validacion_numerica_5_7f.py
+2025-11-04 02:54:33,064 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:33,064 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:33,064 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:33,064 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:33,064 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:33,065 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_validacion_numerica_5_7f_report.json
+2025-11-04 02:54:33,065 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 15/20: test_acto_iii_validacion.py
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:33,771 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/test_acto_iii_validacion.py
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - ✅ VALIDACIÓN EXITOSA en intento 1
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - 📊 Reporte generado: results/agente_test_acto_iii_validacion_report.json
+2025-11-04 02:54:34,142 - [AGENTE-141Hz] - INFO - ⏸️  Pausa de coherencia cuántica...
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - 📊 VALIDACIÓN 16/20: test_validate_scipy_snr.py
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,848 - [AGENTE-141Hz] - INFO - 🤖 AGENTE AUTÓNOMO 141Hz - INICIADO
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO -    Alineado con frecuencia fundamental: 141.7001 Hz
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO -    Máximo de intentos: 2
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - 
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - 🔄 INTENTO 1/2
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - ================================================================================
+2025-11-04 02:54:34,849 - [AGENTE-141Hz] - INFO - ▶️  Ejecutando: /usr/bin/python3 scripts/test_validate_scipy_snr.py --precision 30
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - WARNING - ❌ Validación falló en intento 1
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - INFO - 🔍 Diagnosticando error...
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - INFO - ✓ Patrón identificado: dependencia_faltante
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - INFO - 🔧 Intentando corrección automática...
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - INFO - 🔧 Aplicando corrección para: dependencia_faltante
+2025-11-04 02:54:35,336 - [AGENTE-141Hz] - INFO - 📦 Instalando módulo: gwpy
