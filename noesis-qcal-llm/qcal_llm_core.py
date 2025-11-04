@@ -5,7 +5,8 @@
 
 import numpy as np
 import re
-from typing import Dict, List, Any
+from typing import Dict, Any
+
 
 class QCALLLMCore:
     def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07, epsilon=0.015, user_A_eff=0.85):
@@ -54,6 +55,7 @@ class QCALLLMCore:
         coherence = self.compute_coherence(generated_text)
         coherent, psi = self.is_coherent(kld_inv * (8.2 / 1.386), coherence)
         return {'mean_psi': psi, 'coherent': coherent, 'coherence': coherence}
+
 
 if __name__ == "__main__":
     core = QCALLLMCore(user_A_eff=0.92)
