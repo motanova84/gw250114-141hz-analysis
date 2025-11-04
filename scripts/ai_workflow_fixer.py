@@ -114,9 +114,9 @@ class WorkflowFixer:
         
         # Skip if script path contains shell variables
         if '$' in script_path or '{' in script_path:
-            result["success"] = True  # Not really an issue, just dynamic path
-            result["description"] = f"Skipping dynamic script path with variables: {script_path}"
-            result["actions_taken"].append("No action needed - path uses shell variables")
+            result["success"] = True  # This is not an error - just a dynamic path
+            result["description"] = f"Skipping dynamic script path with shell variables: {script_path}"
+            result["actions_taken"].append("No action needed - path resolved at runtime")
             return result
         
         # Create a placeholder script if it doesn't exist
