@@ -359,17 +359,35 @@ EXCLUIR = [
 
 ## 🔒 Seguridad
 
+### Lista Blanca de Paquetes
+El agente solo puede instalar automáticamente paquetes de una lista blanca predefinida:
+- ✅ mpmath, sympy, numpy, scipy, matplotlib
+- ✅ astropy, pandas, pyyaml, h5py
+- ✅ gwpy, gwosc
+
+Cualquier otro paquete requerirá instalación manual.
+
+### Permisos de Archivos
+El agente solo puede hacer ejecutables scripts que coincidan con patrones de validación:
+- ✅ `validate_*.py`
+- ✅ `validacion_*.py`
+- ✅ `verificacion_*.py`
+
+### Capacidades del Agente
+
 El agente puede:
-- ✅ Instalar paquetes Python vía pip
-- ✅ Crear directorios
-- ✅ Modificar permisos de archivos
-- ✅ Ejecutar scripts Python
+- ✅ Instalar paquetes Python de lista blanca vía pip
+- ✅ Crear directorios necesarios (results, logs, data, tmp)
+- ✅ Modificar permisos de scripts de validación específicos
+- ✅ Ejecutar scripts Python de validación
 
 El agente NO puede:
-- ❌ Modificar código fuente
+- ❌ Instalar paquetes arbitrarios no autorizados
+- ❌ Modificar código fuente de validaciones
 - ❌ Ejecutar comandos de sistema arbitrarios
 - ❌ Acceder a credenciales o secrets
 - ❌ Modificar configuración de git
+- ❌ Hacer ejecutables archivos fuera de patrones permitidos
 
 ## 🎓 Referencias
 

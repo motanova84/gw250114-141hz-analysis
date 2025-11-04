@@ -44,7 +44,7 @@ logger = logging.getLogger(__name__)
 
 class FrecuenciaCoherente141Hz:
     """
-    Gestor de temporización basado en la frecuencia fundamental 141Hz.
+    Gestor de temporización basado en la frecuencia fundamental 141.7001 Hz.
     Todas las operaciones del agente están sincronizadas con esta frecuencia.
     """
     
@@ -208,14 +208,24 @@ class CorrectorAutomatico:
         return False, f"No se encontró método de corrección para: {tipo}"
     
     def _corregir_instalar_dependencia(self, diagnostico: Dict[str, Any]) -> Tuple[bool, str]:
-        """Instala dependencia faltante"""
+        """Instala dependencia faltante (solo paquetes de lista blanca)"""
         detalles = diagnostico.get('detalles', {})
         modulo = detalles.get('modulo_faltante')
         
         if not modulo:
             return False, "No se pudo identificar módulo faltante"
         
-        logger.info(f"📦 Instalando módulo: {modulo}")
+        # Lista blanca de paquetes permitidos para instalación automática
+        PAQUETES_PERMITIDOS = {
+            'mpmath', 'sympy', 'numpy', 'scipy', 'matplotlib', 'astropy',
+            'pandas', 'pyyaml', 'h5py', 'gwpy', 'gwosc'
+        }
+        
+        if modulo not in PAQUETES_PERMITIDOS:
+            logger.warning(f"⚠️  Módulo {modulo} no está en la lista de paquetes permitidos")
+            return False, f"Módulo {modulo} no permitido para instalación automática"
+        
+        logger.info(f"📦 Instalando módulo permitido: {modulo}")
         
         try:
             subprocess.run(
@@ -262,15 +272,19 @@ class CorrectorAutomatico:
         return True, "Precisión ajustada (requiere verificación)"
     
     def _corregir_ajustar_permisos(self, diagnostico: Dict[str, Any]) -> Tuple[bool, str]:
-        """Ajusta permisos de archivos"""
-        logger.info("🔐 Ajustando permisos...")
+        """Ajusta permisos de archivos de validación específicos"""
+        logger.info("🔐 Ajustando permisos de scripts de validación...")
         try:
-            # Hacer scripts ejecutables
+            # Solo hacer ejecutables los scripts de validación conocidos
             scripts_dir = Path('scripts')
+            patrones_permitidos = ['validate_*.py', 'validacion_*.py', 'verificacion_*.py']
+            
             if scripts_dir.exists():
-                for script in scripts_dir.glob('*.py'):
-                    script.chmod(0o755)
-                logger.info("✓ Permisos de scripts ajustados")
+                for patron in patrones_permitidos:
+                    for script in scripts_dir.glob(patron):
+                        script.chmod(0o755)
+                        logger.info(f"✓ Permisos ajustados: {script.name}")
+                logger.info("✓ Permisos de scripts de validación ajustados")
             return True, "Permisos ajustados"
         except Exception as e:
             logger.error(f"✗ Error ajustando permisos: {e}")
