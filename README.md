@@ -5,10 +5,12 @@ Este proyecto realiza el análisis espectral de datos de ondas gravitacionales p
 ## Características
 
 - Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
+- **Confirmación de usuario para operaciones importantes** (nueva característica)
 - Análisis espectral avanzado con FFT
 - Detección de picos espectrales cerca de 141.7 Hz
 - Generación automática de gráficos de diagnóstico
 - Cálculo de relación señal-ruido (SNR)
+- Soporte para flujos de trabajo automatizados (CI/CD)
 
 ## Estructura del Proyecto
 
@@ -55,12 +57,16 @@ make analyze
 ## Comandos Disponibles
 
 - `make setup` - Configurar entorno virtual e instalar dependencias
-- `make download` - Descargar datos reales de GW150914 desde GWOSC
+- `make download` / `make data` - Descargar datos reales de GW150914 desde GWOSC (con confirmación)
+- `make data-force` - Descargar datos sin confirmación (para CI/CD)
 - `make test-data` - Generar datos simulados con señal en 141.7 Hz
 - `make analyze` - Ejecutar análisis espectral y generar gráficos
 - `make all` - Ejecutar workflow completo con datos simulados
-- `make clean` - Limpiar archivos de datos y resultados
-- `make clean-all` - Limpiar todo incluyendo entorno virtual
+- `make clean` - Limpiar archivos de datos y resultados (con confirmación)
+- `make clean-force` - Limpiar sin confirmación (para CI/CD)
+- `make help` - Ver todos los comandos disponibles
+
+> 📖 **Nuevo**: Las operaciones de descarga y limpieza ahora piden confirmación. Para flujos automatizados, usa las variantes `-force` o el flag `--yes` en scripts Python. Ver [USER_CONFIRMATION.md](USER_CONFIRMATION.md) para más detalles.
 
 ## Resultados
 
