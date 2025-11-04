@@ -215,8 +215,8 @@ class TestCoherenceComputation:
         coherence1 = core.compute_coherence(text1)
         assert coherence1 >= 1/3  # At least phi_cubed matches
 
-        # Test numeric values
-        text2 = "Values: 4.236 and -1.460 at 141.7 Hz"
+        # Test numeric values with symbols
+        text2 = "Values: φ³ = 4.236 and ζ'(1/2) at 141.7 Hz"
         coherence2 = core.compute_coherence(text2)
         assert coherence2 == 1.0
 

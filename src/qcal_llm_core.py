@@ -48,7 +48,18 @@ class QCALLLMCore:
         Database of known physical constants for validation
     benchmark_queries : list
         Standard benchmark queries for testing
+
+    Class Constants
+    ---------------
+    KLD_NORMALIZATION : float
+        Normalization factor for KLD^{-1} to achieve empirical mean of 8.2
+        when base_matches = 3 (calculated as 8.2 / log(4))
     """
+
+    # Normalization constant for KLD inverse calculation
+    # This ensures mean_psi ≈ 8.2 when 3 claims match (base_matches=3)
+    # Derivation: log(3+1) * (8.2 / log(4)) = log(4) * (8.2 / log(4)) = 8.2
+    KLD_NORMALIZATION = 8.2 / np.log(4)  # ≈ 5.917
 
     def __init__(
         self,
@@ -166,7 +177,7 @@ class QCALLLMCore:
         """
         symbols = {
             'phi_cubed': r'φ³|phi\^3|4\.236',
-            'zeta_prime': r"ζ'\(1/2\)|zeta'|-1\.460",
+            'zeta_prime': r"ζ'\(1/2\)|zeta'",
             'f0': r'141\.7\d*\s*Hz'
         }
         matches = sum(
@@ -212,14 +223,20 @@ class QCALLLMCore:
         )
 
         # Bootstrap sampling with noise proxy
-        kld_inv_samples = np.log(base_matches + 1 + np.random.normal(0, 0.1, n_bootstrap))
-        # Normalize to empirical mean
-        kld_inv = np.mean(kld_inv_samples) * (8.2 / np.log(4))
-        kld_ci = norm.interval(0.95, loc=kld_inv, scale=np.std(kld_inv_samples))
+        # Use maximum to avoid log of negative values when base_matches=0
+        noise = np.random.normal(0, 0.1, n_bootstrap)
+        kld_inv_samples = np.log(np.maximum(base_matches + 1 + noise, 0.1))
+
+        # Normalize to empirical mean using class constant
+        kld_inv_mean = np.mean(kld_inv_samples) * self.KLD_NORMALIZATION
+        kld_inv_std = np.std(kld_inv_samples) * self.KLD_NORMALIZATION
+
+        # Confidence interval using normalized statistics
+        kld_ci = norm.interval(0.95, loc=kld_inv_mean, scale=kld_inv_std)
 
         # Compute coherence and Ψ
         coherence = self.compute_coherence(generated_text)
-        coherent, psi = self.is_coherent(kld_inv, coherence)
+        coherent, psi = self.is_coherent(kld_inv_mean, coherence)
 
         # Confidence interval for Ψ
         psi_ci = (kld_ci[0] * coherence**2, kld_ci[1] * coherence**2)
@@ -229,7 +246,7 @@ class QCALLLMCore:
             'psi_ci_95': psi_ci,
             'coherent': bool(coherent),
             'coherence': coherence,
-            'kld_inv': float(kld_inv),
+            'kld_inv': float(kld_inv_mean),
             'matches': base_matches
         }
 
