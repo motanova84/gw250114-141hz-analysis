@@ -56,7 +56,7 @@ jobs:
       - name: Run AI Workflow Health Checker
         id: health_check
         run: |
-          python scripts/ai_workflow_health_checker.py
+          python scripts/ai_workflow_health_checker.py || echo "has_issues=true" >> $GITHUB_OUTPUT
         continue-on-error: true
 
       - name: Run AI Workflow Fixer
@@ -66,10 +66,17 @@ jobs:
           python scripts/ai_workflow_fixer.py
         continue-on-error: true
 
+      - name: Re-verify workflow health
+        if: steps.fixer.outcome == 'success'
+        id: reverify
+        run: |
+          echo "🔍 Re-verifying workflow health after fixes..."
+          python scripts/ai_workflow_health_checker.py
+
       - name: Check if fixes were applied
         id: check_changes
         run: |
-          porcelain=$(git status --porcelain .github/workflows/)
+          porcelain=$(git status --porcelain .github/workflows/ scripts/)
           if [ -n "$porcelain" ]; then
             echo "changes=true" >> $GITHUB_OUTPUT
             echo "🔧 Workflow fixes were applied"
