@@ -110,7 +110,13 @@ export default function QuantumEvaluator() {
   // 🎵 Audio binaural a 141.7 Hz
   const playCoherenceFrequency = () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new AudioContext()
+      try {
+        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+      } catch (e) {
+        console.error('Web Audio API not supported', e)
+        alert('Audio is not supported in this browser')
+        return
+      }
     }
     
     const ctx = audioContextRef.current
@@ -270,8 +276,7 @@ export default function QuantumEvaluator() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             className="w-full h-48 bg-black/50 text-white rounded-xl p-4 border border-cyan-500/30 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 font-mono text-sm resize-none"
-            placeholder="Paste AI-generated text here...
-Example: f₀ = 141.7001 Hz emerge de ζ'(1/2) × φ³ en coherencia cuántica Ψ..."
+            placeholder={`Paste AI-generated text here...\nExample: f₀ = 141.7001 Hz emerge de ζ'(1/2) × φ³ en coherencia cuántica Ψ...`}
           />
           
           <div className="flex gap-4 mt-6">

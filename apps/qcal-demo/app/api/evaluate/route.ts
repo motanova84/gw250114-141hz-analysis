@@ -67,10 +67,10 @@ function calculateInformationContent(text: string): number {
   }
   
   // Check for numerical precision (presence of decimal values)
-  const decimalPattern = /\d+\.\d{2,}/g
+  const decimalPattern = /\b\d+\.\d{2,}\b/g
   const decimals = text.match(decimalPattern)
   if (decimals) {
-    score += decimals.length * 0.3
+    score += Math.min(decimals.length * 0.3, 2.0)
   }
   
   // Check for mathematical formulas (presence of =, ×, ^, etc.)
@@ -110,8 +110,8 @@ function calculateSymbolicAmplitude(text: string): number {
     }
   }
   
-  // Check for scientific notation
-  if (/\d+\.?\d*\s*[eE][+-]?\d+/.test(text)) {
+  // Check for scientific notation (with length limit to prevent ReDoS)
+  if (text.length < 10000 && /\d{1,10}\.?\d{0,10}\s*[eE][+-]?\d{1,5}/.test(text)) {
     amplitude += 0.3
   }
   
