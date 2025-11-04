@@ -1,24 +1,4 @@
-.PHONY: all download analyze clean venv setup test-data
-
-all: setup test-data analyze
-.PHONY: all venv setup install data download test-data analyze validate pipeline clean docker help
-
-# Default target - complete workflow
-all: setup validate
-.PHONY: all install venv setup data analyze clean docker
-
-all: setup data analyze
-
-venv:
-	python3 -m venv venv
-
-setup: venv
-	./venv/bin/pip install --upgrade pip
-	./venv/bin/pip install -r requirements.txt
-
-install: setup
-
-.PHONY: all venv setup install data download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 verify-optimization workflow status clean docker help
+.PHONY: all venv setup install data data-force download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 verify-optimization workflow status clean clean-force docker help
 
 # Default target - complete workflow
 all: setup validate
@@ -54,19 +34,11 @@ help:
 	@echo "  help                  - Show this help message"
 
 # Create virtual environment
+# Create virtual environment
 venv:
 	python3 -m venv venv
 
-setup: venv
-	./venv/bin/pip install -r requirements.txt
-
-download:
-	./venv/bin/python scripts/descargar_datos.py
-
-test-data:
-	./venv/bin/python scripts/generar_datos_prueba.py
-
-# Setup environment with dependencies (alias for install)
+# Setup environment with dependencies
 setup: venv
 	@echo "📦 Installing dependencies..."
 	@./venv/bin/pip install --upgrade pip --timeout 30 2>/dev/null || echo "⚠️  Pip upgrade skipped due to network issues"
@@ -94,9 +66,6 @@ test-data: data
 	@echo "⚠️  Test data generation script not implemented yet"
 	@echo "   Using real GWOSC data instead via 'make data'"
 
-# Run complete analysis (legacy scripts)
-analyze:
-	./venv/bin/python scripts/analizar_ringdown.py
 # Check if data exists
 check-data:
 	@echo "🔍 Verificando disponibilidad de datos..."
