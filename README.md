@@ -2,6 +2,28 @@
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
 
+## 🤖 Nuevo: Agente Autónomo 141Hz
+
+El proyecto incluye un **sistema inteligente de auto-recuperación** que monitorea, diagnostica y corrige automáticamente fallos en validaciones científicas. El agente está alineado con la frecuencia física fundamental de 141.7001 Hz.
+
+**Características principales:**
+- ✅ Detección automática de fallos en validaciones
+- 🔍 Diagnóstico inteligente de errores
+- 🔧 Corrección automática basada en patrones
+- 🔄 Sistema de reintentos con backoff cuántico
+- 📊 Reportes detallados de ejecución
+
+**Uso rápido:**
+```bash
+# Ejecutar todas las validaciones con auto-recuperación
+python3 scripts/orquestador_validacion.py
+
+# Ejecutar una validación específica
+python3 scripts/orquestador_validacion.py --script validate_v5_coronacion.py
+```
+
+📖 **Documentación completa**: [AGENTE_AUTONOMO_141HZ.md](AGENTE_AUTONOMO_141HZ.md)
+
 ## Características
 
 - Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
@@ -9,6 +31,7 @@ Este proyecto realiza el análisis espectral de datos de ondas gravitacionales p
 - Detección de picos espectrales cerca de 141.7 Hz
 - Generación automática de gráficos de diagnóstico
 - Cálculo de relación señal-ruido (SNR)
+- 🤖 **Sistema autónomo de validación con auto-recuperación**
 
 ## Estructura del Proyecto
 

@@ -10,6 +10,10 @@ data/
 # Results
 results/
 
+# Logs
+logs/
+*.log
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
