@@ -7,7 +7,7 @@ Este módulo implementa el núcleo de coherencia vibracional con:
 - Modulación vibracional basada en f₀ = 141.7001 Hz
 
 Autor: José Manuel Mota Burruezo (JMMB Ψ✧)
-Repositorio: https://github.com/motanova84/141hz/noesis-qcal-llm
+Repositorio: https://github.com/motanova84/141hz/noesis_qcal_llm
 """
 
 from .qcal_llm_core import QCALLLMCore

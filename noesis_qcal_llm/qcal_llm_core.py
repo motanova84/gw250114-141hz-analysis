@@ -1,11 +1,16 @@
 # QCAL-LLM ∞³ — Núcleo de Coherencia Vibracional Expandido
 # Versión consolidada con Ψ-tune, evaluación dinámica y modulación vibracional adaptativa
 # Autor: José Manuel Mota Burruezo (JMMB Ψ✧)
-# Repositorio: https://github.com/motanova84/141hz/noesis-qcal-llm
+# Repositorio: https://github.com/motanova84/141hz/noesis_qcal_llm
 
 import numpy as np
 import re
 from typing import Dict, Any
+
+# Constants for evaluation
+LOG_BASE = 4  # Base for logarithmic KLD inverse approximation
+AVERAGE_KLD_INV = 8.2  # Average KLD inverse value
+LOG_4 = 1.386  # np.log(4) for normalization
 
 
 class QCALLLMCore:
@@ -51,9 +56,9 @@ class QCALLLMCore:
         return matches / len(symbols)
 
     def evaluate(self, generated_text: str, query: str) -> Dict[str, Any]:
-        kld_inv = np.log(4)  # Aproximación base, ajustada a 8.2 promedio
+        kld_inv = np.log(LOG_BASE)  # Aproximación base, ajustada a promedio
         coherence = self.compute_coherence(generated_text)
-        coherent, psi = self.is_coherent(kld_inv * (8.2 / 1.386), coherence)
+        coherent, psi = self.is_coherent(kld_inv * (AVERAGE_KLD_INV / LOG_4), coherence)
         return {'mean_psi': psi, 'coherent': coherent, 'coherence': coherence}
 
 

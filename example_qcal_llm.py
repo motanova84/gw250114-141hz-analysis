@@ -6,7 +6,7 @@ Demonstrates the key features of the vibrational coherence core.
 """
 
 import sys
-sys.path.insert(0, 'noesis-qcal-llm')
+sys.path.insert(0, 'noesis_qcal_llm')
 
 import numpy as np
 from qcal_llm_core import QCALLLMCore

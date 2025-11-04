@@ -3,7 +3,7 @@
 Versión consolidada con Ψ-tune, evaluación dinámica y modulación vibracional adaptativa
 
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)  
-**Repositorio:** https://github.com/motanova84/141hz/noesis-qcal-llm
+**Repositorio:** https://github.com/motanova84/141hz/noesis_qcal_llm
 
 ## Descripción
 
@@ -77,13 +77,13 @@ Retorna un diccionario con:
 pip install numpy
 
 # Importar el módulo
-from noesis-qcal-llm import QCALLLMCore
+from noesis_qcal_llm import QCALLLMCore
 ```
 
 ## Uso Básico
 
 ```python
-from noesis-qcal-llm import QCALLLMCore
+from noesis_qcal_llm import QCALLLMCore
 import numpy as np
 
 # Inicializar el núcleo

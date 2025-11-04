@@ -36,14 +36,30 @@ def test_initialization():
 def test_custom_initialization():
     """Test QCALLLMCore initialization with custom parameters"""
     print("Testing custom initialization...")
-    core = QCALLLMCore(alpha=1.5, f0=140.0, phi=0.5, tau=0.1, epsilon=0.02, user_A_eff=0.92)
+    custom_alpha = 1.5
+    custom_f0 = 140.0
+    custom_phi = 0.5
+    custom_tau = 0.1
+    custom_epsilon = 0.02
+    custom_user_a_eff = 0.92
+    expected_epsilon_adjustment = 0.85  # Default A_eff
 
-    assert core.f0 == 140.0, "Custom f0 should be set"
-    assert core.phi == 0.5, "Custom phi should be set"
-    assert core.tau == 0.1, "Custom tau should be set"
-    assert core.alpha == 1.5, "Custom alpha should be set"
-    # epsilon should be adjusted: 0.02 * (0.92 / 0.85) ≈ 0.0216
-    assert abs(core.epsilon - 0.02 * (0.92 / 0.85)) < 1e-6, "Epsilon should be adjusted by user_A_eff"
+    core = QCALLLMCore(
+        alpha=custom_alpha,
+        f0=custom_f0,
+        phi=custom_phi,
+        tau=custom_tau,
+        epsilon=custom_epsilon,
+        user_A_eff=custom_user_a_eff
+    )
+
+    assert core.f0 == custom_f0, "Custom f0 should be set"
+    assert core.phi == custom_phi, "Custom phi should be set"
+    assert core.tau == custom_tau, "Custom tau should be set"
+    assert core.alpha == custom_alpha, "Custom alpha should be set"
+    # epsilon should be adjusted: 0.02 * (0.92 / 0.85)
+    expected_epsilon = custom_epsilon * (custom_user_a_eff / expected_epsilon_adjustment)
+    assert abs(core.epsilon - expected_epsilon) < 1e-6, "Epsilon should be adjusted by user_A_eff"
 
     print("✓ Custom initialization test passed")
 
@@ -96,6 +112,7 @@ def test_is_coherent():
 
     # Test above threshold
     is_coherent, psi = core.is_coherent(8.2, 0.88)
+    # Note: Using == instead of 'is' because is_coherent is numpy.bool_, not Python bool
     assert is_coherent == True, "Should be coherent with high values"  # noqa: E712
     assert psi > 5.0, "Ψ value should be above threshold"
 
@@ -159,6 +176,7 @@ def test_evaluate():
     assert 'coherent' in result, "Result should contain coherent"
     assert 'coherence' in result, "Result should contain coherence"
 
+    # Note: Using == instead of 'is' because result['coherent'] is numpy.bool_, not Python bool
     assert result['coherent'] == True, "Should be coherent"  # noqa: E712
     assert result['coherence'] == 1.0, "Should have full coherence"
     assert result['mean_psi'] > 5.0, "Ψ should be above threshold"
