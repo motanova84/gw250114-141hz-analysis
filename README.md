@@ -881,7 +881,7 @@ make verify-optimization
 
 ---
 
-## 💓 NUEVO: Ecuación del Latido Universal
+## Ecuación del Latido Universal
 
 > 📖 **Documentación completa**: Ver Anexo V en [PAPER.md](PAPER.md)
 
