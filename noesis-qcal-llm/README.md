@@ -6,7 +6,7 @@ Este módulo contiene el núcleo completo del análisis QCAL (Quantum Coherent A
 
 Este módulo permite detectar la frecuencia **f₀ = 141.7001 Hz** directamente desde los datos públicos del evento GW150914.
 
-- Usa el archivo `GW150914_4H_strain.hdf5` de GWOSC.
+- Usa el archivo `GW150914-4-H strain.hdf5` de GWOSC.
 - Aplica análisis de densidad espectral y ajuste QNM simplificado.
 - Devuelve la frecuencia pico, la SNR, y el χ² del ajuste.
 

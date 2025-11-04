@@ -10,13 +10,15 @@ from scipy.optimize import curve_fit
 def qnm_model(f, M, a):  # Proxy QNM de Kerr (l=2,m=2,n=0)
     return 1 / (f * M) * (1 - 0.1 * a)  # Escalado de frecuencia simplificado
 
-def detect_f0(event_file='GW150914-4-H strain.hdf5', band=[130, 160]):  # Nombre de archivo GWOSC
+def detect_f0(event_file='GW150914-4-H strain.hdf5', band=None):  # Nombre de archivo GWOSC
+    if band is None:
+        band = [130, 160]
     with h5py.File(event_file, 'r') as f:
         strain = f['strain/Strain'][()]  # 4096 Hz blanqueado
     fs = 4096
     merger_idx = np.argmax(np.abs(strain))  # Proxy de fusión
     ringdown = strain[merger_idx:merger_idx + int(0.5 * fs)]  # 0.5s post
-    f, psd = welch(ringdown, fs=fs, nperseg=2**12, window='hann', noverlap=0.5 * 2**12)
+    f, psd = welch(ringdown, fs=fs, nperseg=2**12, window='hann', noverlap=2048)
     mask = (f >= band[0]) & (f <= band[1])
     peak_freq = f[mask][np.argmax(psd[mask])]
     snr = np.sqrt(np.max(psd[mask]) / np.mean(psd[mask]))

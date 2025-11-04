@@ -4,7 +4,6 @@ Test suite for noesis-qcal-llm/detect_f0.py module
 import unittest
 import sys
 import os
-from unittest.mock import patch, MagicMock
 import numpy as np
 
 # Add the noesis-qcal-llm directory to the path
@@ -61,7 +60,6 @@ class TestDetectF0(unittest.TestCase):
     
     def test_detect_f0_function_exists(self):
         """Test that detect_f0 function is callable"""
-        from detect_f0 import detect_f0
         self.assertTrue(callable(detect_f0))
 
 
