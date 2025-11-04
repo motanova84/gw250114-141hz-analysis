@@ -30,6 +30,7 @@ def main():
     mod_attn = sip(base_attn, pos.float())
 
     # Display results
+    # CQR sim = Coherent Quantum Resonance similarity (mean attention weight)
     print("\nResults:")
     print(f"Base CQR sim (dummy): {torch.mean(base_attn).item():.6f}")
     print(f"SIP CQR sim:          {torch.mean(mod_attn).item():.6f}")
