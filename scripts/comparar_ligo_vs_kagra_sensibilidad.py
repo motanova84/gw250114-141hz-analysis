@@ -19,6 +19,22 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+# Noise model constants for LIGO and KAGRA
+# Based on published design sensitivities
+LIGO_SEISMIC_AMP = 1e-23
+LIGO_SEISMIC_FREQ = 10
+LIGO_THERMAL_AMP = 4e-24
+LIGO_THERMAL_FREQ = 150
+LIGO_QUANTUM_AMP = 1.5e-23
+LIGO_QUANTUM_FREQ = 200
+
+KAGRA_SEISMIC_AMP = 2e-23  # Higher seismic noise (Japan location)
+KAGRA_SEISMIC_FREQ = 10
+KAGRA_THERMAL_AMP = 2e-24  # Lower thermal noise (cryogenic)
+KAGRA_THERMAL_FREQ = 150
+KAGRA_QUANTUM_AMP = 1.5e-23
+KAGRA_QUANTUM_FREQ = 200
+
 
 def obtener_sensibilidad_teorica():
     """
@@ -40,9 +56,9 @@ def obtener_sensibilidad_teorica():
     def ligo_asd(f):
         """Amplitude Spectral Density de LIGO (aproximada)"""
         # Noise sources
-        seismic = 1e-23 * (10 / f) ** 2  # Seismic noise
-        thermal = 4e-24 / np.sqrt(1 + (f / 150) ** 2)  # Thermal noise
-        quantum = 1.5e-23 * np.sqrt(1 + (f / 200) ** 2)  # Quantum noise
+        seismic = LIGO_SEISMIC_AMP * (LIGO_SEISMIC_FREQ / f) ** 2
+        thermal = LIGO_THERMAL_AMP / np.sqrt(1 + (f / LIGO_THERMAL_FREQ) ** 2)
+        quantum = LIGO_QUANTUM_AMP * np.sqrt(1 + (f / LIGO_QUANTUM_FREQ) ** 2)
 
         # Total noise (suma cuadrática)
         return np.sqrt(seismic**2 + thermal**2 + quantum**2)
@@ -51,9 +67,9 @@ def obtener_sensibilidad_teorica():
     def kagra_asd(f):
         """Amplitude Spectral Density de KAGRA (aproximada)"""
         # KAGRA tiene mejor ruido térmico (criogénico) pero peor seísmico (Japón)
-        seismic = 2e-23 * (10 / f) ** 2  # Mayor ruido sísmico
-        thermal = 2e-24 / np.sqrt(1 + (f / 150) ** 2)  # Menor ruido térmico (criogénico)
-        quantum = 1.5e-23 * np.sqrt(1 + (f / 200) ** 2)  # Quantum noise similar
+        seismic = KAGRA_SEISMIC_AMP * (KAGRA_SEISMIC_FREQ / f) ** 2
+        thermal = KAGRA_THERMAL_AMP / np.sqrt(1 + (f / KAGRA_THERMAL_FREQ) ** 2)
+        quantum = KAGRA_QUANTUM_AMP * np.sqrt(1 + (f / KAGRA_QUANTUM_FREQ) ** 2)
 
         # Total noise
         return np.sqrt(seismic**2 + thermal**2 + quantum**2)

@@ -7,6 +7,7 @@ import sys
 import os
 import json
 import unittest
+import tempfile
 
 # Add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -96,7 +97,6 @@ class TestGenerarPrediccionGW250114(unittest.TestCase):
         prediccion = generar_prediccion_gw250114()
         
         # Guardar en directorio temporal
-        import tempfile
         with tempfile.TemporaryDirectory() as tmpdir:
             json_file, md_file = guardar_prediccion(prediccion, tmpdir)
             

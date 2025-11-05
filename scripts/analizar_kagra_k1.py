@@ -19,6 +19,8 @@ import matplotlib.pyplot as plt
 from gwpy.timeseries import TimeSeries
 from gwosc import datasets
 import argparse
+import traceback
+from datetime import datetime
 
 def analyze_kagra_141hz():
     """
@@ -330,7 +332,6 @@ Para recibir notificaciones cuando los datos estén disponibles:
 
 def get_timestamp():
     """Obtener timestamp actual formateado"""
-    from datetime import datetime
     return datetime.now().strftime('%Y-%m-%d %H:%M UTC')
 
 
@@ -388,7 +389,6 @@ def main():
         
     except Exception as e:
         print(f"\n❌ Error en el análisis: {e}")
-        import traceback
         traceback.print_exc()
         
         # Si falla, probablemente datos no disponibles
