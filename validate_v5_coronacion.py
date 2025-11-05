@@ -16,12 +16,19 @@ import sys
 import argparse
 from pathlib import Path
 
-# Add src to path for direct imports (avoiding __init__.py)
+# Add src to path for compatibility with direct script execution
 sys.path.insert(0, str(Path(__file__).parent / 'src'))
 
-from validators import ValidationOrchestrator
-from exceptions import ValidationError, PrecisionError, GW141HzException
-from utils import safe_json_dump, setup_logging
+# Import from src modules - works both as script and as package
+try:
+    from src.validators import ValidationOrchestrator
+    from src.exceptions import ValidationError, PrecisionError, GW141HzException
+    from src.utils import safe_json_dump, setup_logging
+except ImportError:
+    # Fallback for direct execution
+    from validators import ValidationOrchestrator
+    from exceptions import ValidationError, PrecisionError, GW141HzException
+    from utils import safe_json_dump, setup_logging
 
 
 def run_complete_validation(precision=30):

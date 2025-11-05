@@ -15,8 +15,11 @@ from functools import wraps
 from typing import Callable, Any, Optional, Type, Tuple
 from pathlib import Path
 
-# Direct imports
-import exceptions
+# Try relative import first, fall back to direct import for compatibility
+try:
+    from . import exceptions as exc
+except ImportError:
+    import exceptions as exc
 
 
 # Configure logging
@@ -164,9 +167,9 @@ def safe_download(
             return download_func(*args, **kwargs)
         except Exception as e:
             # Wrap generic exceptions in DataDownloadError
-            if isinstance(e, (exceptions.DataDownloadError, exceptions.NetworkError, exceptions.GW141HzException)):
+            if isinstance(e, (exc.DataDownloadError, exc.NetworkError, exc.GW141HzException)):
                 raise
-            raise exceptions.DataDownloadError(
+            raise exc.DataDownloadError(
                 message=f"Download failed: {str(e)}"
             )
     

@@ -20,12 +20,13 @@ except ImportError:
         "Install with: pip install mpmath"
     )
 
-# Direct imports to avoid __init__.py overhead
-import sys
-sys.path.insert(0, str(Path(__file__).parent))
-
-from exceptions import ValidationError, PrecisionError
-from utils import setup_logging
+# Try relative imports first, fall back for compatibility
+try:
+    from . import exceptions
+    from . import utils
+except ImportError:
+    import exceptions
+    import utils
 
 
 class QuantumFrequencyValidator:
@@ -42,13 +43,13 @@ class QuantumFrequencyValidator:
             PrecisionError: If precision is invalid
         """
         if precision < 10:
-            raise PrecisionError(
+            raise exceptions.PrecisionError(
                 required_precision=precision,
                 message="Precision must be at least 10 decimal places"
             )
         
         self.precision = precision
-        self.logger = setup_logging()
+        self.logger = utils.setup_logging()
         mp.dps = precision
         
         # Constants
@@ -83,7 +84,7 @@ class QuantumFrequencyValidator:
             status = "PASS" if deviation < 1e-10 else "FAIL"
             
             if status == "FAIL":
-                raise ValidationError(
+                raise exceptions.ValidationError(
                     validation_name="quantum_frequency",
                     expected=1.0,
                     actual=float(symmetry_ratio),
@@ -102,7 +103,7 @@ class QuantumFrequencyValidator:
         except ValidationError:
             raise
         except Exception as e:
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 validation_name="quantum_frequency",
                 message=f"Unexpected error during validation: {str(e)}"
             )
@@ -119,13 +120,13 @@ class CompactificationRadiusValidator:
             precision: Number of decimal places for calculations
         """
         if precision < 10:
-            raise PrecisionError(
+            raise exceptions.PrecisionError(
                 required_precision=precision,
                 message="Precision must be at least 10 decimal places"
             )
         
         self.precision = precision
-        self.logger = setup_logging()
+        self.logger = utils.setup_logging()
         mp.dps = precision
         
         # Constants
@@ -155,7 +156,7 @@ class CompactificationRadiusValidator:
             status = "PASS" if in_range else "FAIL"
             
             if status == "FAIL":
-                raise ValidationError(
+                raise exceptions.ValidationError(
                     validation_name="compactification_radius",
                     expected=f"[{float(self.R_psi_min)}, {float(self.R_psi_max)}]",
                     actual=float(R_psi),
@@ -174,7 +175,7 @@ class CompactificationRadiusValidator:
         except ValidationError:
             raise
         except Exception as e:
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 validation_name="compactification_radius",
                 message=f"Unexpected error during validation: {str(e)}"
             )
@@ -191,13 +192,13 @@ class DiscreteSymmetryValidator:
             precision: Number of decimal places for calculations
         """
         if precision < 10:
-            raise PrecisionError(
+            raise exceptions.PrecisionError(
                 required_precision=precision,
                 message="Precision must be at least 10 decimal places"
             )
         
         self.precision = precision
-        self.logger = setup_logging()
+        self.logger = utils.setup_logging()
         mp.dps = precision
         
         # Constants
@@ -230,7 +231,7 @@ class DiscreteSymmetryValidator:
             status = "PASS" if float(deviation) < 1e-20 else "FAIL"
             
             if status == "FAIL":
-                raise ValidationError(
+                raise exceptions.ValidationError(
                     validation_name="discrete_symmetry",
                     expected=1.0,
                     actual=float(symmetry_product),
@@ -249,7 +250,7 @@ class DiscreteSymmetryValidator:
         except ValidationError:
             raise
         except Exception as e:
-            raise ValidationError(
+            raise exceptions.ValidationError(
                 validation_name="discrete_symmetry",
                 message=f"Unexpected error during validation: {str(e)}"
             )
@@ -266,7 +267,7 @@ class ValidationOrchestrator:
             precision: Number of decimal places for calculations
         """
         self.precision = precision
-        self.logger = setup_logging()
+        self.logger = utils.setup_logging()
         
         # Initialize validators
         self.freq_validator = QuantumFrequencyValidator(precision)
