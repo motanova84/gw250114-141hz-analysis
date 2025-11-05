@@ -11,12 +11,18 @@ to analyze the 141.7 Hz signal in GW150914 and verify it's not an artifact.
 """
 import sys
 import json
+import datetime
 import numpy as np
 import matplotlib.pyplot as plt
 from gwpy.timeseries import TimeSeries
 from scipy import signal
 import warnings
 warnings.filterwarnings('ignore')
+
+# Constants for SNR calculation
+MAX_WELCH_SEGMENT_LENGTH = 2048  # Maximum segment length for Welch's method
+NOISE_ESTIMATION_BANDWIDTH = 30  # Hz - bandwidth around target frequency for noise estimation
+PEAK_EXCLUSION_WIDTH = 5  # frequency bins - width to exclude around peak when estimating noise
 
 
 def test2_noise_comparison(h1_data, l1_data, target_freq=141.7, merger_time=None):
@@ -228,7 +234,7 @@ def calculate_snr_at_frequency(data, f0, method='welch'):
     
     if method == 'welch':
         # Use Welch's method for more robust spectrum
-        nperseg = min(len(strain) // 4, 2048)
+        nperseg = min(len(strain) // 4, MAX_WELCH_SEGMENT_LENGTH)
         freqs, psd = signal.welch(strain, fs, nperseg=nperseg)
     else:
         # Direct FFT
@@ -241,12 +247,12 @@ def calculate_snr_at_frequency(data, f0, method='welch'):
     power_target = psd[idx_target]
     
     # Estimate noise floor (median in band around f0)
-    bandwidth = 30  # Hz
+    bandwidth = NOISE_ESTIMATION_BANDWIDTH
     idx_start = np.argmin(np.abs(freqs - (f0 - bandwidth)))
     idx_end = np.argmin(np.abs(freqs - (f0 + bandwidth)))
     
     # Exclude immediate region around peak
-    exclude_width = 5
+    exclude_width = PEAK_EXCLUSION_WIDTH
     background_indices = np.concatenate([
         np.arange(idx_start, max(idx_start, idx_target - exclude_width)),
         np.arange(min(len(freqs)-1, idx_target + exclude_width), idx_end)
@@ -412,7 +418,7 @@ def main():
         'merger_time': merger_time,
         'test2': test2_results,
         'test3': test3_results,
-        'timestamp': str(np.datetime64('now'))
+        'timestamp': datetime.datetime.utcnow().isoformat()
     }
     
     output_file = 'final_results.json'
