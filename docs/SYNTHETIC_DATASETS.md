@@ -167,14 +167,18 @@ cat results/figures/analysis_summary.txt
 ### Generate Full Merger
 
 ```bash
-# 1. Generate realistic merger
-python scripts/synthetic_datasets/generate_merger_signal.py
+# Generate realistic merger
+python scripts/synthetic_datasets/generate_merger_signal.py \
+    --mass1 36 \
+    --mass2 29 \
+    --frequency-ringdown 141.7 \
+    --target-snr 10
 
-# 2. Validate signal quality
+# Validate signal quality
 python scripts/validate_synthetic_data.py \
     --input data/synthetic/merger_141hz.hdf5
 
-# 3. Run full analysis
+# Run full analysis
 python scripts/analizar_gw250114.py \
     --data data/synthetic/merger_141hz.hdf5
 ```

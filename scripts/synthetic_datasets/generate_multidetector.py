@@ -82,6 +82,10 @@ def antenna_response(detector, ra, dec, psi=0):
     """
     Calculate simplified antenna response for a detector
     
+    Note: This is a simplified model for demonstration purposes.
+    For accurate antenna patterns, use proper detector tensor calculations
+    as documented in LIGO-T0900288 (Detector Response to Gravitational Waves).
+    
     Args:
         detector: Detector code ('H1', 'L1', or 'V1')
         ra: Right ascension (radians)

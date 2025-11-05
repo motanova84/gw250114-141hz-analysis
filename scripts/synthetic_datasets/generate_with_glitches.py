@@ -75,7 +75,7 @@ def generate_power_line_harmonics(times, fundamental=60, amplitudes=None):
     
     Args:
         times: Time array
-        fundamental: Fundamental frequency (Hz)
+        fundamental: Fundamental frequency (Hz) - 60 Hz for US/North America, 50 Hz for Europe
         amplitudes: List of amplitudes for harmonics (default: decaying)
         
     Returns:

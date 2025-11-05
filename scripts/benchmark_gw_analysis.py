@@ -108,7 +108,7 @@ def benchmark_pycbc_matched_filter(data, sample_rate, target_freq=141.7):
             'framework': 'PyCBC',
             'available': False,
             'error': 'PyCBC not available (install with: pip install pycbc)',
-            'note': 'PyCBC is LIGO\'s primary matched-filter search pipeline'
+            'note': "PyCBC is LIGO's primary matched-filter search pipeline"
         }
     
     try:

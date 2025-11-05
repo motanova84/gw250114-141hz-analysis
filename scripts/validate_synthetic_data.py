@@ -14,6 +14,13 @@ from pathlib import Path
 from scipy import signal
 
 
+# Frequency range constants for signal analysis
+FREQ_MIN = 50  # Hz - minimum frequency for GW analysis
+FREQ_MAX = 500  # Hz - maximum frequency for typical BBH mergers
+SIGNAL_WINDOW_HZ = 5  # Hz - window around expected signal
+NOISE_OFFSET_HZ = 10  # Hz - offset from signal for noise estimation
+
+
 def validate_hdf5_format(filepath):
     """
     Validate HDF5 file format and structure
@@ -158,8 +165,8 @@ def validate_signal_content(filepath, expected_freq=None):
             freqs = np.fft.rfftfreq(len(strain), dt)
             psd = np.abs(fft_vals)**2
             
-            # Find peak in relevant range (100-500 Hz for typical GW)
-            mask = (freqs > 50) & (freqs < 500)
+            # Find peak in relevant range
+            mask = (freqs > FREQ_MIN) & (freqs < FREQ_MAX)
             if np.sum(mask) > 0:
                 peak_idx = np.argmax(psd[mask])
                 peak_freq = freqs[mask][peak_idx]
@@ -174,14 +181,15 @@ def validate_signal_content(filepath, expected_freq=None):
                     else:
                         messages.append("✅ Peak frequency matches expected")
             else:
-                messages.append("⚠️  No significant peak found in 50-500 Hz")
+                messages.append(f"⚠️  No significant peak found in {FREQ_MIN}-{FREQ_MAX} Hz")
             
             # Estimate SNR
-            # Signal: peak region ±5 Hz
+            # Signal: peak region ±SIGNAL_WINDOW_HZ
             if expected_freq is not None:
-                signal_mask = (freqs > expected_freq - 5) & (freqs < expected_freq + 5)
-                noise_mask = ((freqs > 50) & (freqs < expected_freq - 10)) | \
-                           ((freqs > expected_freq + 10) & (freqs < 500))
+                signal_mask = (freqs > expected_freq - SIGNAL_WINDOW_HZ) & \
+                             (freqs < expected_freq + SIGNAL_WINDOW_HZ)
+                noise_mask = ((freqs > FREQ_MIN) & (freqs < expected_freq - NOISE_OFFSET_HZ)) | \
+                           ((freqs > expected_freq + NOISE_OFFSET_HZ) & (freqs < FREQ_MAX))
                 
                 if np.sum(signal_mask) > 0 and np.sum(noise_mask) > 0:
                     signal_power = np.mean(psd[signal_mask])
