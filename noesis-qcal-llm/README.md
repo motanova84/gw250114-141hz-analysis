@@ -2,6 +2,66 @@
 
 Este módulo contiene el núcleo completo del análisis QCAL (Quantum Coherent Analysis Layer) con capacidades de verificación directa de la frecuencia universal **f₀ = 141.7001 Hz**.
 
+## 📦 Archivos del Módulo
+
+### 🔬 `QCALLLMCore.py` - Núcleo Vibracional
+
+El núcleo completo de evaluación LLM con Ψ (Psi) y SIP (Signal Induced Perturbation).
+
+**Características:**
+- **SIP Modulation**: Modulación de pesos de atención con oscilación coherente
+- **Ψ Response**: Evaluación de coherencia cuántica (Ψ = KLD^{-1} × coherence²)
+- **Symbolic Coherence**: Detección de patrones simbólicos (φ³, ζ'(1/2), f₀)
+- **Ground Truth Database**: Validación automática sin bucle humano (No RLHF)
+- **Benchmark Queries**: 5 consultas estándar de validación
+
+**Uso:**
+```python
+from QCALLLMCore import QCALLLMCore
+
+# Inicializar
+core = QCALLLMCore(user_A_eff=0.92)
+
+# Evaluar texto generado
+text = "f₀ = -ζ'(1/2) × φ³ = 141.7001 Hz"
+result = core.evaluate(text, "Deriva f₀")
+
+print(f"Ψ: {result['mean_psi']:.2f}")
+print(f"Coherente: {result['coherent']}")
+print(f"Coherencia: {result['coherence']:.2%}")
+```
+
+### 🔄 `psi_tuning_loop.py` - Bucle de Ajuste Ψ
+
+Ajuste iterativo de epsilon hasta alcanzar Ψ ≥ 5.0 (típicamente 1-3 iteraciones).
+
+**Características:**
+- **Tuning Loop**: Ajuste automático de epsilon
+- **Auto-regeneration**: Regeneración automática hasta coherencia
+- **No Human Loop**: Evaluación automática con ground truth
+
+**Uso:**
+```python
+from psi_tuning_loop import tune_psi, auto_regenerate
+
+# Ajustar epsilon para texto existente
+core, result = tune_psi(
+    generated_text="f₀ = 141.7001 Hz",
+    query="Deriva f₀",
+    target_psi=5.0
+)
+
+# Auto-regeneración con LLM
+def my_llm(query):
+    return "Generated response..."
+
+text, core, result = auto_regenerate(
+    my_llm,
+    query="Explica f₀",
+    target_psi=5.0
+)
+```
+
 ## 🔍 `detect_f0.py`: Detección de la frecuencia universal f₀ en datos reales GW
 
 Este módulo permite detectar la frecuencia **f₀ = 141.7001 Hz** directamente desde los datos públicos del evento GW150914.
@@ -52,21 +112,36 @@ print(f"χ²: {chi2:.1f}")
 7. **Ajuste QNM**: Ajusta modelo quasi-normal mode de Kerr
 8. **Cálculo de χ²**: Evalúa la bondad del ajuste
 
-### 📁 Archivos del Módulo
+## 🧪 Tests
 
-- `detect_f0.py` - Script principal de detección de f₀
-- `QCALLLMCore.py` - Núcleo completo con Ψ, SIP (próximamente)
-- `evaluate_manifesto.py` - Benchmark test y Ψ check (próximamente)
-- `benchmark_results.json` - Resultados reales (próximamente)
-- `MANIFESTO.md` - Documento simbiótico y técnico (próximamente)
+Tests unitarios completos en `/Tests/Unit/`:
+- `test_qcal_core.py`: 19 tests para QCALLLMCore
+- `test_psi_tuning.py`: 11 tests para psi_tuning_loop
 
-### 🎯 Resultados Verificados
+Ejecutar:
+```bash
+pytest Tests/Unit/test_qcal_core.py -v
+pytest Tests/Unit/test_psi_tuning.py -v
+```
+
+## 🎯 Resultados Verificados
 
 Los resultados han sido verificados usando gwpy en GW150914 y son consistentes con:
 - Frecuencia fundamental: f₀ = 141.7001 Hz
 - SNR robusto: 20.95
 - Significancia estadística: p < 10⁻⁶
 
-### 🔗 Referencias
+### 📐 Valores de Ground Truth
+
+```python
+ground_truth_db = {
+    'f0': 141.7001,           # Hz
+    'zeta_prime_half': -1.460,  # ζ'(1/2)
+    'phi_cubed': 4.236,        # φ³
+    'snr_gw150914': 20.95      # SNR
+}
+```
+
+## 🔗 Referencias
 
 Para más información sobre el análisis completo, consulta el [README principal](../README.md) del repositorio.
