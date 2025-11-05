@@ -133,5 +133,5 @@ if __name__ == "__main__":
     print("=" * 80)
     print("VECTOR VI: NÚCLEO OPERACIONAL VERIFICADO ✓")
     print("LISA gateway 2026: Predicción harmonics @ f₀/100 = 1.417 Hz")
-    print("Falsable: Armónicos absent colapsa el field")
+    print("Falsificable: Armónicos absent colapsa el field")
     print("=" * 80)

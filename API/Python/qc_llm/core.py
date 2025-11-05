@@ -7,9 +7,15 @@ import numpy as np
 import re
 from typing import Dict, List, Any
 
+# Constants for evaluation
+DEFAULT_A_EFF = 0.85  # Default attention effectiveness
+KLD_SCALE_FACTOR = 10.0  # Scale factor for KLD calculation
+KLD_REFERENCE = 8.2  # Reference KLD value for scaling
+KLD_LOG_BASE = 11.0  # Base for logarithmic scaling (10 + 1)
+
 
 class QCALLLMCore:
-    def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07, epsilon=0.015, user_A_eff=0.85):
+    def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07, epsilon=0.015, user_A_eff=DEFAULT_A_EFF):
         """
         Inicializa el núcleo QCAL-LLM con parámetros de modulación SIP.
         
@@ -24,7 +30,7 @@ class QCALLLMCore:
         self.f0 = f0                # Frecuencia universal (Hz)
         self.phi = phi              # Fase inicial
         self.tau = tau              # Tiempo de damping (s)
-        self.epsilon = epsilon * (user_A_eff / 0.85)  # Amplitud de modulación adaptativa
+        self.epsilon = epsilon * (user_A_eff / DEFAULT_A_EFF)  # Amplitud de modulación adaptativa
         self.alpha = alpha          # Peso basal (uniforme)
         self.user_A_eff = user_A_eff
         
@@ -121,7 +127,7 @@ class QCALLLMCore:
         # Mock KLD inverse: usar log(matches+1) escalado
         coherence = self.compute_coherence(generated_text)
         # Escalar a rango similar a ejemplos (8.2 típico)
-        kld_inv = np.log(coherence * 10 + 1) * (8.2 / np.log(11))
+        kld_inv = np.log(coherence * KLD_SCALE_FACTOR + 1) * (KLD_REFERENCE / np.log(KLD_LOG_BASE))
         
         coherent, psi = self.is_coherent(kld_inv, coherence)
         

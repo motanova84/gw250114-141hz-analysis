@@ -5,6 +5,7 @@ Tests the implementation of QCALLLMCore with SIP modulation
 
 import pytest
 import numpy as np
+from scipy.signal import find_peaks
 import sys
 from pathlib import Path
 
@@ -106,7 +107,6 @@ class TestQCALLLMCore:
         weights_centered = weights - core.alpha
         
         # Count peaks instead of zero crossings (more robust with envelope)
-        from scipy.signal import find_peaks
         peaks, _ = find_peaks(weights_centered)
         
         # Expected number of peaks in 0.5 seconds at 141.7 Hz
