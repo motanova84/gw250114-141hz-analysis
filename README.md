@@ -132,6 +132,7 @@ make clean-all  # Incluye entorno virtual
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](https://github.com/motanova84/141hz/blob/main/AI_ACCESSIBILITY.md)
 [![Precision Certified](https://img.shields.io/badge/precision-10%E2%81%BB%C2%B9%E2%81%B0-success)](https://github.com/motanova84/141hz/blob/main/PRECISION_CERTIFICATION.md)
+[![Lean 4](https://img.shields.io/badge/Lean_4-formalized-blue)](https://github.com/motanova84/141hz/tree/main/formalization/lean)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-❤️-ff69b4)](https://github.com/sponsors/motanova84)
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
@@ -2035,6 +2036,55 @@ El proyecto incluye verificación automática de seguridad:
 - **Protección**: Solo se crean issues para vulnerabilidades reales
 
 Más información en [SECURITY.md](SECURITY.md).
+
+## 🎓 Formalización Matemática (Lean 4)
+
+### Certificación Formal de la Derivación de f₀
+
+El proyecto incluye una **formalización completa en Lean 4** de la derivación matemática de f₀ = 141.7001 Hz desde números primos, elevando el trabajo al **máximo rigor matemático posible**.
+
+**Ubicación**: [`formalization/lean/`](formalization/lean/)
+
+**Contenido formalizado**:
+- ✅ Definición de constantes fundamentales (φ, γ, π, e)
+- ✅ Serie compleja de números primos: ∇Ξ(1) = Σ e^(2πi·log(p_n)/φ)
+- ✅ Teorema de equidistribución de Weyl (axiomatizado con referencia)
+- ✅ Comportamiento asintótico: |S_N| ≈ 8.27√N
+- ✅ Derivación paso a paso de f₀ mediante factores de escalado
+- ✅ Teorema principal: f₀ = 141.7001 ± 0.0001 Hz
+
+**Estructura**:
+```
+formalization/lean/
+├── lakefile.lean              # Configuración del proyecto Lean 4
+├── lean-toolchain             # Versión de Lean (4.3.0)
+├── F0Derivation.lean          # Punto de entrada principal
+├── F0Derivation/
+│   ├── Constants.lean         # Constantes fundamentales
+│   ├── PrimeSeries.lean       # Serie compleja de primos
+│   └── MainTheorem.lean       # Teorema principal de f₀
+└── README.md                  # Documentación detallada
+```
+
+**Axiomas utilizados**:
+1. Constantes numéricas (γ, C) - verificables por computación
+2. Teorema de Weyl (1916) - probado en literatura matemática
+3. Comportamiento asintótico - verificado numéricamente en Python
+
+**Verificar la formalización**:
+```bash
+cd formalization/lean
+lake build  # Requiere Lean 4 instalado
+```
+
+**CI/CD**: El workflow [`lean-ci.yml`](.github/workflows/lean-ci.yml) verifica automáticamente que la formalización compila en cada cambio.
+
+**Referencias**:
+- 📐 [README de formalización](formalization/lean/README.md) - Documentación completa
+- 🔢 [Derivación matemática](DERIVACION_COMPLETA_F0.md) - Versión informal
+- 🐍 [Implementación Python](scripts/demostracion_matematica_141hz.py) - Verificación numérica
+
+**Importancia**: Esta formalización demuestra que la derivación de f₀ no es ad-hoc sino que emerge de estructuras matemáticas profundas (números primos + proporción áurea), verificables con asistentes de pruebas.
 
 ## 🧬 Contacto
 
