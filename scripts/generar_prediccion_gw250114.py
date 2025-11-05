@@ -23,7 +23,7 @@ import json
 import os
 import sys
 from datetime import datetime
-import numpy as np
+
 
 def generar_prediccion_gw250114():
     """

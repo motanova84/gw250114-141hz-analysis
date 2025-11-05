@@ -5,10 +5,10 @@ Comparación de Sensibilidad: LIGO vs KAGRA en 141.7 Hz
 
 Analiza y compara las curvas de sensibilidad teóricas y observadas de:
 - LIGO Hanford (H1)
-- LIGO Livingston (L1)  
+- LIGO Livingston (L1)
 - KAGRA (K1)
 
-Objetivo: Determinar si KAGRA tiene suficiente sensibilidad en 141.7 Hz 
+Objetivo: Determinar si KAGRA tiene suficiente sensibilidad en 141.7 Hz
 para detectar la señal observada en LIGO.
 """
 
@@ -19,41 +19,42 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
+
 def obtener_sensibilidad_teorica():
     """
     Obtener curvas de sensibilidad teóricas de LIGO y KAGRA
-    
+
     Basado en diseños publicados y curvas de ruido esperadas
-    
+
     Returns:
         dict: Sensibilidades para cada detector
     """
     # Frecuencias de análisis (Hz)
     freqs = np.logspace(1, 3, 1000)  # 10 Hz a 1000 Hz
-    
+
     # Parámetros de diseño simplificados
     # Estos son aproximaciones basadas en papers publicados
-    
+
     # LIGO (Advanced LIGO design sensitivity)
     # Ruido cuántico + térmico + sísmico
     def ligo_asd(f):
         """Amplitude Spectral Density de LIGO (aproximada)"""
         # Noise sources
-        seismic = 1e-23 * (10/f)**2  # Seismic noise
-        thermal = 4e-24 / np.sqrt(1 + (f/150)**2)  # Thermal noise
-        quantum = 1.5e-23 * np.sqrt(1 + (f/200)**2)  # Quantum noise
-        
+        seismic = 1e-23 * (10 / f) ** 2  # Seismic noise
+        thermal = 4e-24 / np.sqrt(1 + (f / 150) ** 2)  # Thermal noise
+        quantum = 1.5e-23 * np.sqrt(1 + (f / 200) ** 2)  # Quantum noise
+
         # Total noise (suma cuadrática)
         return np.sqrt(seismic**2 + thermal**2 + quantum**2)
-    
+
     # KAGRA (Design sensitivity con criogenia)
     def kagra_asd(f):
         """Amplitude Spectral Density de KAGRA (aproximada)"""
         # KAGRA tiene mejor ruido térmico (criogénico) pero peor seísmico (Japón)
-        seismic = 2e-23 * (10/f)**2  # Mayor ruido sísmico
-        thermal = 2e-24 / np.sqrt(1 + (f/150)**2)  # Menor ruido térmico (criogénico)
-        quantum = 1.5e-23 * np.sqrt(1 + (f/200)**2)  # Quantum noise similar
-        
+        seismic = 2e-23 * (10 / f) ** 2  # Mayor ruido sísmico
+        thermal = 2e-24 / np.sqrt(1 + (f / 150) ** 2)  # Menor ruido térmico (criogénico)
+        quantum = 1.5e-23 * np.sqrt(1 + (f / 200) ** 2)  # Quantum noise similar
+
         # Total noise
         return np.sqrt(seismic**2 + thermal**2 + quantum**2)
     
@@ -61,7 +62,7 @@ def obtener_sensibilidad_teorica():
     ligo_h1_asd = ligo_asd(freqs)
     ligo_l1_asd = ligo_asd(freqs) * 1.1  # L1 típicamente ~10% peor que H1
     kagra_asd_vals = kagra_asd(freqs)
-    
+
     return {
         'freqs': freqs,
         'H1': ligo_h1_asd,
@@ -73,7 +74,7 @@ def obtener_sensibilidad_teorica():
 def analizar_141hz_especificamente(sensibilidades):
     """
     Análisis específico en 141.7 Hz
-    
+
     Args:
         sensibilidades: Diccionario con curvas de sensibilidad
     """
