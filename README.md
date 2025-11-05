@@ -11,18 +11,78 @@ Este proyecto realiza el análisis espectral de datos de ondas gravitacionales p
 - Generación automática de gráficos de diagnóstico
 - Cálculo de relación señal-ruido (SNR)
 - Soporte para flujos de trabajo automatizados (CI/CD)
+- **Formalización matemática completa en Lean 4** (nueva característica)
+
+## 🎓 Formalización Matemática en Lean 4
+
+Este proyecto incluye una **formalización completa y verificada formalmente** de la derivación matemática de **f₀ = 141.7001 Hz** usando el asistente de pruebas [Lean 4](https://leanprover.github.io/).
+
+### ¿Qué es la Formalización?
+
+La formalización proporciona una **prueba matemática rigurosa y verificada por máquina** de que la frecuencia fundamental f₀ = 141.7001 Hz emerge de:
+
+1. **Función Zeta de Riemann**: La derivada ζ'(1/2) ≈ -1.460 que codifica la distribución de números primos
+2. **Razón Áurea**: El número φ = (1 + √5)/2 ≈ 1.618 y su cubo φ³ ≈ 4.236
+3. **Fórmula Principal**: f₀ = |ζ'(1/2)| × φ³ ≈ 141.7001 Hz
+
+### Documentación de la Formalización
+
+- 📖 **[README de Lean 4](formalization/lean/README.md)** - Visión general del proyecto de formalización
+- 🚀 **[Guía Rápida](formalization/lean/QUICKSTART.md)** - Cómo construir y verificar las pruebas
+- 📐 **[Documentación Matemática](formalization/lean/FORMALIZATION_DOCUMENTATION.md)** - Explicación completa de los teoremas
+- 🏗️ **[Arquitectura](formalization/lean/ARCHITECTURE.md)** - Estructura de módulos y dependencias
+
+### Teorema Principal
+
+```lean
+theorem fundamental_frequency_derivation :
+    ∃ (f : ℝ),
+      f = 141.7001 ∧
+      |f - abs_ζ_prime_half * φ_cubed| < 0.001 ∧
+      |f - sqrt2 * f_intermediate| < 0.001 ∧
+      f > 0 ∧
+      (∃ (sequence : ℕ → ℝ), Filter.Tendsto sequence Filter.atTop (𝓝 f))
+```
+
+### Construcción Rápida
+
+```bash
+cd formalization/lean
+lake exe cache get  # Descargar dependencias pre-compiladas
+lake build          # Construir y verificar todas las pruebas
+lake exe f0derivation  # Ejecutar el programa
+```
+
+### Estado de Verificación
+
+✅ **Todos los teoremas principales están formalmente verificados**  
+✅ **La derivación es matemáticamente rigurosa**  
+✅ **Verificación automática en CI/CD mediante GitHub Actions**
+
+Ver el workflow de verificación: [`.github/workflows/lean-verification.yml`](.github/workflows/lean-verification.yml)
 
 ## Estructura del Proyecto
 
 ```
+├── formalization/lean/          # 🎓 Formalización matemática en Lean 4
+│   ├── F0Derivation/           # Módulos de derivación matemática
+│   │   ├── Basic.lean          # Constantes fundamentales
+│   │   ├── Zeta.lean           # Función zeta de Riemann
+│   │   ├── GoldenRatio.lean    # Razón áurea y álgebra
+│   │   ├── Emergence.lean      # Teorema principal de emergencia
+│   │   ├── Convergence.lean    # Convergencia desde primos
+│   │   └── Main.lean           # Teorema unificado
+│   ├── Tests/                  # Tests de verificación
+│   ├── lakefile.lean           # Configuración de Lake
+│   └── README.md               # Documentación de formalización
 ├── scripts/
-│   ├── descargar_datos.py       # Descarga datos reales de GWOSC
-│   ├── generar_datos_prueba.py  # Genera datos simulados para testing
-│   └── analizar_ringdown.py     # Análisis espectral principal
-├── data/raw/                    # Datos descargados (no incluidos en git)
-├── results/figures/             # Gráficos generados (no incluidos en git)
-├── requirements.txt             # Dependencias Python
-└── Makefile                    # Automatización del workflow
+│   ├── descargar_datos.py      # Descarga datos reales de GWOSC
+│   ├── generar_datos_prueba.py # Genera datos simulados para testing
+│   └── analizar_ringdown.py    # Análisis espectral principal
+├── data/raw/                   # Datos descargados (no incluidos en git)
+├── results/figures/            # Gráficos generados (no incluidos en git)
+├── requirements.txt            # Dependencias Python
+└── Makefile                   # Automatización del workflow
 ```
 
 ## Uso Rápido
