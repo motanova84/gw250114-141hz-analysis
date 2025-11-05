@@ -2,6 +2,17 @@
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
 
+## 🎯 Nuevo: Derivación Formal f₀ = 141.7001 Hz
+
+✨ **Formalización matemática completa en Lean 4** de la derivación de la frecuencia universal f₀ = 141.7001 Hz desde primeros principios.
+
+- 📐 **Fórmula**: `f₀ = c / (2π^(n+1) × ℓ_P)` con n = 81.1
+- ✅ **Verificado**: Sin axiomas adicionales (solo Mathlib)
+- 🔬 **Validado**: 6/6 tests numéricos exitosos
+- 📚 **Documentado**: Guías completas de uso y publicación
+
+👉 Ver: [`formalization/F0_DERIVATION_SUMMARY.md`](formalization/F0_DERIVATION_SUMMARY.md)
+
 ## Características
 
 - Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
@@ -128,6 +139,8 @@ make clean-all  # Incluye entorno virtual
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
 [![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)](https://github.com/motanova84/141hz#-validaci%C3%B3n-de-est%C3%A1ndares-de-descubrimiento-cient%C3%ADfico)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)
+[![Lean 4](https://img.shields.io/badge/Lean-4.0+-purple)](https://leanprover.github.io/)
+[![Formal Verification](https://img.shields.io/badge/formal-verified-success)](formalization/lean/F0Derivation.lean)
 [![GWPy](https://img.shields.io/badge/GWPy-3.0+-green)](https://gwpy.github.io/)
 [![Open Science](https://img.shields.io/badge/Open-Science-brightgreen)](https://www.fosteropenscience.eu/)
 [![AI Accessible](https://img.shields.io/badge/AI-Accessible-blueviolet)](https://github.com/motanova84/141hz/blob/main/AI_ACCESSIBILITY.md)
