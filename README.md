@@ -2246,7 +2246,7 @@ MIT License - See [LICENSE](LICENSE)
 
 - **Documentation**: https://motanova84.github.io/141hz
 - **PyPI**: https://pypi.org/project/qc-llm
-- **Paper**: [Coming soon on arXiv]
+- **Paper**: 
 - **API**: https://api.qc-llm.org
 
 ---
