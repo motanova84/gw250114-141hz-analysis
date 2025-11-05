@@ -133,10 +133,13 @@ class TestNetworkError:
     
     def test_with_url_and_status(self):
         """Test with URL and status code."""
-        exc = NetworkError(url="https://example.com", status_code=404)
-        assert "https://example.com" in str(exc)
+        test_url = "https://example.com"
+        exc = NetworkError(url=test_url, status_code=404)
+        # Test that error message includes the URL information
+        assert test_url in str(exc)
         assert "404" in str(exc)
-        assert exc.url == "https://example.com"
+        # Test that attributes are set correctly
+        assert exc.url == test_url
         assert exc.status_code == 404
 
 
