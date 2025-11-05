@@ -9,6 +9,8 @@ data/
 
 # Results
 results/
+# But allow vacuum energy visualizations
+!results/figures/vacuum_energy*.png
 
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
