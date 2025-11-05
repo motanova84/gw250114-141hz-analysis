@@ -108,6 +108,13 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
+    - name: Test notebook structure and validity
+      run: |
+        python tests/test_notebook_structure.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v4
       if: success()

@@ -2,6 +2,54 @@
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
 
+## 🆕 Nuevas Características
+
+### 📓 Cuadernos Jupyter Interactivos
+
+Hemos agregado tres cuadernos Jupyter interactivos completamente documentados para replicar análisis clave:
+
+1. **spectral_analysis_gw150914.ipynb**: Análisis espectral paso a paso de GW150914
+   - Descarga de datos reales de GWOSC
+   - Preprocesamiento y filtrado
+   - Análisis FFT completo
+   - Enfoque en banda 141.7 Hz
+   - Explicaciones en línea completas
+
+2. **statistical_validation_bayesian.ipynb**: Validación estadística bayesiana rigurosa
+   - Cálculo de Bayes Factor
+   - Estimación de p-values con time-slides
+   - Validación contra estándares LIGO/Virgo
+   - Visualización de distribuciones posteriores
+
+3. **multi_event_snr_analysis.ipynb**: Análisis sistemático multi-evento
+   - Analiza 11 eventos de GWTC-1
+   - Compara detectores H1 y L1
+   - Genera visualizaciones comparativas
+   - Exporta resultados en JSON
+
+Ver [notebooks/README.md](notebooks/README.md) para más detalles.
+
+### 🧪 Integración Continua Mejorada
+
+Se han agregado pruebas unitarias y de integración exhaustivas:
+
+- **test_statistical_validation.py**: Pruebas unitarias de métodos estadísticos
+  - Validación de cálculo de Bayes Factor
+  - Pruebas de cálculo de SNR
+  - Validación de estimación de p-values
+  
+- **test_integration_pipeline.py**: Pruebas de integración del pipeline completo
+  - Análisis de eventos individuales
+  - Consistencia multi-evento
+  - Coherencia entre detectores
+  
+- **test_reproducibility.py**: Pruebas de reproducibilidad científica
+  - Validación de integridad de datos
+  - Verificación de determinismo
+  - Pruebas de validez estadística
+
+Las pruebas se ejecutan automáticamente en cada push/PR mediante GitHub Actions.
+
 ## Características
 
 - Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
