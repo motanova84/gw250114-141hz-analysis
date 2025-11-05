@@ -13,6 +13,11 @@ results/
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
+# Lean build artifacts
+.lake/
+lake-packages/
+build/
+
 # OS files
 .DS_Store
 *.swp

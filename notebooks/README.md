@@ -2,6 +2,49 @@
 
 This directory contains Jupyter notebooks for validating the 141.7001 Hz frequency detection in gravitational wave events.
 
+## 🆕 New Interactive Notebooks
+
+### `spectral_analysis_gw150914.ipynb`
+
+**Interactive spectral analysis of GW150914 with inline explanations.**
+
+Complete step-by-step analysis of the first gravitational wave detection:
+- 📡 Download real data from GWOSC
+- 🔧 Apply preprocessing filters
+- 📊 Perform FFT and spectral analysis
+- 🎯 Focus on 141.7 Hz band
+- 📈 Calculate and visualize SNR
+- 📝 Comprehensive markdown explanations
+
+Perfect for: Understanding the spectral analysis methodology
+
+### `statistical_validation_bayesian.ipynb`
+
+**Rigorous statistical validation using Bayesian methods.**
+
+Implements complete statistical framework:
+- 📊 Calculate Bayes Factor (signal vs noise)
+- 🎲 Estimate p-values with time-slides
+- 📈 Visualize posterior distributions
+- ✅ Validate against LIGO/Virgo standards (BF > 10, p < 0.01)
+- 🔍 Quantify uncertainties
+
+Perfect for: Understanding the statistical significance of results
+
+### `multi_event_snr_analysis.ipynb`
+
+**Systematic analysis of 11 GWTC-1 events.**
+
+Multi-event comparative study:
+- 🌌 Analyze all 11 GWTC-1 events
+- 📊 Compare H1 vs L1 detectors
+- 📈 Calculate SNR consistently
+- 📉 Generate comparative visualizations
+- 💾 Export results to JSON
+- 📊 Compute statistical summaries
+
+Perfect for: Seeing patterns across multiple events
+
 ## Main Notebook
 
 ### `141hz_validation.ipynb`
