@@ -10,6 +10,11 @@ data/
 # Results
 results/
 
+# Generated outputs
+examples/output/
+reports/
+/tmp/
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
