@@ -121,6 +121,15 @@
 - Trigger: push
 - Trigger: pull_request
 
+### Lean 4 Formalization Verification
+
+**Archivo:** `lean-verification.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 2 * * *`)
+- Trigger: manual (workflow_dispatch)
+
 ### Master Workflow Orchestration
 
 **Archivo:** `master-orchestration.yml`
@@ -144,6 +153,15 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 0,12 * * *`)
+- Trigger: manual (workflow_dispatch)
+
+### Optimized Analysis with GPU Support
+
+**Archivo:** `optimized-analysis.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 0 * * 0`)
 - Trigger: manual (workflow_dispatch)
 
 ### PR Review Automation
@@ -228,4 +246,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-05 18:28:53 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-05 21:21:34 UTC*
