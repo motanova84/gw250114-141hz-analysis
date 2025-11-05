@@ -102,7 +102,7 @@ def test_generar_informe_html():
         
         hallazgos = [
             {
-                'tipo': '',
+                'tipo': 'info',
                 'titulo': 'Detección',
                 'descripcion': 'Pico detectado en 141.7 Hz'
             }
@@ -165,7 +165,7 @@ def test_generar_informe_completo():
             ],
             'hallazgos': [
                 {
-                    'tipo': '',
+                    'tipo': 'info',
                     'titulo': 'Test',
                     'descripcion': 'Hallazgo de prueba'
                 }

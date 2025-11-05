@@ -276,7 +276,17 @@ def estado_sistema():
 def iniciar_analisis():
     """Endpoint para iniciar un nuevo análisis"""
     data = request.get_json()
+    
+    # Validar entrada
+    if not data:
+        return jsonify({'status': 'error', 'mensaje': 'No se proporcionaron datos'}), 400
+    
     evento = data.get('evento', 'GW_UNKNOWN')
+    
+    # Validar evento (solo caracteres alfanuméricos y guiones bajos)
+    import re
+    if not re.match(r'^[A-Za-z0-9_-]+$', evento):
+        return jsonify({'status': 'error', 'mensaje': 'Nombre de evento inválido'}), 400
     
     analisis_id = f"ANALISIS_{int(time.time())}"
     monitor.analisis_activos.append({
@@ -325,8 +335,17 @@ if __name__ == '__main__':
     print("   - POST /api/analisis/iniciar  : Iniciar análisis")
     print("   - GET  /api/analisis/activos  : Análisis activos")
     print("=" * 70)
+    print("\n⚠️  NOTA DE SEGURIDAD:")
+    print("   El servidor está configurado para escuchar en 0.0.0.0 (todas las interfaces)")
+    print("   Para uso en producción, considere:")
+    print("   - Usar host='127.0.0.1' para acceso solo local")
+    print("   - Implementar autenticación y autorización")
+    print("   - Usar HTTPS con certificados SSL/TLS")
+    print("=" * 70)
     
     # Solo debug en desarrollo
     import os
     debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ('true', '1', 't')
-    app.run(debug=debug_mode, host='0.0.0.0', port=5000, threaded=True)
+    # Para producción, considerar usar host='127.0.0.1' o implementar autenticación
+    host = os.getenv('FLASK_HOST', '0.0.0.0')
+    app.run(debug=debug_mode, host=host, port=5000, threaded=True)

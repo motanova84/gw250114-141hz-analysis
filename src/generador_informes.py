@@ -566,7 +566,7 @@ def crear_ejemplo_informe():
         ],
         'hallazgos': [
             {
-                'tipo': '',
+                'tipo': 'info',
                 'titulo': 'Detección Confirmada',
                 'descripcion': 'Se detectó un pico espectral significativo en 141.7 Hz con SNR > 5'
             },

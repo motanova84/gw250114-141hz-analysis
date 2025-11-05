@@ -161,7 +161,8 @@ def test_guardar_html():
         )
         
         # Guardar
-        output_path = '/tmp/test_espectro.html'
+        import tempfile
+        output_path = os.path.join(tempfile.gettempdir(), 'test_espectro.html')
         viz.guardar_html(fig, output_path)
         
         assert os.path.exists(output_path), "Archivo HTML debe existir"

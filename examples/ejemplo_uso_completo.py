@@ -135,12 +135,12 @@ def ejemplo_generacion_informes(figuras):
         ],
         'hallazgos': [
             {
-                'tipo': '',
+                'tipo': 'info',
                 'titulo': 'Detección Confirmada',
                 'descripcion': 'Se detectó un pico espectral significativo en 141.70 Hz con SNR > 5 en ambos detectores'
             },
             {
-                'tipo': '',
+                'tipo': 'info',
                 'titulo': 'Coherencia entre Detectores',
                 'descripcion': 'La señal es coherente entre H1 y L1 con correlación de 0.92'
             }
