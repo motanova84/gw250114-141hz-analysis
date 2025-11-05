@@ -189,10 +189,10 @@ theorem f0_fundamental_derivation :
 noncomputable def period : ℝ := 1 / f₀
 
 theorem period_physical_meaning :
-    (7.056e-3 : ℝ) < period ∧ period < (7.057e-3 : ℝ) := by
+    (7.056e-3 : ℝ) < period ∧ period < (7.058e-3 : ℝ) := by
   unfold period f₀
   constructor
-  · sorry -- 1/141.7001 ≈ 0.007056
+  · sorry -- 1/141.7001 ≈ 0.007057158
   · sorry
 
 /-- Frecuencia angular ω = 2πf₀ -/
