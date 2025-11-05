@@ -9,9 +9,16 @@ data/
 
 # Results
 results/
+# But allow vacuum energy visualizations
+!results/figures/vacuum_energy*.png
 
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
+
+# Lean build artifacts
+.lake/
+lake-packages/
+build/
 
 # OS files
 .DS_Store
