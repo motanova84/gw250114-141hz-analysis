@@ -22,5 +22,29 @@ build/
 
 # OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# HDF5 files (large data files)
+*.hdf5
+*.h5
+
+# Log files
+*.log
+
+# Monitoring files
+monitoreo_gw250114.pid
+GW250114_DISPONIBLE.txt
+
+# Created directories (runtime)
+dashboard/
+resultados/
+
+# Environment variables
+.env
 *.swp
 *.tmp
