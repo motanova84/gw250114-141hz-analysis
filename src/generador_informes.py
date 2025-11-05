@@ -385,11 +385,15 @@ class GeneradorInformes:
         graficos_data = []
         for i, fig in enumerate(graficos):
             grafico_id = f"plot_{i}"
+            # Convertir figura a JSON usando método de plotly
+            fig_json = fig.to_json()
+            fig_dict = json.loads(fig_json)
+            
             graficos_data.append({
                 'id': grafico_id,
                 'titulo': fig.layout.title.text if fig.layout.title else f"Gráfico {i+1}",
-                'data': json.dumps(fig.data, cls=PlotlyJSONEncoder),
-                'layout': json.dumps(fig.layout, cls=PlotlyJSONEncoder)
+                'data': json.dumps(fig_dict['data']),
+                'layout': json.dumps(fig_dict['layout'])
             })
         
         # Datos del template
