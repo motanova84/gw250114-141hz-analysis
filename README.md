@@ -2,6 +2,25 @@
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
 
+## 🚀 Nuevas Características de Optimización
+
+### Aceleración GPU
+- **CuPy**: Hasta 16x más rápido en análisis espectral
+- Fallback automático a CPU si GPU no disponible
+- Soporte para CUDA 11.x y 12.x
+
+### Almacenamiento Comprimido
+- **HDF5**: Compresión gzip/lzf (2-3x reducción de tamaño)
+- **Zarr**: Arrays chunked para datasets muy grandes
+- **Parquet**: Resultados estructurados eficientes
+
+### Soporte HPC y Nube
+- **Slurm**: Generación automática de scripts para clusters HPC
+- **Dask**: Computación distribuida para múltiples nodos
+- **Docker**: Contenedores optimizados con soporte GPU
+- **GWTC-3/GWTC-4**: Procesamiento de catálogos completos
+
+📖 **[Guía Completa de Optimización](docs/COMPUTATIONAL_OPTIMIZATION.md)**
 ## 🆕 Nuevas Características
 
 ### 📓 Cuadernos Jupyter Interactivos
@@ -101,6 +120,54 @@ make test-data
 # 3. Ejecutar análisis
 make analyze
 ```
+
+## 🚀 Uso con Optimizaciones
+
+### Análisis Optimizado con GPU (Recomendado)
+```bash
+# Instalar dependencias con GPU
+pip install cupy-cuda12x  # Para CUDA 12.x
+
+# Análisis de un evento con GPU
+python scripts/example_optimized_analysis.py --events GW150914 --use-gpu
+
+# Análisis de múltiples eventos en paralelo
+python scripts/example_optimized_analysis.py \
+  --events GW150914 GW151226 GW170814 \
+  --use-gpu --n-jobs 4
+
+# Procesar catálogo completo GWTC-3
+python scripts/example_optimized_analysis.py \
+  --catalog GWTC-3 --use-gpu --n-jobs 8
+```
+
+### Docker con GPU
+```bash
+# Construir imagen
+docker build -f Dockerfile.gpu -t gw-141hz:gpu .
+
+# Ejecutar con GPU
+docker run --gpus all \
+  -v $(pwd)/data:/workspace/data \
+  -v $(pwd)/results:/workspace/results \
+  gw-141hz:gpu \
+  python scripts/example_optimized_analysis.py --use-gpu
+
+# Usar docker-compose
+docker-compose up analysis-gpu
+```
+
+### HPC (Slurm)
+```bash
+# Generar scripts para cluster HPC
+python scripts/example_optimized_analysis.py \
+  --generate-hpc-scripts --catalog GWTC-3
+
+# Enviar trabajo
+sbatch hpc_jobs/job_gwtc-3_cpu.sh
+```
+
+Ver la [**Guía de Optimización Computacional**](docs/COMPUTATIONAL_OPTIMIZATION.md) para más detalles.
 
 ## Comandos Disponibles
 
