@@ -21,14 +21,63 @@ Este proyecto realiza el análisis espectral de datos de ondas gravitacionales p
 - **GWTC-3/GWTC-4**: Procesamiento de catálogos completos
 
 📖 **[Guía Completa de Optimización](docs/COMPUTATIONAL_OPTIMIZATION.md)**
+## 🆕 Nuevas Características
+
+### 📓 Cuadernos Jupyter Interactivos
+
+Hemos agregado tres cuadernos Jupyter interactivos completamente documentados para replicar análisis clave:
+
+1. **spectral_analysis_gw150914.ipynb**: Análisis espectral paso a paso de GW150914
+   - Descarga de datos reales de GWOSC
+   - Preprocesamiento y filtrado
+   - Análisis FFT completo
+   - Enfoque en banda 141.7 Hz
+   - Explicaciones en línea completas
+
+2. **statistical_validation_bayesian.ipynb**: Validación estadística bayesiana rigurosa
+   - Cálculo de Bayes Factor
+   - Estimación de p-values con time-slides
+   - Validación contra estándares LIGO/Virgo
+   - Visualización de distribuciones posteriores
+
+3. **multi_event_snr_analysis.ipynb**: Análisis sistemático multi-evento
+   - Analiza 11 eventos de GWTC-1
+   - Compara detectores H1 y L1
+   - Genera visualizaciones comparativas
+   - Exporta resultados en JSON
+
+Ver [notebooks/README.md](notebooks/README.md) para más detalles.
+
+### 🧪 Integración Continua Mejorada
+
+Se han agregado pruebas unitarias y de integración exhaustivas:
+
+- **test_statistical_validation.py**: Pruebas unitarias de métodos estadísticos
+  - Validación de cálculo de Bayes Factor
+  - Pruebas de cálculo de SNR
+  - Validación de estimación de p-values
+  
+- **test_integration_pipeline.py**: Pruebas de integración del pipeline completo
+  - Análisis de eventos individuales
+  - Consistencia multi-evento
+  - Coherencia entre detectores
+  
+- **test_reproducibility.py**: Pruebas de reproducibilidad científica
+  - Validación de integridad de datos
+  - Verificación de determinismo
+  - Pruebas de validez estadística
+
+Las pruebas se ejecutan automáticamente en cada push/PR mediante GitHub Actions.
 
 ## Características
 
 - Descarga automatizada de datos de GWOSC (Gravitational Wave Open Science Center)
+- **Confirmación de usuario para operaciones importantes** (nueva característica)
 - Análisis espectral avanzado con FFT
 - Detección de picos espectrales cerca de 141.7 Hz
 - Generación automática de gráficos de diagnóstico
 - Cálculo de relación señal-ruido (SNR)
+- Soporte para flujos de trabajo automatizados (CI/CD)
 
 ## Estructura del Proyecto
 
@@ -123,12 +172,16 @@ Ver la [**Guía de Optimización Computacional**](docs/COMPUTATIONAL_OPTIMIZATIO
 ## Comandos Disponibles
 
 - `make setup` - Configurar entorno virtual e instalar dependencias
-- `make download` - Descargar datos reales de GW150914 desde GWOSC
+- `make download` / `make data` - Descargar datos reales de GW150914 desde GWOSC (con confirmación)
+- `make data-force` - Descargar datos sin confirmación (para CI/CD)
 - `make test-data` - Generar datos simulados con señal en 141.7 Hz
 - `make analyze` - Ejecutar análisis espectral y generar gráficos
 - `make all` - Ejecutar workflow completo con datos simulados
-- `make clean` - Limpiar archivos de datos y resultados
-- `make clean-all` - Limpiar todo incluyendo entorno virtual
+- `make clean` - Limpiar archivos de datos y resultados (con confirmación)
+- `make clean-force` - Limpiar sin confirmación (para CI/CD)
+- `make help` - Ver todos los comandos disponibles
+
+> 📖 **Nuevo**: Las operaciones de descarga y limpieza ahora piden confirmación. Para flujos automatizados, usa las variantes `-force` o el flag `--yes` en scripts Python. Ver [USER_CONFIRMATION.md](USER_CONFIRMATION.md) para más detalles.
 
 ## Resultados
 
@@ -2136,3 +2189,180 @@ Este proyecto se beneficia de las contribuciones de múltiples colaboradores:
 ---
 
 <!-- QCAL Indexing Active · Noēsis Access Enabled · 141.7001 Hz -->
+# 🌊 QC-LLM: Quantum Coherence Standard for Language Models
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17379721-blue.svg)](https://doi.org/10.5281/zenodo.17379721)
+
+> **Universal metric for evaluating semantic coherence in Large Language Models**
+
+## 🎯 Overview
+
+QC-LLM establishes **f₀ = 141.7001 Hz** as the fundamental frequency for quantum coherence in language models. This frequency emerges from deep mathematical connections to:
+
+- **Riemann Zeta Function**: |ζ'(1/2)| ≈ 1.4604
+- **Golden Ratio**: φ³ ≈ 4.236  
+- **Prime Distribution**: Spectral emergence from number theory
+
+## 🚀 Quick Start
+
+### Installation
+```bash
+pip install qc-llm
+```
+
+### Basic Usage
+```python
+from qc_llm import QC_LLM
+
+# Initialize validator
+validator = QC_LLM()
+
+# Validate text
+result = validator.validate("Your text here")
+
+print(f"Coherence: {result['coherence']:.2%}")
+# Output: Coherence: 87.3%
+```
+
+### API Usage
+```bash
+# Start API server
+cd API/REST
+python main.py
+
+# Test endpoint
+curl -X POST "http://localhost:8000/validate" \
+  -H "Content-Type: application/json" \
+  -d '{"text": "Quantum coherence in language models..."}'
+```
+
+## 📐 Mathematical Foundation
+
+The fundamental frequency derives from:
+```
+f₀ = √2 × f_ref = √2 × (55100/550) ≈ 141.7001 Hz
+
+where:
+  f_ref = k × |ζ'(1/2)| × φ³
+  k ≈ 16.195 (dimensional scale factor)
+```
+
+### Formal Verification
+
+Complete Lean 4 formalization available in [`Core/FrequencyDerivation/`](Core/FrequencyDerivation/)
+
+- ✅ Zero axioms
+- ✅ Constructive proofs
+- ✅ Numerical bounds verified
+
+## 🏗️ Architecture
+```
+141hz/
+├── Core/                   # Mathematical foundation (Lean 4)
+├── API/                    # Python & REST APIs
+├── Applications/           # LLM, Physics, Neuroscience
+├── Benchmarks/            # Comparative validation
+├── Examples/              # Integration examples
+└── Documentation/         # Papers, tutorials, theory
+```
+
+## 🔬 Applications
+
+### 1. LLM Quality Evaluation
+```python
+from qc_llm import QC_LLM
+
+validator = QC_LLM(model_name="gpt-4")
+score = validator.validate(llm_output)
+
+if score["coherence"] > 0.80:
+    print("✅ High quality output")
+```
+
+### 2. Real-Time Monitoring
+```python
+from qc_llm.streaming import CoherenceMonitor
+
+monitor = CoherenceMonitor()
+for chunk in text_stream:
+    coherence = monitor.update(chunk)
+    print(f"Live coherence: {coherence:.1%}")
+```
+
+### 3. Model Comparison
+
+See [Benchmarks/LEADERBOARD.md](Benchmarks/LEADERBOARD.md) for comparative scores across:
+- GPT-4
+- Claude 3.5
+- Gemini Pro
+- Llama 3
+
+## 📊 Results
+
+| Model | Avg Coherence | f₀ Alignment |
+|-------|---------------|--------------|
+| GPT-4 | 87.3% | 92.1% |
+| Claude-3.5 | 89.1% | 94.3% |
+| Gemini-Pro | 84.7% | 88.9% |
+
+
+## 📚 Documentation
+
+- [Getting Started](Documentation/Tutorials/01_getting_started.md)
+- [API Reference](Documentation/API/python_api.md)
+- [Mathematical Theory](Documentation/Theory/mathematical_foundation.md)
+- [Integration Guide](Documentation/Tutorials/02_llm_integration.md)
+
+## 🧪 Testing
+```bash
+# Run test suite
+pytest Tests/ -v
+
+# Validate Lean formalization
+cd Core
+lake build
+
+# Run benchmarks
+python Benchmarks/LLMComparison/run_all.py
+```
+
+## 📄 Citation
+```bibtex
+@software{qc_llm_2025,
+  author = {Mota Burruezo, José Manuel},
+  title = {QC-LLM: Quantum Coherence Standard for Language Models},
+  year = {2025},
+  doi = {10.5281/zenodo.17379721},
+  url = {https://github.com/motanova84/141hz}
+}
+```
+
+## 🤝 Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## 📜 License
+
+MIT License - See [LICENSE](LICENSE)
+
+## 👤 Author
+
+**José Manuel Mota Burruezo (JMMB Ψ ✧ ∞³)**
+
+- Instituto Consciencia Cuántica (ICQ)
+- Palma de Mallorca, España
+- Email: institutoconsciencia@proton.me.com
+- GitHub: [@motanova84](https://github.com/motanova84)
+
+## 🔗 Links
+
+- **Documentation**: https://motanova84.github.io/141hz
+- **PyPI**: https://pypi.org/project/qc-llm
+- **Paper**: 
+- **API**: https://api.qc-llm.org
+
+---
+
+*"La coherencia no se impone: se manifiesta cuando las constantes profundas se alinean."*

@@ -1,3 +1,4 @@
+.PHONY: all venv setup install data data-force download test-data check-data analyze validate validate-offline pipeline validate-connectivity validate-gw150914 validate-gw250114 verify-optimization workflow status clean clean-force docker help
 .PHONY: all download analyze clean venv setup test-data
 
 all: setup test-data analyze
@@ -49,24 +50,12 @@ all: setup validate
 help:
 	@echo "🌌 GW250114 - 141.7001 Hz Analysis - Available targets:"
 	@echo ""
-	@echo "  all         - Complete workflow: setup + validate"
-	@echo "  setup       - Create virtual environment and install dependencies"
-	@echo "  install     - Alias for setup (compatibility)"
-	@echo "  venv        - Create virtual environment only"
-	@echo "  data        - Download real GWOSC data"
-	@echo "  download    - Alias for data (compatibility)"
-	@echo "  test-data   - Generate test data (falls back to real data)"
-	@echo "  analyze     - Run complete analysis pipeline"
-	@echo "  validate    - Run scientific validation pipeline (NEW)"
-	@echo "  pipeline    - Alias for validate (compatibility)"
-	@echo "  docker      - Build and run Docker container"
-	@echo "  clean       - Remove generated files and virtual environment"
-	@echo "  help        - Show this help message"
 	@echo "  all                   - Complete workflow: setup + validate"
 	@echo "  setup                 - Create virtual environment and install dependencies"
 	@echo "  install               - Alias for setup (compatibility)"
 	@echo "  venv                  - Create virtual environment only"
-	@echo "  data                  - Download real GWOSC data"
+	@echo "  data                  - Download real GWOSC data (with confirmation)"
+	@echo "  data-force            - Download data without confirmation (automated)"
 	@echo "  download              - Alias for data (compatibility)"
 	@echo "  test-data             - Generate test data (falls back to real data)"
 	@echo "  check-data            - Verify if data files are available"
@@ -117,23 +106,16 @@ help:
 	@echo "  workflow              - Complete workflow: setup + data + analyze"
 	@echo "  docker                - Build and run Docker container"
 	@echo "  status                - Show project status and environment info"
-	@echo "  clean                 - Remove generated files and virtual environment"
+	@echo "  clean                 - Remove generated files (with confirmation)"
+	@echo "  clean-force           - Clean without confirmation (automated)"
 	@echo "  help                  - Show this help message"
 
+# Create virtual environment
 # Create virtual environment
 venv:
 	python3 -m venv venv
 
-setup: venv
-	./venv/bin/pip install -r requirements.txt
-
-download:
-	./venv/bin/python scripts/descargar_datos.py
-
-test-data:
-	./venv/bin/python scripts/generar_datos_prueba.py
-
-# Setup environment with dependencies (alias for install)
+# Setup environment with dependencies
 setup: venv
 	@echo "📦 Installing dependencies..."
 	@./venv/bin/pip install --upgrade pip --timeout 30 2>/dev/null || echo "⚠️  Pip upgrade skipped due to network issues"
@@ -148,6 +130,11 @@ data: setup
 	@echo "📡 Descargando datos de GWOSC..."
 	./venv/bin/python scripts/descargar_datos.py || echo "⚠️  Error descargando datos - verificar conectividad"
 
+# Download data without confirmation (for automated workflows)
+data-force: setup
+	@echo "📡 Descargando datos de GWOSC (sin confirmación)..."
+	./venv/bin/python scripts/descargar_datos.py --yes || echo "⚠️  Error descargando datos - verificar conectividad"
+
 # Alias for data (for compatibility with old branch)  
 download: data
 
@@ -156,9 +143,6 @@ test-data: data
 	@echo "⚠️  Test data generation script not implemented yet"
 	@echo "   Using real GWOSC data instead via 'make data'"
 
-# Run complete analysis (legacy scripts)
-analyze:
-	./venv/bin/python scripts/analizar_ringdown.py
 # Check if data exists
 check-data:
 	@echo "🔍 Verificando disponibilidad de datos..."
@@ -211,6 +195,24 @@ workflow: setup data analyze
 # Clean up generated files
 clean:
 	@echo "🧹 Limpiando archivos generados..."
+	@echo "⚠️  Esta operación eliminará:"
+	@echo "   - venv/ (entorno virtual)"
+	@echo "   - data/ (datos descargados)"
+	@echo "   - results/ (resultados de análisis)"
+	@echo "   - Archivos de caché y temporales"
+	@read -p "¿Continuar? [y/N]: " -n 1 -r; \
+	echo; \
+	if [[ $$REPLY =~ ^[YySs]$$ ]]; then \
+		rm -rf venv __pycache__ .pytest_cache results/ data/ *.egg-info; \
+		rm -rf scripts/__pycache__/ notebooks/__pycache__/; \
+		echo "✅ Limpieza completada"; \
+	else \
+		echo "❌ Limpieza cancelada"; \
+	fi
+
+# Clean up without confirmation (for automated workflows)
+clean-force:
+	@echo "🧹 Limpiando archivos generados (sin confirmación)..."
 	rm -rf venv __pycache__ .pytest_cache results/ data/ *.egg-info
 	rm -rf scripts/__pycache__/ notebooks/__pycache__/
 	@echo "✅ Limpieza completada"
