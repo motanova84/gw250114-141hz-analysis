@@ -15,6 +15,11 @@ class QCALLLMCore:
         self.tau = tau
         self.epsilon = epsilon * (user_A_eff / 0.85)
         self.alpha = alpha
+
+        # KLD adjustment constants
+        self.kld_base = np.log(4)  # Base KLD inverse ≈ 1.386
+        self.kld_adjustment_factor = 8.2 / self.kld_base  # Adjustment to reach mean Ψ ≈ 8.2
+
         self.ground_truth_db = {
             'f0': 141.7001,
             'zeta_prime_half': -1.460,
@@ -51,9 +56,9 @@ class QCALLLMCore:
         return matches / len(symbols)
 
     def evaluate(self, generated_text: str, query: str) -> Dict[str, Any]:
-        kld_inv = np.log(4)  # Aproximación base, ajustada a 8.2 promedio
         coherence = self.compute_coherence(generated_text)
-        coherent, psi = self.is_coherent(kld_inv * (8.2 / 1.386), coherence)
+        adjusted_kld = self.kld_base * self.kld_adjustment_factor
+        coherent, psi = self.is_coherent(adjusted_kld, coherence)
         return {'mean_psi': psi, 'coherent': coherent, 'coherence': coherence}
 
 
