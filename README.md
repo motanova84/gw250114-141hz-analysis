@@ -2568,7 +2568,7 @@ MIT License - See [LICENSE](LICENSE)
 
 - **Documentation**: https://motanova84.github.io/141hz
 - **PyPI**: https://pypi.org/project/qc-llm
-- **Paper**: 
+- **Paper**: https://doi.org/10.5281/zenodo.17445017
 - **API**: https://api.qc-llm.org
 
 ---
