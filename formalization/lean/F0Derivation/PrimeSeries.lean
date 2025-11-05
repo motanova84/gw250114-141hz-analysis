@@ -43,7 +43,7 @@ noncomputable def prime_phase (n : ℕ) : ℝ :=
 
 /-- The n-th term of the prime series: e^(i·θ_n) -/
 noncomputable def prime_series_term (n : ℕ) : ℂ :=
-  exp (I * (prime_phase n))
+  exp (I * ↑(prime_phase n))
 
 /-- Partial sum S_N = Σ(n=1 to N) e^(i·θ_n) -/
 noncomputable def prime_series_partial (N : ℕ) : ℂ :=
@@ -56,9 +56,9 @@ noncomputable def prime_series_partial (N : ℕ) : ℂ :=
     This is a deep theorem in number theory. -/
 axiom weyl_equidistribution :
   ∀ ε > 0, ∃ N₀, ∀ N ≥ N₀, ∀ a b : ℝ, 0 ≤ a → b ≤ 1 → a < b →
-    abs ((Finset.filter (fun n => 
+    abs (((Finset.filter (fun n => 
       let phase_mod := (prime_phase n / (2 * pi)) % 1
-      a ≤ phase_mod ∧ phase_mod < b) (Finset.range N)).card / N - (b - a)) < ε
+      a ≤ phase_mod ∧ phase_mod < b) (Finset.range N)).card : ℝ) / (N : ℝ) - (b - a)) < ε
 
 /-! ### Asymptotic Behavior -/
 

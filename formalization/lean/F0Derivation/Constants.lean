@@ -39,7 +39,13 @@ axiom φ_irrational : Irrational φ
 
 /-- Property: φ² = φ + 1 (defining property of golden ratio) -/
 theorem φ_squared : φ^2 = φ + 1 := by
-  sorry -- Proof follows from algebra
+  unfold φ
+  -- φ = (1 + √5) / 2
+  -- φ² = ((1 + √5) / 2)² = (1 + 2√5 + 5) / 4 = (6 + 2√5) / 4 = (3 + √5) / 2
+  -- φ + 1 = (1 + √5) / 2 + 1 = (1 + √5 + 2) / 2 = (3 + √5) / 2
+  -- Therefore φ² = φ + 1
+  ring_nf
+  sorry -- Complete algebraic manipulation needed
 
 /-- The base frequency from theta function: f_θ = 1/(2π) -/
 noncomputable def f_theta : ℝ := 1 / (2 * Real.pi)

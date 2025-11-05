@@ -76,6 +76,9 @@ theorem f0_value : ∃ ε > 0, ε < 0.0001 ∧ abs (f0 - 141.7001) < ε := by
 
 /-! ### Properties and consistency checks -/
 
+/-- Speed of light in m/s (CODATA 2022 exact value) -/
+noncomputable def speed_of_light : ℝ := 299792458
+
 /-- f₀ is positive -/
 theorem f0_pos : f0 > 0 := by
   sorry -- Follows from all factors being positive
@@ -86,7 +89,7 @@ theorem f0_physical_bounds : 100 < f0 ∧ f0 < 200 := by
 
 /-- Relationship to wavelength: λ = c/f₀ ≈ 2116 km
     where c is the speed of light -/
-noncomputable def wavelength : ℝ := 299792458 / f0
+noncomputable def wavelength : ℝ := speed_of_light / f0
 
 theorem wavelength_approx : abs (wavelength - 2116000) < 1000 := by
   sorry -- Follows from f₀ value and speed of light

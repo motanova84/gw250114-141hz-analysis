@@ -7,9 +7,5 @@ package «f0-formalization» where
 lean_lib «F0Derivation» where
   -- add library configuration options here
 
-@[default_target]
-lean_lib «RiemannAdelic» where
-  -- add library configuration options here
-
 require mathlib from git
   "https://github.com/leanprover-community/mathlib4.git"

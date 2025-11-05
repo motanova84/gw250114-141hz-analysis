@@ -18,8 +18,10 @@ formalization/lean/
 │   ├── PrimeSeries.lean       # Complex prime series ∇Ξ(1)
 │   └── MainTheorem.lean       # Final derivation of f₀
 └── RiemannAdelic/
-    └── axiom_purge.lean       # Riemann hypothesis formalization
+    └── axiom_purge.lean       # Separate: Riemann hypothesis work
 ```
+
+**Note**: The `RiemannAdelic/` directory contains unrelated work on the Riemann hypothesis. The f₀ derivation is entirely contained in the `F0Derivation/` module.
 
 ## 🔢 Mathematical Content
 
