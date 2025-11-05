@@ -2192,7 +2192,6 @@ See [Benchmarks/LEADERBOARD.md](Benchmarks/LEADERBOARD.md) for comparative score
 | Claude-3.5 | 89.1% | 94.3% |
 | Gemini-Pro | 84.7% | 88.9% |
 
-*Updated: 2025-01-04*
 
 ## 📚 Documentation
 
