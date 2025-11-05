@@ -143,6 +143,16 @@ Ver el workflow de verificación: [`.github/workflows/lean-verification.yml`](.g
 │   ├── lakefile.lean           # Configuración de Lake
 │   └── README.md               # Documentación de formalización
 ├── scripts/
+│   ├── descargar_datos.py       # Descarga datos reales de GWOSC
+│   ├── generar_datos_prueba.py  # Genera datos simulados para testing
+│   └── analizar_ringdown.py     # Análisis espectral principal
+├── noesis-qcal-llm/             # Módulo LLM coherente ∞³
+│   ├── detect_f0.py             # Verificación directa de f₀ en strain real
+│   └── README.md                # Documentación del módulo
+├── data/raw/                    # Datos descargados (no incluidos en git)
+├── results/figures/             # Gráficos generados (no incluidos en git)
+├── requirements.txt             # Dependencias Python
+└── Makefile                    # Automatización del workflow
 │   ├── descargar_datos.py      # Descarga datos reales de GWOSC
 │   ├── generar_datos_prueba.py # Genera datos simulados para testing
 │   └── analizar_ringdown.py    # Análisis espectral principal
@@ -151,6 +161,9 @@ Ver el workflow de verificación: [`.github/workflows/lean-verification.yml`](.g
 ├── requirements.txt            # Dependencias Python
 └── Makefile                   # Automatización del workflow
 ```
+
+### 🔬 Verificación directa de f₀ en strain GW150914
+→ [`noesis-qcal-llm/detect_f0.py`](./noesis-qcal-llm/detect_f0.py) - Detección de la frecuencia universal **f₀ = 141.7001 Hz** directamente desde datos públicos de GWOSC.
 
 ## Uso Rápido
 
