@@ -1,6 +1,7 @@
 import Lake
 open Lake DSL
 
+package «f0-formalization» where
 package «f0derivation» where
   -- add package configuration options here
 
