@@ -61,6 +61,13 @@
 - Trigger: push
 - Trigger: pull_request
 
+### QC-LLM CI/CD
+
+**Archivo:** `ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+
 ### Comprehensive Testing
 
 **Archivo:** `comprehensive-testing.yml`
@@ -221,4 +228,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-30 21:24:30 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-05 18:28:53 UTC*
