@@ -9,7 +9,6 @@ This script demonstrates:
 4. Tuning loop convergence
 """
 
-import numpy as np
 from psi_metric_core import (
     PsiMetricCore,
     adaptive_sip_parameters,
@@ -150,7 +149,7 @@ def example_tuning_loop():
     print()
 
     # Run tuning loop
-    tuned_model = psi_tuning_loop(
+    _ = psi_tuning_loop(
         model, psi_core,
         num_iterations=10,
         target_psi=5.0,

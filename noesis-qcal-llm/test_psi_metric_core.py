@@ -384,8 +384,13 @@ class TestIntegration(unittest.TestCase):
         query_text = ' '.join(queries).lower()
 
         self.assertIn('141.7001', query_text)  # f₀
-        # Check for zeta in either form
-        has_zeta = 'zeta' in query_text or 'ζ' in query_text or "ζ'" in ' '.join(queries)
+        # Check for zeta in any form (case-insensitive)
+        queries_combined = ' '.join(queries)
+        has_zeta = (
+            'zeta' in query_text
+            or 'ζ' in queries_combined
+            or "ζ'" in queries_combined
+        )
         self.assertTrue(has_zeta, "Queries should contain zeta reference")
         self.assertIn('snr', query_text.lower())
         self.assertIn('gw150914', query_text.lower())

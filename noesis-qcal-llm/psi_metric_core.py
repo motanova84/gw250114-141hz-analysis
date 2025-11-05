@@ -97,8 +97,8 @@ class PsiMetricCore:
         for key, pattern in patterns.items():
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
-                value = match.group(1).rstrip('.,;:')  # Remove trailing punctuation
-                claims.append(f"{key}={value}")
+                cleaned_value = match.group(1).rstrip('.,;:')  # Remove trailing punctuation
+                claims.append(f"{key}={cleaned_value}")
 
         return claims
 
@@ -162,7 +162,6 @@ class PsiMetricCore:
         claims = self.extract_claims(generated_text)
         matches = sum(1 for claim in claims if self.verify_claim(claim, query))
         # Scaled formula: (matches + 1) × log(matches + 1)
-        # For 4 matches: 5 × log(5) ≈ 8.05
         return (matches + 1) * np.log(matches + 1)
 
     def compute_coherence(self, generated_text: str) -> float:
