@@ -9,6 +9,20 @@ import warnings
 # Fundamental constant
 F0 = 141.7001  # Hz
 
+# Normalization constants for frequency alignment
+# These map abstract mathematical frequencies to observable physical scales
+FREQ_NORMALIZATION_FACTOR = 1000.0  # Maps f₀ (Hz) to embedding domain (normalized units)
+# Explanation: BERT embeddings have dimensionless indices. To relate the physical
+# frequency f₀ = 141.7001 Hz to embedding space, we scale by 1000 to get
+# a normalized target frequency ~0.142, which is in the typical range of
+# FFT frequencies for text sequences of 10-100 tokens.
+
+ALIGNMENT_SENSITIVITY = 10.0  # Exponential decay rate for frequency mismatch
+# Explanation: This controls how sharply alignment score decreases with
+# frequency distance. Value of 10 means that a mismatch of 0.1 normalized
+# units gives exp(-1) ≈ 0.37 alignment. Chosen empirically to balance
+# sensitivity to f₀ while tolerating small deviations.
+
 # Try to import transformers, but make it optional for basic functionality
 try:
     from transformers import AutoTokenizer, AutoModel
@@ -76,7 +90,7 @@ def _compute_bert_frequency_alignment(text: str, target_freq: float) -> float:
         
         # Normalize target frequency to embedding domain
         # f₀ = 141.7001 Hz maps to normalized frequency
-        normalized_f0 = target_freq / 1000.0
+        normalized_f0 = target_freq / FREQ_NORMALIZATION_FACTOR
         
         # Find peak closest to f₀
         freq_distances = np.abs(freqs - normalized_f0)
@@ -106,7 +120,7 @@ def _compute_basic_frequency_alignment(text: str, target_freq: float) -> float:
     frequencies = np.fft.fftfreq(n, d=1.0)
     
     # Normalize target frequency to text domain
-    norm_target = target_freq / 1000.0
+    norm_target = target_freq / FREQ_NORMALIZATION_FACTOR
     
     # Compute alignment based on token distribution
     # This is a simplified version
@@ -121,8 +135,8 @@ def _compute_basic_frequency_alignment(text: str, target_freq: float) -> float:
     else:
         peak_freq = 0.1
     
-    # Compute alignment
-    alignment = np.exp(-abs(peak_freq - norm_target) * 10)
+    # Compute alignment using exponential decay
+    alignment = np.exp(-abs(peak_freq - norm_target) * ALIGNMENT_SENSITIVITY)
     
     return float(np.clip(alignment, 0, 1))
 

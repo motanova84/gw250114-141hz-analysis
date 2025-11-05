@@ -152,9 +152,17 @@ class TestComputeCoherence:
         assert 0 <= result["coherence"] <= 1
 
 
+def _check_bert_available():
+    """Helper to check if BERT/transformers is available"""
+    try:
+        import qc_llm.metrics as metrics_module
+        return getattr(metrics_module, 'TRANSFORMERS_AVAILABLE', False)
+    except:
+        return False
+
+
 @pytest.mark.skipif(
-    not hasattr(sys.modules.get('qc_llm.metrics', {}), 'TRANSFORMERS_AVAILABLE') or
-    not getattr(sys.modules.get('qc_llm.metrics'), 'TRANSFORMERS_AVAILABLE', False),
+    not _check_bert_available(),
     reason="Transformers not available"
 )
 class TestComputeCoherenceBERT:
