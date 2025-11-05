@@ -43,7 +43,10 @@ class QuantumAlignment:
         Returns:
             Dictionary with aligned text and metrics
         """
-        from .CoherenceMetric import CoherenceMetric
+        try:
+            from .CoherenceMetric import CoherenceMetric
+        except ImportError:
+            from CoherenceMetric import CoherenceMetric
         metric = CoherenceMetric()
         
         current_text = text
@@ -81,7 +84,10 @@ class QuantumAlignment:
         Returns:
             Dictionary with suggestions
         """
-        from .CoherenceMetric import CoherenceMetric
+        try:
+            from .CoherenceMetric import CoherenceMetric
+        except ImportError:
+            from CoherenceMetric import CoherenceMetric
         metric = CoherenceMetric()
         
         analysis = metric.detailed_analysis(text)
