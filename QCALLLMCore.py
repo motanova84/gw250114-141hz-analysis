@@ -14,7 +14,7 @@ Date: November 2025
 
 import numpy as np
 import re
-from typing import Dict, List, Any, Tuple
+from typing import Dict, Any, Tuple
 from scipy.stats import norm  # For CI
 
 
@@ -22,12 +22,12 @@ class QCALLLMCore:
     """
     Core implementation of QCAL-LLM with SIP modulation and uncertainty quantification
     """
-    
-    def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07, 
+
+    def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07,
                  epsilon=0.015, user_A_eff=0.85):
         """
         Initialize QCAL-LLM Core
-        
+
         Parameters:
         -----------
         alpha : float
@@ -48,7 +48,7 @@ class QCALLLMCore:
         self.tau = tau  # Fixed (biophysical anchor)
         self.epsilon = epsilon * (user_A_eff / 0.85)  # Adaptive scaling
         self.alpha = alpha
-        
+
         # Ground truth database
         self.ground_truth_db = {
             'f0': 141.7001,
@@ -56,7 +56,7 @@ class QCALLLMCore:
             'phi_cubed': ((1 + np.sqrt(5))/2)**3,  # ~4.236067977
             'snr_gw150914': 20.95
         }
-        
+
         # Standardized, physics-grounded benchmark queries
         self.benchmark_queries = [
             "Deriva f₀ = 141.7001 Hz desde ζ'(1/2) y φ",
@@ -69,12 +69,12 @@ class QCALLLMCore:
     def sip_modulate(self, t_array: np.ndarray) -> np.ndarray:
         """
         Apply SIP modulation to attention weights
-        
+
         Parameters:
         -----------
         t_array : np.ndarray
             Time array (seconds)
-        
+
         Returns:
         --------
         np.ndarray
@@ -87,14 +87,14 @@ class QCALLLMCore:
     def compute_psi_response(self, kld_inv: float, semantic_coherence: float) -> float:
         """
         Compute Ψ response metric
-        
+
         Parameters:
         -----------
         kld_inv : float
             Inverse KL divergence (information preservation)
         semantic_coherence : float
             Semantic coherence score [0, 1]
-        
+
         Returns:
         --------
         float
@@ -102,11 +102,11 @@ class QCALLLMCore:
         """
         return kld_inv * (semantic_coherence ** 2)
 
-    def is_coherent(self, kld_inv: float, semantic_coherence: float, 
-                   threshold: float = 5.0) -> Tuple[bool, float]:
+    def is_coherent(self, kld_inv: float, semantic_coherence: float,
+                    threshold: float = 5.0) -> Tuple[bool, float]:
         """
         Check if response meets coherence threshold
-        
+
         Parameters:
         -----------
         kld_inv : float
@@ -115,7 +115,7 @@ class QCALLLMCore:
             Semantic coherence score
         threshold : float
             Minimum Ψ threshold for coherence
-        
+
         Returns:
         --------
         tuple
@@ -127,12 +127,12 @@ class QCALLLMCore:
     def compute_coherence(self, generated_text: str) -> float:
         """
         Compute semantic coherence from generated text
-        
+
         Parameters:
         -----------
         generated_text : str
             Text to analyze
-        
+
         Returns:
         --------
         float
@@ -144,17 +144,17 @@ class QCALLLMCore:
             'zeta_prime': r"ζ'\(1/2\)|zeta'|-1\.460",
             'f0': r'141\.7\d*\s*Hz'
         }
-        
-        matches = sum(1 for pattern in symbols.values() 
-                     if re.search(pattern, generated_text, re.IGNORECASE))
-        
+
+        matches = sum(1 for pattern in symbols.values()
+                      if re.search(pattern, generated_text, re.IGNORECASE))
+
         return matches / len(symbols)  # [0,1]; error via binomial if needed
 
-    def evaluate(self, generated_text: str, query: str, 
-                n_bootstrap: int = 100) -> Dict[str, Any]:
+    def evaluate(self, generated_text: str, query: str,
+                 n_bootstrap: int = 100) -> Dict[str, Any]:
         """
         Evaluate generated text with bootstrap confidence intervals
-        
+
         Parameters:
         -----------
         generated_text : str
@@ -163,7 +163,7 @@ class QCALLLMCore:
             Original query
         n_bootstrap : int
             Number of bootstrap samples for CI
-        
+
         Returns:
         --------
         dict
@@ -171,19 +171,19 @@ class QCALLLMCore:
         """
         # Enhanced KLD^{-1}: Bootstrap for CI
         claims = ['f0=141.7001', 'zeta=-1.460', 'phi=4.236', 'snr=20.95']
-        base_matches = sum(1 for claim in claims 
-                          if re.search(re.escape(claim), generated_text, re.IGNORECASE))
-        
+        base_matches = sum(1 for claim in claims
+                           if re.search(re.escape(claim), generated_text, re.IGNORECASE))
+
         # Bootstrap samples with noise proxy
-        kld_inv_samples = np.log(base_matches + 1 + 
+        kld_inv_samples = np.log(base_matches + 1 +
                                  np.random.normal(0, 0.1, n_bootstrap))
         kld_inv = np.mean(kld_inv_samples) * (8.2 / np.log(4))  # Normalize to empirical avg
         kld_ci = norm.interval(0.95, loc=kld_inv, scale=np.std(kld_inv_samples))
-        
+
         coherence = self.compute_coherence(generated_text)
         coherent, psi = self.is_coherent(kld_inv, coherence)
         psi_ci = (kld_ci[0] * coherence**2, kld_ci[1] * coherence**2)
-        
+
         return {
             'mean_psi': float(psi),
             'psi_ci_95': psi_ci,
@@ -196,7 +196,7 @@ class QCALLLMCore:
     def psi_tuning_loop(self, model_proxy, n_iters=10, lr=0.001):
         """
         Tuning loop for Ψ optimization (converges in ≤3 iterations)
-        
+
         Parameters:
         -----------
         model_proxy : object
@@ -205,32 +205,32 @@ class QCALLLMCore:
             Maximum iterations
         lr : float
             Learning rate for epsilon adjustment
-        
+
         Returns:
         --------
         tuple
             (mean_psi, ci_half_width)
         """
         for i in range(n_iters):
-            results = [self.evaluate(model_proxy.generate(q), q) 
-                      for q in self.benchmark_queries]
-            
+            results = [self.evaluate(model_proxy.generate(q), q)
+                       for q in self.benchmark_queries]
+
             mean_psi = np.mean([r['mean_psi'] for r in results])
-            ci = np.mean([(r['psi_ci_95'][1] - r['psi_ci_95'][0])/2 
+            ci = np.mean([(r['psi_ci_95'][1] - r['psi_ci_95'][0])/2
                          for r in results])  # Half-width
-            
+
             print(f"Iter {i}: Mean Ψ = {mean_psi:.2f} ± {ci:.2f}")
-            
+
             if mean_psi >= 5.0:
                 break
-            
+
             # Adaptive epsilon adjustment
             self.epsilon = np.clip(
                 self.epsilon + lr * np.mean([r['kld_inv'] for r in results]),
                 0.01, 0.02
             )
             model_proxy.inject_sip(self.f0, self.tau, self.epsilon)  # Mock
-        
+
         return mean_psi, ci
 
 
@@ -239,24 +239,24 @@ class QCALLLMCore:
 if __name__ == "__main__":
     # User-tuned initialization
     core = QCALLLMCore(user_A_eff=0.92)
-    
+
     # Generate modulation weights
     t = np.linspace(0, 1, 1000)
     weights = core.sip_modulate(t)
-    
+
     # Test coherence check
     is_valid, psi_val = core.is_coherent(8.2, 0.88)
-    
+
     # Mock response evaluation
     response_mock = "f₀ = -ζ'(1/2) × φ³ scale = 141.7001 Hz. Ψ coherent. SNR=20.95."
     eval_res = core.evaluate(response_mock, "Deriva f₀")
-    
+
     # Output verification
     print(f"Ψ={psi_val:.4f} | Coherent: {is_valid} | "
           f"Eval: {eval_res['mean_psi']:.2f} "
           f"(95% CI: {eval_res['psi_ci_95']})")
     print(f"Weights mean: {np.mean(weights):.4f}, std: {np.std(weights):.4f} "
           f"(post-damp variance: {np.var(weights[t > 0.07]):.2e})")
-    
+
     # Verified Output: Ψ=6.3501 | Coherent: True | Eval: 8.20 (95% CI: (8.05, 8.35))
     # Weights mean: 1.0000, std: 0.0022 (post-damp: 1.24e-05)
