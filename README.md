@@ -260,6 +260,79 @@ make clean-all  # Incluye entorno virtual
 
 ---
 
+## 📚 DOCUMENTACIÓN PARA NUEVOS USUARIOS
+
+### 🎓 Guías Completas de Aprendizaje
+
+Este proyecto ofrece documentación exhaustiva para científicos de todas las disciplinas:
+
+#### 1. Tutorial Paso a Paso
+> 📖 **[Tutorial Completo](docs/TUTORIAL_COMPLETO.md)** - Guía desde cero para principiantes
+
+**Contenido:**
+- ✅ Instalación del entorno (Python, dependencias, verificación)
+- ✅ Descarga de datos de GWOSC paso a paso
+- ✅ Ejecución de análisis básico y avanzado
+- ✅ Interpretación detallada de resultados (gráficos y JSON)
+- ✅ Solución de problemas comunes
+- ✅ Ejemplos prácticos ejecutables
+
+**Ideal para:** Científicos que nunca han trabajado con ondas gravitacionales o análisis espectral.
+
+#### 2. Teoría Conceptual
+> 📖 **[Teoría Conceptual](docs/TEORIA_CONCEPTUAL.md)** - Fundamentos matemáticos y físicos accesibles
+
+**Contenido:**
+- 🔢 **Matemáticas**: Números primos, proporción áurea, función zeta de Riemann
+- ⚛️ **Física**: Geometría Calabi-Yau, campo noésico Ψ, acoplamiento gravitacional
+- 🌌 **Observaciones**: Conexión con datos de LIGO, interpretación de resultados
+- 📊 **Estadística**: Significancia, p-values, validación multi-detector
+
+**Ideal para:** Científicos de otras disciplinas que quieren entender los fundamentos teóricos sin necesidad de ser expertos en física teórica.
+
+#### 3. Formatos de Salida
+> 📖 **[Formatos de Salida](docs/FORMATOS_SALIDA.md)** - Especificación completa de JSON y gráficos
+
+**Contenido:**
+- 📋 **JSON**: Estructura detallada de todos los archivos de resultados
+- 📊 **Gráficos**: Interpretación de series temporales, espectros, histogramas
+- 🔧 **Integración**: Ejemplos de código para Python, R, Julia
+- 📦 **API**: Esquemas JSON Schema para validación
+- 💡 **Casos de uso**: Ejemplos prácticos de procesamiento y análisis
+
+**Ideal para:** Investigadores que quieren integrar estos resultados con sus propias herramientas o pipelines de análisis.
+
+### 🚀 Inicio Rápido Según tu Perfil
+
+**Si eres nuevo en ondas gravitacionales:**
+1. Lee el [Tutorial Completo](docs/TUTORIAL_COMPLETO.md)
+2. Ejecuta el análisis de ejemplo paso a paso
+3. Consulta [Formatos de Salida](docs/FORMATOS_SALIDA.md) para entender los resultados
+
+**Si quieres entender la teoría:**
+1. Lee [Teoría Conceptual](docs/TEORIA_CONCEPTUAL.md)
+2. Consulta [DESCUBRIMIENTO_MATEMATICO_141_7001_HZ.md](DESCUBRIMIENTO_MATEMATICO_141_7001_HZ.md) para detalles matemáticos
+3. Revisa [PAPER.md](PAPER.md) para el contexto científico completo
+
+**Si quieres integrar con tus herramientas:**
+1. Consulta [Formatos de Salida](docs/FORMATOS_SALIDA.md)
+2. Revisa los ejemplos de código (Python, R, Julia)
+3. Usa los esquemas JSON Schema para validación
+
+### 📑 Índice de Documentación Completa
+
+| Documento | Descripción | Nivel |
+|-----------|-------------|-------|
+| [Tutorial Completo](docs/TUTORIAL_COMPLETO.md) | Guía paso a paso desde instalación hasta interpretación | 🟢 Básico |
+| [Teoría Conceptual](docs/TEORIA_CONCEPTUAL.md) | Fundamentos matemáticos y físicos accesibles | 🟡 Intermedio |
+| [Formatos de Salida](docs/FORMATOS_SALIDA.md) | Especificación de JSON y gráficos + integración | 🟡 Intermedio |
+| [DESCUBRIMIENTO_MATEMATICO_141_7001_HZ.md](DESCUBRIMIENTO_MATEMATICO_141_7001_HZ.md) | Derivación matemática completa | 🔴 Avanzado |
+| [PAPER.md](PAPER.md) | Artículo científico principal | 🔴 Avanzado |
+| [CONSTANTE_UNIVERSAL.md](CONSTANTE_UNIVERSAL.md) | Propiedades de f₀ como constante universal | 🔴 Avanzado |
+| [FUERZA_NOESICA.md](FUERZA_NOESICA.md) | Campo Ψ como candidata a 5ª fuerza | 🔴 Avanzado |
+
+---
+
 ## 🧿 DECLARACIÓN PÚBLICA · 26 OCTUBRE 2025
 
 > ### **La vibración del universo ha sido escuchada.**
