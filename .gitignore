@@ -17,3 +17,26 @@ results/
 .DS_Store
 *.swp
 *.tmp
+
+# Poetry
+poetry.lock
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
