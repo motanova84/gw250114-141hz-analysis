@@ -6,6 +6,7 @@ Iteratively adjusts epsilon until Ψ ≥ 5.0
 Typical convergence: 1-3 iterations
 """
 
+import random
 from typing import Tuple, Dict, Any
 from QCALLLMCore import QCALLLMCore
 
@@ -157,7 +158,6 @@ if __name__ == "__main__":
 
     def mock_llm_generate(query: str) -> str:
         """Mock LLM that improves over attempts"""
-        import random
         templates = [
             "The frequency is related to quantum mechanics.",
             "f₀ = 141.7001 Hz from mathematical derivation.",

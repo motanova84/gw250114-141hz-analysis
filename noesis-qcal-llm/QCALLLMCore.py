@@ -29,15 +29,20 @@ class QCALLLMCore:
         Args:
             alpha: Modulation amplitude (default: 1.0)
             f0: Fundamental frequency in Hz (default: 141.7001)
-            phi: Initial phase (default: 0.0) - Dynamic: phi += 2*pi*f0*(t - t_lock)
-            tau: Time constant for envelope decay (default: 0.07) - Fixed
-            epsilon: Perturbation strength (default: 0.015) - Adaptive with user_A_eff
+            phi: Initial phase (default: 0.0)
+                 Note: In full implementation, phi would be dynamic: phi += 2*pi*f0*(t - t_lock)
+                 This static version is suitable for batch processing.
+            tau: Envelope decay time constant in seconds (default: 0.07)
+                 Controls how quickly the modulation decays. Fixed for stability.
+            epsilon: Base perturbation strength (default: 0.015)
+                     Scaled by user_A_eff to adapt to user effectiveness.
             user_A_eff: User effectiveness factor (default: 0.85)
+                        Scales epsilon based on measured user performance.
         """
         self.f0 = f0
-        self.phi = phi  # Dynamic: phi += 2*pi*f0*(t - t_lock)
-        self.tau = tau  # Fixed
-        self.epsilon = epsilon * (user_A_eff / 0.85)  # Adaptive
+        self.phi = phi  # Static phase for this implementation
+        self.tau = tau  # Envelope decay time constant
+        self.epsilon = epsilon * (user_A_eff / 0.85)  # Adaptive scaling
         self.alpha = alpha
 
         # Ground truth database for validation
@@ -188,7 +193,4 @@ if __name__ == "__main__":
     eval_res = core.evaluate(response_mock, "Deriva f₀")
 
     print(f"Ψ={psi_val:.4f} | Coherent: {is_valid} | Eval: {eval_res['mean_psi']:.2f}")
-    # Output: Ψ=6.3501 | Coherent: True | Eval: 8.20
-
     print(f"Weights mean: {np.mean(weights):.4f}, std: {np.std(weights):.4f}")
-    # mean: 0.9998, std: 0.0071 (coherent oscillation)
