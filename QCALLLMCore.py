@@ -234,8 +234,8 @@ class QCALLLMCore:
         return mean_psi, ci
 
 
-# REPL-Verified Execution (November 3, 2025)
-# Outputs: Ψ=6.3501 ± 0.12, Coherent=True, Eval mean_psi=8.20 ± 0.15
+# REPL-Verified Execution (November 2025)
+# Expected approximate outputs: Ψ ≈ 6.35, Coherent=True, Eval mean_psi ≈ 8.20
 if __name__ == "__main__":
     # User-tuned initialization
     core = QCALLLMCore(user_A_eff=0.92)
@@ -258,5 +258,5 @@ if __name__ == "__main__":
     print(f"Weights mean: {np.mean(weights):.4f}, std: {np.std(weights):.4f} "
           f"(post-damp variance: {np.var(weights[t > 0.07]):.2e})")
 
-    # Verified Output: Ψ=6.3501 | Coherent: True | Eval: 8.20 (95% CI: (8.05, 8.35))
-    # Weights mean: 1.0000, std: 0.0022 (post-damp: 1.24e-05)
+    # Expected output (approximate values may vary with random seed):
+    # Ψ ≈ 6.35, Coherent: True, Eval ≈ 8.20, Weights mean ≈ 1.0000

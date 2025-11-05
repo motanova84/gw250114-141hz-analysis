@@ -164,12 +164,12 @@ def plot_gw_spectral_evidence(save_path='gw_spectral_evidence.png', show=True):
 
     # Statistical summary
     ax5 = fig.add_subplot(gs[2, 1])
-    ax5.axis('of')
+    ax5.axis('off')
 
-    summary_text = """
+    summary_text = f"""
     Statistical Summary
     {'='*40}
-    
+
     GW150914 Ringdown (Primary):
       • Peak: f₀ = {f_peak:.4f} Hz
       • SNR = {snr_calc:.2f}
