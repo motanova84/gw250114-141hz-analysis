@@ -90,7 +90,7 @@ COPY scripts/*.py /workspace/scripts/
 COPY requirements.txt /workspace/
 
 # Install any remaining requirements
-RUN pip install --no-cache-dir -r requirements.txt || true
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Set up Python path
 ENV PYTHONPATH=/workspace:$PYTHONPATH

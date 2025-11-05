@@ -467,7 +467,8 @@ echo "Array task ID: $SLURM_ARRAY_TASK_ID"
 echo "Job ID: $SLURM_JOB_ID"
 
 # Execute analysis
-python {python_script} --event $EVENT --output-dir {output_dir}
+# Execute analysis
+python {python_script} --events $EVENT --output-dir {output_dir}
 
 echo "Completed: $EVENT"
 """

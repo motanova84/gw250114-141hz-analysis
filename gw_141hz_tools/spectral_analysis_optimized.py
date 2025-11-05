@@ -65,7 +65,10 @@ class SpectralAnalyzer:
         if use_gpu and not CUPY_AVAILABLE:
             warnings.warn(
                 "GPU acceleration requested but CuPy not available. "
-                "Falling back to CPU. Install cupy: pip install cupy-cuda12x",
+                "Falling back to CPU. Install CuPy for your CUDA version:\n"
+                "  CUDA 11.x: pip install cupy-cuda11x\n"
+                "  CUDA 12.x: pip install cupy-cuda12x\n"
+                "  See: https://docs.cupy.dev/en/stable/install.html",
                 UserWarning
             )
         

@@ -183,7 +183,7 @@ class DataManager:
                     if isinstance(value, bytes):
                         try:
                             value = json.loads(value.decode())
-                        except:
+                        except (json.JSONDecodeError, ValueError):
                             value = value.decode()
                     meta[key] = value
                 
