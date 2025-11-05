@@ -72,9 +72,14 @@ export class CoherenceValidator {
     const n = tokens.length;
     if (n < 2) return 0.0;
 
-    // Simulate alignment computation
-    const normalized = Math.random() * 0.3 + 0.6;
-    return Math.max(0, Math.min(1, normalized));
+    // Deterministic alignment based on text structure
+    // In production: This would use FFT of embedding vectors
+    // For now: Use text length and unique token ratio
+    const uniqueRatio = new Set(tokens).size / n;
+    const lengthFactor = Math.min(1.0, n / 100.0);
+    const alignment = 0.4 + uniqueRatio * 0.3 + lengthFactor * 0.3;
+    
+    return Math.max(0, Math.min(1, alignment));
   }
 
   private computeQuantumEntropy(tokens: string[]): number {

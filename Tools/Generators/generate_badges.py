@@ -33,7 +33,7 @@ def main():
         "frequency": generate_badge_url("frequency", "141.7001_Hz", "blue"),
         "coherence": generate_badge_url("coherence", "validated", "success"),
         "lean4": generate_badge_url("Lean_4", "formalized", "purple"),
-        "python": generate_badge_url("python", "3.8+-blue", "blue"),
+        "python": generate_badge_url("python", "3.8+", "blue"),
         "javascript": generate_badge_url("javascript", "ES2020", "yellow"),
         "license": generate_badge_url("license", "MIT", "green"),
         "doi": "[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17379721.svg)](https://doi.org/10.5281/zenodo.17379721)"
