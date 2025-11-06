@@ -72,6 +72,8 @@
   - Tests para el módulo de campo de conciencia.
 - `test_coherencia_escalas.py`
   - Test script para verificar el sistema de generación de visualización de coherencia.
+- `test_comparar_ligo_kagra.py`
+  - Test para comparar_ligo_vs_kagra_sensibilidad.py
 - `test_correccion_rpsi_codata.py`
   - Test de correcciones técnicas: RΨ y αΨ
 - `test_corrections.py`
@@ -86,6 +88,8 @@
   - Tests para la Ecuación del Latido Universal
 - `test_energia_cuantica.py`
   - Tests para el módulo de cálculo de energía cuántica fundamental
+- `test_generar_prediccion_gw250114.py`
+  - Test para generar_prediccion_gw250114.py
 - `test_multi_event_snr_analysis.py`
   - Tests para el módulo multi_event_snr_analysis
 - `test_optimization_modules.py`
@@ -138,4 +142,4 @@
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-05 21:21:34 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-06 18:08:44 UTC*
