@@ -8,6 +8,12 @@ import warnings
 
 # Fundamental constant
 F0 = 141.7001  # Hz
+from typing import Dict, List
+from .constants import (
+    F0, DEFAULT_QUANTUM_ENTROPY, EPSILON_ZERO_PROTECTION,
+    THRESHOLD_HIGH, THRESHOLD_MODERATE, THRESHOLD_LOW,
+    WEIGHT_FREQUENCY_ALIGNMENT, WEIGHT_QUANTUM_ENTROPY
+)
 
 # Normalization constants for frequency alignment
 # These map abstract mathematical frequencies to observable physical scales
@@ -160,7 +166,7 @@ def compute_quantum_entropy(text: str) -> float:
     
     # Shannon entropy
     freq_dist = np.array([tokens.count(t) / n_total for t in unique_tokens])
-    entropy = -np.sum(freq_dist * np.log2(freq_dist + 1e-10))
+    entropy = -np.sum(freq_dist * np.log2(freq_dist + EPSILON_ZERO_PROTECTION))
     
     # Normalize to [0, 1]
     max_entropy = np.log2(n_total)
@@ -244,6 +250,16 @@ def compute_coherence(text: str, use_bert: bool = True) -> dict:
         recommendation = "HIGH COHERENCE"
     elif coherence > 0.6:
         recommendation = "MODERATE COHERENCE"
+    # Weighted average
+    coherence = WEIGHT_FREQUENCY_ALIGNMENT * freq_align + WEIGHT_QUANTUM_ENTROPY * entropy
+    
+    # Recommendation
+    if coherence > THRESHOLD_HIGH:
+        recommendation = "HIGH COHERENCE - Excellent quality"
+    elif coherence > THRESHOLD_MODERATE:
+        recommendation = "MODERATE COHERENCE - Good quality"
+    elif coherence > THRESHOLD_LOW:
+        recommendation = "LOW COHERENCE - Consider rephrasing"
     else:
         recommendation = "LOW COHERENCE - Consider rephrasing"
     
