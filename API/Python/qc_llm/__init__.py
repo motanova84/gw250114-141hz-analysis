@@ -16,6 +16,7 @@ from .metrics import (
     compute_coherence_score,
     F0
 )
+from .core import QCALLLMCore
 
 __all__ = [
     "CoherenceValidator",
@@ -23,7 +24,8 @@ __all__ = [
     "compute_quantum_entropy",
     "compute_coherence_score",
     "F0",
-    "QC_LLM"
+    "QC_LLM",
+    "QCALLLMCore"
 ]
 
 class QC_LLM:
