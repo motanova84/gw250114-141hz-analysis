@@ -4,9 +4,11 @@ Core metrics for quantum coherence computation
 
 import numpy as np
 from typing import Dict, List
-
-# Fundamental constant
-F0 = 141.7001  # Hz
+from .constants import (
+    F0, DEFAULT_QUANTUM_ENTROPY, EPSILON_ZERO_PROTECTION,
+    THRESHOLD_HIGH, THRESHOLD_MODERATE, THRESHOLD_LOW,
+    WEIGHT_FREQUENCY_ALIGNMENT, WEIGHT_QUANTUM_ENTROPY
+)
 
 def compute_frequency_alignment(text: str, target_freq: float = F0) -> float:
     """
@@ -62,7 +64,7 @@ def compute_quantum_entropy(text: str) -> float:
     
     # Shannon entropy
     freq_dist = np.array([tokens.count(t) / n_total for t in unique_tokens])
-    entropy = -np.sum(freq_dist * np.log2(freq_dist + 1e-10))
+    entropy = -np.sum(freq_dist * np.log2(freq_dist + EPSILON_ZERO_PROTECTION))
     
     # Normalize to [0, 1]
     max_entropy = np.log2(n_total)
@@ -85,14 +87,14 @@ def compute_coherence_score(text: str) -> Dict[str, float]:
     entropy = compute_quantum_entropy(text)
     
     # Weighted average
-    coherence = 0.6 * freq_align + 0.4 * entropy
+    coherence = WEIGHT_FREQUENCY_ALIGNMENT * freq_align + WEIGHT_QUANTUM_ENTROPY * entropy
     
     # Recommendation
-    if coherence > 0.8:
+    if coherence > THRESHOLD_HIGH:
         recommendation = "HIGH COHERENCE - Excellent quality"
-    elif coherence > 0.6:
+    elif coherence > THRESHOLD_MODERATE:
         recommendation = "MODERATE COHERENCE - Good quality"
-    elif coherence > 0.4:
+    elif coherence > THRESHOLD_LOW:
         recommendation = "LOW COHERENCE - Consider rephrasing"
     else:
         recommendation = "VERY LOW COHERENCE - Significant revision needed"
