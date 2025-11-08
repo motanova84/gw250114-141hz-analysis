@@ -10,6 +10,7 @@ Cualquier persona puede verificar los resultados mediante:
 Este script demuestra que los resultados son reproducibles y verificables.
 """
 
+import json
 import sys
 from pathlib import Path
 
