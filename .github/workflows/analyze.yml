@@ -87,6 +87,34 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
+    - name: Run statistical validation tests
+      run: |
+        python tests/test_statistical_validation.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run integration pipeline tests
+      run: |
+        python tests/test_integration_pipeline.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run scientific reproducibility tests
+      run: |
+        python tests/test_reproducibility.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Test notebook structure and validity
+      run: |
+        python tests/test_notebook_structure.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v5
       if: success()
