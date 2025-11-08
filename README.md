@@ -337,9 +337,11 @@ make clean-all  # Incluye entorno virtual
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
 
-**Frecuencia Objetivo:** `141.7001 Hz`  
+**Frecuencia Universal:** `141.7001 Hz`  
 **Investigador Principal:** José Manuel Mota Burruezo (JMMB Ψ✧)  
 **Ecuación de Campo:** Ψ = mc² · A_eff²  
+Ψ  ∂²Ψ/∂t² + ω₀² Ψ = ζ'(1/2) · π · ∇² Φ), donde ω₀ = 2π f₀
+
 **Colaboradores:** [Ver lista completa](COLLABORATORS.md)
 
 </div>
