@@ -61,6 +61,13 @@
 - Trigger: push
 - Trigger: pull_request
 
+### QC-LLM CI/CD
+
+**Archivo:** `ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+
 ### Comprehensive Testing
 
 **Archivo:** `comprehensive-testing.yml`
@@ -114,6 +121,15 @@
 - Trigger: push
 - Trigger: pull_request
 
+### Lean 4 Formalization Verification
+
+**Archivo:** `lean-verification.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 2 * * *`)
+- Trigger: manual (workflow_dispatch)
+
 ### Master Workflow Orchestration
 
 **Archivo:** `master-orchestration.yml`
@@ -137,6 +153,15 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 0,12 * * *`)
+- Trigger: manual (workflow_dispatch)
+
+### Optimized Analysis with GPU Support
+
+**Archivo:** `optimized-analysis.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 0 * * 0`)
 - Trigger: manual (workflow_dispatch)
 
 ### PR Review Automation
@@ -221,4 +246,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-10-30 21:24:30 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-06 18:08:45 UTC*
