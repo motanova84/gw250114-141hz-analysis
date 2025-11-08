@@ -1,6 +1,126 @@
 # 🤝 Guía de Contribución
 
-¡Gracias por tu interés en contribuir al análisis GW250114-141Hz! Este documento describe cómo contribuir efectivamente al proyecto.
+¡Gracias por tu interés en contribuir al proyecto 141Hz / QC-LLM! Este documento describe cómo contribuir efectivamente al proyecto.
+
+## 🌊 Contribuciones QC-LLM (Quantum Coherence for LLMs)
+
+El proyecto incluye un componente de **estándar de coherencia cuántica para modelos de lenguaje** (QC-LLM). Si trabajas en esta área:
+
+### Áreas de Contribución QC-LLM
+
+1. **Algoritmo de Coherencia**
+   - Mejoras al algoritmo BERT+FFT en `API/Python/qc_llm/metrics.py`
+   - Optimizaciones de performance
+   - Nuevos métodos de análisis espectral
+   - **Requisito**: Tests deben pasar con `pytest Tests/test_frequency_validator.py`
+
+2. **Integraciones LLM**
+   - Conectores para GPT-4, Claude, Gemini, Llama
+   - APIs de validación en tiempo real
+   - Benchmarks comparativos
+   - **Ubicación**: `Examples/LLM_Integration/`
+
+3. **Documentación Matemática**
+   - Expansión de derivaciones en `Documentation/Theory/`
+   - Conexiones con física y neurociencia
+   - Tutoriales interactivos en Jupyter
+   - **Estándar**: Rigor matemático con referencias
+
+4. **Tests y Validación**
+   - Tests unitarios adicionales
+   - Casos de prueba con LLMs reales
+   - Benchmarks de performance
+   - **Cobertura**: Objetivo >90% en código QC-LLM
+
+### Estructura QC-LLM
+
+```
+API/Python/qc_llm/         # Biblioteca principal
+├── __init__.py            # API pública
+├── metrics.py             # Compute coherence (BERT+FFT)
+└── validator.py           # Clase CoherenceValidator
+
+Tests/                     # Tests unitarios
+└── test_frequency_validator.py  # 20+ tests
+
+Documentation/Theory/      # Teoría matemática
+└── mathematical_foundation.md   # Derivación f₀ = 141.7001 Hz
+
+Examples/Research/         # Tutoriales
+└── qc_llm_tutorial.ipynb  # Tutorial interactivo
+```
+
+### Ejecutar Tests QC-LLM
+
+```bash
+# Tests básicos (sin BERT)
+pytest Tests/test_frequency_validator.py -k "not bert" -v
+
+# Tests completos (requiere transformers)
+pip install transformers>=4.48.0 torch>=2.6.0
+pytest Tests/test_frequency_validator.py -v
+
+# Test específico
+pytest Tests/test_frequency_validator.py::TestComputeCoherence::test_coherence_bounds -v
+```
+
+### Pre-commit Hooks
+
+Este proyecto usa pre-commit para calidad de código:
+
+```bash
+# Instalar pre-commit
+pip install pre-commit
+pre-commit install
+
+# Ejecutar manualmente
+pre-commit run --all-files
+
+# Actualizar hooks
+pre-commit autoupdate
+```
+
+Los hooks incluyen:
+- **Black**: Formateo de código Python
+- **Flake8**: Linting (errores críticos)
+- **isort**: Ordenar imports
+- **Security checks**: Bandit para vulnerabilidades
+- **Scientific checks**: Validar constante F0 no modificada
+
+### Estándares de Código QC-LLM
+
+```python
+def compute_coherence(text: str, use_bert: bool = True) -> dict:
+    """
+    Compute quantum coherence using BERT+FFT.
+    
+    Args:
+        text: Input text to analyze
+        use_bert: Use BERT embeddings (requires transformers)
+    
+    Returns:
+        Dictionary with:
+        - coherence: float [0, 1]
+        - frequency_alignment: float [0, 1]
+        - quantum_metric: float [0, 1]
+        - recommendation: str
+        
+    Raises:
+        ValueError: If text is empty
+        
+    Example:
+        >>> result = compute_coherence("Quantum coherence is fascinating")
+        >>> print(f"Coherence: {result['coherence']:.2%}")
+        Coherence: 87.3%
+    """
+    # Implementación...
+```
+
+**Requisitos**:
+- Type hints obligatorios
+- Docstrings con Args, Returns, Raises, Example
+- Valores de retorno en [0, 1] para métricas
+- Manejo de errores graceful
 
 ## 🤖 Colaboradores Automatizados
 
