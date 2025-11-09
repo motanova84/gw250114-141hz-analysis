@@ -156,11 +156,35 @@ class WorkflowHealthChecker:
                 for step in steps if isinstance(step, dict)
             )
             
-            has_python_commands = any(
-                'python' in str(step.get('run', '')).lower() or 
-                'pip' in str(step.get('run', '')).lower()
-                for step in steps if isinstance(step, dict)
-            )
+            # Check for actual Python/pip commands (not just the word "python" in text)
+            import re
+            has_python_commands = False
+            python_cmd_pattern = re.compile(r'^(python3?|pip)\s', re.IGNORECASE)
+            python_after_op_pattern = re.compile(r'[|;&]\s*(python3?|pip)\s', re.IGNORECASE)
+            echo_pattern = re.compile(r'^\s*echo\s+', re.IGNORECASE)
+            
+            for step in steps:
+                if not isinstance(step, dict):
+                    continue
+                run_cmd = step.get('run', '')
+                if not run_cmd:
+                    continue
+                # Look for actual python/pip command invocations
+                # Match patterns like: python script.py, python3 -m module, pip install
+                # But NOT: echo "Python 3.11" or text mentioning python
+                # Check if python/pip appears at start of line or after shell operators/commands
+                lines = run_cmd.split('\n')
+                for line in lines:
+                    line = line.strip()
+                    # Skip comments and echo statements
+                    if line.startswith('#') or echo_pattern.match(line):
+                        continue
+                    # Match python/pip as actual commands
+                    if python_cmd_pattern.match(line) or python_after_op_pattern.search(line):
+                        has_python_commands = True
+                        break
+                if has_python_commands:
+                    break
             
             if has_python_commands and not has_python_setup:
                 issues.append(
@@ -215,6 +239,10 @@ class WorkflowHealthChecker:
                     script_patterns = re.findall(r'python3?\s+(\S+\.py)', run_command)
                     
                     for script_path in script_patterns:
+                        # Skip paths with shell variables (e.g., ${VAR} or $VAR)
+                        if '$' in script_path or '{' in script_path:
+                            continue
+                        
                         # Remove leading ./ or scripts/
                         script_path = script_path.replace('./', '')
                         

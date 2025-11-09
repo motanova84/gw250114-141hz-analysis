@@ -10,6 +10,7 @@ Cualquier persona puede verificar los resultados mediante:
 Este script demuestra que los resultados son reproducibles y verificables.
 """
 
+import json
 import sys
 from pathlib import Path
 
@@ -85,9 +86,7 @@ def garantizar_reproducibilidad():
     print(f"Estado: {resultados_reproducibilidad['estado']}")
     print()
     
-    guardar_json('validacion_reproducibilidad.json', resultados_reproducibilidad, 'results')
-
-    # Guardar resultados (añadido para que los tests pasen)
+    # Guardar resultados automáticamente
     output_dir = Path('results')
     output_dir.mkdir(exist_ok=True)
     
