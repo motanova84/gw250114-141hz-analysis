@@ -77,6 +77,40 @@ QCAL vs RLHF:
 - 📚 **Documentado**: Guías completas de uso y publicación
 
 👉 Ver: [`formalization/F0_DERIVATION_SUMMARY.md`](formalization/F0_DERIVATION_SUMMARY.md)
+
+## 🌊 Pozo Infinito Cuántico: Derivación Estándar y Marco Noésico
+
+🆕 **Implementación completa del pozo infinito cuántico** y su transición al marco noésico QCAL ∞³.
+
+### Características Principales
+
+- 📐 **Derivación rigurosa**: Ecuación de Schrödinger, cuantización de energía, funciones de onda normalizadas
+- 🌌 **Marco noésico**: Extensión con término de retroalimentación R_Ψ(x,t)
+- 🎵 **Resonador basal**: Alineación con frecuencia universal f₀ = 141.7001 Hz
+- 📊 **Visualizaciones**: Funciones de onda, densidades de probabilidad, espectro energético
+- ✅ **Tests exhaustivos**: 29 tests unitarios validando física y matemática
+- 🔬 **Alta precisión**: Cálculos con mpmath para precisión arbitraria
+
+### Uso Rápido
+
+```python
+from pozo_infinito_cuantico import resonador_basal_universal
+
+# Crear resonador alineado con f₀ = 141.7001 Hz
+m = 2.176434e-28  # masa efectiva (kg)
+L, E1, f1 = resonador_basal_universal(m)
+
+print(f"Longitud: {L:.6e} m")
+print(f"Frecuencia: {f1:.10f} Hz")
+# Output: f1 = 141.7001000000 Hz (error < 10⁻¹⁴%)
+```
+
+📖 **Documentación completa**: [POZO_INFINITO_CUANTICO.md](POZO_INFINITO_CUANTICO.md)  
+🐍 **Implementación**: [`pozo_infinito_cuantico.py`](pozo_infinito_cuantico.py)  
+🧪 **Tests**: [`test_pozo_infinito_cuantico.py`](test_pozo_infinito_cuantico.py)
+
+---
+
 ## 🚀 Nuevas Características de Optimización
 
 ### Aceleración GPU
