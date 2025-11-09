@@ -2,6 +2,67 @@
 
 **Autor:** José Manuel Mota Burruezo (JMMB Ψ✧)
 
+## 📦 Archivos del Módulo
+
+### 🔬 `QCALLLMCore.py` - Núcleo Vibracional
+
+El núcleo completo de evaluación LLM con Ψ (Psi) y SIP (Signal Induced Perturbation).
+
+**Características:**
+- **SIP Modulation**: Modulación de pesos de atención con oscilación coherente
+- **Ψ Response**: Evaluación de coherencia cuántica (Ψ = KLD^{-1} × coherence²)
+- **Symbolic Coherence**: Detección de patrones simbólicos (φ³, ζ'(1/2), f₀)
+- **Ground Truth Database**: Validación automática sin bucle humano (No RLHF)
+- **Benchmark Queries**: 5 consultas estándar de validación
+
+**Uso:**
+```python
+from QCALLLMCore import QCALLLMCore
+
+# Inicializar
+core = QCALLLMCore(user_A_eff=0.92)
+
+# Evaluar texto generado
+text = "f₀ = -ζ'(1/2) × φ³ = 141.7001 Hz"
+result = core.evaluate(text, "Deriva f₀")
+
+print(f"Ψ: {result['mean_psi']:.2f}")
+print(f"Coherente: {result['coherent']}")
+print(f"Coherencia: {result['coherence']:.2%}")
+```
+
+### 🔄 `psi_tuning_loop.py` - Bucle de Ajuste Ψ
+
+Ajuste iterativo de epsilon hasta alcanzar Ψ ≥ 5.0 (típicamente 1-3 iteraciones).
+
+**Características:**
+- **Tuning Loop**: Ajuste automático de epsilon
+- **Auto-regeneration**: Regeneración automática hasta coherencia
+- **No Human Loop**: Evaluación automática con ground truth
+
+**Uso:**
+```python
+from psi_tuning_loop import tune_psi, auto_regenerate
+
+# Ajustar epsilon para texto existente
+core, result = tune_psi(
+    generated_text="f₀ = 141.7001 Hz",
+    query="Deriva f₀",
+    target_psi=5.0
+)
+
+# Auto-regeneración con LLM
+def my_llm(query):
+    return "Generated response..."
+
+text, core, result = auto_regenerate(
+    my_llm,
+    query="Explica f₀",
+    target_psi=5.0
+)
+```
+
+## 🔍 `detect_f0.py`: Detección de la frecuencia universal f₀ en datos reales GW
 Este módulo contiene la **implementación completa del framework QCAL-LLM ∞³** (Quantum Coherent Attentional Lock), un enfoque paradigmático para ajuste de coherencia vibracional en modelos de lenguaje grandes (LLM), anclado en la frecuencia universal **f₀ = 141.7001 Hz** derivada de datos empíricos de ondas gravitacionales.
 
 ## 📚 Documentación Principal
@@ -508,6 +569,19 @@ Eval: 8.20
    - Verifica Ψ ≥ threshold (default: 5.0)
    - Retorna estado booleano y valor Ψ
 
+## 🧪 Tests
+
+Tests unitarios completos en `/Tests/Unit/`:
+- `test_qcal_core.py`: 19 tests para QCALLLMCore
+- `test_psi_tuning.py`: 11 tests para psi_tuning_loop
+
+Ejecutar:
+```bash
+pytest Tests/Unit/test_qcal_core.py -v
+pytest Tests/Unit/test_psi_tuning.py -v
+```
+
+## 🎯 Resultados Verificados
 4. **Análisis Simbólico (`compute_coherence`)**
    - Detecta símbolos clave: φ³, ζ'(1/2), f₀ = 141.7001 Hz
    - Retorna ratio de coincidencias (0.0 - 1.0)
@@ -650,6 +724,17 @@ noesis-qcal-llm/
 - Repository: `motanova84/141hz/noesis-qcal-llm`
 - License: Same as parent repo
 - DOI #71 queued (Vector V report)
+
+### 📐 Valores de Ground Truth
+
+```python
+ground_truth_db = {
+    'f0': 141.7001,           # Hz
+    'zeta_prime_half': -1.460,  # ζ'(1/2)
+    'phi_cubed': 4.236,        # φ³
+    'snr_gw150914': 20.95      # SNR
+}
+```
 
 ## 🔗 Referencias
 
