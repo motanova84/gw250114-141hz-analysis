@@ -79,7 +79,14 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
-    - name: Run pytest tests with coverage
+    - name: Run Riemann zeros tests
+      run: |
+        python -m unittest test_riemann_zeros -v
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run pytest tests (if any)
       run: |
         pytest scripts/ -v --tb=short --cov=scripts --cov-report=xml --cov-report=term || echo "No pytest tests found"
       continue-on-error: true

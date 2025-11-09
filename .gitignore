@@ -53,5 +53,25 @@ resultados/
 *.swp
 *.tmp
 
-# QCAL tuning outputs (generated at runtime)
-noesis-qcal-llm/psi_tuning_history.json
+# Poetry
+poetry.lock
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
