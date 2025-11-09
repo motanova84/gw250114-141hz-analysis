@@ -79,13 +79,59 @@ jobs:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
     
+    - name: Run Riemann zeros tests
+      run: |
+        python -m unittest test_riemann_zeros -v
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
     - name: Run pytest tests (if any)
       run: |
-        pytest scripts/ -v --tb=short || echo "No pytest tests found"
+        pytest scripts/ -v --tb=short --cov=scripts --cov-report=xml --cov-report=term || echo "No pytest tests found"
       continue-on-error: true
       env:
         NUMEXPR_MAX_THREADS: 4
         NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run statistical validation tests
+      run: |
+        python tests/test_statistical_validation.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run integration pipeline tests
+      run: |
+        python tests/test_integration_pipeline.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Run scientific reproducibility tests
+      run: |
+        python tests/test_reproducibility.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Test notebook structure and validity
+      run: |
+        python tests/test_notebook_structure.py
+      env:
+        NUMEXPR_MAX_THREADS: 4
+        NUMEXPR_NUM_THREADS: 2
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v5
+      if: success()
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: false
+        token: ${{ secrets.CODECOV_TOKEN }}  # Optional for public repos
+      continue-on-error: true
     
     - name: Validate README badges
       run: |
