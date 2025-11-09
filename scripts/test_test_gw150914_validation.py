@@ -9,7 +9,7 @@ import numpy as np
 import sys
 import os
 import json
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, MagicMock
 
 # Mock gwpy before import
 sys.modules['gwpy'] = MagicMock()
