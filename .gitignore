@@ -12,6 +12,10 @@ results/
 # But allow vacuum energy visualizations
 !results/figures/vacuum_energy*.png
 
+# Logs
+logs/
+*.log
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
@@ -48,3 +52,26 @@ resultados/
 .env
 *.swp
 *.tmp
+
+# Poetry
+poetry.lock
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

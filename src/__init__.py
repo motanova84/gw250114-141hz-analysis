@@ -58,4 +58,7 @@ __all__ = [
     'summarize_noetic_force',
     # QCAL LLM Core
     'QCALLLMCore',
+    # SIP Attention
+    'SIPAttention',
+    'create_sip_attention_demo',
 ]
