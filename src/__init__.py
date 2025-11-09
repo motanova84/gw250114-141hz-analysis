@@ -30,6 +30,11 @@ from .noetic_force import (
     summarize_noetic_force,
 )
 
+from .sip_attention import (
+    SIPAttention,
+    create_sip_attention_demo,
+)
+
 __all__ = [
     # Constants
     'UniversalConstants',
@@ -52,4 +57,7 @@ __all__ = [
     'NoeticForce',
     'NoeticForceDetection',
     'summarize_noetic_force',
+    # SIP Attention
+    'SIPAttention',
+    'create_sip_attention_demo',
 ]
