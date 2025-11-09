@@ -46,3 +46,8 @@ mypy>=0.990
 # Optional: LLM integration
 openai>=1.0.0
 anthropic>=0.8.0
+
+# QC-LLM Core Dependencies (for coherence computation)
+transformers>=4.48.0  # Security: CVE fixes for deserialization
+torch>=2.6.0  # Security: CVE fixes for RCE and buffer overflow
+sentencepiece>=0.1.99  # For BERT tokenization

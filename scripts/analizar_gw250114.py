@@ -7,6 +7,8 @@ Basado en el problema statement: simplemente cambiar GPS time y ejecutar
 import numpy as np
 import os
 import sys
+import json
+import argparse
 from gwpy.timeseries import TimeSeries
 from gwosc import datasets
 from validar_gw150914 import ValidadorGW150914
@@ -220,9 +222,204 @@ class AnalyzadorGW250114(ValidadorGW150914):
             f.write(f"VALIDACIÓN CIENTÍFICA: {'EXITOSA' if validacion_exitosa else 'NO SUPERADA'}\n")
         
         print(f"📄 Informe guardado en: {informe_file}")
+    
+    def cargar_prediccion(self):
+        """Cargar predicción previa desde archivo JSON"""
+        prediccion_file = os.path.join(
+            os.path.dirname(__file__), '..', 'results', 'predictions', 
+            'prediccion_gw250114.json'
+        )
+        
+        if not os.path.exists(prediccion_file):
+            print("⚠️  No se encontró archivo de predicción")
+            print(f"   Esperado en: {prediccion_file}")
+            print("   Genere primero la predicción con:")
+            print("   python scripts/generar_prediccion_gw250114.py")
+            return None
+        
+        with open(prediccion_file, 'r', encoding='utf-8') as f:
+            prediccion = json.load(f)
+        
+        return prediccion
+    
+    def comparar_con_prediccion(self, resultado_h1, resultado_l1):
+        """
+        Comparar resultados observados con predicción previa
+        
+        Args:
+            resultado_h1: Resultados del análisis de H1
+            resultado_l1: Resultados del análisis de L1
+        """
+        print("\n" + "="*80)
+        print("🔍 VALIDACIÓN DE PREDICCIÓN - GW250114")
+        print("="*80)
+        
+        # Cargar predicción
+        prediccion = self.cargar_prediccion()
+        if prediccion is None:
+            return False
+        
+        print(f"\n📅 Predicción generada: {prediccion['metadata']['fecha_prediccion']}")
+        print(f"📋 Estado predicción: {prediccion['metadata']['estado']}")
+        print()
+        
+        # Extraer valores predichos
+        pred_freq = prediccion['predicciones_cuantitativas']['frecuencia_fundamental']
+        pred_snr_h1 = prediccion['predicciones_cuantitativas']['snr_h1']
+        pred_snr_l1 = prediccion['predicciones_cuantitativas']['snr_l1']
+        pred_bf = prediccion['predicciones_cuantitativas']['estadistica_bayesiana']
+        pred_pval = prediccion['predicciones_cuantitativas']['significancia_estadistica']
+        pred_coh = prediccion['predicciones_cuantitativas']['coherencia_h1_l1']
+        
+        # Extraer valores observados
+        obs_freq_h1 = resultado_h1.get('freq_detected', 0)
+        obs_freq_l1 = resultado_l1.get('freq_detected', 0)
+        obs_snr_h1 = resultado_h1.get('snr', 0)
+        obs_snr_l1 = resultado_l1.get('snr', 0)
+        obs_bf_h1 = resultado_h1.get('bayes_factor', 0)
+        obs_bf_l1 = resultado_l1.get('bayes_factor', 0)
+        obs_pval_h1 = resultado_h1.get('p_value', 1)
+        obs_pval_l1 = resultado_l1.get('p_value', 1)
+        
+        # Comparar cada criterio
+        print("="*80)
+        print("COMPARACIÓN: PREDICCIÓN vs. OBSERVACIÓN")
+        print("="*80)
+        print()
+        
+        # 1. Frecuencia
+        freq_en_rango_h1 = (pred_freq['valor_esperado'] - pred_freq['tolerancia'] <= 
+                            obs_freq_h1 <= 
+                            pred_freq['valor_esperado'] + pred_freq['tolerancia'])
+        freq_en_rango_l1 = (pred_freq['valor_esperado'] - pred_freq['tolerancia'] <= 
+                            obs_freq_l1 <= 
+                            pred_freq['valor_esperado'] + pred_freq['tolerancia'])
+        
+        print(f"1. FRECUENCIA:")
+        print(f"   Predicho: {pred_freq['valor_esperado']} ± {pred_freq['tolerancia']} Hz")
+        print(f"   Observado H1: {obs_freq_h1:.2f} Hz {'✅' if freq_en_rango_h1 else '❌'}")
+        print(f"   Observado L1: {obs_freq_l1:.2f} Hz {'✅' if freq_en_rango_l1 else '❌'}")
+        print()
+        
+        # 2. SNR
+        snr_h1_ok = obs_snr_h1 >= pred_snr_h1['minimo_esperado']
+        snr_l1_ok = obs_snr_l1 >= pred_snr_l1['minimo_esperado']
+        
+        print(f"2. SNR:")
+        print(f"   Predicho H1: > {pred_snr_h1['minimo_esperado']}")
+        print(f"   Observado H1: {obs_snr_h1:.2f} {'✅' if snr_h1_ok else '❌'}")
+        print(f"   Predicho L1: > {pred_snr_l1['minimo_esperado']}")
+        print(f"   Observado L1: {obs_snr_l1:.2f} {'✅' if snr_l1_ok else '❌'}")
+        print()
+        
+        # 3. Bayes Factor
+        bf_h1_ok = obs_bf_h1 >= pred_bf['bayes_factor_minimo']
+        bf_l1_ok = obs_bf_l1 >= pred_bf['bayes_factor_minimo']
+        
+        print(f"3. BAYES FACTOR:")
+        print(f"   Predicho: > {pred_bf['bayes_factor_minimo']}")
+        print(f"   Observado H1: {obs_bf_h1:.2e} {'✅' if bf_h1_ok else '❌'}")
+        print(f"   Observado L1: {obs_bf_l1:.2e} {'✅' if bf_l1_ok else '❌'}")
+        print()
+        
+        # 4. p-value
+        pval_h1_ok = obs_pval_h1 <= pred_pval['p_value_maximo']
+        pval_l1_ok = obs_pval_l1 <= pred_pval['p_value_maximo']
+        
+        print(f"4. p-VALUE:")
+        print(f"   Predicho: < {pred_pval['p_value_maximo']}")
+        print(f"   Observado H1: {obs_pval_h1:.4f} {'✅' if pval_h1_ok else '❌'}")
+        print(f"   Observado L1: {obs_pval_l1:.4f} {'✅' if pval_l1_ok else '❌'}")
+        print()
+        
+        # 5. Coherencia
+        coherencia_obs = abs(obs_freq_h1 - obs_freq_l1)
+        coherencia_ok = coherencia_obs <= pred_coh['diferencia_maxima_freq']
+        
+        print(f"5. COHERENCIA H1-L1:")
+        print(f"   Predicho: < {pred_coh['diferencia_maxima_freq']} Hz")
+        print(f"   Observado: {coherencia_obs:.2f} Hz {'✅' if coherencia_ok else '❌'}")
+        print()
+        
+        # Evaluación final
+        print("="*80)
+        print("EVALUACIÓN FINAL")
+        print("="*80)
+        
+        todos_criterios = (
+            freq_en_rango_h1 and freq_en_rango_l1 and
+            snr_h1_ok and snr_l1_ok and
+            bf_h1_ok and bf_l1_ok and
+            pval_h1_ok and pval_l1_ok and
+            coherencia_ok
+        )
+        
+        if todos_criterios:
+            print("\n🎉 PREDICCIÓN CONFIRMADA")
+            print("   ✅ Todos los criterios se cumplen")
+            print("   ✅ La teoría Ψ = I × A²_eff es consistente con GW250114")
+            resultado_final = "CONFIRMADA"
+        else:
+            criterios_fallidos = []
+            if not (freq_en_rango_h1 and freq_en_rango_l1):
+                criterios_fallidos.append("Frecuencia fuera de rango")
+            if not (snr_h1_ok and snr_l1_ok):
+                criterios_fallidos.append("SNR insuficiente")
+            if not (bf_h1_ok and bf_l1_ok):
+                criterios_fallidos.append("Bayes Factor bajo")
+            if not (pval_h1_ok and pval_l1_ok):
+                criterios_fallidos.append("p-value no significativo")
+            if not coherencia_ok:
+                criterios_fallidos.append("Falta coherencia H1-L1")
+            
+            print("\n❌ PREDICCIÓN REFUTADA")
+            print("   Criterios no cumplidos:")
+            for criterio in criterios_fallidos:
+                print(f"   - {criterio}")
+            resultado_final = "REFUTADA"
+        
+        print()
+        print("="*80)
+        
+        # Guardar informe de validación
+        output_dir = os.path.join(os.path.dirname(__file__), '..', 'results')
+        os.makedirs(output_dir, exist_ok=True)
+        
+        validacion_file = os.path.join(output_dir, 'validacion_prediccion_gw250114.txt')
+        with open(validacion_file, 'w') as f:
+            f.write("VALIDACIÓN DE PREDICCIÓN - GW250114\n")
+            f.write("="*80 + "\n\n")
+            f.write(f"Fecha de predicción: {prediccion['metadata']['fecha_prediccion']}\n")
+            f.write(f"Resultado: {resultado_final}\n\n")
+            f.write("COMPARACIÓN DETALLADA:\n\n")
+            f.write(f"Frecuencia H1: {obs_freq_h1:.2f} Hz (esperado: {pred_freq['valor_esperado']} ± {pred_freq['tolerancia']})\n")
+            f.write(f"Frecuencia L1: {obs_freq_l1:.2f} Hz (esperado: {pred_freq['valor_esperado']} ± {pred_freq['tolerancia']})\n")
+            f.write(f"SNR H1: {obs_snr_h1:.2f} (esperado: > {pred_snr_h1['minimo_esperado']})\n")
+            f.write(f"SNR L1: {obs_snr_l1:.2f} (esperado: > {pred_snr_l1['minimo_esperado']})\n")
+            f.write(f"BF H1: {obs_bf_h1:.2e} (esperado: > {pred_bf['bayes_factor_minimo']})\n")
+            f.write(f"BF L1: {obs_bf_l1:.2e} (esperado: > {pred_bf['bayes_factor_minimo']})\n")
+            f.write(f"p-value H1: {obs_pval_h1:.4f} (esperado: < {pred_pval['p_value_maximo']})\n")
+            f.write(f"p-value L1: {obs_pval_l1:.4f} (esperado: < {pred_pval['p_value_maximo']})\n")
+            f.write(f"Coherencia: {coherencia_obs:.2f} Hz (esperado: < {pred_coh['diferencia_maxima_freq']})\n")
+        
+        print(f"📄 Informe de validación guardado: {validacion_file}")
+        
+        return todos_criterios
 
 def main():
     """Ejecutor principal para GW250114"""
+    # Parse argumentos
+    parser = argparse.ArgumentParser(
+        description="Análisis de GW250114 - 141.7 Hz"
+    )
+    parser.add_argument(
+        '--validate-prediction',
+        action='store_true',
+        help='Validar predicción previa contra datos observados'
+    )
+    
+    args = parser.parse_args()
+    
     print("🌌 GW250114 - 141.7001 Hz Analysis")
     print("🚀 Framework de Análisis de GW250114")
     print("📋 Preparado según problema statement")
@@ -240,6 +437,20 @@ def main():
         print("   2. Los datos aparezcan en GWOSC")
         print("\n🔄 Para ejecutar manualmente cuando estén disponibles:")
         print("   python scripts/analizar_gw250114.py")
+        
+        # Si no hay datos, no podemos validar predicción
+        if args.validate_prediction:
+            print("\n⚠️  No se puede validar predicción sin datos de GW250114")
+        
+        return resultado
+    
+    # Si hay datos y se solicitó validación de predicción
+    if args.validate_prediction and resultado:
+        print("\n" + "="*80)
+        print("🔬 MODO: VALIDACIÓN DE PREDICCIÓN")
+        print("="*80)
+        # Aquí se compararía con la predicción
+        # (requiere que el método analizar_gw250114 retorne los resultados)
     
     return resultado
 
