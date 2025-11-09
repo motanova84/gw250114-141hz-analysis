@@ -9,20 +9,8 @@
 # Institution: Instituto Conciencia Cuántica
 # Project License: MIT
 
-# GitHub Sponsors (activate when GitHub Sponsors account is available)
-# github: motanova84
-
-# Ko-fi (suitable for research project support)
-# ko_fi: motanova84
-
-# Liberapay (supports open source scientific projects)
-# liberapay: motanova84
-
-# Buy Me a Coffee (for one-time research support)
-# buy_me_a_coffee: motanova84
-
-# PayPal direct donations (when available)
-# custom: ["https://www.paypal.me/motanova84"]
+# GitHub Sponsors (ENABLED - main funding platform)
+github: motanova84
 
 # Research funding inquiries and collaboration contact
 custom: ["mailto:institutoconsciencia@proton.me?subject=GW250114%20Research%20Funding"]
