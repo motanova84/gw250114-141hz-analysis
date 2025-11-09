@@ -186,25 +186,7 @@ class WorkflowHealthChecker:
                 if has_python_commands:
                     break
             
-            # Check if Python commands are only in echo/print statements (not actual execution)
-            has_real_python_commands = False
-            for step in steps:
-                if not isinstance(step, dict):
-                    continue
-                run_cmd = str(step.get('run', '')).lower()
-                if 'python' not in run_cmd and 'pip' not in run_cmd:
-                    continue
-                # Check if Python/pip is in an echo statement by looking at the line structure
-                lines = run_cmd.split('\n')
-                for line in lines:
-                    line = line.strip()
-                    if ('python' in line or 'pip' in line) and not line.startswith('echo'):
-                        has_real_python_commands = True
-                        break
-                if has_real_python_commands:
-                    break
-            
-            if has_real_python_commands and not has_python_setup:
+            if has_python_commands and not has_python_setup:
                 issues.append(
                     f"{workflow_name}/{job_name}: Uses Python but missing setup-python action"
                 )

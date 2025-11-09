@@ -8,6 +8,7 @@ Define criterios claros y específicos que falsarían la hipótesis de 141.7001 
 como frecuencia fundamental del campo noésico.
 """
 
+import json
 import sys
 from pathlib import Path
 
