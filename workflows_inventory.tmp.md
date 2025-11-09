@@ -54,6 +54,13 @@
 - Trigger: schedule (`0 2 * * 0`)
 - Trigger: manual (workflow_dispatch)
 
+### Autonomous Validation - 141Hz Agent
+
+**Archivo:** `autonomous-validation.yml`
+
+- Trigger: schedule (`0 */6 * * *  # Run every 6 hours`)
+- Trigger: manual (workflow_dispatch)
+
 ### CI básico para PRs
 
 **Archivo:** `ci-basic.yml`
@@ -178,6 +185,22 @@
 - Trigger: schedule (`0 */4 * * *       # Run every 4 hours`)
 - Trigger: manual (workflow_dispatch)
 
+### QC-LLM CI (Simplified)
+
+**Archivo:** `qc-llm-ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: manual (workflow_dispatch)
+
+### QCAL-LLM Tests
+
+**Archivo:** `qcal-llm-tests.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: manual (workflow_dispatch)
+
 ### Quantum Validations
 
 **Archivo:** `quantum-validations.yml`
@@ -246,4 +269,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-06 18:08:45 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-09 21:42:31 UTC*

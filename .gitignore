@@ -12,6 +12,10 @@ results/
 # But allow vacuum energy visualizations
 !results/figures/vacuum_energy*.png
 
+# Logs
+logs/
+*.log
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
@@ -48,3 +52,6 @@ resultados/
 .env
 *.swp
 *.tmp
+
+# QCAL tuning outputs (generated at runtime)
+noesis-qcal-llm/psi_tuning_history.json

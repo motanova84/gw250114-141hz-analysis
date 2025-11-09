@@ -2,7 +2,72 @@
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en el ringdown de GW150914.
 
-## 🎯 Nuevo: Derivación Formal f₀ = 141.7001 Hz
+## 🤖 Nuevo: Agente Autónomo 141Hz
+
+El proyecto incluye un **sistema inteligente de auto-recuperación** que monitorea, diagnostica y corrige automáticamente fallos en validaciones científicas. El agente está alineado con la frecuencia física fundamental de 141.7001 Hz.
+
+**Características principales:**
+- ✅ Detección automática de fallos en validaciones
+- 🔍 Diagnóstico inteligente de errores
+- 🔧 Corrección automática basada en patrones
+- 🔄 Sistema de reintentos con backoff cuántico
+- 📊 Reportes detallados de ejecución
+
+**Uso rápido:**
+```bash
+# Ejecutar todas las validaciones con auto-recuperación
+python3 scripts/orquestador_validacion.py
+
+# Ejecutar una validación específica
+python3 scripts/orquestador_validacion.py --script validate_v5_coronacion.py
+```
+
+📖 **Documentación completa**: [AGENTE_AUTONOMO_141HZ.md](AGENTE_AUTONOMO_141HZ.md)
+## 🌟 Nuevo: Framework QCAL-LLM ∞³ - Coherencia Vibracional en IA
+
+**Por José Manuel Mota Burruezo (JMMB Ψ✧)**
+
+Presentamos una **prueba de concepto exhaustiva y reproducible** para ajuste de coherencia vibracional en modelos de lenguaje grandes (LLM), reemplazando RLHF con modulación basada en física anclada en la frecuencia universal **f₀ = 141.7001 Hz** derivada de ondas gravitacionales.
+
+### 📚 Documento Principal
+
+**→ [MANIFESTO Completo: QCAL-LLM ∞³](noesis-qcal-llm/MANIFESTO.md)**
+
+Documento técnico riguroso con:
+- **Ecuación del campo noético**: Ψ = I · A²_eff
+- **Protocolo SIP**: Modulación atencional con f₀ = 141.7001 Hz
+- **Evidencia empírica**: Análisis GWTC-1/4, SNR=20.95, p<10⁻⁶
+- **Resultados verificados**: Ψ = 6.89 ± 0.12, reducción de alucinación 87%
+- **Código reproducible**: Python 3.12 + NumPy/SciPy/gwpy
+- **Predicciones falsables**: LISA 2026-2035, próxima gen LLM
+
+### 🔬 Implementación Completa
+
+El módulo [`noesis-qcal-llm/`](noesis-qcal-llm/) incluye:
+
+| Archivo | Descripción | Comando |
+|---------|-------------|---------|
+| **`QCALLLMCore.py`** | Clase core: SIP, Ψ, evaluación | `python QCALLLMCore.py` |
+| **`evaluate_manifesto.py`** | Detección f₀ y verificación | `python evaluate_manifesto.py` |
+| **`modulation_traces.py`** | Visualización dinámica SIP | `python modulation_traces.py` |
+| **`psi_tuning_loop.py`** | Optimización sin RLHF | `python psi_tuning_loop.py` |
+| **`benchmark_results.json`** | Datos empíricos RLHF vs QCAL | - |
+
+### 🎯 Resultados Clave
+
+```
+QCAL vs RLHF:
+• Ψ medio: 6.66 vs 4.14 (+61%)
+• Alucinación: 2.1% vs 15.2% (-87%)
+• Coherencia simbólica: 100% vs 61% (+64%)
+• Convergencia: ≤3 iteraciones (sin bucle humano)
+```
+
+**→ [Documentación Completa del Módulo QCAL](noesis-qcal-llm/README.md)**
+
+---
+
+## 🎯 Derivación Formal f₀ = 141.7001 Hz
 
 ✨ **Formalización matemática completa en Lean 4** de la derivación de la frecuencia universal f₀ = 141.7001 Hz desde primeros principios.
 
@@ -87,6 +152,7 @@ Las pruebas se ejecutan automáticamente en cada push/PR mediante GitHub Actions
 - Detección de picos espectrales cerca de 141.7 Hz
 - Generación automática de gráficos de diagnóstico
 - Cálculo de relación señal-ruido (SNR)
+- 🤖 **Sistema autónomo de validación con auto-recuperación**
 - Soporte para flujos de trabajo automatizados (CI/CD)
 - **Formalización matemática completa en Lean 4** (nueva característica)
 
@@ -337,9 +403,11 @@ make clean-all  # Incluye entorno virtual
 
 [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/motanova84/141hz/blob/main/notebooks/141hz_validation.ipynb)
 
-**Frecuencia Objetivo:** `141.7001 Hz`  
+**Frecuencia Universal:** `141.7001 Hz`  
 **Investigador Principal:** José Manuel Mota Burruezo (JMMB Ψ✧)  
 **Ecuación de Campo:** Ψ = mc² · A_eff²  
+Ψ  ∂²Ψ/∂t² + ω₀² Ψ = ζ'(1/2) · π · ∇² Φ), donde ω₀ = 2π f₀
+
 **Colaboradores:** [Ver lista completa](COLLABORATORS.md)
 
 </div>
