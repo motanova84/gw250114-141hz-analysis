@@ -13,7 +13,7 @@
 - `analizar_gw200129_snr.py`
   - Análisis de SNR esperada para GW200129 a 141.7 Hz
 - `analizar_gw250114.py`
-  - 
+  - Framework para análisis de GW250114 - 141.7 Hz
 - `analizar_igets_gravimetro.py`
   - Análisis de datos IGETS para detección de 141.7 Hz
 - `analizar_kagra_k1.py`
@@ -31,12 +31,16 @@
   - Badge Validation Script
 - `validate_scipy_snr_141hz.py`
   - Validación de SNR con Procesamiento Scipy Puro - 141.7 Hz
+- `validate_synthetic_data.py`
+  - Validate synthetic gravitational wave datasets
 - `validation_support.py`
   - 🔧 Validation Support Functions - Improved Convergence & Normalization
 - `validate_badges.py`
   - Badge Validation Script
 - `validate_scipy_snr_141hz.py`
   - Validación de SNR con Procesamiento Scipy Puro - 141.7 Hz
+- `validate_synthetic_data.py`
+  - Validate synthetic gravitational wave datasets
 
 ## Scripts de Test
 
@@ -68,6 +72,8 @@
   - Tests para el módulo de campo de conciencia.
 - `test_coherencia_escalas.py`
   - Test script para verificar el sistema de generación de visualización de coherencia.
+- `test_comparar_ligo_kagra.py`
+  - Test para comparar_ligo_vs_kagra_sensibilidad.py
 - `test_correccion_rpsi_codata.py`
   - Test de correcciones técnicas: RΨ y αΨ
 - `test_corrections.py`
@@ -82,8 +88,12 @@
   - Tests para la Ecuación del Latido Universal
 - `test_energia_cuantica.py`
   - Tests para el módulo de cálculo de energía cuántica fundamental
+- `test_generar_prediccion_gw250114.py`
+  - Test para generar_prediccion_gw250114.py
 - `test_multi_event_snr_analysis.py`
   - Tests para el módulo multi_event_snr_analysis
+- `test_optimization_modules.py`
+  - Test script for computational optimization modules.
 - `test_performance_packages.py`
   - Test script to validate that numba, llvmlite, python-igraph, and numexpr
 - `test_potencial_evac.py`
@@ -97,7 +107,7 @@
 - `test_resonancia_cruzada_virgo_kagra.py`
   - Tests para Análisis de Resonancia Cruzada Virgo/KAGRA
 - `test_rpsi_symmetry.py`
-  - 
+  - Test script for A_Rpsi_symmetry.ipynb
 - `test_sage_activation.py`
   - Tests para el módulo sage_activation.py - Protocolo Sage ∴
 - `test_simetria_discreta.py`
@@ -112,6 +122,8 @@
   - Tests para la Torre Algebraica
 - `test_user_confirmation.py`
   - Test script for user_confirmation module.
+- `test_vacuum_energy.py`
+  - Tests for Vacuum Energy Module
 - `test_validacion_alpha_psi.py`
   - Test suite for validacion_alpha_psi_corregida.py
 - `test_validacion_radio_cuantico.py`
@@ -130,4 +142,4 @@
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-05 18:28:52 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-09 03:16:46 UTC*

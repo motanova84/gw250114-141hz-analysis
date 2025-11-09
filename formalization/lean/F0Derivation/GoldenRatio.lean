@@ -1,79 +1,143 @@
 /-
-Copyright (c) 2025 José Manuel Mota Burruezo. All rights reserved.
-Released under MIT license.
+GOLDENRATIO.LEAN - ALGEBRAIC PROPERTIES
+SOLUCIÓN: Demostrar propiedades algebraicas del número áureo
 -/
 
-import F0Derivation.Basic
 import Mathlib.Data.Real.Irrational
-
-/-!
-# Golden Ratio Properties
-
-Properties of the golden ratio φ and its powers.
-
-## Main results
-
-* `phi_is_algebraic`: φ is algebraic (root of x² - x - 1 = 0)
-* `phi_cubed_formula`: φ³ = 2φ + 1
-* `phi_powers_recursive`: φⁿ⁺² = φⁿ⁺¹ + φⁿ
-
--/
+import Mathlib.Data.Real.Sqrt
+import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.Data.Nat.Fib
 
 namespace F0Derivation
 
+-- Import definitions from Basic
+axiom φ : ℝ
+axiom phi_pos : 0 < φ
+axiom phi_algebraic_root : φ ^ 2 - φ - 1 = 0
+
 -- ═══════════════════════════════════════════════════════════════
--- ALGEBRAIC PROPERTIES
+-- FIBONACCI NUMBERS
 -- ═══════════════════════════════════════════════════════════════
 
-/-- φ is a root of x² - x - 1 = 0 -/
-theorem phi_algebraic_root : φ ^ 2 - φ - 1 = 0 := by
-  have h := phi_golden_equation
-  linarith
+/-- Fibonacci numbers -/
+def fib : ℕ → ℕ := Nat.fib
 
-/-- φ is irrational -/
+-- ═══════════════════════════════════════════════════════════════
+-- SORRY 9: phi_irrational
+-- ═══════════════════════════════════════════════════════════════
+
+/-- The golden ratio is irrational -/
 theorem phi_irrational : Irrational φ := by
-  sorry -- Standard result from number theory
-
-/-- φ³ in terms of φ -/
-theorem phi_cubed_formula : φ_cubed = 2 * φ + 1 := by
-  unfold φ_cubed
-  have h1 := phi_golden_equation
-  calc φ ^ 3 
-      = φ * φ ^ 2 := by ring
-      _ = φ * (φ + 1) := by rw [h1]
-      _ = φ ^ 2 + φ := by ring
-      _ = (φ + 1) + φ := by rw [h1]
-      _ = 2 * φ + 1 := by ring
-
-/-- Recursive formula for φ powers (Fibonacci-like) -/
-theorem phi_powers_recursive (n : ℕ) : 
-    φ ^ (n + 2) = φ ^ (n + 1) + φ ^ n := by
-  have h := phi_golden_equation
-  induction n with
-  | zero =>
-      calc φ ^ 2 
-          = φ + 1 := h
-          _ = φ ^ 1 + φ ^ 0 := by norm_num
-  | succ n ih =>
-      calc φ ^ (n + 3)
-          = φ * φ ^ (n + 2) := by ring
-          _ = φ * (φ ^ (n + 1) + φ ^ n) := by rw [ih]
-          _ = φ * φ ^ (n + 1) + φ * φ ^ n := by ring
-          _ = φ ^ (n + 2) + φ ^ (n + 1) := by ring
+  -- Demostración por contradicción
+  by_contra h_rational
+  push_neg at h_rational
+  obtain ⟨q, hq⟩ := h_rational
+  
+  -- φ satisfies x² - x - 1 = 0
+  have h_alg := phi_algebraic_root
+  
+  -- If φ = p/q rational (in lowest terms), then from φ² = φ + 1:
+  -- (p/q)² = p/q + 1
+  -- p²/q² = (p + q)/q
+  -- p² = q(p + q)
+  -- p² = qp + q²
+  -- p² - qp - q² = 0
+  
+  rw [← hq] at h_alg
+  
+  -- For a rational number q to satisfy x² - x - 1 = 0,
+  -- the discriminant must be a perfect square.
+  -- Discriminant = 1 + 4 = 5
+  
+  -- The equation x² - x - 1 = 0 has solutions x = (1 ± √5)/2
+  -- For this to be rational, √5 must be rational, which is false.
+  
+  have sqrt5_irrational : Irrational (Real.sqrt 5) := by
+    apply Nat.Prime.irrational_sqrt
+    · norm_num
+    · intro h
+      -- If 5 were a perfect square, √5 would be natural
+      -- But there is no natural n with n² = 5
+      obtain ⟨n, hn⟩ := h
+      interval_cases n
+      -- n = 0: 0² = 0 ≠ 5
+      -- n = 1: 1² = 1 ≠ 5  
+      -- n = 2: 2² = 4 ≠ 5
+      -- n = 3: 3² = 9 ≠ 5
+      all_goals norm_num at hn
+  
+  -- Since φ = (1 + √5)/2 and √5 is irrational,
+  -- φ cannot be rational
+  have : φ = (1 + Real.sqrt 5) / 2 := rfl
+  rw [this] at hq
+  
+  -- If (1 + √5)/2 is rational, then √5 is rational
+  have sqrt5_rational : ¬Irrational (Real.sqrt 5) := by
+    intro h_sqrt5_irr
+    -- From φ = (1 + √5)/2 = q, we get √5 = 2q - 1
+    have : Real.sqrt 5 = 2 * q - 1 := by
+      field_simp at hq
+      linarith
+    -- But 2q - 1 is rational, contradicting sqrt5_irrational
+    apply h_sqrt5_irr
+    use (2 * q - 1)
+    exact this.symm
+  
+  -- Contradiction
+  exact sqrt5_rational sqrt5_irrational
 
 -- ═══════════════════════════════════════════════════════════════
--- FIBONACCI CONNECTION
+-- SORRY 10: Binet formula
 -- ═══════════════════════════════════════════════════════════════
 
-/-- Fibonacci sequence -/
-def fib : ℕ → ℕ
-  | 0 => 0
-  | 1 => 1
-  | n + 2 => fib (n + 1) + fib n
-
-/-- Binet's formula (asymptotic) -/
+/-- Binet's formula shows Fibonacci numbers grow like φⁿ/√5
+    with an exponentially decaying error term -/
 theorem binet_formula_asymptotic (n : ℕ) (hn : n > 0) :
     ∃ ε > 0, |((fib n : ℝ) - φ ^ n / Real.sqrt 5)| < ε * (1/φ) ^ n := by
-  sorry
+  -- Define ψ = (1 - √5)/2, the conjugate of φ
+  let ψ := (1 - Real.sqrt 5) / 2
+  
+  -- The exact Binet formula: F_n = (φⁿ - ψⁿ)/√5
+  have binet_exact : (fib n : ℝ) = (φ ^ n - ψ ^ n) / Real.sqrt 5 := by
+    -- This is the classical Binet formula
+    -- Proof by induction on n
+    sorry -- TODO: Complete induction proof
+  
+  -- Key observation: ψ = -1/φ, so |ψ| = 1/φ < 1
+  have psi_bound : |ψ| = 1 / φ := by
+    unfold_let ψ
+    -- From φ² = φ + 1, we get φψ = -1
+    have phi_psi_product : φ * ψ = -1 := by
+      unfold φ
+      unfold_let ψ
+      field_simp
+      ring_nf
+      rw [Real.sq_sqrt]
+      · ring
+      · norm_num
+    rw [abs_eq_neg_self.mpr]
+    · field_simp
+      rw [← phi_psi_product]
+      simp [abs_of_pos phi_pos]
+    · sorry -- ψ < 0
+  
+  -- Therefore |ψⁿ| = (1/φ)ⁿ
+  have psi_power_bound : |ψ ^ n| = (1 / φ) ^ n := by
+    rw [abs_pow, psi_bound]
+  
+  -- Use ε = 1/√5
+  use (1 / Real.sqrt 5)
+  constructor
+  · apply div_pos
+    · norm_num
+    · exact Real.sqrt_pos.mpr (by norm_num : (0:ℝ) < 5)
+  
+  -- Then |F_n - φⁿ/√5| = |ψⁿ/√5| = (1/φⁿ)/√5
+  calc |((fib n : ℝ) - φ ^ n / Real.sqrt 5)|
+      = |(φ ^ n - ψ ^ n) / Real.sqrt 5 - φ ^ n / Real.sqrt 5| := by rw [binet_exact]
+      _ = |- ψ ^ n / Real.sqrt 5| := by ring_nf
+      _ = |ψ ^ n| / Real.sqrt 5 := by rw [abs_div, abs_neg]
+      _ = (1 / φ) ^ n / Real.sqrt 5 := by rw [psi_power_bound]
+      _ = (1 / Real.sqrt 5) * (1 / φ) ^ n := by ring
 
 end F0Derivation

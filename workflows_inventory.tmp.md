@@ -121,6 +121,15 @@
 - Trigger: push
 - Trigger: pull_request
 
+### Lean 4 Formalization Verification
+
+**Archivo:** `lean-verification.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 2 * * *`)
+- Trigger: manual (workflow_dispatch)
+
 ### Master Workflow Orchestration
 
 **Archivo:** `master-orchestration.yml`
@@ -146,6 +155,15 @@
 - Trigger: schedule (`0 0,12 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Optimized Analysis with GPU Support
+
+**Archivo:** `optimized-analysis.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 0 * * 0`)
+- Trigger: manual (workflow_dispatch)
+
 ### PR Review Automation
 
 **Archivo:** `pr-review-automation.yml`
@@ -158,6 +176,22 @@
 **Archivo:** `production-qcal.yml`
 
 - Trigger: schedule (`0 */4 * * *       # Run every 4 hours`)
+- Trigger: manual (workflow_dispatch)
+
+### QC-LLM CI (Simplified)
+
+**Archivo:** `qc-llm-ci.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: manual (workflow_dispatch)
+
+### QCAL-LLM Tests
+
+**Archivo:** `qcal-llm-tests.yml`
+
+- Trigger: push
+- Trigger: pull_request
 - Trigger: manual (workflow_dispatch)
 
 ### Quantum Validations
@@ -228,4 +262,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-05 18:28:53 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-09 03:16:46 UTC*

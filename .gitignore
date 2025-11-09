@@ -48,3 +48,6 @@ resultados/
 .env
 *.swp
 *.tmp
+
+# QCAL tuning outputs (generated at runtime)
+noesis-qcal-llm/psi_tuning_history.json
