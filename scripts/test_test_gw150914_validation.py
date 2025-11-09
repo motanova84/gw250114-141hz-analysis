@@ -51,6 +51,8 @@ class TestCalculateSNR(unittest.TestCase):
         
         # SNR should be positive and reasonable
         # With strong signal relative to noise, SNR can be quite large
+        # Lower bound (1.0): SNR > 1 is typical for detectable signals in GW analysis.
+        # Upper bound (100000.0): SNRs above this are implausible for synthetic data and likely indicate a bug.
         self.assertGreater(snr, 1.0)
         self.assertLess(snr, 100000.0)
         
