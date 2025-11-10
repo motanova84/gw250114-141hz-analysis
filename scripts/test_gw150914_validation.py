@@ -24,6 +24,17 @@ MAX_WELCH_SEGMENT_LENGTH = 2048  # Maximum segment length for Welch's method
 NOISE_ESTIMATION_BANDWIDTH = 30  # Hz - bandwidth around target frequency for noise estimation
 PEAK_EXCLUSION_WIDTH = 5  # frequency bins - width to exclude around peak when estimating noise
 
+# Constants for ringdown extraction
+RINGDOWN_START_OFFSET = 0.01  # seconds - delay after merger to start ringdown extraction (10 ms post-merger)
+RINGDOWN_DURATION = 0.05  # seconds - duration of ringdown segment to analyze (50 ms)
+
+# Constants for data preprocessing
+HIGHPASS_CUTOFF = 20  # Hz - cutoff frequency for highpass filter to remove low-frequency noise
+NOTCH_FREQUENCIES = [60, 120]  # Hz - frequencies to notch filter (power line noise and harmonic)
+
+# Time conversion constants
+SECONDS_PER_DAY = 86400  # seconds in one day
+
 
 def test2_noise_comparison(h1_data, l1_data, target_freq=141.7, merger_time=None):
     """
@@ -53,8 +64,8 @@ def test2_noise_comparison(h1_data, l1_data, target_freq=141.7, merger_time=None
     
     # Extract ringdown segment if merger_time provided
     if merger_time is not None:
-        ringdown_start = merger_time + 0.01  # 10 ms post-merger
-        ringdown_duration = 0.05  # 50 ms
+        ringdown_start = merger_time + RINGDOWN_START_OFFSET
+        ringdown_duration = RINGDOWN_DURATION
         ringdown_end = ringdown_start + ringdown_duration
         
         h1_segment = h1_data.crop(ringdown_start, ringdown_end)
@@ -149,7 +160,7 @@ def test3_offsource_analysis(detector='H1', merger_time=1126259462.423,
     
     for day in range(1, n_days + 1):
         # Move back 'day' days from merger
-        offsource_time = merger_time - (day * 86400)  # 86400 seconds per day
+        offsource_time = merger_time - (day * SECONDS_PER_DAY)
         
         try:
             print(f"   Día -{day}: GPS time {offsource_time:.0f}...")
@@ -254,7 +265,7 @@ def calculate_snr_at_frequency(data, f0, method='welch'):
     # Exclude immediate region around peak
     exclude_width = PEAK_EXCLUSION_WIDTH
     background_indices = np.concatenate([
-        np.arange(idx_start, max(idx_start, idx_target - exclude_width)),
+        np.arange(idx_start, min(idx_target - exclude_width, idx_end)),
         np.arange(min(len(freqs)-1, idx_target + exclude_width), idx_end)
     ])
     
@@ -401,9 +412,13 @@ def main():
     
     # Preprocessing
     print("\n🔧 Preprocesando datos...")
-    h1_data = h1_data.highpass(20).notch(60).notch(120)
-    l1_data = l1_data.highpass(20).notch(60).notch(120)
-    print("   ✅ Filtros aplicados: highpass(20 Hz), notch(60, 120 Hz)")
+    h1_data = h1_data.highpass(HIGHPASS_CUTOFF)
+    l1_data = l1_data.highpass(HIGHPASS_CUTOFF)
+    for freq in NOTCH_FREQUENCIES:
+        h1_data = h1_data.notch(freq)
+        l1_data = l1_data.notch(freq)
+    notch_str = ', '.join(map(str, NOTCH_FREQUENCIES))
+    print(f"   ✅ Filtros aplicados: highpass({HIGHPASS_CUTOFF} Hz), notch({notch_str} Hz)")
     
     # Execute Test 2
     test2_results = test2_noise_comparison(h1_data, l1_data, target_freq, merger_time)
@@ -443,7 +458,6 @@ def main():
     print("| Test 2 | ✅ Ruido L1/H1 = {:.1f}× mayor en L1          | Señal posible              |".format(test2_results['ratio']))
     
     if test3_results['snr_onsource'] is not None and test3_results['max_snr_offsource'] is not None:
-        ratio_onsource = test3_results['snr_onsource'] / test3_results['max_snr_offsource']
         print("| Test 3 | ✅ Pico {:.1f} único, máx off-source {:.1f}  | Coincidencia significativa |".format(
             test3_results['snr_onsource'], test3_results['max_snr_offsource']))
     else:

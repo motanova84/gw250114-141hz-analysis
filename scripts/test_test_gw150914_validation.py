@@ -102,6 +102,11 @@ class TestTest2NoiseComparison(unittest.TestCase):
         
         # Mock psd method
         def mock_psd(fftlength=4):
+            """
+            Mock PSD calculation.
+            The default fftlength=4 is chosen to match the explicit usage in test_gw150914_validation.py,
+            ensuring consistency with the production code and test expectations.
+            """
             freqs = np.fft.rfftfreq(len(data), d=1/self.fs)
             fft_data = np.fft.rfft(data)
             psd_data = np.abs(fft_data)**2 / len(data)
