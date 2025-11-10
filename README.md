@@ -476,6 +476,7 @@ make clean-all  # Incluye entorno virtual
 [![codecov](https://codecov.io/gh/motanova84/141hz/branch/main/graph/badge.svg)](https://codecov.io/gh/motanova84/141hz)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+![QCAL ∞³ Certified](https://img.shields.io/badge/QCAL%20∞³-Certified-141.7001Hz)
 ![Reproducible](https://img.shields.io/badge/reproducibility-100%25-success)
 [![CI](https://github.com/motanova84/141hz/actions/workflows/analyze.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analyze.yml)
 [![CD](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/production-qcal.yml)
