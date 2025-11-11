@@ -164,7 +164,6 @@ def test_api_endpoints_mejorados():
             # Test endpoint métricas
             response = client.get('/api/metricas')
             assert response.status_code == 200, f"Código de estado incorrecto: {response.status_code}"
-            data = json.loads(response.data)
             print("   ✅ GET /api/metricas - OK (200)")
             
             # Test endpoint alertas
