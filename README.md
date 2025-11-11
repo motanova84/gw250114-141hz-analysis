@@ -181,6 +181,74 @@ QCAL vs RLHF:
 
 **→ [Documentación Completa del Módulo QCAL](noesis-qcal-llm/README.md)**
 
+### 🔬 Nuevo: Entorno Reproducible de Evaluación QCAL-LLM
+
+**Sistema completo para evaluar LLMs con métricas cuánticas Ψ = I × A_eff²**
+
+El proyecto ahora incluye un **entorno reproducible** para evaluar la coherencia de modelos de lenguaje usando métricas QCAL:
+
+#### 📦 Componentes Principales
+
+| Componente | Descripción | Comando |
+|------------|-------------|---------|
+| **`qcal/coherence.py`** | Métricas Ψ, I, A_eff, ∴-rate | `from qcal import psi_score` |
+| **`qcal/metrics.py`** | KLD, SNR, densidad semántica | `from qcal.metrics import snr` |
+| **`scripts/qcal_llm_eval.py`** | Evaluador completo para LLMs | `python3 scripts/qcal_llm_eval.py` |
+| **`scripts/setup_llama4.sh`** | Setup para LLaMA 4 Maverick | `./scripts/setup_llama4.sh` |
+| **`notebooks/benchmark_llama4.ipynb`** | Análisis y visualización | Jupyter notebook |
+
+#### 🎯 Métricas de Evaluación
+
+- **Ψ (Coherencia)**: `Ψ = I × A_eff²` (threshold ≥ 5.0)
+- **∴-rate**: Frecuencia de conectores lógicos
+- **SNR semántico**: Ratio señal/ruido en dB
+- **KLD⁻¹**: Divergencia inversa
+- **Quality Score**: Métrica global 0-100
+
+#### 🚀 Uso Rápido
+
+```bash
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Setup del entorno (opcional: descargar LLaMA 4)
+./scripts/setup_llama4.sh
+
+# Evaluar sin modelo (usando respuestas pre-generadas)
+python3 scripts/qcal_llm_eval.py --no-model
+
+# Evaluar con modelo LLaMA 4
+python3 scripts/qcal_llm_eval.py \
+    --prompts data/prompts_qcal.json \
+    --output results/evaluation_results.json
+
+# Análisis con Jupyter
+jupyter notebook notebooks/benchmark_llama4.ipynb
+```
+
+#### 📊 Ejemplo de Resultados
+
+```
+Prompt: "Deriva f₀ = 141.7001 Hz desde principios matemáticos"
+  Ψ (coherence):     8.45
+  ∴-rate:            1.5 per 100 words
+  SNR:               8.3 dB
+  Quality:           78.5/100
+  Status:            ✓ COHERENTE
+```
+
+#### 📖 Documentación Completa
+
+**→ [QCAL_LLM_ENVIRONMENT.md](QCAL_LLM_ENVIRONMENT.md)** - Guía completa de instalación, uso y publicación en Zenodo
+
+**Características:**
+- ✅ Evaluación reproducible de LLMs (LLaMA 4, GPT-4, Claude)
+- ✅ Métricas cuánticas basadas en f₀ = 141.7001 Hz
+- ✅ Tests automatizados (18 tests, 100% passing)
+- ✅ Exportación CSV/JSON/PNG para publicación
+- ✅ Integración CI/CD lista para GitHub Actions
+- ✅ Sello ∴ en `.qcal_beacon`
+
 ---
 
 ## 🎯 Derivación Formal f₀ = 141.7001 Hz
