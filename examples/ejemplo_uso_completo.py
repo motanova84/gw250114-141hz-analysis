@@ -193,7 +193,7 @@ def main():
     
     try:
         figuras = ejemplo_visualizaciones_interactivas()
-        archivos_informe = ejemplo_generacion_informes(figuras)
+        ejemplo_generacion_informes(figuras)
         ejemplo_dashboard_uso()
         
         print("\n" + "=" * 70)
