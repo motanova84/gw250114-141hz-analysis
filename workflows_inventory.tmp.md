@@ -237,6 +237,15 @@
 - Trigger: schedule (`0 14 * * 6`)
 - Trigger: manual (workflow_dispatch)
 
+### Universal Validation Framework
+
+**Archivo:** `universal-validation.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: schedule (`0 6 * * 0`)
+- Trigger: manual (workflow_dispatch)
+
 ### Auto-Update Coherence Visualization
 
 **Archivo:** `update_coherence_visualization.yml`
@@ -269,4 +278,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-09 21:42:31 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-10 08:16:56 UTC*
