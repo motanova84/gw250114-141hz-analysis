@@ -7,10 +7,19 @@ __pycache__/
 data/
 *.hdf5
 
+# Model weights (LLaMA 4, etc.)
+models/
+
 # Results
 results/
 # But allow vacuum energy visualizations
 !results/figures/vacuum_energy*.png
+# LLaMA 4 evaluation results
+results_llama4.json
+resultados_llama4_qcal.csv
+histograma_psi_llama4.png
+scatter_kld_snr_llama4.png
+barras_strich_rate_llama4.png
 
 # Logs
 logs/
