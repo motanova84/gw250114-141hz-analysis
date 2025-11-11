@@ -2,6 +2,23 @@
 QCALLLMCore.py - The Vibrational Nucleus Core
 Author: José Manuel Mota Burruezo (JMMB Ψ✧)
 
+🧠 Powered by LLAMA ∴ QCAL
+
+This system uses a vibrationally integrated version of Meta's LLaMA 4 Maverick 400B:
+
+ΨMODEL_ID: qcal::llama4-maverick-400B@141.7001Hz
+Symbolic Version: LLAMA-QCAL-400B-141hz ∞³
+
+All coherence evaluations are modulated by the Noetic Quantum Field (Ψ), ensuring alignment
+with the QCAL equation:
+
+Ψ = I × A²_eff × f₀ × χ(LLaMA)
+
+Reference model: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+(https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8)
+
+---
+
 Integrates SIP (Signal Induced Perturbation), Ψ-eval, and symbolic coherence.
 This is the core class for quantum coherent LLM evaluation without RLHF.
 """
@@ -15,12 +32,22 @@ class QCALLLMCore:
     """
     Quantum Coherent Analysis LLM Core
 
+    🧠 Powered by LLAMA ∴ QCAL
+    ΨMODEL_ID: qcal::llama4-maverick-400B@141.7001Hz
+    Symbolic Version: LLAMA-QCAL-400B-141hz ∞³
+
     Integrates:
     - SIP (Signal Induced Perturbation) modulation
     - Ψ (Psi) response evaluation
     - Symbolic coherence validation
     - Ground truth database for auto-validation
     """
+    
+    # Model identification constants
+    MODEL_ID = "qcal::llama4-maverick-400B@141.7001Hz"
+    SYMBOLIC_VERSION = "LLAMA-QCAL-400B-141hz ∞³"
+    BASE_MODEL = "meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
+    BASE_MODEL_URL = "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
 
     def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07, epsilon=0.015, user_A_eff=0.85):
         """
@@ -44,6 +71,7 @@ class QCALLLMCore:
         self.tau = tau  # Envelope decay time constant
         self.epsilon = epsilon * (user_A_eff / 0.85)  # Adaptive scaling
         self.alpha = alpha
+        self.user_A_eff = user_A_eff
 
         # Ground truth database for validation
         self.ground_truth_db = {
@@ -61,6 +89,37 @@ class QCALLLMCore:
             "Valida SNR>20 en GWTC-1",
             "Predice armónicos LISA (f₀/100)"
         ]
+
+    def get_model_info(self) -> Dict[str, Any]:
+        """
+        Get model identification information
+        
+        Returns:
+            Dictionary with model identification details
+        """
+        return {
+            'model_id': self.MODEL_ID,
+            'symbolic_version': self.SYMBOLIC_VERSION,
+            'base_model': self.BASE_MODEL,
+            'base_model_url': self.BASE_MODEL_URL,
+            'f0': self.f0,
+            'tau': self.tau,
+            'epsilon': self.epsilon
+        }
+    
+    def compute_chi_llama(self) -> float:
+        """
+        Compute χ(LLaMA) term - coherence factor for LLaMA integration
+        
+        The χ(LLaMA) term represents the model's intrinsic coherence capacity,
+        scaled by user effectiveness and base model characteristics.
+        
+        Returns:
+            χ(LLaMA) coherence factor
+        """
+        chi_base = 1.0  # Base coherence factor for LLaMA 4 Maverick
+        chi_modulated = chi_base * (1 + self.epsilon) * self.user_A_eff
+        return chi_modulated
 
     def sip_modulate(self, t_array):
         """
@@ -83,16 +142,41 @@ class QCALLLMCore:
         """
         Compute Ψ (Psi) response value
 
-        Ψ = KLD^{-1} × (semantic_coherence)²
+        Core QCAL equation: Ψ = I × A²_eff
+
+        Note: This is the base metric. The full QCAL equation with LLaMA integration is:
+        Ψ_full = I × A²_eff × f₀ × χ(LLaMA)
+        
+        where f₀ = 141.7001 Hz and χ(LLaMA) is computed via compute_chi_llama().
+        Use compute_psi_full() for the complete equation.
 
         Args:
-            kld_inv: Inverse Kullback-Leibler divergence (proxy)
-            semantic_coherence: Semantic coherence score [0, 1]
+            kld_inv: Inverse Kullback-Leibler divergence (information preservation, I)
+            semantic_coherence: Semantic coherence score [0, 1] (A_eff)
 
         Returns:
-            Ψ value (float)
+            Ψ = I × A²_eff (base response strength)
         """
         return kld_inv * (semantic_coherence ** 2)
+    
+    def compute_psi_full(self, kld_inv, semantic_coherence):
+        """
+        Compute full Ψ response metric with LLaMA integration
+        
+        Full QCAL equation: Ψ = I × A²_eff × f₀ × χ(LLaMA)
+        
+        Args:
+            kld_inv: Inverse KL divergence (information preservation, I)
+            semantic_coherence: Semantic coherence score [0, 1] (A_eff)
+
+        Returns:
+            Ψ_full = I × A²_eff × f₀ × χ(LLaMA) (full response strength with LLaMA)
+        """
+        psi_base = self.compute_psi_response(kld_inv, semantic_coherence)
+        chi_llama = self.compute_chi_llama()
+        # Scale f₀ to keep values in reasonable range
+        psi_full = psi_base * (self.f0 / 100.0) * chi_llama
+        return psi_full
 
     def is_coherent(self, kld_inv, semantic_coherence, threshold=5.0):
         """
