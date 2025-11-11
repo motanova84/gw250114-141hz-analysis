@@ -15,6 +15,12 @@ try:
     EVIDENCIA_DISPONIBLE = True
 except ImportError:
     EVIDENCIA_DISPONIBLE = False
+# Importar sistema de alertas
+try:
+    from sistema_alertas_gw250114 import SistemaAlertasGW250114
+except ImportError:
+    print("⚠️  Sistema de alertas no disponible")
+    SistemaAlertasGW250114 = None
 
 class BusquedaSistematicaGWTC1:
     def __init__(self):
@@ -134,8 +140,44 @@ class BusquedaSistematicaGWTC1:
         
         print(f"\n💾 Resultados guardados en: {output_file}")
         
+        # Generar reporte
         self.generar_reporte()
+        
+        # Enviar alerta con resultados
+        if SistemaAlertasGW250114:
+            self._enviar_alerta_busqueda()
+        
         return self.resultados
+    
+    def _enviar_alerta_busqueda(self):
+        """Envía alerta con resultados de búsqueda sistemática"""
+        sistema_alertas = SistemaAlertasGW250114()
+        
+        # Preparar resumen para la alerta
+        eventos_unicos = list(set([r['evento'] for r in self.resultados]))
+        detecciones_significativas = [r for r in self.resultados if r['snr'] > 5]
+        
+        resultados_formateados = {
+            'resumen': {
+                'total_detectores': len(self.resultados),
+                'exitosos': len(detecciones_significativas),
+                'tasa_exito': len(detecciones_significativas) / len(self.resultados) if self.resultados else 0
+            },
+            'resultados': {}
+        }
+        
+        # Agregar detecciones significativas al reporte
+        for det in detecciones_significativas:
+            detector_key = f"{det['evento']}_{det['detector']}"
+            resultados_formateados['resultados'][detector_key] = {
+                'frecuencia_detectada': det['frecuencia_detectada'],
+                'snr': det['snr'],
+                'diferencia': det['diferencia_frecuencia'],
+                'significativo': True
+            }
+        
+        sistema_alertas.enviar_alerta_analisis("GWTC-1 Systematic Search", resultados_formateados)
+        print("📧 Alerta de búsqueda sistemática enviada")
     
     def generar_reporte(self):
         """Genera reporte estadístico de la búsqueda"""
