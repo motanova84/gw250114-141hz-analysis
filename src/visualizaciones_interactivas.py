@@ -7,7 +7,7 @@ Utiliza Plotly para crear gráficos interactivos explorables
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import numpy as np
-from typing import Optional, Tuple, Dict, Any
+from typing import Optional
 import json
 
 
