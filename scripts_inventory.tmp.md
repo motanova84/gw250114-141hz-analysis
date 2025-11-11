@@ -48,10 +48,16 @@
   - Tests para los 3 Pilares del Método Científico
 - `test_acto_iii_validacion.py`
   - Test para Acto III: Validación Cuántica de la Frecuencia Fundamental
+- `test_agente_autonomo.py`
+  - Tests para el Agente Autónomo 141Hz
 - `test_ai_workflow_collaborator.py`
   - Test suite for AI Workflow Collaborator
 - `test_analisis_bayesiano_multievento.py`
   - Test del análisis bayesiano multi-evento con datos sintéticos.
+- `test_analisis_catalogo_o4.py`
+  - Tests para el análisis del catálogo O4
+- `test_analisis_cmb_l144.py`
+  - Test unitario para analisis_cmb_l144.py
 - `test_analisis_estadistico_avanzado.py`
   - Tests para el módulo de análisis estadístico avanzado
 - `test_analisis_gwtc3.py`
@@ -126,6 +132,8 @@
   - Tests for Vacuum Energy Module
 - `test_validacion_alpha_psi.py`
   - Test suite for validacion_alpha_psi_corregida.py
+- `test_validacion_gwtc1_tridetector.py`
+  - Tests para la validación GWTC-1 tri-detector
 - `test_validacion_radio_cuantico.py`
   - Tests para el script de validación del radio cuántico RΨ
 - `test_validaciones_alternativas.py`
@@ -136,10 +144,12 @@
   - Test for validate_scipy_snr_141hz.py
 - `test_vercel_config.py`
   - Test para validar la configuración de Vercel
+- `test_verificacion_convergencia.py`
+  - Tests para Verificación de Convergencia y Constantes Fundamentales
 - `test_verificacion_sistema.py`
   - Test para verificacion_sistema_optimizado.py
 - `test_verificador_gw250114.py`
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-06 18:08:44 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-10 08:16:55 UTC*
