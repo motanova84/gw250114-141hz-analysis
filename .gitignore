@@ -16,6 +16,11 @@ results/
 logs/
 *.log
 
+# Generated outputs
+examples/output/
+reports/
+/tmp/
+
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
