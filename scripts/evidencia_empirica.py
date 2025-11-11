@@ -6,6 +6,7 @@ Resultados cuantitativos verificables del análisis de GW150914.
 Datos públicos de GWOSC, herramientas oficiales LIGO.
 """
 
+import json
 import sys
 from pathlib import Path
 
