@@ -42,10 +42,16 @@ def analizar_espectro(tiempo, datos, sample_rate, frecuencia_objetivo=141.7):
     
     return freqs, potencia, freq_pico, potencia_pico, snr
 
-def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, output_dir):
+def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, sample_rate, output_dir):
     """Crear gráficos de diagnóstico"""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
     
+    # Calcular potencia del pico
+    idx_pico = np.argmin(np.abs(freqs - freq_pico))
+    potencia_pico = potencia[idx_pico]
+    
+    # Serie temporal
+    ax1.plot(tiempo, datos, 'b-', linewidth=1)
     # Serie temporal (solo mostramos una parte)
     ax1.plot(tiempo[:10000], datos[:10000], 'b-', linewidth=1, alpha=0.7)
     ax1.set_xlabel('Tiempo (s)')
@@ -96,12 +102,17 @@ def crear_graficos(tiempo, datos, freqs, potencia, freq_pico, snr, detector, out
     plt.close()
 
 def main():
+    # Obtener las rutas del proyecto
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_dir = os.path.dirname(script_dir)
+    output_dir = os.path.join(project_dir, 'results', 'figures')
+    data_dir = os.path.join(project_dir, 'data', 'raw')
+    
     # Configuración
-    output_dir = '../results/figures'
     os.makedirs(output_dir, exist_ok=True)
     
     # Para GW150914 (datos reales de control)
-    archivo_h1 = '../data/raw/H1-GW150914-32s.hdf5'
+    archivo_h1 = os.path.join(data_dir, 'H1-GW150914-32s.hdf5')
     
     if os.path.exists(archivo_h1):
         print("Analizando datos de GW150914 (control)...")
@@ -128,7 +139,7 @@ def main():
         print(f"  - ¿Coincide con 141.7 Hz? {'SÍ' if abs(freq_pico-141.7)<1 else 'NO'}")
         
         # Crear gráficos
-        crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', output_dir)
+        crear_graficos(tiempo, strain, freqs, potencia, freq_pico, snr, 'H1_GW150914', sample_rate, output_dir)
         print(f"Gráficos guardados en {output_dir}/")
     
     else:
