@@ -14,3 +14,4 @@ healpy>=1.16.0
 qcodes>=0.37.0
 flask>=2.0.0
 torch>=2.6.0
+transformers>=4.48.0
