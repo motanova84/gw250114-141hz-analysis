@@ -245,29 +245,36 @@ class TestLlama4Integration:
         assert 0.0 <= coherence <= 1.0
         assert coherence == 1.0  # All patterns match
     
-    @patch('llama4_coherence.Llama4Coherence')
-    def test_qcal_core_compute_coherence_with_llama4(self, mock_llama4_class):
+    def test_qcal_core_compute_coherence_with_llama4(self):
         """Test compute_coherence with Llama 4 enabled."""
         try:
             from QCALLLMCore import QCALLLMCore
         except ImportError:
             pytest.skip("QCALLLMCore not available")
         
+        try:
+            import transformers
+        except ImportError:
+            pytest.skip("transformers not installed")
+        
         # Mock Llama4Coherence instance
         mock_instance = MagicMock()
         mock_instance.get_coherence_score.return_value = 0.95
-        mock_llama4_class.return_value = mock_instance
         
         with patch.dict(os.environ, {'HF_TOKEN': 'mock_token'}):
-            core = QCALLLMCore(use_llama4=True)
-            core.llama4 = mock_instance
-            
-            text = "Quantum coherence at 141.7 Hz"
-            coherence = core.compute_coherence(text)
-            
-            # Should use Llama 4
-            assert coherence == 0.95
-            mock_instance.get_coherence_score.assert_called_once_with(text)
+            with patch('llama4_coherence.Llama4Coherence', return_value=mock_instance):
+                core = QCALLLMCore(use_llama4=True)
+                if core.llama4 is None:
+                    # If llama4 initialization failed, manually set it for test
+                    core.llama4 = mock_instance
+                    core.use_llama4 = True
+                
+                text = "Quantum coherence at 141.7 Hz"
+                coherence = core.compute_coherence(text)
+                
+                # Should use Llama 4
+                assert coherence == 0.95
+                mock_instance.get_coherence_score.assert_called_once_with(text)
 
 
 class TestLlama4CoherenceComparison:
