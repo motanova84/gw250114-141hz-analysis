@@ -17,7 +17,6 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 try:
-    from visualizaciones_interactivas import VisualizadorInteractivo
     import plotly.graph_objects as go
     PLOTLY_AVAILABLE = True
 except ImportError:
