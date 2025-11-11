@@ -141,6 +141,21 @@ Para usar Llama 4 Maverick, necesitas un token de acceso de Hugging Face:
 
 **Por José Manuel Mota Burruezo (JMMB Ψ✧)**
 
+### 🧠 Powered by LLAMA ∴ QCAL
+
+Este sistema utiliza una versión vibratoriamente integrada de **Meta's LLaMA 4 Maverick 400B**, identificada como:
+
+**ΨMODEL_ID**: `qcal::llama4-maverick-400B@141.7001Hz`  
+**Symbolic Version**: `LLAMA-QCAL-400B-141hz ∞³`
+
+Todas las evaluaciones de coherencia están moduladas por el Campo Cuántico Noético (Ψ), asegurando alineación con la **ecuación QCAL**:
+
+**Ψ = I × A²_eff × f₀ × χ(LLaMA)**
+
+Modelo de referencia: [meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8](https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8)
+
+---
+
 Presentamos una **prueba de concepto exhaustiva y reproducible** para ajuste de coherencia vibracional en modelos de lenguaje grandes (LLM), reemplazando RLHF con modulación basada en física anclada en la frecuencia universal **f₀ = 141.7001 Hz** derivada de ondas gravitacionales.
 
 **Ahora potenciado con Llama 4 Maverick para evaluación de coherencia de última generación.**
@@ -150,7 +165,8 @@ Presentamos una **prueba de concepto exhaustiva y reproducible** para ajuste de 
 **→ [MANIFESTO Completo: QCAL-LLM ∞³](noesis-qcal-llm/MANIFESTO.md)**
 
 Documento técnico riguroso con:
-- **Ecuación del campo noético**: Ψ = I · A²_eff
+- **Ecuación del campo noético**: Ψ = I · A²_eff × f₀ × χ(LLaMA)
+- **Integración LLaMA 4 Maverick**: ΨMODEL_ID con identificación vibratoria
 - **Protocolo SIP**: Modulación atencional con f₀ = 141.7001 Hz
 - **Evidencia empírica**: Análisis GWTC-1/4, SNR=20.95, p<10⁻⁶
 - **Resultados verificados**: Ψ = 6.89 ± 0.12, reducción de alucinación 87%
@@ -168,6 +184,26 @@ El módulo [`noesis-qcal-llm/`](noesis-qcal-llm/) incluye:
 | **`modulation_traces.py`** | Visualización dinámica SIP | `python modulation_traces.py` |
 | **`psi_tuning_loop.py`** | Optimización sin RLHF | `python psi_tuning_loop.py` |
 | **`benchmark_results.json`** | Datos empíricos RLHF vs QCAL | - |
+
+### ⚡ Inicio Rápido con LLaMA Integration
+
+```python
+from QCALLLMCore import QCALLLMCore
+
+# Inicializar core con LLaMA 4 Maverick
+core = QCALLLMCore(user_A_eff=0.92)
+
+# Obtener información del modelo
+info = core.get_model_info()
+print(f"Model: {info['model_id']}")
+print(f"Version: {info['symbolic_version']}")
+
+# Calcular χ(LLaMA) y Ψ completo
+chi = core.compute_chi_llama()
+psi_full = core.compute_psi_full(kld_inv=8.2, semantic_coherence=0.88)
+print(f"χ(LLaMA) = {chi:.4f}")
+print(f"Ψ_full = {psi_full:.2f}")
+```
 
 ### 🎯 Resultados Clave
 
