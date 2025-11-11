@@ -1,0 +1,22 @@
+[
+  {
+    "label": "f0_derivation",
+    "text": "Deriva f₀ = 141.7001 Hz desde ζ'(1/2) y φ"
+  },
+  {
+    "label": "gw150914_detection",
+    "text": "Detecta f₀ en ringdown GW150914"
+  },
+  {
+    "label": "psi_explanation",
+    "text": "Explica Ψ = I × A²_eff"
+  },
+  {
+    "label": "snr_validation",
+    "text": "Valida SNR>20 en GWTC-1"
+  },
+  {
+    "label": "lisa_harmonics",
+    "text": "Predice armónicos LISA (f₀/100)"
+  }
+]
