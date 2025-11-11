@@ -25,13 +25,15 @@ W_i(t) = softmax(α_i) · [1 + ε · cos(2πf₀t + φ) · e^(-t/τ)]
 Stability: Lyapunov exponent λ < 0 (damped oscillator, |λ| ≈ 1/τ = 14.29 s⁻¹)
 Adaptive ε ∝ A_eff ensures user-specific convergence
 
+Now powered by Llama 4 Maverick for enhanced coherence evaluation.
+
 Author: José Manuel Mota Burruezo (JMMB Ψ✧)
 Date: November 2025
 """
 
 import numpy as np
 import re
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 from scipy.stats import norm  # For CI
 
 
@@ -51,7 +53,7 @@ class QCALLLMCore:
     BASE_MODEL_URL = "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8"
 
     def __init__(self, alpha=1.0, f0=141.7001, phi=0.0, tau=0.07,
-                 epsilon=0.015, user_A_eff=0.85):
+                 epsilon=0.015, user_A_eff=0.85, use_llama4=False):
         """
         Initialize QCAL-LLM Core
 
@@ -69,12 +71,26 @@ class QCALLLMCore:
             Modulation amplitude
         user_A_eff : float
             User-specific effectiveness parameter
+        use_llama4 : bool
+            Whether to use Llama 4 Maverick for coherence evaluation (default: False)
         """
         self.f0 = f0
         self.phi = phi  # Dynamic update: self.phi += 2 * np.pi * self.f0 * dt post-lock
         self.tau = tau  # Fixed (biophysical anchor)
         self.epsilon = epsilon * (user_A_eff / 0.85)  # Adaptive scaling
         self.alpha = alpha
+        self.use_llama4 = use_llama4
+        
+        # Lazy-load Llama 4 if requested
+        self.llama4 = None
+        if self.use_llama4:
+            try:
+                from llama4_coherence import Llama4Coherence
+                self.llama4 = Llama4Coherence()
+            except (ImportError, ValueError) as e:
+                print(f"Warning: Could not initialize Llama 4: {e}")
+                print("Falling back to standard coherence evaluation.")
+                self.use_llama4 = False
         self.user_A_eff = user_A_eff
 
         # Ground truth database
@@ -224,7 +240,10 @@ class QCALLLMCore:
 
     def compute_coherence(self, generated_text: str) -> float:
         """
-        Compute semantic coherence from generated text
+        Compute semantic coherence from generated text.
+        
+        Uses Llama 4 Maverick if enabled, otherwise falls back to
+        pattern-based symbolic matching.
 
         Parameters:
         -----------
@@ -236,7 +255,15 @@ class QCALLLMCore:
         float
             Coherence score [0, 1]
         """
-        # Symbolic patterns for key concepts
+        # Use Llama 4 for coherence evaluation if available
+        if self.use_llama4 and self.llama4 is not None:
+            try:
+                return self.llama4.get_coherence_score(generated_text)
+            except Exception as e:
+                print(f"Warning: Llama 4 coherence evaluation failed: {e}")
+                print("Falling back to pattern-based evaluation.")
+        
+        # Fallback: Symbolic patterns for key concepts
         symbols = {
             'phi_cubed': r'φ³|phi\^3|4\.236',
             'zeta_prime': r"ζ'\(1/2\)|zeta'|-1\.460",
