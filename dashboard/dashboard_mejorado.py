@@ -344,7 +344,6 @@ if __name__ == '__main__':
     print("=" * 70)
     
     # Solo debug en desarrollo
-    import os
     debug_mode = os.getenv('FLASK_DEBUG', 'False').lower() in ('true', '1', 't')
     # Para producción, considerar usar host='127.0.0.1' o implementar autenticación
     host = os.getenv('FLASK_HOST', '0.0.0.0')
