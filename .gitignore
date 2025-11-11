@@ -9,6 +9,12 @@ data/
 
 # Results
 results/
+# But allow vacuum energy visualizations
+!results/figures/vacuum_energy*.png
+
+# Logs
+logs/
+*.log
 
 # Generated outputs
 examples/output/
@@ -18,7 +24,59 @@ reports/
 # Jupyter notebooks checkpoints
 .ipynb_checkpoints/
 
+# Lean build artifacts
+.lake/
+lake-packages/
+build/
+
 # OS files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# HDF5 files (large data files)
+*.hdf5
+*.h5
+
+# Log files
+*.log
+
+# Monitoring files
+monitoreo_gw250114.pid
+GW250114_DISPONIBLE.txt
+
+# Created directories (runtime)
+dashboard/
+resultados/
+
+# Environment variables
+.env
 *.swp
 *.tmp
+
+# Poetry
+poetry.lock
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

@@ -9,6 +9,7 @@ Generated: 2025-11-05T14:22:27.152437
 """
 
 import sys
+from pathlib import Path
 
 def main():
     """Placeholder main function"""

@@ -16,21 +16,14 @@ plotly>=5.18.0
 kaleido>=0.2.1
 weasyprint>=60.0
 jinja2>=3.1.2
+healpy>=1.16.0
+qcodes>=0.37.0
+flask>=2.0.0
+torch>=2.6.0
+transformers>=4.48.0
 
-# API
-fastapi>=0.100.0
-uvicorn[standard]>=0.23.0
-pydantic>=2.0.0
-
-# Testing
-pytest>=7.0.0
-pytest-cov>=4.0.0
-
-# Development
-black>=22.0.0
-flake8>=4.0.0
-mypy>=0.990
-
-# Optional: LLM integration
-openai>=1.0.0
-anthropic>=0.8.0
+# QCAL-LLM dependencies
+transformers>=4.30.0
+accelerate>=0.20.0
+sentencepiece>=0.1.99
+protobuf>=3.20.0
