@@ -105,7 +105,7 @@ datos_analisis = {
     ],
     'hallazgos': [
         {
-            'tipo': '',
+            'tipo': 'info',
             'titulo': 'Detección',
             'descripcion': 'Pico detectado en 141.7 Hz'
         }
