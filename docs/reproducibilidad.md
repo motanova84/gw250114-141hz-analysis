@@ -205,3 +205,10 @@ Releases importantes se archivan en Zenodo con DOI:
 - [CLI](cli.md): Referencia de comandos
 - [Validación](validation.md): Tests y verificación
 - [CI/CD Implementation](../CI_CD_IMPLEMENTATION.md): Detalles de workflows
+```bash
+cd repro/GWTC-1
+pip-compile --generate-hashes requirements.in -o env.lock
+./run.sh
+```
+
+Esto crea un entorno con hashes inmutables y reproduce tablas/figuras de GWTC-1.

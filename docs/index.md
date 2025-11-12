@@ -44,3 +44,12 @@ Este proyecto está licenciado bajo la [Licencia MIT](license.md).
 José Manuel Mota Burruezo (JMMB Ψ✧)
 - GitHub: [@motanova84](https://github.com/motanova84)
 - ORCID: [0009-0002-1923-0773](https://orcid.org/0009-0002-1923-0773)
+# QCAL — Coherence Analytics (141.7 Hz)
+
+Framework reproducible para el análisis de coherencia en la banda **141.7 Hz**.
+
+- **CLI**: `python -m qcal analyze --catalog GWTC-1 --band 141.7 --detector H1 --outdir artifacts`
+- **Artefactos**: tablas en `artifacts/tables/` y figuras en `artifacts/figures/`
+
+!!! tip "Reproducibilidad"
+    Ve a **Reproducibilidad** para ejecutar el pipeline bloqueado por hashes (`pip-compile`) y generar los mismos resultados.

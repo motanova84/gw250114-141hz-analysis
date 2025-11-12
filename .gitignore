@@ -12,6 +12,9 @@ results/
 # But allow vacuum energy visualizations
 !results/figures/vacuum_energy*.png
 
+# Artifacts from reproducibility pipelines
+artifacts/
+
 # Logs
 logs/
 *.log
@@ -80,4 +83,6 @@ logs/
 dist/
 build/
 *.egg-info/
+
+# MkDocs
 site/
