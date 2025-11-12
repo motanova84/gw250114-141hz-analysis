@@ -80,3 +80,8 @@ logs/
 dist/
 build/
 *.egg-info/
+
+# QCAL package workarounds
+qcal_backup/
+qcal_llm_backup/
+repro/*/.venv/
