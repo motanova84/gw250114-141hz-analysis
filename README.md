@@ -4,6 +4,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17445017.svg)](https://doi.org/10.5281/zenodo.17445017)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/motanova84/141hz/actions/workflows/ci.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://motanova84.github.io/141hz)
+[![SBOM](https://img.shields.io/badge/SBOM-CycloneDX-informational)](#)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en eventos de fusiones binarias.
 
