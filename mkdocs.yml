@@ -1,3 +1,58 @@
+site_name: QCAL — Coherence Analytics (141.7 Hz)
+site_description: CLI científica y pipelines reproducibles para análisis de coherencia (141.7 Hz)
+site_url: https://motanova84.github.io/141hz
+repo_name: motanova84/141hz
+repo_url: https://github.com/motanova84/141hz
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+    - content.action.edit
+    - toc.follow
+  icon:
+    logo: material/waveform
+
+nav:
+  - Inicio: index.md
+  - Uso:
+      - CLI: cli.md
+      - Reproducibilidad: reproducibilidad.md
+  - Validación: validation.md
+  - Data room:
+      - One-pager valoración: dataroom/valuation_onepager.md
+      - IP & registros: dataroom/ip_registers.md
+      - Pilotos:
+          - QC-LLM Coherence: dataroom/pilot_briefs/qcllm.md
+  - Roadmap: roadmap.md
+  - Changelog: changelog.md
+  - Licencia: license.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.emoji
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/motanova84
+    - icon: fontawesome/brands/orcid
+      link: https://orcid.org/0009-0002-1923-0773
+    - icon: fontawesome/solid/certificate
+      link: https://zenodo.org/
 site_name: 141Hz Gravitational Wave Analysis
 site_description: Análisis de ondas gravitacionales con frecuencia fundamental f₀ = 141.7001 Hz
 site_author: José Manuel Mota Burruezo
