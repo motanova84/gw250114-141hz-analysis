@@ -80,3 +80,6 @@ logs/
 dist/
 build/
 *.egg-info/
+
+# MkDocs build directory
+site/
