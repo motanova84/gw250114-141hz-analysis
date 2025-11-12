@@ -85,7 +85,7 @@ extra_javascript:
 nav:
   - Inicio: index.md
   - Documentación:
-    - Índice: README.md
+    - Setup Guide: DOCUMENTATION_SETUP.md
     - Badges: BADGES.md
     - Tutorial Completo: TUTORIAL_COMPLETO.md
     - Protocolos Experimentales: PROTOCOLOS_EXPERIMENTALES.md
