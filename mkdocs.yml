@@ -11,6 +11,14 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - toc.follow
+    - content.code.copy
+    - content.action.edit
+    - navigation.top
+  icon:
+    logo: material/waveform
+  palette:
+    - scheme: default
     - content.code.copy
     - content.action.edit
     - toc.follow
@@ -44,6 +52,14 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.emoji
+
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
 
 extra:
   social:
