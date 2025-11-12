@@ -1,7 +1,4 @@
-# Changelog
-
-Este archivo refleja los cambios publicados. La fuente canónica se edita en `docs/changelog.md` y se sincroniza aquí en cada release.
-
+# Changelog (canónico)
 
 ## v0.1.1 — 2025-11-11
 ### Mejorado
