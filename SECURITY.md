@@ -4,8 +4,10 @@
 
 If you discover a security vulnerability in this project, please report it by:
 
-1. **Email**: Contact the maintainers directly (see COLLABORATORS.md)
+1. **Email**: institutoconsciencia@proton.me (response time: 7 days)
 2. **GitHub Security Advisory**: Use the [private reporting feature](https://github.com/motanova84/141hz/security/advisories/new)
+
+**Response Time Objective**: 7 days for initial response to vulnerability reports.
 
 Please do NOT report security vulnerabilities through public GitHub issues.
 
