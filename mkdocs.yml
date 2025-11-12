@@ -1,0 +1,51 @@
+site_name: 141Hz Gravitational Wave Analysis
+site_description: Análisis de ondas gravitacionales con frecuencia fundamental f₀ = 141.7001 Hz
+site_author: José Manuel Mota Burruezo
+repo_url: https://github.com/motanova84/141hz
+repo_name: motanova84/141hz
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: README.md
+  - Contributing: CONTRIBUTING.md
+  - Code of Conduct: CODE_OF_CONDUCT.md
+  - Security: SECURITY.md
+  - License: LICENSE
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
