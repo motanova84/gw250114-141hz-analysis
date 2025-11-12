@@ -23,7 +23,7 @@ jobs:
 
       - name: Install MkDocs + plugins
         run: |
-          pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-sitemap-plugin mkdocs-git-revision-date-localized-plugin
+          pip install mkdocs mkdocs-material mkdocs-minify-plugin mkdocs-git-revision-date-localized-plugin
 
       - name: Build docs
         run: mkdocs build --strict

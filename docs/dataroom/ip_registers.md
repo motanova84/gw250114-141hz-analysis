@@ -157,7 +157,7 @@ Este proyecto sigue una estrategia **open source first**:
 
 ### Contributors
 
-Ver [CONTRIBUTORS.md](../../CONTRIBUTING.md) y GitHub Contributors page:
+Ver [guía de contribución](https://github.com/motanova84/141hz/blob/main/CONTRIBUTING.md) y GitHub Contributors page:
 [https://github.com/motanova84/141hz/graphs/contributors](https://github.com/motanova84/141hz/graphs/contributors)
 
 ### Contributor License Agreement (CLA)
