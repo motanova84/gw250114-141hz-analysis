@@ -80,3 +80,6 @@ logs/
 dist/
 build/
 *.egg-info/
+
+# Omega ∞³ validation outputs
+omega_validation_*.json
