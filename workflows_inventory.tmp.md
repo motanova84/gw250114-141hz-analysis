@@ -68,6 +68,11 @@
 - Trigger: push
 - Trigger: pull_request
 
+### ci
+
+**Archivo:** `ci-standard.yml`
+
+
 ### QC-LLM CI/CD
 
 **Archivo:** `ci.yml`
@@ -113,6 +118,13 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 4 * * *`)
+- Trigger: manual (workflow_dispatch)
+
+### Docs
+
+**Archivo:** `docs.yml`
+
+- Trigger: push
 - Trigger: manual (workflow_dispatch)
 
 ### Issue Management Bot
@@ -210,6 +222,12 @@
 - Trigger: schedule (`0 6 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### release
+
+**Archivo:** `release.yml`
+
+- Trigger: push
+
 ### Riccati Coefficient Mathematical Proofs
 
 **Archivo:** `riccati-mathematical-proofs.yml`
@@ -235,6 +253,14 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 14 * * 6`)
+- Trigger: manual (workflow_dispatch)
+
+### Tests - Python Matrix
+
+**Archivo:** `tests.yml`
+
+- Trigger: push
+- Trigger: pull_request
 - Trigger: manual (workflow_dispatch)
 
 ### Universal Validation Framework
@@ -278,4 +304,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-10 08:16:56 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-13 11:07:39 UTC*
