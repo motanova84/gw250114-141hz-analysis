@@ -14,10 +14,15 @@ on:
         required: false
         default: 'false'
 
+permissions:
+  contents: read
+
 jobs:
   omega-auto-ingestion:
     name: Ω1 Auto-Ingestion
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     outputs:
       events: ${{ steps.detect-events.outputs.events }}
     
@@ -38,6 +43,9 @@ jobs:
     name: Ω2 Auto-Analysis
     needs: omega-auto-ingestion
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write  # For uploading artifacts
     strategy:
       matrix:
         event: ["GW150914", "GW151226", "GW170814"]
@@ -84,6 +92,9 @@ jobs:
     name: Ω3 Auto-Publication
     needs: omega-auto-analysis
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read  # For downloading artifacts
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     
     steps:
@@ -140,6 +151,9 @@ jobs:
     name: Ω6 Auto-Defense
     needs: omega-auto-analysis
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read  # For downloading artifacts
     
     steps:
       - name: Checkout repository
