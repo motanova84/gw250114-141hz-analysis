@@ -94,6 +94,8 @@
   - Tests para la Ecuación del Latido Universal
 - `test_energia_cuantica.py`
   - Tests para el módulo de cálculo de energía cuántica fundamental
+- `test_evidencia_concluyente.py`
+  - Test unitario para el módulo de evidencia concluyente
 - `test_generar_prediccion_gw250114.py`
   - Test para generar_prediccion_gw250114.py
 - `test_multi_event_snr_analysis.py`
@@ -152,4 +154,4 @@
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-10 08:16:55 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-13 11:07:38 UTC*
