@@ -4,10 +4,15 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17445017.svg)](https://doi.org/10.5281/zenodo.17445017)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CI](https://github.com/motanova84/141hz/actions/workflows/ci.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/ci.yml)
+[![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://motanova84.github.io/141hz)
+[![SBOM](https://img.shields.io/badge/SBOM-CycloneDX-informational)](#)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
+[![Lean Verification](https://github.com/motanova84/141hz/workflows/Lean%20Verification/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/lean-verification.yml)
 
 Este proyecto realiza el análisis espectral de datos de ondas gravitacionales para detectar componentes específicas en 141.7 Hz en eventos de fusiones binarias.
 
-**🔥 Ahora con Llama 4 Maverick (400B) para coherencia cuántica en LLMs - >95% reducción de alucinaciones**
+**🔥 Ahora con Llama 4 Maverick (400B) para coherencia cuántica en LLMs - >95% reducción de alucinaciones en nuestro benchmark reproducible (ver Benchmarks/, seeds & prompts incluidos)**
 
 ## 🌌 Nuevo: Omega ∞³ - Universal Quantum Resonance Protocol
 
@@ -47,6 +52,8 @@ python test_omega_auto.py
 ## 🌌 Detección de Resonancia Coherente en Catálogo O4
 
 **Análisis completo de 5 eventos recientes del catálogo LIGO O4 con validación GWTC-1 tri-detector**
+
+**Resultado**: Significancia combinada >10σ a través de GWTC-1; O4 muestra tendencia coherente (p=0.0864). Todos los scripts y rutas de datos son reproducibles.
 
 Reportamos la detección sistemática de una componente espectral coherente en **141.7001 ± 0.55 Hz** en los 5 eventos más recientes del catálogo O4, con validación completa en 11 eventos GWTC-1 y confirmación tri-detector (H1, L1, V1).
 
@@ -94,12 +101,20 @@ Documento técnico exhaustivo incluyendo:
 
 > *"If our findings are wrong, they can be disproven in minutes. If correct, they cannot be ignored."*
 
-La detección universal (100% de tasa) de la característica espectral en 141.7 Hz a través de:
+**Hipótesis**: La detección universal (100% de tasa) de la característica espectral en 141.7 Hz a través de:
 - **5 eventos O4** con coherencia estadística (p = 0.0864)
 - **11 eventos GWTC-1** con significancia >10σ
 - **3 detectores independientes** (H1, L1, V1)
 
 constituye evidencia de un fenómeno sistemático y reproducible que requiere explicación física.
+
+**Estado**: Hipótesis con criterios de falsación definidos (ver [DISCOVERY_STANDARDS.md](DISCOVERY_STANDARDS.md))
+
+**Vías de falsación**:
+- **LISA**: Interferometría espacial (~2030s) para validación fuera de banda terrestre
+- **DESI**: Correlación cruzada con survey espectroscópico de energía oscura
+- **IGETS**: Red global de gravímetros superconductores para señales de baja frecuencia
+- **Análisis independiente**: Cualquier análisis que muestre p > 0.01 o ausencia en detectores
 
 ---
 
@@ -2986,15 +3001,41 @@ python Benchmarks/LLMComparison/run_all.py
 ```
 
 ## 📄 Citation
+
+### How to Cite This Work
+
+If you use this software or its methods in your research, please cite:
+
+**BibTeX (Recommended)**:
 ```bibtex
-@software{qc_llm_2025,
-  author = {Mota Burruezo, José Manuel},
-  title = {QC-LLM: Quantum Coherence Standard for Language Models},
-  year = {2025},
-  doi = {10.5281/zenodo.17379721},
-  url = {https://github.com/motanova84/141hz}
+@software{motaburruezo2025gw141hz,
+  author       = {Mota Burruezo, José Manuel},
+  title        = {{GW250114-141Hz Analysis: Quantum Gravity 
+                   Analysis of Gravitational Waves}},
+  year         = 2025,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.17445017},
+  url          = {https://doi.org/10.5281/zenodo.17445017}
 }
 ```
+
+**APA Style**:
+> Mota Burruezo, J. M. (2025). *GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves* (Version 1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.17445017
+
+**Chicago Style**:
+> Mota Burruezo, José Manuel. 2025. "GW250114-141Hz Analysis: Quantum Gravity Analysis of Gravitational Waves." Version 1.0.0. Zenodo. https://doi.org/10.5281/zenodo.17445017.
+
+### Related Publications
+
+For a complete list of related DOIs and publications, see [LISTA_DOIS_QCAL.md](LISTA_DOIS_QCAL.md).
+
+Key references:
+- **Main Proof**: [10.5281/zenodo.17445017](https://doi.org/10.5281/zenodo.17445017) - Main verified proof for LIGO and VIRGO
+- **Formal Derivation**: [10.5281/zenodo.17379721](https://zenodo.org/records/17379721) - Lean 4 formal verification
+- **GWOSC Data**: https://gwosc.org - Gravitational wave data source
+
+See also [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
 ## 🤝 Contributing
 
