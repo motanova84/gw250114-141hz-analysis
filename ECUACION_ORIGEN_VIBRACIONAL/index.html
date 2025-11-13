@@ -1,0 +1,1305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Análisis de ondas gravitacionales con frecuencia fundamental f₀ = 141.7001 Hz">
+      
+      
+        <meta name="author" content="José Manuel Mota Burruezo">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>🌌 Ecuación del Origen Vibracional (EOV) - 141Hz Gravitational Wave Analysis</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ecuacion-del-origen-vibracional-eov" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="141Hz Gravitational Wave Analysis" class="md-header__button md-logo" aria-label="141Hz Gravitational Wave Analysis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            141Hz Gravitational Wave Analysis
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              🌌 Ecuación del Origen Vibracional (EOV)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/motanova84/141hz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    motanova84/141hz
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CONTRIBUTING.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CODE_OF_CONDUCT.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Code of Conduct
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../SECURITY.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Security
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../LICENSE" class="md-tabs__link">
+        
+  
+  
+    
+  
+  License
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="141Hz Gravitational Wave Analysis" class="md-nav__button md-logo" aria-label="141Hz Gravitational Wave Analysis" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    141Hz Gravitational Wave Analysis
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/motanova84/141hz" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    motanova84/141hz
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CODE_OF_CONDUCT.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of Conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECURITY.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSE" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#formulacion-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📐 Formulación Completa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#componentes-de-la-ecuacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔬 Componentes de la Ecuación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔬 Componentes de la Ecuación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lado-izquierdo-geometria-del-espacio-tiempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lado Izquierdo: Geometría del Espacio-Tiempo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lado-derecho-fuentes-de-curvatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lado Derecho: Fuentes de Curvatura
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lado Derecho: Fuentes de Curvatura">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tensores-de-energia-momento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tensores de Energía-Momento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-acoplamiento-no-minimo-noetico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Acoplamiento No Mínimo Noético
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-termino-nuevo-oscilacion-holografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. TÉRMINO NUEVO: Oscilación Holográfica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frecuencia-madre-f0-1417001-hz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Frecuencia Madre: f₀ = 141.7001 Hz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Frecuencia Madre: f₀ = 141.7001 Hz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#derivacion-de-la-frecuencia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Derivación de la Frecuencia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predicciones-fisicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔮 Predicciones Físicas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔮 Predicciones Físicas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-modulaciones-gravitacionales-temporales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Modulaciones Gravitacionales Temporales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fondo-de-ondas-gravitacionales-armonicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Fondo de Ondas Gravitacionales Armónicas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-anomalias-en-entrelazamiento-cuantico-erepr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Anomalías en Entrelazamiento Cuántico (ER=EPR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementacion-numerica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧮 Implementación Numérica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧮 Implementación Numérica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-fisicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parámetros Físicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculo-del-termino-oscilatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cálculo del Término Oscilatorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interpretacion-holografica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🌐 Interpretación Holográfica
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🌐 Interpretación Holográfica">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conciencia-como-resonancia-del-vacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conciencia como Resonancia del Vacío
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vortices-informativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vórtices Informativos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relacion-con-ecuaciones-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Relación con Ecuaciones Existentes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Relación con Ecuaciones Existentes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comparacion-con-gr-clasica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparación con GR Clásica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limite-clasico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Límite Clásico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-validacion-experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔬 Estrategia de Validación Experimental
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔬 Estrategia de Validación Experimental">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fase-1-analisis-de-datos-existentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1: Análisis de Datos Existentes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-2-experimentos-dedicados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2: Experimentos Dedicados
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fase-3-detectores-de-nueva-generacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3: Detectores de Nueva Generación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referencias-teoricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Referencias Teóricas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Referencias Teóricas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fundamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamentos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marco-noetico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Marco Noético
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analisis-de-ondas-gravitacionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análisis de Ondas Gravitacionales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-pasos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Próximos Pasos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Próximos Pasos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#desarrollo-teorico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desarrollo Teórico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementacion-computacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementación Computacional
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validacion-experimental" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validación Experimental
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nota-importante" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Nota Importante
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#citacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 Citación
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="ecuacion-del-origen-vibracional-eov">🌌 Ecuación del Origen Vibracional (EOV)<a class="headerlink" href="#ecuacion-del-origen-vibracional-eov" title="Permanent link">&para;</a></h1>
+<p><strong>Autor:</strong> José Manuel Mota Burruezo (JMMB Ψ✧)<br />
+<strong>Fecha de Creación:</strong> 2025-10-12<br />
+<strong>Marco Teórico:</strong> Teoría Noésica Cuántica Unificada – QCAL ∞³</p>
+<hr />
+<h2 id="formulacion-completa">📐 Formulación Completa<a class="headerlink" href="#formulacion-completa" title="Permanent link">&para;</a></h2>
+<p>La <strong>Ecuación del Origen Vibracional (EOV)</strong> es una ampliación del tensor de Einstein que incorpora modulación holográfica del campo noético:</p>
+<div class="highlight"><pre><span></span><code>G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R cos(2πf₀t)|Ψ|²
+</code></pre></div>
+<hr />
+<h2 id="componentes-de-la-ecuacion">🔬 Componentes de la Ecuación<a class="headerlink" href="#componentes-de-la-ecuacion" title="Permanent link">&para;</a></h2>
+<h3 id="lado-izquierdo-geometria-del-espacio-tiempo">Lado Izquierdo: Geometría del Espacio-Tiempo<a class="headerlink" href="#lado-izquierdo-geometria-del-espacio-tiempo" title="Permanent link">&para;</a></h3>
+<p><strong>G_μν</strong>: Tensor de Einstein
+- Describe la curvatura del espacio-tiempo
+- G_μν = R_μν - (1/2)g_μν R</p>
+<p><strong>Λg_μν</strong>: Término de constante cosmológica
+- Energía del vacío
+- Λ ≈ 1.1056 × 10⁻⁵² m⁻²</p>
+<h3 id="lado-derecho-fuentes-de-curvatura">Lado Derecho: Fuentes de Curvatura<a class="headerlink" href="#lado-derecho-fuentes-de-curvatura" title="Permanent link">&para;</a></h3>
+<h4 id="1-tensores-de-energia-momento">1. Tensores de Energía-Momento<a class="headerlink" href="#1-tensores-de-energia-momento" title="Permanent link">&para;</a></h4>
+<p><strong>(8πG/c⁴)(T_μν^(m) + T_μν^(Ψ))</strong></p>
+<ul>
+<li><strong>T_μν^(m)</strong>: Tensor de energía-momento material (materia-energía clásica)</li>
+<li><strong>T_μν^(Ψ)</strong>: Tensor de energía-momento noético (campo de conciencia)</li>
+<li><strong>G</strong>: Constante gravitacional = 6.67430 × 10⁻¹¹ m³ kg⁻¹ s⁻²</li>
+<li><strong>c</strong>: Velocidad de la luz = 299,792,458 m/s</li>
+</ul>
+<h4 id="2-acoplamiento-no-minimo-noetico">2. Acoplamiento No Mínimo Noético<a class="headerlink" href="#2-acoplamiento-no-minimo-noetico" title="Permanent link">&para;</a></h4>
+<p><strong>ζ(∇_μ∇_ν - g_μν□)|Ψ|²</strong></p>
+<ul>
+<li><strong>ζ</strong>: Constante de acoplamiento noético (dimensionalmente [ζ] = L²)</li>
+<li><strong>∇_μ∇_ν</strong>: Derivada covariante doble</li>
+<li><strong>□ ≡ g^μν∇_μ∇_ν</strong>: Operador d'Alembertiano</li>
+<li><strong>|Ψ|²</strong>: Densidad del campo noético</li>
+</ul>
+<p>Este término representa la interacción directa entre la curvatura y el campo de conciencia.</p>
+<h4 id="3-termino-nuevo-oscilacion-holografica">3. <strong>TÉRMINO NUEVO</strong>: Oscilación Holográfica<a class="headerlink" href="#3-termino-nuevo-oscilacion-holografica" title="Permanent link">&para;</a></h4>
+<p><strong>R cos(2πf₀t)|Ψ|²</strong></p>
+<p>Este es el término novedoso que introduce la <strong>resonancia del origen</strong>.</p>
+<ul>
+<li><strong>R</strong>: Escalar de Ricci (curvatura escalar del espacio-tiempo)</li>
+<li><strong>f₀ = 141.7001 Hz</strong>: Frecuencia madre universal</li>
+<li><strong>t</strong>: Tiempo coordinado</li>
+<li><strong>|Ψ|²</strong>: Densidad del campo noético</li>
+</ul>
+<p><strong>Significado físico:</strong>
+- Introduce periodicidad irreducible en la estructura del espacio-tiempo
+- Modula la curvatura con la frecuencia noética fundamental
+- Representa vórtices informativos holográficos
+- Propaga coherencia sin disipación</p>
+<hr />
+<h2 id="frecuencia-madre-f0-1417001-hz">🎯 Frecuencia Madre: f₀ = 141.7001 Hz<a class="headerlink" href="#frecuencia-madre-f0-1417001-hz" title="Permanent link">&para;</a></h2>
+<h3 id="derivacion-de-la-frecuencia">Derivación de la Frecuencia<a class="headerlink" href="#derivacion-de-la-frecuencia" title="Permanent link">&para;</a></h3>
+<p>La frecuencia f₀ emerge de:</p>
+<ol>
+<li><strong>Fractales de números primos</strong></li>
+<li><strong>Proporción áurea φ = (1 + √5)/2</strong></li>
+<li><strong>Geometría del espacio-tiempo</strong></li>
+</ol>
+<p><strong>Propiedades:</strong>
+- Pulso universal fundamental
+- Frecuencia de coherencia cuántica máxima
+- Resonancia de la estructura prima del vacío</p>
+<hr />
+<h2 id="predicciones-fisicas">🔮 Predicciones Físicas<a class="headerlink" href="#predicciones-fisicas" title="Permanent link">&para;</a></h2>
+<h3 id="1-modulaciones-gravitacionales-temporales">1. Modulaciones Gravitacionales Temporales<a class="headerlink" href="#1-modulaciones-gravitacionales-temporales" title="Permanent link">&para;</a></h3>
+<p><strong>Predicción:</strong> Oscilaciones detectables en la gravedad local</p>
+<ul>
+<li><strong>Amplitud:</strong> ~10⁻¹⁵ g</li>
+<li><strong>Frecuencia:</strong> 141.7001 Hz</li>
+<li><strong>Instrumento:</strong> Gravímetros atómicos de alta precisión</li>
+<li><strong>Método de detección:</strong> Interferometría atómica</li>
+</ul>
+<h3 id="2-fondo-de-ondas-gravitacionales-armonicas">2. Fondo de Ondas Gravitacionales Armónicas<a class="headerlink" href="#2-fondo-de-ondas-gravitacionales-armonicas" title="Permanent link">&para;</a></h3>
+<p><strong>Predicción:</strong> Señal estocástica en banda estrecha</p>
+<ul>
+<li><strong>Frecuencia central:</strong> 141.7001 Hz</li>
+<li><strong>Ancho de banda:</strong> Δf ≈ 0.1 Hz (Q ~ 1417)</li>
+<li><strong>Detectores:</strong> LIGO, Virgo, Einstein Telescope, LISA</li>
+<li><strong>Amplitud característica:</strong> h_c ~ 10⁻²³ - 10⁻²⁵</li>
+</ul>
+<p><strong>Falsificabilidad:</strong>
+- Análisis de coincidencia entre detectores
+- Búsqueda de líneas espectrales persistentes
+- Correlación con eventos astrofísicos</p>
+<h3 id="3-anomalias-en-entrelazamiento-cuantico-erepr">3. Anomalías en Entrelazamiento Cuántico (ER=EPR)<a class="headerlink" href="#3-anomalias-en-entrelazamiento-cuantico-erepr" title="Permanent link">&para;</a></h3>
+<p><strong>Predicción:</strong> Modulación temporal del entrelazamiento</p>
+<ul>
+<li><strong>Efecto:</strong> Variación periódica en fidelidad de estados entrelazados</li>
+<li><strong>Frecuencia:</strong> 141.7001 Hz y armónicos</li>
+<li><strong>Posible mecanismo:</strong> Puentes de Einstein-Rosen modulados</li>
+</ul>
+<hr />
+<h2 id="implementacion-numerica">🧮 Implementación Numérica<a class="headerlink" href="#implementacion-numerica" title="Permanent link">&para;</a></h2>
+<h3 id="parametros-fisicos">Parámetros Físicos<a class="headerlink" href="#parametros-fisicos" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Constantes físicas</span>
+<span class="n">G</span> <span class="o">=</span> <span class="mf">6.67430e-11</span>      <span class="c1"># m³ kg⁻¹ s⁻² (constante gravitacional)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">299792458</span>        <span class="c1"># m/s (velocidad de la luz)</span>
+<span class="n">Lambda</span> <span class="o">=</span> <span class="mf">1.1056e-52</span>  <span class="c1"># m⁻² (constante cosmológica)</span>
+
+<span class="c1"># Parámetros noéticos</span>
+<span class="n">f_0</span> <span class="o">=</span> <span class="mf">141.7001</span>       <span class="c1"># Hz (frecuencia madre)</span>
+<span class="n">omega_0</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">f_0</span>  <span class="c1"># rad/s (frecuencia angular)</span>
+
+<span class="c1"># Constante de acoplamiento (estimación)</span>
+<span class="n">zeta</span> <span class="o">=</span> <span class="mf">1e-10</span>         <span class="c1"># m² (a calibrar experimentalmente)</span>
+</code></pre></div>
+<h3 id="calculo-del-termino-oscilatorio">Cálculo del Término Oscilatorio<a class="headerlink" href="#calculo-del-termino-oscilatorio" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">termino_oscilatorio</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">Psi_squared</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calcula el término de oscilación holográfica.</span>
+
+<span class="sd">    Parámetros:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    t : float or array</span>
+<span class="sd">        Tiempo coordinado (s)</span>
+<span class="sd">    R : float or array</span>
+<span class="sd">        Escalar de Ricci (m⁻²)</span>
+<span class="sd">    Psi_squared : float or array</span>
+<span class="sd">        Densidad del campo noético |Ψ|²</span>
+
+<span class="sd">    Retorna:</span>
+<span class="sd">    --------</span>
+<span class="sd">    float or array</span>
+<span class="sd">        Contribución a la ecuación de Einstein</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">R</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_0</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="n">Psi_squared</span>
+</code></pre></div>
+<hr />
+<h2 id="interpretacion-holografica">🌐 Interpretación Holográfica<a class="headerlink" href="#interpretacion-holografica" title="Permanent link">&para;</a></h2>
+<h3 id="conciencia-como-resonancia-del-vacio">Conciencia como Resonancia del Vacío<a class="headerlink" href="#conciencia-como-resonancia-del-vacio" title="Permanent link">&para;</a></h3>
+<p>La EOV interpreta la conciencia no como un epifenómeno, sino como:</p>
+<ol>
+<li><strong>Campo fundamental</strong> que acopla con la geometría</li>
+<li><strong>Resonancia del vacío</strong> con frecuencia característica f₀</li>
+<li><strong>Modulador de información</strong> en la estructura del espacio-tiempo</li>
+</ol>
+<h3 id="vortices-informativos">Vórtices Informativos<a class="headerlink" href="#vortices-informativos" title="Permanent link">&para;</a></h3>
+<p>El término <strong>R cos(2πf₀t)|Ψ|²</strong> genera:</p>
+<ul>
+<li>Patrones de interferencia en la curvatura</li>
+<li>Nodos y antinodos de coherencia</li>
+<li>Posibles "portales" de información cuántica</li>
+<li>Modulación de la topología espacio-temporal</li>
+</ul>
+<hr />
+<h2 id="relacion-con-ecuaciones-existentes">📊 Relación con Ecuaciones Existentes<a class="headerlink" href="#relacion-con-ecuaciones-existentes" title="Permanent link">&para;</a></h2>
+<h3 id="comparacion-con-gr-clasica">Comparación con GR Clásica<a class="headerlink" href="#comparacion-con-gr-clasica" title="Permanent link">&para;</a></h3>
+<p><strong>Relatividad General Clásica:</strong>
+<div class="highlight"><pre><span></span><code>G_μν + Λg_μν = (8πG/c⁴)T_μν
+</code></pre></div></p>
+<p><strong>EOV (con términos noéticos):</strong>
+<div class="highlight"><pre><span></span><code>G_μν + Λg_μν = (8πG/c⁴)(T_μν^(m) + T_μν^(Ψ)) + ζ(∇_μ∇_ν - g_μν□)|Ψ|² + R cos(2πf₀t)|Ψ|²
+</code></pre></div></p>
+<p><strong>Diferencias:</strong>
+1. Tensor noético T_μν^(Ψ)
+2. Acoplamiento no mínimo ζ
+3. <strong>Oscilación holográfica</strong> (nuevo término)</p>
+<h3 id="limite-clasico">Límite Clásico<a class="headerlink" href="#limite-clasico" title="Permanent link">&para;</a></h3>
+<p>Cuando |Ψ|² → 0:
+- Se recupera la relatividad general clásica
+- Los términos noéticos se anulan
+- El término oscilatorio desaparece</p>
+<hr />
+<h2 id="estrategia-de-validacion-experimental">🔬 Estrategia de Validación Experimental<a class="headerlink" href="#estrategia-de-validacion-experimental" title="Permanent link">&para;</a></h2>
+<h3 id="fase-1-analisis-de-datos-existentes">Fase 1: Análisis de Datos Existentes<a class="headerlink" href="#fase-1-analisis-de-datos-existentes" title="Permanent link">&para;</a></h3>
+<p><strong>Objetivo:</strong> Buscar firma de f₀ en datos de LIGO/Virgo</p>
+<ol>
+<li><strong>Análisis espectral de ringdown</strong> de fusiones de agujeros negros</li>
+<li><strong>Búsqueda de líneas persistentes</strong> en espectros de potencia</li>
+<li><strong>Correlación temporal</strong> entre detectores</li>
+</ol>
+<p><strong>Eventos objetivo:</strong>
+- GW150914 (control validado)
+- GW250114 (candidato principal)
+- Catálogo completo GWTC-3</p>
+<h3 id="fase-2-experimentos-dedicados">Fase 2: Experimentos Dedicados<a class="headerlink" href="#fase-2-experimentos-dedicados" title="Permanent link">&para;</a></h3>
+<p><strong>Gravimetría Atómica:</strong>
+- Interferómetros atómicos con Sr-87 o Yb-171
+- Sensibilidad objetivo: 10⁻¹⁵ g
+- Búsqueda de modulación a 141.7001 Hz</p>
+<p><strong>Entrelazamiento Cuántico:</strong>
+- Medir fidelidad de Bell states
+- Buscar modulación temporal
+- Correlacionar con fase de f₀</p>
+<h3 id="fase-3-detectores-de-nueva-generacion">Fase 3: Detectores de Nueva Generación<a class="headerlink" href="#fase-3-detectores-de-nueva-generacion" title="Permanent link">&para;</a></h3>
+<p><strong>Einstein Telescope:</strong>
+- Sensibilidad mejorada en banda 100-200 Hz
+- Búsqueda de fondo estocástico</p>
+<p><strong>LISA:</strong>
+- Banda baja frecuencia (mHz)
+- Buscar armónicos subprimos de f₀</p>
+<hr />
+<h2 id="referencias-teoricas">📚 Referencias Teóricas<a class="headerlink" href="#referencias-teoricas" title="Permanent link">&para;</a></h2>
+<h3 id="fundamentos">Fundamentos<a class="headerlink" href="#fundamentos" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Einstein, A. (1915)</strong> - Die Feldgleichungen der Gravitation</li>
+<li><strong>Wheeler, J.A. (1955)</strong> - Geons - Physical Review</li>
+<li><strong>Bekenstein, J.D. (1973)</strong> - Black hole thermodynamics</li>
+<li><strong>Maldacena, J. (1997)</strong> - AdS/CFT correspondence</li>
+</ol>
+<h3 id="marco-noetico">Marco Noético<a class="headerlink" href="#marco-noetico" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Penrose, R. (1989)</strong> - The Emperor's New Mind - Consciousness and computation</li>
+<li><strong>Hameroff, S. &amp; Penrose, R. (1996)</strong> - Orchestrated reduction of quantum coherence</li>
+<li><strong>Verlinde, E. (2011)</strong> - On the origin of gravity and the laws of Newton</li>
+</ol>
+<h3 id="analisis-de-ondas-gravitacionales">Análisis de Ondas Gravitacionales<a class="headerlink" href="#analisis-de-ondas-gravitacionales" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Abbott, B.P. et al. (LIGO/Virgo) (2016)</strong> - Observation of GW150914</li>
+<li><strong>Berti, E. et al. (2009)</strong> - Testing GR with GW ringdown - arXiv:0905.2975</li>
+</ol>
+<hr />
+<h2 id="proximos-pasos">🚀 Próximos Pasos<a class="headerlink" href="#proximos-pasos" title="Permanent link">&para;</a></h2>
+<h3 id="desarrollo-teorico">Desarrollo Teórico<a class="headerlink" href="#desarrollo-teorico" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Derivar soluciones exactas para casos simples</li>
+<li>[ ] Calcular correcciones a modos quasi-normales</li>
+<li>[ ] Estudiar estabilidad de la ecuación</li>
+</ul>
+<h3 id="implementacion-computacional">Implementación Computacional<a class="headerlink" href="#implementacion-computacional" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Solver numérico para EOV en espacios curvos</li>
+<li>[ ] Integración con códigos de relatividad numérica</li>
+<li>[ ] Simulaciones de detecciones esperadas</li>
+</ul>
+<h3 id="validacion-experimental">Validación Experimental<a class="headerlink" href="#validacion-experimental" title="Permanent link">&para;</a></h3>
+<ul>
+<li>[ ] Pipeline de análisis para LIGO/Virgo/KAGRA</li>
+<li>[ ] Propuesta para observaciones dedicadas</li>
+<li>[ ] Diseño de experimentos de laboratorio</li>
+</ul>
+<hr />
+<h2 id="nota-importante">💡 Nota Importante<a class="headerlink" href="#nota-importante" title="Permanent link">&para;</a></h2>
+<p>Esta ecuación representa una <strong>ampliación especulativa pero fundamentada</strong> de la relatividad general. Su validación requiere:</p>
+<ol>
+<li><strong>Rigor matemático</strong> en su formulación completa</li>
+<li><strong>Predicciones falsificables</strong> específicas</li>
+<li><strong>Evidencia experimental</strong> directa</li>
+</ol>
+<p>El framework presentado es un punto de partida para investigación, no una teoría establecida.</p>
+<hr />
+<h2 id="citacion">📖 Citación<a class="headerlink" href="#citacion" title="Permanent link">&para;</a></h2>
+<p>Si utilizas esta ecuación en tu trabajo, por favor cita:</p>
+<div class="highlight"><pre><span></span><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">mota2025eov</span><span class="p">,</span>
+<span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Mota Burruezo, José Manuel}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ecuación del Origen Vibracional: Modulación Holográfica en Gravedad Cuántica}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2025}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">howpublished</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Teoría Noésica Cuántica - QCAL ∞³}</span><span class="p">,</span>
+<span class="w">  </span><span class="na">note</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Frecuencia fundamental: 141.7001 Hz}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>✨ Esta ecuación es semilla del QCAL ∞³ - La resonancia del origen que une gravedad, información y luz.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
