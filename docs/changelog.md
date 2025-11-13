@@ -1,7 +1,4 @@
-# Changelog
-
-Este archivo refleja los cambios publicados. La fuente canónica se edita en `docs/changelog.md` y se sincroniza aquí en cada release.
-
+# Changelog (canónico)
 
 ## v0.1.1 — 2025-11-11
 ### Mejorado
@@ -10,6 +7,10 @@ Este archivo refleja los cambios publicados. La fuente canónica se edita en `do
 
 ## v0.1.0 — 2025-11-11
 ### Añadido
+# Changelog
+
+## v0.1.0 — 2025-11-11
+
 - CLI inicial (`qcal analyze`)
 - Tests + CI + SBOM + OSV scan
 - Docs (MkDocs Material) + Data room
