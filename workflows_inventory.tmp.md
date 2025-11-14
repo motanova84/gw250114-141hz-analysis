@@ -174,6 +174,13 @@
 - Trigger: schedule (`0 0,12 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Omega ∞³ Auto-Validation
+
+**Archivo:** `omega-auto-validation.yml`
+
+- Trigger: schedule (`0 */6 * * *  # Run every 6 hours for Ω1 Auto-Ingestion`)
+- Trigger: manual (workflow_dispatch)
+
 ### Optimized Analysis with GPU Support
 
 **Archivo:** `optimized-analysis.yml`
@@ -304,4 +311,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-14 02:03:54 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-14 16:17:36 UTC*
