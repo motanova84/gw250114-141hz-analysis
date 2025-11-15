@@ -30,9 +30,8 @@ from .noetic_force import (
     summarize_noetic_force,
 )
 
-from .sip_attention import (
-    SIPAttention,
-    create_sip_attention_demo,
+from .qcal_llm_core import (
+    QCALLLMCore,
 )
 
 __all__ = [
@@ -57,6 +56,8 @@ __all__ = [
     'NoeticForce',
     'NoeticForceDetection',
     'summarize_noetic_force',
+    # QCAL LLM Core
+    'QCALLLMCore',
     # SIP Attention
     'SIPAttention',
     'create_sip_attention_demo',
