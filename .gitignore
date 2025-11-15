@@ -91,5 +91,8 @@ dist/
 build/
 *.egg-info/
 
+# Omega ∞³ validation outputs
+omega_validation_*.json
+omega_hypothesis_catalog.json
 # MkDocs
 site/
