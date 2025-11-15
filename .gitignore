@@ -11,6 +11,13 @@ data/
 results/
 # But allow vacuum energy visualizations
 !results/figures/vacuum_energy*.png
+# Allow mathematical demonstration figures
+!results/fig1_serie_prima_compleja.png
+!results/fig2_comportamiento_asintotico.png
+!results/fig3_distribucion_fases.png
+!results/fig4_analisis_espectral_theta.png
+!results/fig5_construccion_frecuencia.png
+!results/fig6_puente_dimensional.png
 
 # Artifacts from reproducibility pipelines
 artifacts/
@@ -86,5 +93,8 @@ dist/
 build/
 *.egg-info/
 
+# Omega ∞³ validation outputs
+omega_validation_*.json
+omega_hypothesis_catalog.json
 # MkDocs
 site/
