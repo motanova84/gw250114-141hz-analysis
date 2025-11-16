@@ -92,9 +92,13 @@ python3 scripts/analisis_catalogo_o4.py
 # Validación tri-detector GWTC-1
 python3 scripts/validacion_gwtc1_tridetector.py
 
+# Validación multi-evento + comparación GAIA ∞³
+python3 scripts/validacion_multievento_gaia.py
+
 # Tests
 python3 scripts/test_analisis_catalogo_o4.py
 python3 scripts/test_validacion_gwtc1_tridetector.py
+python3 scripts/test_validacion_multievento_gaia.py
 ```
 
 ### 📖 Documentación
@@ -108,6 +112,16 @@ Documento técnico exhaustivo incluyendo:
 - Validación tri-detector (H1, L1, V1)
 - Tablas completas de eventos y SNR
 - Referencias a publicación científica (DOI: 10.5281/zenodo.17445017)
+
+**→ [Validación Multi-evento + GAIA: VALIDACION_MULTIEVENTO_GAIA.md](VALIDACION_MULTIEVENTO_GAIA.md)**
+
+Fase final de validación con comparación GAIA ∞³:
+- Análisis estadístico completo de 5 eventos O4
+- Test t de Student y intervalos de confianza 95%
+- Comparación con frecuencia planetaria/cósmica GAIA
+- Evaluación de coherencia espectral (3 criterios)
+- Exportación de resultados (CSV, JSON, PNG)
+- Suite de tests completa (12 tests unitarios)
 
 ### 🎯 Conclusión Científica
 

@@ -120,11 +120,12 @@
 - Trigger: schedule (`0 4 * * *`)
 - Trigger: manual (workflow_dispatch)
 
-### Docs
+### Documentation
 
 **Archivo:** `docs.yml`
 
 - Trigger: push
+- Trigger: pull_request
 - Trigger: manual (workflow_dispatch)
 
 ### Issue Management Bot
@@ -311,4 +312,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-14 16:17:36 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-15 21:20:49 UTC*
