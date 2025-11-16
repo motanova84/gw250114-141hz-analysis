@@ -76,6 +76,8 @@ poetry.lock
 .coverage
 htmlcov/
 .tox/
+temp_test_output/
+temp_integration_test/
 
 # Logs
 logs/
