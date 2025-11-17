@@ -7,6 +7,14 @@ __pycache__/
 data/
 *.hdf5
 
+# Test results
+scripts/results/
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
 # Results
 results/
 # But allow vacuum energy visualizations
