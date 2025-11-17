@@ -1,5 +1,17 @@
 # Análisis de Componente en 141.7 Hz - Ondas Gravitacionales
 
+<p align="center">
+  <a href="https://github.com/motanova84/141hz/actions/workflows/docs.yml">
+    <img alt="Docs" src="https://img.shields.io/github/actions/workflow/status/motanova84/141hz/docs.yml?label=docs&logo=github">
+  </a>
+  <a href="https://github.com/motanova84/141hz">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/motanova84/141hz">
+  </a>
+  <a href="https://motanova84.github.io/141hz">
+    <img alt="Site" src="https://img.shields.io/website?url=https%3A%2F%2Fmotanova84.github.io%2F141hz">
+  </a>
+</p>
+
 [![Powered by Llama 4 Maverick](https://img.shields.io/badge/Powered%20by-Llama%204%20Maverick-blue?logo=meta&logoColor=white)](https://huggingface.co/meta-llama)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17445017.svg)](https://doi.org/10.5281/zenodo.17445017)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -81,9 +93,13 @@ python3 scripts/analisis_catalogo_o4.py
 # Validación tri-detector GWTC-1
 python3 scripts/validacion_gwtc1_tridetector.py
 
+# Validación multi-evento + comparación GAIA ∞³
+python3 scripts/validacion_multievento_gaia.py
+
 # Tests
 python3 scripts/test_analisis_catalogo_o4.py
 python3 scripts/test_validacion_gwtc1_tridetector.py
+python3 scripts/test_validacion_multievento_gaia.py
 ```
 
 ### 📖 Documentación
@@ -97,6 +113,16 @@ Documento técnico exhaustivo incluyendo:
 - Validación tri-detector (H1, L1, V1)
 - Tablas completas de eventos y SNR
 - Referencias a publicación científica (DOI: 10.5281/zenodo.17445017)
+
+**→ [Validación Multi-evento + GAIA: VALIDACION_MULTIEVENTO_GAIA.md](VALIDACION_MULTIEVENTO_GAIA.md)**
+
+Fase final de validación con comparación GAIA ∞³:
+- Análisis estadístico completo de 5 eventos O4
+- Test t de Student y intervalos de confianza 95%
+- Comparación con frecuencia planetaria/cósmica GAIA
+- Evaluación de coherencia espectral (3 criterios)
+- Exportación de resultados (CSV, JSON, PNG)
+- Suite de tests completa (12 tests unitarios)
 
 ### 🎯 Conclusión Científica
 

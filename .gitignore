@@ -76,6 +76,8 @@ poetry.lock
 .coverage
 htmlcov/
 .tox/
+temp_test_output/
+temp_integration_test/
 
 # Logs
 logs/
@@ -91,6 +93,7 @@ dist/
 build/
 *.egg-info/
 
+# MkDocs build directory
 # Omega ∞³ validation outputs
 omega_validation_*.json
 omega_hypothesis_catalog.json
