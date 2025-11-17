@@ -46,7 +46,6 @@ def test_constantes_codata():
     assert error_lP < 1e-5, f"ℓ_P error demasiado grande: {error_lP}"
     
     print("  ✅ CONSTANTES CODATA VERIFICADAS")
-    return True
 
 def test_densidades_cosmologicas():
     """Test cálculo de densidades de Planck y Lambda"""
@@ -85,7 +84,6 @@ def test_densidades_cosmologicas():
     assert ratio > 1e100, "El ratio debe ser enorme (escala de Planck vs cosmológica)"
     
     print("  ✅ DENSIDADES CALCULADAS CORRECTAMENTE")
-    return True
 
 def test_derivacion_rpsi():
     """Test derivación rigurosa de RΨ"""
@@ -136,7 +134,6 @@ def test_derivacion_rpsi():
     assert error_R < 1e-10, f"RΨ reconstruido difiere del directo: {error_R}"
     
     print("  ✅ DERIVACIÓN RIGUROSA VERIFICADA")
-    return True
 
 def test_ecuacion_dimensional_alpha_psi():
     """Test que αΨ es adimensional"""
@@ -173,7 +170,6 @@ def test_ecuacion_dimensional_alpha_psi():
     print(f"  [αΨ] = [L]/[L] = 1 (adimensional) ✅")
     
     print("  ✅ αΨ ES CORRECTAMENTE ADIMENSIONAL")
-    return True
 
 def test_frecuencia_141_7001_hz():
     """Test que con CODATA obtenemos exactamente 141.7001 Hz"""
@@ -225,7 +221,6 @@ def test_frecuencia_141_7001_hz():
     assert error_relativo < 1e-10, f"Error demasiado grande: {error_relativo}%"
     
     print("  ✅ FRECUENCIA 141.7001 Hz REPRODUCIDA EXACTAMENTE")
-    return True
 
 def test_integracion_completa():
     """Test de integración: todas las ecuaciones juntas"""
@@ -275,7 +270,6 @@ def test_integracion_completa():
     assert alpha_psi > 0
     
     print("\n  ✅ INTEGRACIÓN COMPLETA EXITOSA")
-    return True
 
 def run_all_tests():
     """Ejecutar todos los tests"""
@@ -296,8 +290,8 @@ def run_all_tests():
     
     for nombre, test_func in tests:
         try:
-            exito = test_func()
-            resultados.append((nombre, "PASS" if exito else "FAIL", None))
+            test_func()
+            resultados.append((nombre, "PASS", None))
         except Exception as e:
             resultados.append((nombre, "FAIL", str(e)))
             print(f"\n  ❌ ERROR: {e}")

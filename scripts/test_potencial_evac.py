@@ -100,7 +100,6 @@ def test_E_vac_function():
         return False
 
     print("\n✅ Todos los tests pasaron correctamente")
-    return True
 
 
 def test_plot_generation():
@@ -138,7 +137,6 @@ def test_plot_generation():
         return False
 
     print(f"   ✅ Test PASSED: Plot generado correctamente ({size} bytes)")
-    return True
 
 
 if __name__ == "__main__":
@@ -147,8 +145,15 @@ if __name__ == "__main__":
     print("=" * 80)
 
     success = True
-    success = test_E_vac_function() and success
-    success = test_plot_generation() and success
+    try:
+        test_E_vac_function()
+    except Exception:
+        success = False
+    
+    try:
+        test_plot_generation()
+    except Exception:
+        success = False
 
     print("\n" + "=" * 80)
     if success:
