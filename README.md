@@ -1208,6 +1208,67 @@ python scripts/generar_coherencia_escalas.py
 
 ---
 
+## 🎯 NUEVO: Análisis con Filtro Bandpass [140.5-143.0 Hz]
+
+> 📖 **Documentación completa**: Ver [docs/BANDPASS_FILTER_141HZ.md](docs/BANDPASS_FILTER_141HZ.md)
+
+**Análisis reproducible del pico secundario de energía en 141.7001 Hz** usando filtro bandpass específico sobre datos strain .hdf5 de GWOSC.
+
+### 🔬 Características del Análisis
+
+- **Frecuencia objetivo**: f̂ = 141.7001 ± 0.0012 Hz
+- **Filtro bandpass**: [140.5-143.0 Hz] aplicado sobre strain data
+- **Q-transform**: Q > 30 para análisis tiempo-frecuencia
+- **Ventana temporal**: ±0.3 s alrededor del merger (fase chirp → coalescencia)
+- **Coherencia multi-detector**: Validación entre H1 y L1
+- **Exclusión de artefactos**: No atribuible a líneas espectrales ni glitches
+
+### 🚀 Uso Rápido
+
+```bash
+# Analizar GW150914 con filtro bandpass
+python3 scripts/analisis_141hz_bandpass.py --event GW150914
+
+# Analizar múltiples detectores
+python3 scripts/analisis_141hz_bandpass.py --event GW150914 --detectors H1 L1 V1
+
+# Ejecutar tests del análisis bandpass
+python3 scripts/test_analisis_141hz_bandpass.py
+```
+
+### ✅ Validación Automática
+
+El análisis incluye 25 tests automatizados que validan:
+
+- Parámetros del filtro bandpass
+- Ventana temporal (±0.3s)
+- Q-transform (Q > 30)
+- Coherencia entre detectores
+- Reproducibilidad con datos GWOSC
+
+```bash
+# Ejecutar suite de tests
+python3 scripts/test_analisis_141hz_bandpass.py
+
+# Resultado esperado
+✅ TODOS LOS TESTS PASARON
+Ran 25 tests in 0.002s
+OK (skipped=3)
+```
+
+### 📊 Resultados del Análisis
+
+El script genera visualizaciones automáticas con:
+
+1. **Espectro de potencia** con filtro bandpass marcado
+2. **Q-transform** (Q > 30) mostrando evolución temporal
+3. **Métricas de detección** por cada detector
+4. **Análisis de coherencia** entre detectores
+
+Ver ejemplos en: `results/bandpass_analysis/`
+
+---
+
 ## 🔄 CI/CD Automatizado y Reproducibilidad
 
 Este proyecto implementa un **sistema CI/CD real y automatizado** que garantiza la calidad y reproducibilidad del análisis:
