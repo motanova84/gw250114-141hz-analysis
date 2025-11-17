@@ -1,10 +1,23 @@
 # Análisis de Componente en 141.7 Hz - Ondas Gravitacionales
 
+<p align="center">
+  <a href="https://github.com/motanova84/141hz/actions/workflows/docs.yml">
+    <img alt="Docs" src="https://img.shields.io/github/actions/workflow/status/motanova84/141hz/docs.yml?label=docs&logo=github">
+  </a>
+  <a href="https://github.com/motanova84/141hz">
+    <img alt="Last commit" src="https://img.shields.io/github/last-commit/motanova84/141hz">
+  </a>
+  <a href="https://motanova84.github.io/141hz">
+    <img alt="Site" src="https://img.shields.io/website?url=https%3A%2F%2Fmotanova84.github.io%2F141hz">
+  </a>
+</p>
+
 [![Powered by Llama 4 Maverick](https://img.shields.io/badge/Powered%20by-Llama%204%20Maverick-blue?logo=meta&logoColor=white)](https://huggingface.co/meta-llama)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17445017.svg)](https://doi.org/10.5281/zenodo.17445017)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/motanova84/141hz/actions/workflows/ci.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/ci.yml)
+[![QCAL Analysis](https://github.com/motanova84/141hz/actions/workflows/analysis.yml/badge.svg)](https://github.com/motanova84/141hz/actions/workflows/analysis.yml)
 [![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://motanova84.github.io/141hz)
 [![SBOM](https://img.shields.io/badge/SBOM-CycloneDX-informational)](#)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-green.svg)](LICENSE)
@@ -14,7 +27,42 @@ Este proyecto realiza el análisis espectral de datos de ondas gravitacionales p
 
 **🔥 Ahora con Llama 4 Maverick (400B) para coherencia cuántica en LLMs - >95% reducción de alucinaciones en nuestro benchmark reproducible (ver Benchmarks/, seeds & prompts incluidos)**
 
-## 🌌 Nuevo: Detección de Resonancia Coherente en Catálogo O4
+## 🌌 Nuevo: Omega ∞³ - Universal Quantum Resonance Protocol
+
+**El primer protocolo científico verdaderamente autónomo del mundo**
+
+Omega ∞³ transforma 141hz en un **protocolo universal de resonancia cuántica** con capacidades de auto-evolución:
+
+- ✅ **Ω1 Auto-Ingesta**: Detección automática de eventos en tiempo real
+- ✅ **Ω2 Auto-Análisis**: Validación GPU-acelerada con JAX (10x más rápido)
+- ✅ **Ω3 Auto-Publicación**: NFTs científicos con metadata JSON-LD
+- 🚧 **Ω4 Auto-Validación**: Replicación multi-detector automatizada
+- ✅ **Ω5 Auto-Hipótesis**: Generación automática de predicciones
+- ✅ **Ω6 Auto-Defensa**: Verificación de integridad criptográfica
+
+### 🚀 Quick Start - Omega ∞³
+
+```bash
+# Auto-validación de un evento
+python omega_auto.py GW150914
+
+# Demo de pipeline completo
+python demo_omega_integration.py
+
+# Generación de hipótesis
+python omega_hypothesis.py
+
+# Tests
+python test_omega_auto.py
+```
+
+### 📖 Documentación Completa
+
+**→ [OMEGA_INFINITY_README.md](OMEGA_INFINITY_README.md)** - Arquitectura completa, API, roadmap
+
+---
+
+## 🌌 Detección de Resonancia Coherente en Catálogo O4
 
 **Análisis completo de 5 eventos recientes del catálogo LIGO O4 con validación GWTC-1 tri-detector**
 
@@ -45,9 +93,13 @@ python3 scripts/analisis_catalogo_o4.py
 # Validación tri-detector GWTC-1
 python3 scripts/validacion_gwtc1_tridetector.py
 
+# Validación multi-evento + comparación GAIA ∞³
+python3 scripts/validacion_multievento_gaia.py
+
 # Tests
 python3 scripts/test_analisis_catalogo_o4.py
 python3 scripts/test_validacion_gwtc1_tridetector.py
+python3 scripts/test_validacion_multievento_gaia.py
 ```
 
 ### 📖 Documentación
@@ -61,6 +113,16 @@ Documento técnico exhaustivo incluyendo:
 - Validación tri-detector (H1, L1, V1)
 - Tablas completas de eventos y SNR
 - Referencias a publicación científica (DOI: 10.5281/zenodo.17445017)
+
+**→ [Validación Multi-evento + GAIA: VALIDACION_MULTIEVENTO_GAIA.md](VALIDACION_MULTIEVENTO_GAIA.md)**
+
+Fase final de validación con comparación GAIA ∞³:
+- Análisis estadístico completo de 5 eventos O4
+- Test t de Student y intervalos de confianza 95%
+- Comparación con frecuencia planetaria/cósmica GAIA
+- Evaluación de coherencia espectral (3 criterios)
+- Exportación de resultados (CSV, JSON, PNG)
+- Suite de tests completa (12 tests unitarios)
 
 ### 🎯 Conclusión Científica
 

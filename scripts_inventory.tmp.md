@@ -136,6 +136,8 @@
   - Test suite for validacion_alpha_psi_corregida.py
 - `test_validacion_gwtc1_tridetector.py`
   - Tests para la validación GWTC-1 tri-detector
+- `test_validacion_multievento_gaia.py`
+  - Test Suite para Validación Multi-evento + GAIA
 - `test_validacion_radio_cuantico.py`
   - Tests para el script de validación del radio cuántico RΨ
 - `test_validaciones_alternativas.py`
@@ -154,4 +156,4 @@
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-13 11:07:38 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-16 03:21:34 UTC*
