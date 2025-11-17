@@ -3081,23 +3081,6 @@ for chunk in text_stream:
     print(f"Live coherence: {coherence:.1%}")
 ```
 
-### 3. Model Comparison
-
-See [Benchmarks/LEADERBOARD.md](Benchmarks/LEADERBOARD.md) for comparative scores across:
-- GPT-4
-- Claude 3.5
-- Gemini Pro
-- Llama 3
-
-## 📊 Results
-
-| Model | Avg Coherence | f₀ Alignment |
-|-------|---------------|--------------|
-| GPT-4 | 87.3% | 92.1% |
-| Claude-3.5 | 89.1% | 94.3% |
-| Gemini-Pro | 84.7% | 88.9% |
-
-
 ## 📚 Documentation
 
 - [Getting Started](Documentation/Tutorials/01_getting_started.md)
