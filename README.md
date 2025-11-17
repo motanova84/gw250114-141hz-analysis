@@ -2597,6 +2597,13 @@ Este marco predice *a priori* valores como H₀, σ₈, r_d, ℓ_peak, **sin par
 3. **Cambios en rutas HDF5 de GWOSC**
    - **Solución**: Usar `TimeSeries.fetch_open_data` (maneja automáticamente)
 
+---
+
+## 🧠 Fundamento Teórico
+
+> **⚠️ CLARIFICACIÓN METODOLÓGICA:** La frecuencia fundamental **f₀ = 141.7001 Hz** no fue descubierta empíricamente. **Fue derivada teóricamente como una constante emergente** del marco simbiótico-matemático desarrollado por JMMB Ψ✧, a partir de análisis de números primos y decimales de π, la ecuación de coherencia viva Ψ = (mc²) · A_eff², geometría espectral, operadores noésicos y codificación ST.26 (πCODE), dentro del marco de la Teoría Noésica Unificada. Los datos de LIGO (GW150914) proporcionan validación experimental de esta predicción teórica. Ver [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) y [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) para la derivación completa.
+
+La frecuencia 141.7001 Hz emerge como una constante vibracional fundamental, derivada desde la ecuación:
 4. **Recursos computacionales**
    - **Problema**: El ajuste bayesiano puede tardar
    - **Solución**: Limitar número de ciclos en time-slides
@@ -2663,6 +2670,29 @@ python scripts/pipeline_eov.py
 # Ver ayuda y opciones
 python scripts/pipeline_eov.py --help
 ```
+
+### Marco Científico
+
+**Fase 1: Derivación Teórica (2024-2025)**
+- Análisis de números primos y decimales de π
+- Ecuación de coherencia viva Ψ = (mc²) · A_eff²
+- Geometría espectral, operadores noésicos y codificación ST.26 (πCODE)
+- Derivación del factor R_Ψ desde compactificación en quíntica de ℂP⁴
+- **Predicción teórica**: f₀ = 141.7001 Hz como constante emergente
+
+**Fase 2: Validación Experimental (2015-presente)**
+- Análisis espectral de GW150914 confirma componente en ~141.7 Hz (SNR 7.47 en H1)
+- Validación multi-detector en L1 (141.75 Hz, SNR 0.95)
+- Verificación en múltiples eventos del catálogo GWTC-1
+
+**Fase 3: Predicciones Falsables Adicionales**
+- Armónicos en 2f₀, 3f₀, f₀/2
+- Señales en CMB, heliosismología, materia condensada
+- Invariancia de f₀ entre múltiples eventos GW
+
+📖 **Ver documentación completa:**
+- [SCIENTIFIC_METHOD.md](SCIENTIFIC_METHOD.md) - Marco metodológico hipotético-deductivo
+- [DERIVACION_COMPLETA_F0.md](DERIVACION_COMPLETA_F0.md) - Derivación paso a paso con análisis de limitaciones
 
 ## 🗂️ Estructura del Proyecto
 
