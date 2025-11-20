@@ -10,6 +10,8 @@
   - Ejemplo de análisis espectral de GW150914 en 141.7 Hz
 - `analizar_gw150914_pycbc.py`
   - Análisis de GW150914 usando PyCBC
+- `analizar_gw200129.py`
+  - Análisis de GW200129_065458 con PyCBC
 - `analizar_gw200129_snr.py`
   - Análisis de SNR esperada para GW200129 a 141.7 Hz
 - `analizar_gw250114.py`
@@ -33,6 +35,8 @@
   - Validación de SNR con Procesamiento Scipy Puro - 141.7 Hz
 - `validate_synthetic_data.py`
   - Validate synthetic gravitational wave datasets
+- `validate_vacuum_energy_equation.py`
+  - Validation Script for Vacuum Energy Equation E_vac(R_Ψ)
 - `validation_support.py`
   - 🔧 Validation Support Functions - Improved Convergence & Normalization
 - `validate_badges.py`
@@ -41,6 +45,8 @@
   - Validación de SNR con Procesamiento Scipy Puro - 141.7 Hz
 - `validate_synthetic_data.py`
   - Validate synthetic gravitational wave datasets
+- `validate_vacuum_energy_equation.py`
+  - Validation Script for Vacuum Energy Equation E_vac(R_Ψ)
 
 ## Scripts de Test
 
@@ -52,6 +58,8 @@
   - Tests para el Agente Autónomo 141Hz
 - `test_ai_workflow_collaborator.py`
   - Test suite for AI Workflow Collaborator
+- `test_analisis_141hz_bandpass.py`
+  - Tests para el análisis de 141.7001 Hz con filtro bandpass [140.5-143.0 Hz]
 - `test_analisis_bayesiano_multievento.py`
   - Test del análisis bayesiano multi-evento con datos sintéticos.
 - `test_analisis_catalogo_o4.py`
@@ -66,6 +74,8 @@
   - Tests para el análisis ASD de 141.7 Hz en GW150914
 - `test_analizar_gw150914_pycbc.py`
   - Test para el análisis de GW150914 con PyCBC
+- `test_analizar_gw200129.py`
+  - Test para analizar_gw200129.py
 - `test_analizar_gw200129_snr.py`
   - Test para el análisis de SNR de GW200129
 - `test_analizar_igets_gravimetro.py`
@@ -146,6 +156,8 @@
   - Test suite for badge validation script.
 - `test_validate_scipy_snr.py`
   - Test for validate_scipy_snr_141hz.py
+- `test_validate_vacuum_energy_equation.py`
+  - Test Suite for Vacuum Energy Equation Validation
 - `test_vercel_config.py`
   - Test para validar la configuración de Vercel
 - `test_verificacion_convergencia.py`
@@ -156,4 +168,4 @@
   - Script de prueba para el verificador GW250114
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-16 03:21:34 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-20 19:24:11 UTC*

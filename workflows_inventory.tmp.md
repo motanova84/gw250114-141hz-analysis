@@ -31,6 +31,14 @@
 - Trigger: schedule (`0 8 * * 1`)
 - Trigger: manual (workflow_dispatch)
 
+### QCAL Analysis
+
+**Archivo:** `analysis.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: manual (workflow_dispatch)
+
 ### CI/CD - Tests and Analysis
 
 **Archivo:** `analyze.yml`
@@ -312,4 +320,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-16 03:21:34 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-20 19:24:11 UTC*
