@@ -68,6 +68,11 @@
 - Trigger: push
 - Trigger: pull_request
 
+### ci
+
+**Archivo:** `ci-standard.yml`
+
+
 ### QC-LLM CI/CD
 
 **Archivo:** `ci.yml`
@@ -115,6 +120,14 @@
 - Trigger: schedule (`0 4 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### Documentation
+
+**Archivo:** `docs.yml`
+
+- Trigger: push
+- Trigger: pull_request
+- Trigger: manual (workflow_dispatch)
+
 ### Issue Management Bot
 
 **Archivo:** `issue-management.yml`
@@ -160,6 +173,13 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 0,12 * * *`)
+- Trigger: manual (workflow_dispatch)
+
+### Omega ∞³ Auto-Validation
+
+**Archivo:** `omega-auto-validation.yml`
+
+- Trigger: schedule (`0 */6 * * *  # Run every 6 hours for Ω1 Auto-Ingestion`)
 - Trigger: manual (workflow_dispatch)
 
 ### Optimized Analysis with GPU Support
@@ -210,6 +230,12 @@
 - Trigger: schedule (`0 6 * * *`)
 - Trigger: manual (workflow_dispatch)
 
+### release
+
+**Archivo:** `release.yml`
+
+- Trigger: push
+
 ### Riccati Coefficient Mathematical Proofs
 
 **Archivo:** `riccati-mathematical-proofs.yml`
@@ -235,6 +261,14 @@
 - Trigger: push
 - Trigger: pull_request
 - Trigger: schedule (`0 14 * * 6`)
+- Trigger: manual (workflow_dispatch)
+
+### Tests - Python Matrix
+
+**Archivo:** `tests.yml`
+
+- Trigger: push
+- Trigger: pull_request
 - Trigger: manual (workflow_dispatch)
 
 ### Universal Validation Framework
@@ -278,4 +312,4 @@
 - Trigger: manual (workflow_dispatch)
 
 ---
-*Generado automáticamente por el bot de documentación - 2025-11-10 08:16:56 UTC*
+*Generado automáticamente por el bot de documentación - 2025-11-16 03:21:34 UTC*
