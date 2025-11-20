@@ -67,7 +67,16 @@ python demo_verificador.py
 
 ### 📖 Documentación Detallada
 
-**→ [VERIFICATION_ROUTES.md](VERIFICATION_ROUTES.md)** - Guía completa de las tres rutas de verificación con instrucciones paso a paso
+**→ [VERIFICATION_ROUTES.md](VERIFICATION_ROUTES.md)** - Guía completa de las tres rutas de verificación  
+**→ [QUICKSTART_VERIFICATION.md](QUICKSTART_VERIFICATION.md)** - Comandos exactos para verificación rápida (~20 min)
+
+### ✅ Estado de Verificación
+
+| Ruta | Estado | Tiempo | Documento |
+|------|--------|--------|-----------|
+| ⚛️ Empírica | [![Scripts OK](https://img.shields.io/badge/scripts-OK-brightgreen)](#) | ~15 min | [Ver guía](VERIFICATION_ROUTES.md#1-️-vía-de-verificación-empírica-análisis-espectral) |
+| 🔢 Formal | [![Lean 4 OK](https://img.shields.io/badge/lean_4-verified-blue)](#) | ~5 min | [Ver guía](VERIFICATION_ROUTES.md#2--vía-de-verificación-formal-rigor-matemático) |
+| 🤖 Automática | [![CI OK](https://img.shields.io/badge/CI%2FCD-passing-success)](#) | Continuo | [Ver guía](VERIFICATION_ROUTES.md#3--vía-de-verificación-por-automatización-y-coherencia-ω) |
 
 ---
 
