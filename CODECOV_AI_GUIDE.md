@@ -182,10 +182,10 @@ Todos estos workflows suben automáticamente reportes de cobertura a Codecov.
 
 ### Tokens de Carga
 
-Como se menciona en el problema original:
+**Nota importante sobre tokens:**
 > "Tu organización ya no requiere tokens de carga. Puedes subir archivos sin token. Los administradores gestionan el token."
 
-Esto significa que los workflows pueden subir cobertura sin configurar `CODECOV_TOKEN` en secrets, simplificando la configuración.
+Esto significa que los workflows pueden subir cobertura sin configurar `CODECOV_TOKEN` en secrets para repositorios públicos, simplificando la configuración. Los administradores pueden configurar tokens globalmente a nivel de organización si es necesario.
 
 ### Privacidad y Seguridad
 

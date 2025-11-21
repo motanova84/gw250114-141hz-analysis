@@ -77,6 +77,9 @@ github_checks:
 # Pull Request comments configuration
 codecov:
   notify:
-    # Require codecov upload after waiting for all CI to pass
-    after_n_builds: 2
+    # Wait for multiple workflows to upload coverage
+    # tests.yml uploads per Python version (2 uploads for 3.11 and 3.12)
+    # analyze.yml uploads 1
+    # qc-llm-ci.yml uploads per matrix (varies)
+    after_n_builds: 3
     wait_for_ci: true
