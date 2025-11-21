@@ -133,10 +133,11 @@ class SABIO_Infinity4:
         fase = k * x - self.omega0 * t
         oscilacion = mpc(mp.cos(fase), mp.sin(fase))
         
-        # Término de amortiguamiento geométrico
-        amortiguamiento = mp.exp(self.zeta_prime_half * (x ** 2) / 2)
+        # Término de modulación geométrica (ζ'(1/2) < 0 produce decaimiento)
+        # El término negativo de ζ'(1/2) genera un decaimiento espacial
+        modulacion_geometrica = mp.exp(self.zeta_prime_half * (x ** 2) / 2)
         
-        psi = A * oscilacion * amortiguamiento
+        psi = A * oscilacion * modulacion_geometrica
         return psi
     
     def calcular_coherencia(self, I: float = 1.0, A: float = 1.0) -> float:
@@ -179,9 +180,14 @@ class SABIO_Infinity4:
             A=float(mp.exp(-n_harmonico * 0.05))
         )
         
-        # Entropía de Shannon
+        # Entropía de Shannon: H = -p*log(p) - (1-p)*log(1-p)
         p = coherencia
-        entropia = -p * mp.log(p + 1e-10) if p > 0 else 0
+        if p > 0 and p < 1:
+            entropia = -p * mp.log(p) - (1 - p) * mp.log(1 - p)
+        elif p == 0 or p == 1:
+            entropia = 0
+        else:
+            entropia = 0
         
         timestamp = datetime.now(timezone.utc).isoformat()
         
@@ -226,8 +232,10 @@ class SABIO_Infinity4:
         
         # Nivel 2: Geométrico (Lean + A₀)
         if test_geometrico:
-            # Simulación de validación Lean
-            niveles['lean'] = 0.95  # Placeholder
+            # TODO: Integrate with actual Lean proof verification
+            # Placeholder value represents expected validation level
+            # when formal proof system is integrated
+            niveles['lean'] = 0.95
         else:
             niveles['lean'] = 0.0
         
@@ -240,8 +248,11 @@ class SABIO_Infinity4:
             niveles['sage'] = 0.0
         
         # Nivel 4: Compilador SABIO
+        # Full validation (1.0) requires both arithmetic and geometric levels
+        # Partial validation (0.5) when only one level is active
+        PARTIAL_VALIDATION_LEVEL = 0.5
         if test_aritmetico or test_geometrico:
-            niveles['sabio'] = 1.0 if all([test_aritmetico, test_geometrico]) else 0.5
+            niveles['sabio'] = 1.0 if all([test_aritmetico, test_geometrico]) else PARTIAL_VALIDATION_LEVEL
         else:
             niveles['sabio'] = 0.0
         
